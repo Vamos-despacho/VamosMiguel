@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Vamos Miguel Ángel!',
   description: 'Candidato a Diputado independiente del circuito 9-1',
   openGraph: {
-    images: ["/v.png", "/logovm.png"],
+    images: ["/v.png"],
   },
 }
 
@@ -31,10 +31,14 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <meta property="og:image" content='favicon.ico' key="ogimage" />
+        <meta property="og:image:secure_url" content='/favicon.ico' key="ogimage" />
+        <meta property="og:image:secure_url" content='/icon2.png' key="ogimage" />
+        <meta property="og:image:secure_url" content='/image/png' key="ogimage" />
         <meta
-          property="og:image"
+          property="og:image:secure_url"
           content="/icon2.png"
         />
+        <link rel="icon" href="/favicon.ico" />
 
       </Head>
       <body className={inter.className}>
