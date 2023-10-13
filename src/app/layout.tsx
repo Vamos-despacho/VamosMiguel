@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const imgUrl = "https://vamos-miguel-angel.vercel.app/favicon.ico"
+  const imgUrl = "https://vamos-miguel-angel.vercel.app/icon1.png"
   return (
     <html lang="en">
       <Head>
