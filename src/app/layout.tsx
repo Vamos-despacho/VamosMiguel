@@ -5,11 +5,16 @@ import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from '@/components/Navbar'
 
 import { Footer } from '@/components/Footer'
+import Image from 'next/image';
+import Head from 'next/head'
+
 
 export const metadata: Metadata = {
   title: 'Vamos Miguel Ángel!',
   description: 'Candidato a Diputado independiente del circuito 9-1',
-
+  openGraph: {
+    images: ["/v.png", "/logovm.png"],
+  },
 }
 
 const inter = Inter({
@@ -24,6 +29,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta property="og:image" content='/v.png' key="ogimage" />
+        <meta
+          property="og:image"
+          content="/logovm.png"
+        />
+
+      </Head>
       <body className={inter.className}>
         {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
         {/* <div className='flex items-center border-b bg-background/95 backdrop-blur '>

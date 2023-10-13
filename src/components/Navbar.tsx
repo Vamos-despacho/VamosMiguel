@@ -17,12 +17,14 @@ const Navbar = () => {
 
 
         <nav className=" sticky top-0 shadow-md shadow-slate-900/5 w-full bg-white z-50  justify-center items-center  ">
-            <div className='flex w-full lg:px-28 md:px-10 px-4 py-2 justify-between items-center'>
-
-                <div className=' flex w-full md:w-auto justify-between'>
+            <div className='flex w-screen lg:px-48 md:px-10 px-4 py-2 justify-between items-center'>
+                <div className=' flex w-screen md:w-auto justify-between'>
                     <Link href="/" className="flex items-center">
-                        <Image src="/v.png" width='30' height='30' className="h-10 mb-2 mr-1" alt="Vamos Panamá" />
-                        <span className="self-center font-display text-2xl font-semibold text text-gray-800 whitespace-nowrap dark:text-white">Miguel Ángel</span>
+
+                        <Image src="/logovm.png" width='150' height='150' className=" mb-2 mr-1" alt="Vamos Panamá" />
+
+                        {/* <Image src="/v.png" width='30' height='30' className="h-10 mb-2 mr-1" alt="Vamos Panamá" /> */}
+                        {/* <span className="self-center font-display text-2xl font-semibold text text-gray-800 whitespace-nowrap dark:text-white">Miguel Ángel</span> */}
                     </Link>
                     <div className="flex items-center md:order-2">
                         <div data-collapse-toggle="navbar-user"
