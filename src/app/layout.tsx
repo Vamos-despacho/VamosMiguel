@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Vamos Miguel Ángel!',
   description: 'Candidato a Diputado independiente del circuito 9-1',
   openGraph: {
-    images: ["/v.png"],
+    images: ["https://vamos-miguel-angel.vercel.app/icon2.png"],
   },
 }
 
@@ -27,15 +27,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const imgUrl = "https://vamos-miguel-angel.vercel.app/favicon.ico"
   return (
     <html lang="en">
       <Head>
-
-
-
-        <meta property="og:image" content="/icon2.png" />
-        <meta property="og:url" content="https://vamos-miguel-angel.vercel.app" />
-
+        <meta property="og:image" content={imgUrl} />
       </Head>
       <body className={inter.className}>
         {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
