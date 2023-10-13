@@ -30,15 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta property="og:image" content='favicon.ico' key="ogimage" />
-        <meta property="og:image:secure_url" content='/favicon.ico' key="ogimage" />
-        <meta property="og:image:secure_url" content='/icon2.png' key="ogimage" />
-        <meta property="og:image:secure_url" content='/image/png' key="ogimage" />
-        <meta
-          property="og:image:secure_url"
-          content="/icon2.png"
-        />
-        <link rel="icon" href="/favicon.ico" />
+
+
+
+        <meta property="og:image" content="/icon2.png" />
+        <meta property="og:url" content="https://vamos-miguel-angel.vercel.app" />
 
       </Head>
       <body className={inter.className}>
