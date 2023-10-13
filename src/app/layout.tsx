@@ -30,10 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <meta property="og:image" content='/v.png' key="ogimage" />
+        <meta property="og:image" content='favicon.ico' key="ogimage" />
         <meta
           property="og:image"
-          content="/logovm.png"
+          content="/icon2.png"
         />
 
       </Head>
