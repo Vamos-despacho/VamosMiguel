@@ -19,7 +19,7 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
     useEffect(() => {
         getArticle(params.slug)
 
-    }, [])
+    }, [params.slug])
 
 
     const getArticle = async (slug: string) => {

@@ -7,6 +7,10 @@ interface Props {
     value: string;
     onChange: (newValue: string) => void;
 }
+const formats = [
+    'header', 'font', 'size', 'list', 'bold', 'italic', 'underline', 'link', 'align',
+];
+
 const TextEditor = ({ value, onChange }: Props) => {
     const [text, setText] = useState(value);
 
@@ -15,10 +19,25 @@ const TextEditor = ({ value, onChange }: Props) => {
         setText(newValue);
         onChange(newValue);
     };
-
+    const modules = {
+        toolbar: [
+            [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            ['bold', 'italic', 'underline'],
+            ['link'],
+            [{ 'align': '' }, { 'align': 'center' }, { 'align': 'right' }, { 'align': 'justify' }],
+            ['clean'],
+        ],
+    };
     return (
         <div className=''>
-            <ReactQuill value={text} onChange={handleTextChange} className='h-80' />
+            <ReactQuill
+                formats={formats}
+                value={text}
+                modules={modules}
+
+                onChange={handleTextChange}
+                className='h-80' />
         </div>
     );
 };
