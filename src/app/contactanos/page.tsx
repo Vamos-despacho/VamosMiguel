@@ -11,6 +11,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { CardsContact } from '@/components/CardsContact';
 
 const Contactanos = () => {
     return (
@@ -53,12 +54,22 @@ const Contactanos = () => {
                             </Card>
                         </div>
 
-                        {/* Información de contacto */}
+
                         <div style={{ opacity: 1, transform: 'none' }}>
                             <div className="pt-10 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px">
                                 <h2 className="font-display text-base font-semibold text-neutral-950">Contacto</h2>
+                                {/* <div className="mt-3 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
+                                    <CardsContact
+                                        nombre='Miguel Ángel Campos'
+                                        correo='asdf@gmail.com'
+                                        telefono='000012454847' />
+                                    <CardsContact
+                                        nombre='Sara Itzela Gómez'
+                                        correo='asdf@gmail.com'
+                                        telefono='000012454847' />
+                                </div> */}
                                 <div className="mt-3 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
-                                    {/* Contacto 1 */}
+
                                     <div>
                                         <h3 className="font-semibold text-neutral-900">Miguel Ángel</h3>
                                         <div className='space-y-3'>
@@ -80,7 +91,7 @@ const Contactanos = () => {
                                         </div>
                                     </div>
 
-                                    {/* Contacto 2 */}
+
                                     <div>
                                         <h3 className="font-semibold text-neutral-900">Sara Gomez</h3>
                                         <div className='space-y-3'>
@@ -105,12 +116,12 @@ const Contactanos = () => {
                             </div>
 
 
-                            {/* Siguenos */}
+
                             <div className="mt-16 pt-10 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px">
                                 <h2 className="font-display text-base font-semibold text-neutral-950">Siguenos</h2>
                                 <div className=''>
                                     <ul role='list' className='flex space-x-4 mt-3 ms-2'>
-                                        {/* Twitter */}
+
                                         <li className="flex">
                                             <a
                                                 className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
@@ -121,7 +132,7 @@ const Contactanos = () => {
                                                 </svg>
                                             </a>
                                         </li>
-                                        {/* Instagram */}
+
                                         <li className="flex">
                                             <a
                                                 className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
@@ -133,7 +144,7 @@ const Contactanos = () => {
                                                 </svg>
                                             </a>
                                         </li>
-                                        {/* Facebook */}
+
                                         <li className="flex">
                                             <a
                                                 className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"

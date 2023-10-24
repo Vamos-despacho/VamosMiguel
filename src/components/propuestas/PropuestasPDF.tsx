@@ -33,10 +33,11 @@ const PropuestasPDF = ({ pag }: { pag: number }) => {
 
     return (
 
-        <div className="Example__container__document md:h-[1050px] sm:h-[900px] sm:bg--400  h-[480px] w-full">
-            <Document file="/Reforma.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+        <div className="Example__container__document " style={{ width: "100%" }}>
+            <Document file="/Reforma.pdf" onLoadSuccess={onDocumentLoadSuccess} >
                 <Page pageNumber={pageNumber}
-                    width={800}
+                    className="bg-red-400 "
+
                 />
             </Document>
 

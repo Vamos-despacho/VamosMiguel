@@ -24,7 +24,7 @@ const Propuestas = () => {
         setCurrentPage(pageNumber);
     };
     return (
-        <>
+        <div className="mx-auto ">
             <div className="mx-auto flex justify-center items-center mt-20 ">
                 <div >
                     <h1>
@@ -34,17 +34,20 @@ const Propuestas = () => {
                 </div>
             </div>
 
-            <div className="mx-auto w-auto mb-16 ">
-                <div className="grid md:grid-cols-4 grid-cols-2 md:gap-y-2 gap-y-1 gap-x-1 sm:gap-y-3 h-auto mx-3 sm:mx-auto sm:w-[800px]">
+            <div className="mx-auto w-screen px-2 mb-16 ">
+                <div className="grid md:grid-cols-4 grid-cols-2 md:gap-y-2 gap-y-1 gap-x-1 sm:gap-y-3 h-auto mx-auto max-w-4xl ">
                     {
                         propuestas.map((propuesta, index) => (
+
+
                             <Button
                                 key={index}
-                                className={`rounded-md hover:bg-slate-50 ${currentPage === propuesta.pag ? 'bg-gray-200 text-black' : 'bg-slate-400 text-gray-600'}`}
+                                className={`rounded-md  hover:bg-slate-50 ${currentPage === propuesta.pag ? 'bg-gray-200 text-black' : 'bg-slate-400 text-gray-600'}`}
                                 onClick={() => handlePageChange(index + 1)}
                             >
                                 {propuesta.nombre}
                             </Button>
+
                         ))
                     }
                 </div>
@@ -55,7 +58,7 @@ const Propuestas = () => {
             </div>
 
 
-        </>
+        </div>
     )
 }
 export default Propuestas

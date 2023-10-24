@@ -15,7 +15,7 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
             <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
-              <h1 className="text-4xl  font-medium tracking-tight text-gray-900">La Buena Política Sí Es Posible</h1>
+              <h1 className="text-4xl  font-medium tracking-tight text-gray-900">Con buena voluntad,Vamos a CUMPLIRTE!</h1>
               <p className="mt-6 text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, laudantium ipsa beatae laboriosam odio unde perspiciatis nulla sequi provident quia nobis quae, tempore quis excepturi, rem inventore facere mollitia iste!
               </p>
             </div>
@@ -23,7 +23,7 @@ const Home = () => {
               <div className=''></div>
               <Image alt='Miguel Angel' loading='lazy' width="800" height="800" decoding='async' data-nimg="1"
                 sizes="(min-width: 1024px) 32rem, 20rem"
-                src=''
+                src='/logovm.png'
                 className=" aspect-square rounded-2xl bg-zinc-400 object-cover dark:bg-zinc-800" />
             </div>
             <div className="relative mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6">
@@ -40,13 +40,13 @@ const Home = () => {
       <section id='suplente' className=' py-28 border-gray-200'>
         <Suplente />
       </section>
-      <section id='propuestas' className='bg-azulv '>
+      <section id='propuestas' className='bg-azulv py-28 '>
         <Propuestas />
       </section>
       <section id='contactanos' className=' py-28'>
         <Contactanos />
       </section>
-      <section id='blog' className='bg-azulv py-28 h-screen sm:py-32 border-t '>
+      <section id='blog' className='bg-azulv py-24   border-t '>
         <Blog />
       </section>
     </>
