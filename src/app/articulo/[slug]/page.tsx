@@ -9,7 +9,7 @@ async function getArticle(slug: string) {
 
 const Articulo = async ({ params }: { params: { slug: string } }) => {
     const articulo = await getArticle(params.slug)
-
+    if (!articulo) return <div>loading...</div>
     return (
         <div className='  flex-auto '>
             <ShowArticle article={articulo} />
