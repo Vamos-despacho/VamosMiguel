@@ -14,8 +14,7 @@ const CrearArticle = async () => {
     const categorias = await getCategorias()
     const etiquetas = await getEtiquetas()
 
-    if (categorias) return <div>No hay categorías</div>
-    if (etiquetas) return <div>No hay etiquetas</div>
+
 
 
     return (

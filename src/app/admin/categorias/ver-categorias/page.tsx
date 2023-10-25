@@ -11,7 +11,6 @@ const VerCategoria = async () => {
     const categorias = await getCategory()
 
     if (!categorias) return <div>No hay categorías</div>
-    if (categorias.length === 0) return <div>loading...</div>
 
     return (
         <div>

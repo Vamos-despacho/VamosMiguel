@@ -10,7 +10,6 @@ async function getEtiqueta() {
 const VerEtiquetas = async () => {
     const etiquetas = await getEtiqueta()
     if (!etiquetas) return <div>No hay etiquetas</div>
-    if (etiquetas.length === 0) return <div>loading...</div>
 
     return (
         <div>

@@ -30,9 +30,9 @@ export type Post = {
 };
 
 export type ITag = {
-    id: string;
+    id: number;
     name: string;
-    posts: Post[];
+
 };
 
 export type ICategory = {
