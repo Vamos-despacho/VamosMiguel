@@ -1,9 +1,10 @@
 import React from 'react'
 import ListEtiquetas from '@/components/dashboard/ListEtiqueta';
-import axios from 'axios';
+
+import { prisma } from '@/libs/prisma';
 async function getEtiqueta() {
-    const resp = await axios.get('/api/etiquetas')
-    return resp.data
+
+    return await prisma.tag.findMany()
 }
 
 const VerEtiquetas = async () => {
