@@ -1,18 +1,12 @@
 
 import FormtArticle from "@/components/dashboard/FormtArticle";
-import { useSession, getSession } from "next-auth/react"
-import { ITag } from "@/interface/article";
-import axios from "axios";
-
+import { prisma } from "@/libs/prisma";
 async function getCategorias() {
-    const res = await axios.get('/api/categorias')
-    const categorias = await res.data
-    return categorias
+    return await prisma.category.findMany()
 }
 async function getEtiquetas() {
-    const res = await axios.get('/api/etiquetas')
-    const etiquetas = await res.data
-    return etiquetas
+
+    return await prisma.tag.findMany()
 }
 
 const CrearArticle = async () => {
@@ -20,8 +14,8 @@ const CrearArticle = async () => {
     const categorias = await getCategorias()
     const etiquetas = await getEtiquetas()
 
-    if (!categorias) return <div>No hay categorías</div>
-    if (!etiquetas) return <div>No hay etiquetas</div>
+    if (categorias) return <div>No hay categorías</div>
+    if (etiquetas) return <div>No hay etiquetas</div>
 
 
     return (

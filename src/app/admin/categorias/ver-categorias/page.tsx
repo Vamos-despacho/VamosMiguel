@@ -1,13 +1,15 @@
 import ListCategorias from '@/components/dashboard/ListCategorias';
+import { prisma } from '@/libs/prisma';
 import axios from 'axios';
 
 async function getCategory() {
-    const resp = await axios.get('/api/categorias')
-    return resp.data
+
+    return await prisma.category.findMany()
 }
 
 const VerCategoria = async () => {
     const categorias = await getCategory()
+
     if (!categorias) return <div>No hay categorías</div>
     if (categorias.length === 0) return <div>loading...</div>
 

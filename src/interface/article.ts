@@ -38,5 +38,5 @@ export type ITag = {
 export type ICategory = {
     id: number;
     name: string;
-    posts: Post[];
+
 };
