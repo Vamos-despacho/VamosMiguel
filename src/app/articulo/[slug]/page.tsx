@@ -1,21 +1,24 @@
-import vamosApi from '@/app/api/vamosApi'
-import ShowArticle from '@/components/ShowArticle'
 import axios from 'axios'
-import React from 'react'
 
 async function getArticle(slug: string) {
-    const res = await axios(`/api/articulos/slug/${slug}`)
-    return res.data
+    try {
+        const res = await axios(`/api/articulos/slug/${slug}`);
+        return res.data;
+    } catch (error) {
+        console.error('Error fetching article:', error);
+        // Puedes mostrar un mensaje de error en lugar de retornar null.
+        return <div>Error: No se pudo cargar el artículo.</div>;
+    }
 }
 
 const Articulo = async ({ params }: { params: { slug: string } }) => {
-    // const articulo = await getArticle(params.slug)
-    // if (!articulo) return <div>loading...</div>
+    const articulo = await getArticle(params.slug)
+    if (!articulo) return <div>loading...</div>
     return (
         <div className='  flex-auto '>
             {/* <ShowArticle article={articulo} /> */}
 
-            <div>{params.slug}</div>
+            <div>{JSON.stringify(articulo)}</div>
         </div>
     )
 }

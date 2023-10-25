@@ -6,6 +6,7 @@ interface Params {
     params: { slug: string }
 }
 export async function GET(request: Request, { params }: Params) {
+    console.log('GetSlug')
     try {
         const { slug } = params;
         const articulo = await prisma.post.findFirst({
@@ -17,7 +18,7 @@ export async function GET(request: Request, { params }: Params) {
                 tags: true,
             },
         })
-
+        console.log({ articulo })
         if (!articulo) return NextResponse.json({
             message: "Articulo no encontrado"
         }, { status: 200 });
