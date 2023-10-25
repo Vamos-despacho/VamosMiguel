@@ -7,8 +7,8 @@ export async function GET() {
     try {
 
         const categorias = await prisma.category.findMany()
-        if (!categorias) return NextResponse.json({ message: 'No hay categorías' })
-        return NextResponse.json(categorias)
+        if (!categorias) return NextResponse.json([])
+        return NextResponse.json(categorias || [])
     } catch (error) {
         return new Response('Error interno del servidor', { status: 500 });
     }
