@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
                 createdAt: "desc", // Ordenar por fecha de creación en orden descendente (las más recientes primero)
             },
         });
-
+        if (!articles) return NextResponse.json({ message: "No hay articulos" })
         // Retorna los artículos como respuesta JSON
         return new Response(JSON.stringify({ articles, totalArticles }), {
             headers: { 'Content-Type': 'application/json' },

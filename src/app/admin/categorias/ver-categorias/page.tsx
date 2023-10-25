@@ -1,6 +1,6 @@
 import vamosApi from '@/app/api/vamosApi';
 import ListCategorias from '@/components/dashboard/ListCategorias';
-import React from 'react'
+
 async function getCategory() {
     const resp = await vamosApi.get('/categorias')
     return resp.data

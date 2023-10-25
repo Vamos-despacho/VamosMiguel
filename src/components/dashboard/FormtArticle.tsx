@@ -104,7 +104,7 @@ const FormtArticle = ({ category, tags }: Props) => {
             }
         }
 
-        console.log(data)
+
 
         try {
             const resp = await vamosApi.post('/articulos', data)

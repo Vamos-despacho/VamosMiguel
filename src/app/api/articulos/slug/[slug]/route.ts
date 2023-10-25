@@ -20,7 +20,7 @@ export async function GET(request: Request, { params }: Params) {
 
         if (!articulo) return NextResponse.json({
             message: "Articulo no encontrado"
-        }, { status: 404 });
+        }, { status: 200 });
 
         return NextResponse.json(articulo)
     } catch (error) {

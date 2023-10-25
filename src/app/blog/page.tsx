@@ -36,6 +36,8 @@ const Blog = () => {
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage);
     };
+    if (!articles) return <div>No hay artículos</div>;
+    if (articles.length === 0) return <div>loading...</div>;
     return (
         <div className=' mx-auto max-w-full'>
             <div className='container mx-auto'>
