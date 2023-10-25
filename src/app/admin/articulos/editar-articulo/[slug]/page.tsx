@@ -52,7 +52,8 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
             }
         }
     }
-
+    if (!isTag) return <div>No hay etiquetas</div>
+    if (!isCategory) return <div>No hay categorías</div>
     if (!isArticle) return <div>Cargando...</div>
 
     return (
