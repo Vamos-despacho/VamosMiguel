@@ -1,24 +1,31 @@
-import axios from 'axios'
+"use client"
+import vamosApi from '@/app/api/vamosApi';
+import { Post } from '@prisma/client';
+import { useState } from 'react';
 
-async function getArticle(slug: string) {
-    try {
-        const res = await axios(`/api/articulos/slug/${slug}`);
-        return res.data;
-    } catch (error) {
-        console.error('Error fetching article:', error);
-        // Puedes mostrar un mensaje de error en lugar de retornar null.
-        return <div>Error: No se pudo cargar el artículo.</div>;
-    }
-}
+
 
 const Articulo = async ({ params }: { params: { slug: string } }) => {
-    const articulo = await getArticle(params.slug)
-    if (!articulo) return <div>loading...</div>
+    const [article, setArticle] = useState<Post>();
+
+    async function fetchArticulos(page: number) {
+        try {
+            const response = await vamosApi.get(`/articulos/slug/${params.slug}`);
+
+            const articulo = response.data;
+            setArticle(articulo);
+
+        } catch (error) {
+            console.error('Error al obtener los artículos', error);
+        }
+    }
+
+    if (!article) return <div>loading...</div>
     return (
         <div className='  flex-auto '>
-            {/* <ShowArticle article={articulo} /> */}
+            {/* <ShowArticle article={article} /> */}
 
-            <div>{JSON.stringify(articulo)}</div>
+            <div>{JSON.stringify(article)}</div>
         </div>
     )
 }
