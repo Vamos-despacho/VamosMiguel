@@ -15,10 +15,10 @@ const CrearArticle = async () => {
     if (etiquetas.length === 0) return <div>No hay etiquetas</div>
     return (
         <div>
-            {/* <FormtArticle
+            <FormtArticle
                 category={categorias}
                 tags={etiquetas}
-            /> */}
+            />
         </div>
     )
 }
