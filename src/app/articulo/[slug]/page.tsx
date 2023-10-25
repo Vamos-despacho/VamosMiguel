@@ -1,24 +1,27 @@
 "use client"
 import vamosApi from '@/app/api/vamosApi';
 import { Post } from '@prisma/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
 const Articulo = async ({ params }: { params: { slug: string } }) => {
     const [article, setArticle] = useState<Post>();
 
-    async function fetchArticulos(page: number) {
+    async function fetchArticulos(id: string) {
         try {
-            const response = await vamosApi.get(`/articulos/slug/${params.slug}`);
+            const response = await vamosApi.get(`/articulos/slug/${id}`);
 
             const articulo = response.data;
             setArticle(articulo);
 
         } catch (error) {
-            console.error('Error al obtener los artículos', error);
+            alert(error);
         }
     }
+    useEffect(() => {
+        fetchArticulos(params.slug);
+    }, [params.slug]);
 
     if (!article) return <div>loading...</div>
     return (
