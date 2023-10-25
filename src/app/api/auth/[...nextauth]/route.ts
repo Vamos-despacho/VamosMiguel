@@ -40,7 +40,10 @@ const handler = NextAuth({
                 const passwordMastch = await bcrypt.compare(credentials.password, userFound.password)
 
                 if (!passwordMastch) throw new Error('Invalid credentials')
+
+
                 const { id, name, email, img, createAt, role } = userFound
+
                 const user = {
                     id: JSON.stringify(id),
                     name,
@@ -49,7 +52,6 @@ const handler = NextAuth({
                     createAt,
                     role
                 }
-
                 return user
             },
 
@@ -63,8 +65,6 @@ const handler = NextAuth({
         },
         session({ session, token }) {
             session.user = token.user as IUser
-
-
             return session
         }
     },
