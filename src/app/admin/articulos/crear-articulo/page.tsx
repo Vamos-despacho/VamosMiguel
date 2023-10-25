@@ -8,15 +8,15 @@ async function getEtiquetas() {
 
     return await prisma.tag.findMany()
 }
-
 const CrearArticle = async () => {
 
     const categorias = await getCategorias()
     const etiquetas = await getEtiquetas()
+    console.log(categorias)
+    console.log(etiquetas)
 
     if (!categorias) return <div>No hay categorías</div>
     if (!etiquetas) return <div>No hay etiquetas</div>
-
 
     return (
         <div>
