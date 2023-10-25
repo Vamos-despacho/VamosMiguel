@@ -4,10 +4,16 @@ import { getToken } from 'next-auth/jwt'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET() {
-    const etiquetas = await prisma.tag.findMany()
 
+    try {
+        const etiquetas = await prisma.tag.findMany()
+        if (!etiquetas) return NextResponse.json({ message: 'No hay etiquetas' })
+        return NextResponse.json(etiquetas)
+    } catch (error) {
+        return new Response('Error interno del servidor', { status: 500 });
 
-    return NextResponse.json(etiquetas)
+    }
+
 }
 
 export async function POST(req: NextRequest) {
