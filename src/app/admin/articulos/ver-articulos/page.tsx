@@ -1,11 +1,11 @@
 "use client"
 import { useEffect, useState } from 'react';
-import vamosApi from '@/app/api/vamosApi';
 import ViewArticle from '@/components/ViewArticle';
 import Pagination from '@/components/Pagination'; // Asegúrate de tener un componente de paginación
 import { Post } from '@/interface/article';
 import ListArticle from '@/components/dashboard/ListArticles';
 import ListArticles from '@/components/dashboard/ListArticles';
+import axios from 'axios';
 
 const itemsPerPage = 8; // Cantidad de elementos por página
 interface IArticles {
@@ -21,7 +21,7 @@ const VerArticulos = () => {
     async function fetchArticulos(page: number) {
         try {
 
-            const response = await vamosApi.get(`/articulos?page=${page}`);
+            const response = await axios.get(`/api/articulos?page=${page}`);
             const { articles, totalArticles }: IArticles = response.data;
             setArticles(articles);
             setTotalArticles(totalArticles);

@@ -1,16 +1,16 @@
 
 import FormtArticle from "@/components/dashboard/FormtArticle";
-import vamosApi from "@/app/api/vamosApi";
 import { useSession, getSession } from "next-auth/react"
 import { ITag } from "@/interface/article";
+import axios from "axios";
 
 async function getCategorias() {
-    const res = await vamosApi.get('/categorias')
+    const res = await axios.get('/api/categorias')
     const categorias = await res.data
     return categorias
 }
 async function getEtiquetas() {
-    const res = await vamosApi.get('/etiquetas')
+    const res = await axios.get('/api/etiquetas')
     const etiquetas = await res.data
     return etiquetas
 }

@@ -1,8 +1,8 @@
-import vamosApi from '@/app/api/vamosApi'
 import React from 'react'
 import ListEtiquetas from '@/components/dashboard/ListEtiqueta';
+import axios from 'axios';
 async function getEtiqueta() {
-    const resp = await vamosApi.get('/etiquetas')
+    const resp = await axios.get('/api/etiquetas')
     return resp.data
 }
 
