@@ -3,15 +3,15 @@ import { prisma } from "@/libs/prisma";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 interface Params {
-    params: { slug: string }
+    params: { id: string }
 }
 export async function GET(request: Request, { params }: Params) {
     console.log('GetSlug')
     try {
-        const { slug } = params;
+        const { id } = params;
         const articulo = await prisma.post.findFirst({
             where: {
-                slug: slug
+                slug: id
             },
             include: {
                 category: true,
@@ -47,11 +47,11 @@ export async function PUT(req: NextRequest, { params }: Params) {
 
 
     try {
-        const { slug } = params;
+        const { id } = params;
         const data = await req.json()
         const articulo = await prisma.post.update({
             where: {
-                slug: slug
+                slug: id
             },
             data
         })
