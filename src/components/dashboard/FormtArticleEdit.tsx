@@ -19,7 +19,7 @@ import TextEditor from "../TextEditor";
 import vamosApi from "@/app/api/vamosApi";
 import { useSession, signOut } from "next-auth/react"
 import { MyTextEditor } from "../MyTextEdition";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import DOMPurify from 'dompurify';
 
 interface Props {
@@ -116,7 +116,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
         }
         try {
 
-            const resp = await vamosApi.put(`/articulos/${articulo.id}`, data)
+            const resp = await axios.put(`/api/articulos/${articulo.id}`, data)
 
             if (resp.status === 200) {
                 alert('Articulo Editado correctamente')

@@ -19,8 +19,7 @@ const CrearArticle = async () => {
                 category={categorias}
                 tags={etiquetas}
             />
-            {JSON.stringify(categorias)}
-            {JSON.stringify(etiquetas)}
+
         </div>
     )
 }
