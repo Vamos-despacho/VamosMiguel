@@ -48,7 +48,7 @@ const FormtArticle = ({ category, tags }: Props) => {
     const [selectImage, setSelectImage] = useState<string>()
     const [subiendoImagen, setSubiendoImagen] = useState(false)
     const [isActiveEstado, setIsActiveEstado] = useState(false);
-    const [editorContent, setEditorContent] = useState<string>('');
+    const [editorContent, setEditorContent] = useState<string>('Texto de prueba');
     const [slug, setSlug] = useState('');
 
     const handleSlugChange = (event: React.ChangeEvent<HTMLInputElement>) => {

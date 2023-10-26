@@ -3,25 +3,21 @@
 import vamosApi from "@/app/api/vamosApi";
 import FormtArticle from "@/components/dashboard/FormtArticle";
 import { ICategory, ITag } from "@/interface/article";
-import { prisma } from "@/libs/prisma";
 import { useEffect, useState } from "react";
 
 const CrearArticle = () => {
     const [isCategory, setIsCategory] = useState<ICategory[]>([])
     const [isTag, setIsTag] = useState<ITag[]>([])
+
     const get = async () => {
-
         try {
-
             const categoria = await vamosApi.get('/categorias')
-
             setIsCategory(categoria.data)
         } catch (error) {
             console.log(error)
         }
 
         try {
-
             const etiqueta = await vamosApi.get('/etiquetas')
 
             setIsTag(etiqueta.data)

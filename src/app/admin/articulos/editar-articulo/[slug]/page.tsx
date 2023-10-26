@@ -6,9 +6,8 @@ import { ICategory, ITag, Post } from '@/interface/article'
 import React, { useEffect, useState } from 'react'
 
 
-
 const EditarArticulo = ({ params }: { params: { slug: string } }) => {
-    // const articulo = await getArticulo(params.slug)
+
     const [isArticle, setIsArticle] = useState<Post>()
     const [isCategory, setIsCategory] = useState<ICategory[]>([])
     const [isTag, setIsTag] = useState<ITag[]>([])
@@ -31,11 +30,6 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
 
         const res = await vamosApi.get('/etiquetas')
         const etiquetas = await res.data
-
-        // const etiquetasRaw = await etiquetas.map((etiqueta: ITag) => {
-        //     const { id, ...etiquetaData } = etiqueta; // Cambié el nombre de la variable
-        //     return etiquetaData;
-        // });
 
         setIsTag(etiquetas)
 
