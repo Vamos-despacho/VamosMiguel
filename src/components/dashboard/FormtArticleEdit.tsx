@@ -285,7 +285,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
                 </div>
                 <div className=" ">
 
-                    {/* <TextEditor value={editorContent} onChange={handleEditorChange} /> */}
+                    <TextEditor value={editorContent} onChange={handleEditorChange} />
 
                 </div>
                 <div className="flex gap-6 mt-20 justify-center items-center">
