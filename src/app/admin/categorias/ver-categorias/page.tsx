@@ -1,11 +1,11 @@
 import ListCategorias from '@/components/dashboard/ListCategorias';
 import { prisma } from '@/libs/prisma';
-import axios from 'axios';
 
 async function getCategory() {
 
     return await prisma.category.findMany()
 }
+export const dynamic = 'force-dynamic'
 
 const VerCategoria = async () => {
     const categorias = await getCategory()
