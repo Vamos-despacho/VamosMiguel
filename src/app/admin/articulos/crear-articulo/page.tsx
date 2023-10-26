@@ -1,24 +1,47 @@
 
 "use client"
+import vamosApi from "@/app/api/vamosApi";
 import FormtArticle from "@/components/dashboard/FormtArticle";
+import { ICategory, ITag } from "@/interface/article";
 import { prisma } from "@/libs/prisma";
-async function getCategorias() {
-    return await prisma.category.findMany()
-}
-async function getEtiquetas() {
-    return await prisma.tag.findMany()
-}
-const CrearArticle = async () => {
+import { useEffect, useState } from "react";
 
-    const categorias = await getCategorias()
-    const etiquetas = await getEtiquetas()
-    if (categorias.length === 0) return <div>No hay categorías</div>
-    if (etiquetas.length === 0) return <div>No hay etiquetas</div>
+const CrearArticle = () => {
+    const [isCategory, setIsCategory] = useState<ICategory[]>([])
+    const [isTag, setIsTag] = useState<ITag[]>([])
+    const get = async () => {
+
+        try {
+
+            const categoria = await vamosApi.get('/categorias')
+
+            setIsCategory(categoria.data)
+        } catch (error) {
+            console.log(error)
+        }
+
+        try {
+
+            const etiqueta = await vamosApi.get('/etiquetas')
+
+            setIsTag(etiqueta.data)
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+    useEffect(() => {
+        get()
+    }, [])
+
+
+    if (isCategory.length === 0) return <div>No hay categorías</div>
+    if (isTag.length === 0) return <div>No hay etiquetas</div>
     return (
         <div>
             <FormtArticle
-                category={categorias}
-                tags={etiquetas}
+                category={isCategory}
+                tags={isTag}
             />
 
         </div>
