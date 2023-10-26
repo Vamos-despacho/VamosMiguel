@@ -1,5 +1,6 @@
 
 "use client"
+import { on } from 'events';
 import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Estilos de Quill
@@ -13,13 +14,13 @@ const formats = [
 ];
 
 const TextEditor = ({ value, onChange }: Props) => {
-    const [text, setText] = useState<string>(value);
+    // const [text, setText] = useState<string>(value);
 
 
-    const handleTextChange = (newValue: string) => {
-        setText(newValue);
-        onChange(newValue);
-    };
+    // const handleTextChange = (newValue: string) => {
+    //     setText(newValue);
+    //     onChange(newValue);
+    // };
     const modules = {
         toolbar: [
             [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
@@ -34,9 +35,9 @@ const TextEditor = ({ value, onChange }: Props) => {
         <div className=''>
             <ReactQuill
                 formats={formats}
-                value={text}
+                value={value}
                 modules={modules}
-                onChange={handleTextChange}
+                onChange={onChange}
                 className='h-80' />
         </div>
     );
