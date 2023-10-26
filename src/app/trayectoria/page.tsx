@@ -13,7 +13,7 @@ const Trayectoria = () => {
                             <div className="max-w-xs px-2.5 lg:max-w-none" >
                                 <Image alt='Miguel Angel' loading='lazy' width="800" height="800" decoding='async' data-nimg="1"
                                     sizes="(min-width: 1024px) 32rem, 20rem"
-                                    src='/images/miguel.jpeg'
+                                    src='/images/MiguelA.jpg'
                                     className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800" />
                             </div>
                         </div>

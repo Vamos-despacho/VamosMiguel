@@ -36,10 +36,10 @@ const CrearArticle = () => {
 
     return (
         <div>
-            {/* <FormtArticle
+            <FormtArticle
                 category={isCategory}
                 tags={isTag}
-            /> */}
+            />
 
         </div>
     )
