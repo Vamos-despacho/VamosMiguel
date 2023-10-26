@@ -25,7 +25,7 @@ import DOMPurify from 'dompurify';
 interface Props {
     category: ICategory[]
     tags: ITag[]
-    articulo: Post
+    articulo?: Post
 }
 type IUser = {
     id: string;
@@ -40,17 +40,17 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
 
     const route = useRouter()
 
-    const [formData, setFormData] = useState(articulo)
+    const [isTitle, setIsTitle] = useState(articulo?.title)
     const { data: session, status } = useSession()
     const user = session?.user as IUser
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState("")
-    const [selectCategory, setSelectCategory] = useState(articulo.categoryId.toString())
+    const [selectCategory, setSelectCategory] = useState(articulo?.categoryId.toString() || "")
     const [selectedTags, setSelectedTags] = useState<ITag[]>([]);
-    const [selectImage, setSelectImage] = useState<string | null | undefined>(articulo.imageUrl)
+    const [selectImage, setSelectImage] = useState<string | null | undefined>(articulo?.imageUrl)
     const [subiendoImagen, setSubiendoImagen] = useState(false)
-    const [isActiveEstado, setIsActiveEstado] = useState(articulo.published);
-    const [editorContent, setEditorContent] = useState<string>(articulo.content);
+    const [isActiveEstado, setIsActiveEstado] = useState(articulo?.published);
+    const [editorContent, setEditorContent] = useState<string>(articulo?.content || "Texto de prueba");
     const [slug, setSlug] = useState(articulo?.slug);
 
 
@@ -114,15 +114,27 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
                 connect: selectedTags
             }
         }
+
         try {
+            if (articulo) {
+                const resp = await axios.put(`/api/articulos/${articulo?.id}`, data)
+                console.log(resp)
+                if (resp.status === 200) {
+                    alert('Articulo Editado correctamente')
+                    route.push('/admin/articulos')
+                    return
+                }
 
-            const resp = await axios.put(`/api/articulos/${articulo.id}`, data)
+            } else {
+                const resp = await axios.post('/api/articulos', data)
 
-            if (resp.status === 200) {
-                alert('Articulo Editado correctamente')
-                route.push('/admin/articulos')
-                return
+                if (resp.status === 200) {
+                    alert('Articulo creado correctamente')
+                    route.push('/admin/articulos')
+                    return
+                }
             }
+
 
 
         } catch (error) {
@@ -168,7 +180,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
     if (status === "unauthenticated") {
         return <p>Access Denied</p>
     }
-    if (!formData) return <p>No hay datos</p>
+
 
     return (
         <div className="flex  h-full w-full max-w-7xl m-auto ">
@@ -193,8 +205,8 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
                             disabled={isLoading}
                             required
                             className="px-4 py-2 block mb-2 w-full"
-                            value={formData?.title}
-                            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                            value={isTitle}
+                            onChange={(e) => setIsTitle(e.target.value)}
 
                         />
                     </div>
@@ -262,12 +274,12 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
                         <SelectObtions
                             data={category}
                             onChange={(selectedValue) => setSelectCategory(selectedValue)}
-                            select={articulo.categoryId.toString()}
+                            select={articulo?.categoryId.toString()}
                         />
                         <CheckObtionsEdit
                             data={tags}
                             onChange={setSelectedTags}
-                            selectedTagsData={articulo.tags} />
+                            selectedTagsData={articulo?.tags} />
                     </div>
 
                 </div>
