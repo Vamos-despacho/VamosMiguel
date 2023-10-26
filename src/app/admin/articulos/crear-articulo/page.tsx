@@ -1,7 +1,6 @@
 
 "use client"
 import vamosApi from "@/app/api/vamosApi";
-import FormtArticle from "@/components/dashboard/FormtArticle";
 import FormtArticleEdit from "@/components/dashboard/FormtArticleEdit";
 import { ICategory, ITag } from "@/interface/article";
 import { useEffect, useState } from "react";
@@ -37,10 +36,7 @@ const CrearArticle = () => {
 
     return (
         <div>
-            {/* <FormtArticle
-                category={isCategory}
-                tags={isTag}
-            /> */}
+
             <FormtArticleEdit
                 category={isCategory}
                 tags={isTag}
