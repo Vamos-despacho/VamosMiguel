@@ -15,12 +15,13 @@ import Image from "next/image";
 
 import { uploadImageCloudinaryCrop } from "@/helpers/uploadImageCludinary";
 import { ImageIcon } from "lucide-react";
-import TextEditor from "../TextEditor";
+
 
 import { useSession, signOut } from "next-auth/react"
 
 import axios, { AxiosError } from "axios";
 import DOMPurify from 'dompurify';
+import TextEditor from "../TextEditor";
 
 interface Props {
     category: ICategory[]
@@ -252,7 +253,7 @@ const FormtArticle = ({ category, tags }: Props) => {
                 </div>
                 <div className=" ">
 
-                    {/* <TextEditor value={editorContent} onChange={handleEditorChange} /> */}
+                    <TextEditor value={editorContent} onChange={handleEditorChange} />
 
                 </div>
                 <div className="flex gap-6 mt-20 justify-center items-center">

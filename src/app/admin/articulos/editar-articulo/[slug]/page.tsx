@@ -57,7 +57,7 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
     if (!isArticle) return <div>Cargando...</div>
 
     return (
-        <div className='h-full flex max-w-7xl m-auto'>Articulo
+        <div className='h-full flex max-w-7xl m-auto'>
             <FormtArticleEdit
                 category={isCategory}
                 tags={isTag}

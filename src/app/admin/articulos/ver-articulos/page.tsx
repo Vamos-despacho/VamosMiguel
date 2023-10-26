@@ -12,6 +12,8 @@ interface IArticles {
     articles: Post[];
     totalArticles: number;
 }
+export const dynamic = 'force-dynamic'
+
 const VerArticulos = () => {
     const [articles, setArticles] = useState<Post[]>([]);
     const [totalArticles, setTotalArticles] = useState(0);

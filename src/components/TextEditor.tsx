@@ -13,7 +13,7 @@ const formats = [
 ];
 
 const TextEditor = ({ value, onChange }: Props) => {
-    const [text, setText] = useState(value);
+    const [text, setText] = useState<string>(value);
 
 
     const handleTextChange = (newValue: string) => {
@@ -36,7 +36,6 @@ const TextEditor = ({ value, onChange }: Props) => {
                 formats={formats}
                 value={text}
                 modules={modules}
-
                 onChange={handleTextChange}
                 className='h-80' />
         </div>

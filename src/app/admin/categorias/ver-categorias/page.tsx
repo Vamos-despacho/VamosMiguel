@@ -14,6 +14,7 @@ const VerCategoria = async () => {
 
     return (
         <div>
+            <h2 className="text-xl font-bold p-4 pb-0">Categorías</h2>
             <ListCategorias categorias={categorias} />
         </div>
     )
