@@ -1,4 +1,5 @@
 
+"use client"
 import FormtArticle from "@/components/dashboard/FormtArticle";
 import { prisma } from "@/libs/prisma";
 async function getCategorias() {
