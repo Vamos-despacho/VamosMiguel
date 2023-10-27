@@ -6,7 +6,7 @@ export const Footer = () => {
         <footer className='  h-full'>
             <div className="sm:px-8">
                 <div className="mx-auto w-full max-w-7xl lg:px-4 ">
-                    <div className="border-t border-zinc-200 pb-16 pt-10 ">
+                    <div className="b-16 py-8 ">
                         <div className="relative px-4 sm:px-8 ">
                             <div className="mx-auto max-w-2xl lg:max-w-5xl">
                                 <div className="flex flex-col items-center justify-between sm:flex-row gap-6 ">

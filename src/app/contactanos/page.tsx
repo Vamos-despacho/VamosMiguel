@@ -17,7 +17,7 @@ const Contactanos = () => {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h3 className="block font-semibold font-display text-base text-neutral-950">
+                <h3 className="block font-semibold font-display text-xl text-neutral-950">
                     Contáctanos
                 </h3>
                 <h3 className="mt-2 max-w-5xl text-xl font-medium tracking-tighter text-neutral-900 text-wrap:balance sm:text-5xl">
@@ -34,10 +34,10 @@ const Contactanos = () => {
                         {/* Formulario */}
 
                         <div className="pt-10 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px">
-                            <h2 className="font-display text-base font-semibold text-neutral-950">Contacto</h2>
+                            <h2 className="font-display text-lg font-semibold text-neutral-950">Contacto</h2>
                             <div className="mt-3 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
 
-                                <Card className='p-2 shadow-md bg-neutral-50' >
+                                <Card className='pt-2 shadow-md ' >
                                     <CardContent>
                                         <h3 className="font-semibold mt-3 text-neutral-900">Miguel Ángel</h3>
                                         <div className='space-y-3'>
@@ -59,7 +59,7 @@ const Contactanos = () => {
                                         </div>
                                     </CardContent>
                                 </Card>
-                                <Card className='p-2 shadow-md bg-neutral-50'>
+                                <Card className='pt-2 shadow-md '>
                                     <CardContent>
                                         <h3 className="font-semibold mt-3 text-neutral-900">Sara Itzela</h3>
                                         <div className='space-y-3'>
@@ -69,7 +69,7 @@ const Contactanos = () => {
                                                     href="mailto:miguel@gmail.com"
                                                 >
                                                     <EnvelopeClosedIcon className="h-5 w-4 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
-                                                    <span className=" font-light ms-2  ">miguel@gmail.com</span>
+                                                    <span className=" font-light ms-2  ">sara@gmail.com</span>
                                                 </a>
                                             </div>
                                             <div className='flex space-x-2 items-end ms-1 '>
@@ -131,7 +131,7 @@ const Contactanos = () => {
                             </div>
                         </div>
                         <div className="" style={{ opacity: 1, transform: 'none' }}>
-                            <Card className='p-2 shadow-md bg-neutral-50'>
+                            <Card className='p-2 shadow-md '>
                                 <CardContent>
                                     <form>
                                         <div className='mt-3 space-y-1'>

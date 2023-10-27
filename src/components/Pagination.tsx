@@ -28,7 +28,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
                 <Button
                     variant="ghost"
                     onClick={() => onPageChange(currentPage - 1)}
-                    className="text-white text-base "
+                    className="text-gray-500 text-base "
                 >
                     Anterior
                 </Button>
@@ -40,7 +40,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
                     onClick={() => onPageChange(pageNumber)}
                     className={`${pageNumber === currentPage
                         ? "text-red-500 "
-                        : "text-white"
+                        : "text-gray-500 "
                         }  text-lg py-2 rounded`}
                 >
                     {pageNumber}
@@ -48,7 +48,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
             ))}
             {currentPage < totalPages - 1 &&
                 <>
-                    <p className="text-lg px-0 my-0     text-white py-2 ">...</p>
+                    <p className="text-lg px-0 my-0     text-gray-500 py-2 ">...</p>
                     <Button
                         variant="ghost"
 
@@ -63,7 +63,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
                 <Button
                     variant="ghost"
                     onClick={() => onPageChange(currentPage + 1)}
-                    className="text-white text-base  "
+                    className="text-gray-500  text-base  "
                 >
                     Siguiente
                 </Button>
