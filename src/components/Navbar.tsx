@@ -22,10 +22,10 @@ const Navbar = async () => {
 
 
         <nav className=" sticky top-0 shadow-md shadow-slate-900/5   bg-white  z-50   ">
-            <div className='flex w-screen  max-w-7xl m-auto md:px-2 px-4 py-3 md:justify-between items-center  '>
+            <div className='flex w-screen  max-w-7xl m-auto md:px-2 px-4 py-2 md:justify-between items-center  '>
                 <div className=' flex w-screen md:w-auto justify-between'>
                     <Link href="/" className="flex items-center">
-                        <Image src="/logovm.png" width='180' height='150' className=" mb-2 w-36  lg:w-auto md:w-36  " alt="Vamos Panamá" />
+                        <Image src="/logovm.png" width='180' height='150' className=" mb-2 w-36  lg:w-48 md:w-44  " alt="Vamos Panamá" />
 
                         {/* <Image src="/v.png" width='30' height='30' className="h-10 mb-2 mr-1" alt="Vamos Panamá" /> */}
                         {/* <span className="self-center font-display text-2xl font-semibold text text-gray-800 whitespace-nowrap dark:text-white">Miguel Ángel</span> */}
@@ -63,15 +63,15 @@ const Navbar = async () => {
                                             </DropdownMenuItem>
                                         </Link>
                                         <Link
-                                            href="/#contactanos">
+                                            href="/#blog">
                                             <DropdownMenuItem>
-                                                <span className="relative z-10">Contáctanos</span>
+                                                <span className="relative z-10">Artículos</span>
                                             </DropdownMenuItem>
                                         </Link>
                                         <Link
-                                            href="/#blog">
+                                            href="/#contactanos">
                                             <DropdownMenuItem>
-                                                <span className="relative z-10">Blog</span>
+                                                <span className="relative z-10">Contáctanos</span>
                                             </DropdownMenuItem>
                                         </Link>
 
@@ -96,19 +96,19 @@ const Navbar = async () => {
                         </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#suplente">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Sumplente</span>
+                            <span className="relative z-10 text- lg:text-lg font-medium">Suplente</span>
                         </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#propuestas">
                             <span className="relative z-10 text- lg:text-lg font-medium">Propuestas</span>
                         </Link>
+                        <Link className="relative -mx-3  rounded-lg px-3 py-2   transition-colors delay-150 hover:text-azulv hover:bg-slate-100  hover:delay-0"
+                            href="/#articulos">
+                            <span className="relative z-10 text- lg:text-lg font-medium">Artículos</span>
+                        </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#contactanos">
                             <span className="relative z-10 text- lg:text-lg font-medium">Contáctanos</span>
-                        </Link>
-                        <Link className="relative -mx-3  rounded-lg px-3 py-2   transition-colors delay-150 hover:text-azulv hover:bg-slate-100  hover:delay-0"
-                            href="/#blog">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Blog</span>
                         </Link>
 
 

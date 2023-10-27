@@ -20,58 +20,26 @@ const Contactanos = () => {
                 <h3 className="block font-semibold font-display text-base text-neutral-950">
                     Contáctanos
                 </h3>
-                <h3 className="mt-2 max-w-5xl text-xl font-medium tracking-tighter text-neutral-900 text-wrap:balance sm:text-4xl">
+                <h3 className="mt-2 max-w-5xl text-xl font-medium tracking-tighter text-neutral-900 text-wrap:balance sm:text-5xl">
                     Si tienes algún comentario o consulta, dejanos un mensaje.
                 </h3>
                 <div className="mt-2 max-w-3xl text-xl text-neutral-900">
-                    <span className="">Valoramos mucho tu opinión</span>
+                    <span className="">¡Valoramos mucho tu opinión!</span>
                 </div>
             </div>
 
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10">
                 <div className="mx-auto max-w-2xl lg:max-w-none">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-24 lg:grid-cols-2">
                         {/* Formulario */}
-                        <div className="lg:order-last" style={{ opacity: 1, transform: 'none' }}>
-                            <Card className='p-2 shadow-md'>
-                                <CardContent>
-                                    <form>
-                                        <div className='mt-3 space-y-1'>
-                                            <Label htmlFor="nombre">Nombre</Label>
-                                            <Input type="nombre" placeholder="Juan" />
-                                        </div>
-                                        <div className='mt-3 space-y-1'>
-                                            <Label htmlFor="correo">Correo Electrónico</Label>
-                                            <Input type="correo" placeholder="juan@gmail.com" />
-                                        </div>
-                                        <div className='mt-3 space-y-1'>
-                                            <Label htmlFor="mensaje">Mensaje</Label>
-                                            <Textarea style={{ height: 150 }} />
-                                        </div>
-                                        <Button className='mt-3'>Enviar</Button>
-                                    </form>
-                                </CardContent>
-                            </Card>
-                        </div>
 
+                        <div className="pt-10 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px">
+                            <h2 className="font-display text-base font-semibold text-neutral-950">Contacto</h2>
+                            <div className="mt-3 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
 
-                        <div style={{ opacity: 1, transform: 'none' }}>
-                            <div className="pt-10 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px">
-                                <h2 className="font-display text-base font-semibold text-neutral-950">Contacto</h2>
-                                {/* <div className="mt-3 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
-                                    <CardsContact
-                                        nombre='Miguel Ángel Campos'
-                                        correo='asdf@gmail.com'
-                                        telefono='000012454847' />
-                                    <CardsContact
-                                        nombre='Sara Itzela Gómez'
-                                        correo='asdf@gmail.com'
-                                        telefono='000012454847' />
-                                </div> */}
-                                <div className="mt-3 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
-
-                                    <div>
-                                        <h3 className="font-semibold text-neutral-900">Miguel Ángel</h3>
+                                <Card className='p-2 shadow-md bg-neutral-50' >
+                                    <CardContent>
+                                        <h3 className="font-semibold mt-3 text-neutral-900">Miguel Ángel</h3>
                                         <div className='space-y-3'>
                                             <div className='flex space-x-2 items-end ms-1 mt-3 '>
                                                 <a
@@ -89,11 +57,11 @@ const Contactanos = () => {
 
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                    <div>
-                                        <h3 className="font-semibold text-neutral-900">Sara Gomez</h3>
+                                    </CardContent>
+                                </Card>
+                                <Card className='p-2 shadow-md bg-neutral-50'>
+                                    <CardContent>
+                                        <h3 className="font-semibold mt-3 text-neutral-900">Sara Itzela</h3>
                                         <div className='space-y-3'>
                                             <div className='flex space-x-2 items-end ms-1 mt-3 '>
                                                 <a
@@ -101,7 +69,7 @@ const Contactanos = () => {
                                                     href="mailto:miguel@gmail.com"
                                                 >
                                                     <EnvelopeClosedIcon className="h-5 w-4 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
-                                                    <span className=" font-light ms-2  ">sara@gmail.com</span>
+                                                    <span className=" font-light ms-2  ">miguel@gmail.com</span>
                                                 </a>
                                             </div>
                                             <div className='flex space-x-2 items-end ms-1 '>
@@ -111,12 +79,15 @@ const Contactanos = () => {
 
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </CardContent>
+                                </Card>
+
+
+
+
+
+
                             </div>
-
-
-
                             <div className="mt-16 pt-10 relative before:absolute after:absolute before:bg-neutral-950 after:bg-neutral-950/10 before:left-0 before:top-0 before:h-px before:w-6 after:left-8 after:right-0 after:top-0 after:h-px">
                                 <h2 className="font-display text-base font-semibold text-neutral-950">Siguenos</h2>
                                 <div className=''>
@@ -159,6 +130,30 @@ const Contactanos = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className="" style={{ opacity: 1, transform: 'none' }}>
+                            <Card className='p-2 shadow-md bg-neutral-50'>
+                                <CardContent>
+                                    <form>
+                                        <div className='mt-3 space-y-1'>
+                                            <Label htmlFor="nombre">Nombre</Label>
+                                            <Input type="nombre" placeholder="Juan" />
+                                        </div>
+                                        <div className='mt-3 space-y-1'>
+                                            <Label htmlFor="correo">Correo Electrónico</Label>
+                                            <Input type="correo" placeholder="juan@gmail.com" />
+                                        </div>
+                                        <div className='mt-3 space-y-1'>
+                                            <Label htmlFor="mensaje">Mensaje</Label>
+                                            <Textarea style={{ height: 150 }} />
+                                        </div>
+                                        <Button className='mt-3'>Enviar</Button>
+                                    </form>
+                                </CardContent>
+                            </Card>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>

@@ -25,10 +25,10 @@ const Propuestas = () => {
     };
     return (
         <div className="mx-auto ">
-            <div className="mx-auto flex justify-center items-center mt-20 ">
+            <div className="mx-auto flex justify-center items-center  ">
                 <div >
                     <h1>
-                        <span className="mt-1 block font-semibold  text-white mb-8 lg:text-6xl text-3xl sm:text-4xl ">
+                        <span className=" block font-semibold  text-black mb-8 lg:text-6xl text-3xl sm:text-4xl ">
                             Propuestas de campaña</span>
                     </h1>
                 </div>
@@ -42,7 +42,7 @@ const Propuestas = () => {
 
                             <Button
                                 key={index}
-                                className={`rounded-md  hover:bg-slate-50 ${currentPage === propuesta.pag ? 'bg-gray-200 text-black' : 'bg-slate-400 text-gray-600'}`}
+                                className={`rounded-md border border-slate-200 hover:border-slate-300 hover:bg-slate-200 ${currentPage === propuesta.pag ? 'bg-white text-black' : 'bg-slate-300 text-gray-800'}`}
                                 onClick={() => handlePageChange(index + 1)}
                             >
                                 {propuesta.nombre}

@@ -11,7 +11,7 @@ interface IArticles {
     totalArticles: number;
 }
 
-const Blog = () => {
+const Articulos = () => {
     const [articles, setArticles] = useState<Post[]>([]);
     const [totalArticles, setTotalArticles] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -40,7 +40,11 @@ const Blog = () => {
     if (articles.length === 0) return <div>loading...</div>;
     return (
         <div className=' mx-auto max-w-full'>
-            <div className='container mx-auto'>
+            <div className='container mx-auto '>
+                <h3 className="block mb-5 font-semibold font-display text-base text-sneutral-950">
+                    Artículos
+                </h3>
+                {/* <h2 className='mb-10 text-4xl font-semibold'>Artículos</h2> */}
                 <ViewArticle articles={articles} />
                 <div className='pt-10 '>
                     <Pagination
@@ -60,4 +64,4 @@ const Blog = () => {
     )
 }
 
-export default Blog
+export default Articulos

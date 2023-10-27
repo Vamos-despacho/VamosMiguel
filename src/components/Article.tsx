@@ -14,9 +14,9 @@ const Article = ({ article }: Props) => {
 
     return (
         <article
-            className='bg-white relative 
+            className='bg-neutral-50 relative shadow-md
          rounded-xl p-4 ring-1 ring-neutral-950/5 transition
-          hover:bg-neutral-50  max-w-sm h-[500px]' >
+          hover:bg-neutral-50  max-w-sm h-[465px]' >
             <div className='h-56 '>
 
                 {
@@ -47,24 +47,24 @@ const Article = ({ article }: Props) => {
             <div className='flex space-x-4 items-center'>
                 <Image alt='Miguel Angel' src="/images/miguel.jpeg" className='rounded-full ' loading='lazy' width="35" height="35" decoding='async' data-nimg="1" />
 
-                <div>
-                    <p className='font-semibold text-base'>Miguel Ángel Campos</p>
+                <div className='space-y-1'>
+                    <p className='font-semibold text-sm'>Miguel Ángel Campos</p>
                     <div className='flex space-x-2  text-neutral-950 items-center'>
-                        <p className='font-semibold text-sm'>{article.category.name}</p>
+                        <p className='font-semibold text-xs'>{article.category.name}</p>
                         <p className='text-neutral-400 text-xs'>{formattedDate}</p>
                     </div>
                 </div>
             </div>
-            <div className='h-36 mt-4'>
+            <div className='h-32 mt-3'>
                 <div className='  h-18   '>
                     <p className=' font-display  text-base font-semibold text-neutral-800 leading-5'>
                         {article.title}
                     </p>
                 </div>
-                <div className=' flex mt-3'>
+                <div className=' flex mt-2'>
                     {
                         article.content && <div
-                            className=' text-base text-neutral-600 line-clamp-4 leading-5 font-display'
+                            className=' text-sm text-neutral-600 line-clamp-4 leading-5 font-display'
                             dangerouslySetInnerHTML={{ __html: article.content }}></div>
                     }
 

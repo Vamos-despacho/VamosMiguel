@@ -54,7 +54,10 @@ const ArticlesLayout = ({ children }) => {
                             </Button>
                         </Link>
                     </div>
-                    <h2 className='font-semibold ms-2 pt-3' >Etiquetas</h2>
+                    <div >
+
+                        <h2 className='font-semibold ms-2 pt-3' >Etiquetas</h2>
+                    </div>
 
                     <div className=''>
                         <Link href="/admin/etiquetas/ver-etiquetas" className='w-full'>

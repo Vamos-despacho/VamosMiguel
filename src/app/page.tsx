@@ -3,7 +3,7 @@ import Trayectoria from './trayectoria/page'
 import Suplente from './suplente/page'
 
 import Contactanos from './contactanos/page';
-import Blog from './blog/page';
+import Articulos from './articulos/page';
 import Propuestas from './propuestas/page';
 import Image from 'next/image';
 
@@ -11,7 +11,7 @@ import Image from 'next/image';
 const Home = () => {
   return (
     <>
-      <div className='overflow-hidden  py-16 '>
+      <div className='overflow-hidden  py-16 bg-white '>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
             <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
@@ -34,20 +34,20 @@ const Home = () => {
       </div>
 
 
-      <section id='trayectoria' className='bg-azulv py-28  '>
+      <section id='trayectoria' className=' py-28 bg-zinc-50  '>
         <Trayectoria />
       </section>
-      <section id='suplente' className=' py-28 border-gray-200'>
+      <section id='suplente' className=' py-28 border-gray-50'>
         <Suplente />
       </section>
-      <section id='propuestas' className='bg-azulv py-28 '>
+      <section id='propuestas' className='bg-zinc-50 py-24 '>
         <Propuestas />
       </section>
-      <section id='contactanos' className=' py-28'>
-        <Contactanos />
+      <section id='articulos' className=' py-24'>
+        <Articulos />
       </section>
-      <section id='blog' className='bg-azulv py-24   border-t '>
-        <Blog />
+      <section id='contactanos' className='bg-zinc-50 py-24   border-t '>
+        <Contactanos />
       </section>
     </>
   )
