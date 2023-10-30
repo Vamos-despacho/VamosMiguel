@@ -37,10 +37,10 @@ const Articulos = () => {
         setCurrentPage(newPage);
     };
     if (!articles) return <div>No hay artículos</div>;
-    if (articles.length === 0) return <div>loading...</div>;
+    if (articles.length === 0) return <div className=' flex h-[600px] justify-center items-center'>Cargando Artículos...</div>;
     return (
-        <div className=' mx-auto max-w-full'>
-            <div className='container mx-auto '>
+        <div className=' mx-auto max-w-full  '>
+            <div className='mx-2 sm:mx-auto sm:container'>
                 <h3 className="block mb-5 font-semibold font-display text-xl text-sneutral-950">
                     Artículos
                 </h3>

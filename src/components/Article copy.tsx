@@ -15,9 +15,9 @@ const Article = ({ article }: Props) => {
     return (
         <article
             className='bg-neutral-50 relative shadow-md
-         rounded-xl px-2 sm:p-4 ring-1 ring-neutral-950/5 transition
-          hover:bg-neutral-50  max-w-sm  h-[300px] sm:h-[465px]' >
-            <div className='h-[132px] sm:h-[212px]  md:h-[220px]  '>
+         rounded-xl p-4 ring-1 ring-neutral-950/5 transition
+          hover:bg-neutral-50  max-w-sm h-[465px]' >
+            <div className='h-56 '>
 
                 {
                     article.imageUrl
@@ -26,7 +26,7 @@ const Article = ({ article }: Props) => {
                                 alt={article.title}
                                 src={article.imageUrl}
                                 width={480} height={280}
-                                className='rounded-t-xl h-32 sm:h-56 object-cover ransition-transform transform hover:scale-110 ' />
+                                className='rounded-t-xl h-56 object-cover ransition-transform transform hover:scale-110 ' />
                         </div>)
                         : (
                             <div className='absolute top-0 left-0 right-0 h-auto rounded-t-xl '>
@@ -44,33 +44,38 @@ const Article = ({ article }: Props) => {
 
 
             </div>
-            <div className='flex  sm:space-x-4 items-center space-x-1 m-auto'>
-                <Image alt='Miguel Angel' src="/images/MiguelA.jpg" className='rounded-full sm:w-auto lg:w-16 w-10 ' loading='lazy' width="64" height="64" decoding='async' data-nimg="1" />
-                <div className='sm:space-y-1'>
-                    <p className='  font-semibold text-[10px] sm:text-sm'>Miguel Ángel Campos</p>
-                    <div className='flex flex-col sm:flex-row sm:space-x-2  text-neutral-950 '>
-                        <p className=' font-medium text-[10px] sm:text-xs'>{article.category.name}</p>
-                        <p className='text-neutral-400 text-[8px] sm:text-xs'>{formattedDate}</p>
+            <div className='flex space-x-4 items-center'>
+                <Image alt='Miguel Angel' src="/images/MiguelAngel.jpeg" className='rounded-full ' loading='lazy' width="35" height="35" decoding='async' data-nimg="1" />
+
+                <div className='space-y-1'>
+                    <p className='font-semibold text-sm'>Miguel Ángel Campos</p>
+                    <div className='flex space-x-2  text-neutral-950 items-center'>
+                        <p className='font-semibold text-xs'>{article.category.name}</p>
+                        <p className='text-neutral-400 text-xs'>{formattedDate}</p>
                     </div>
                 </div>
             </div>
-            <div className='sm:h-[118px]  sm:mt-3 mt-2    '>
-                <div className='    '>
-                    <p className=' font-medium  text-xs sm:text-base sm:font-semibold text-neutral-800 sm:leading-5 leading-3'>
+            <div className='h-32 mt-3'>
+                <div className='  h-18   '>
+                    <p className=' font-display  text-base font-semibold text-neutral-800 leading-5'>
                         {article.title}
                     </p>
                 </div>
-                <div className=' flex sm:mt-2 mt-1'>
+                <div className=' flex mt-2'>
                     {
                         article.content && <div
-                            className=' text-[10px] mx-1 sm:text-sm text-neutral-600 sm:line-clamp-4 line-clamp-4 sm:leading-4 leading-3 font-display'
+                            className=' text-sm text-neutral-600 line-clamp-4 leading-5 font-display'
                             dangerouslySetInnerHTML={{ __html: article.content }}></div>
                     }
+
+                    {/* <p className=' text-base text-neutral-600 line-clamp-4' >
+                        {article.content}
+                    </p> */}
                 </div>
             </div>
-            <div className='flex justify-end items-center    '>
+            <div className='flex justify-end '>
                 <Link href={`/articulo/${article.slug}`}>
-                    <Button variant="link" className=' h-3 text-[10px] sm:text-base'>Leer mas</Button>
+                    <Button variant="link" className='  text-base'>Leer mas</Button>
                 </Link>
             </div>
         </article>

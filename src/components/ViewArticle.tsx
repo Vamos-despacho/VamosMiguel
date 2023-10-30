@@ -16,8 +16,8 @@ const ViewArticle = ({ articles }: Props) => {
     )
     return (
         <div
-            className="grid md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-3  grid-cols-1
-        lg:grid-flo-row  gap-3  m-auto ">
+            className="grid md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-3  grid-cols-2
+        lg:grid-flo-row  gap-1 sm:gap-3  m-auto   ">
 
             {
                 articles.map((article, index) => (

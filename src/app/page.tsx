@@ -43,7 +43,7 @@ const Home = () => {
       <section id='propuestas' className='bg-zinc-50 py-24 '>
         <Propuestas />
       </section>
-      <section id='articulos' className=' py-24'>
+      <section id='articulos' className=' py-24 '>
         <Articulos />
       </section>
       <section id='contactanos' className='bg-zinc-50 py-24   border-t '>
