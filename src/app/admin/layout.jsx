@@ -19,13 +19,13 @@ const ArticlesLayout = ({ children }) => {
         <div className="dashboard-container">
 
             <div className="navigation ">
-                <div className='dropdown space-y-2'>
+                <div className='dropdown '>
                     <h2 className='font-semibold ms-2' >Articulos</h2>
                     <div className=''>
                         <Link href="/admin/articulos/ver-articulos" className='w-full'>
                             <Button variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
-                                Ver Articulos
+                                Ver
                             </Button>
                         </Link>
                     </div>
@@ -33,7 +33,7 @@ const ArticlesLayout = ({ children }) => {
                         <Link href="/admin/articulos/crear-articulo">
                             <Button variant="ghost" className=" w-full justify-start">
                                 <Pencil1Icon className='mr-2' />
-                                Crear Articulo
+                                Crear
                             </Button>
                         </Link>
                     </div>
@@ -43,7 +43,7 @@ const ArticlesLayout = ({ children }) => {
                         <Link href="/admin/categorias/ver-categorias" className='w-full'>
                             <Button variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
-                                Ver Categorias
+                                Ver
                             </Button>
                         </Link>
                     </div>
@@ -51,7 +51,7 @@ const ArticlesLayout = ({ children }) => {
                         <Link href="/admin/categorias/crear-categoria">
                             <Button variant="ghost" className=" w-full justify-start">
                                 <Pencil1Icon className='mr-2' />
-                                Crear Categoria
+                                Crear
                             </Button>
                         </Link>
                     </div>
@@ -64,7 +64,7 @@ const ArticlesLayout = ({ children }) => {
                         <Link href="/admin/etiquetas/ver-etiquetas" className='w-full'>
                             <Button variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
-                                Ver Etiquetas
+                                Ver
                             </Button>
                         </Link>
                     </div>
@@ -72,7 +72,7 @@ const ArticlesLayout = ({ children }) => {
                         <Link href="/admin/etiquetas/crear-etiqueta">
                             <Button variant="ghost" className=" w-full justify-start">
                                 <Pencil1Icon className='mr-2' />
-                                Crear Etiqueta
+                                Crear
                             </Button>
                         </Link>
                     </div>
@@ -88,24 +88,44 @@ const ArticlesLayout = ({ children }) => {
                             <DropdownMenuSeparator />
                             <Link href="/admin/articulos/ver-articulos" className='w-full'>
                                 <DropdownMenuItem>
-
                                     <EyeOpenIcon className='mr-2' />
-                                    Ver Articulos
-
+                                    Ver
                                 </DropdownMenuItem>
                             </Link>
                             <Link href="/admin/articulos/crear-articulo">
                                 <DropdownMenuItem>
-
                                     <Pencil1Icon className='mr-2' />
-                                    Crear Articulo
-
+                                    Crear
                                 </DropdownMenuItem>
                             </Link>
                             <DropdownMenuSeparator />
                             <DropdownMenuLabel>Categorías</DropdownMenuLabel>
+                            <Link href="/admin/categorias/ver-categorias" className='w-full'>
+                                <DropdownMenuItem>
+                                    <EyeOpenIcon className='mr-2' />
+                                    Ver
+                                </DropdownMenuItem>
+                            </Link>
+                            <Link href="/admin/categorias/crear-categoria">
+                                <DropdownMenuItem>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear
+                                </DropdownMenuItem>
+                            </Link>
                             <DropdownMenuSeparator />
                             <DropdownMenuLabel>Etiquetas</DropdownMenuLabel>
+                            <Link href="/admin/etiquetas/ver-etiquetas" className='w-full'>
+                                <DropdownMenuItem>
+                                    <EyeOpenIcon className='mr-2' />
+                                    Ver
+                                </DropdownMenuItem>
+                            </Link>
+                            <Link href="/admin/etiquetas/crear-etiqueta">
+                                <DropdownMenuItem>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear
+                                </DropdownMenuItem>
+                            </Link>
                             <DropdownMenuSeparator />
 
 

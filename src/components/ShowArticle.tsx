@@ -1,4 +1,4 @@
-import { Post } from '@/interface/article'
+import { Post, PostA } from '@/interface/article'
 import React, { lazy } from 'react'
 import { Button } from './ui/button'
 // import "@/app/articulo/articulo.css"
@@ -10,7 +10,7 @@ import BtnAtras from './BtnAtras'
 
 
 interface Props {
-    article: Post
+    article: any
 }
 
 const ShowArticle = ({ article }: Props) => {
