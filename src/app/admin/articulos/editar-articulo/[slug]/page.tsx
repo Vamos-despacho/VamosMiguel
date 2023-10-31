@@ -22,10 +22,6 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
 
     }, [params.slug])
 
-    useEffect(() => {
-        if (category.length > 0) return
-        getCategoryTag()
-    }, [])
 
     const getCategoryTag = async () => {
         const resp = await vamosApi.get('/categorias')
@@ -38,6 +34,10 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
 
         addTag(etiquetas)
     }
+    useEffect(() => {
+        if (category.length > 0) return
+        getCategoryTag()
+    }, [getCategoryTag, category])
 
     const getArticle = async (slug: string) => {
 

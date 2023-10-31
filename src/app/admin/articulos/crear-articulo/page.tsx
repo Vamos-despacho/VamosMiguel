@@ -34,7 +34,7 @@ const CrearArticle = () => {
         console.log('first')
         get()
 
-    }, [])
+    }, [get, category, tag])
 
 
     if (category.length === 0) return <div>No hay categorías</div>
