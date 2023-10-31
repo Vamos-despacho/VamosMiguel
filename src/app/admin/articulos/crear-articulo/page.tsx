@@ -4,7 +4,7 @@ import vamosApi from "@/app/api/vamosApi";
 import FormtArticle from "@/components/dashboard/FormtArticle";
 import { ICategory, ITag } from "@/interface/article";
 import { useRouter } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { AdminContext } from "../../context/AdminContext";
 
 
@@ -14,20 +14,20 @@ const CrearArticle = () => {
     const [isCategory, setIsCategory] = useState<ICategory[]>([])
     const [isTag, setIsTag] = useState<ITag[]>([])
 
-    const get = async () => {
+    const get = useCallback(async () => {
         try {
-            const categoria = await vamosApi.get('/categorias')
-            addCategory(categoria.data)
+            const categoria = await vamosApi.get('/categorias');
+            addCategory(categoria.data);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
         try {
-            const etiqueta = await vamosApi.get('/etiquetas')
-            addTag(etiqueta.data)
+            const etiqueta = await vamosApi.get('/etiquetas');
+            addTag(etiqueta.data);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    }, [addCategory, addTag]);
     useEffect(() => {
 
         if (category.length > 0) return

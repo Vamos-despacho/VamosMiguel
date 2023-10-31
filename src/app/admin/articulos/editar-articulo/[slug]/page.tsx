@@ -4,7 +4,7 @@ import vamosApi from '@/app/api/vamosApi'
 import FormtArticleEdit from '@/components/dashboard/FormtArticleEdit'
 import { ICategory, ITag, Post } from '@/interface/article'
 
-import React, { useContext, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 
 
 const EditarArticulo = ({ params }: { params: { slug: string } }) => {
@@ -23,17 +23,16 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
     }, [params.slug])
 
 
-    const getCategoryTag = async () => {
+    const getCategoryTag = useCallback(async () => {
         const resp = await vamosApi.get('/categorias')
         const categorias = await resp.data
         addCategory(categorias)
 
-
         const res = await vamosApi.get('/etiquetas')
         const etiquetas = await res.data
-
         addTag(etiquetas)
-    }
+    }, [addCategory, addTag])
+
     useEffect(() => {
         if (category.length > 0) return
         getCategoryTag()
