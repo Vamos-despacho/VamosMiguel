@@ -17,7 +17,9 @@ export const Footer = () => {
                                         width="200"
                                         height="200"
                                         decoding='async'
-                                        data-nimg="1" />
+                                        data-nimg="1"
+                                        className='w-auto h-auto'
+                                    />
 
 
                                     <p className="text-sm text-zinc-400 dark:text-zinc-500">

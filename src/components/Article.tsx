@@ -69,7 +69,7 @@ const Article = ({ article }: Props) => {
                 </div>
             </div>
             <div className='flex justify-end items-center    '>
-                <Link href={`/articulo/${article.slug}`}>
+                <Link href={`/articulos/articulo/${article.slug}`}>
                     <Button variant="link" className=' h-3 text-[10px] sm:text-base'>Leer mas</Button>
                 </Link>
             </div>

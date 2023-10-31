@@ -3,9 +3,9 @@ import Trayectoria from './trayectoria/page'
 import Suplente from './suplente/page'
 
 import Contactanos from './contactanos/page';
-import Articulos from './articulos/page';
 import Propuestas from './propuestas/page';
 import Image from 'next/image';
+import Articulos from './articulos/page';
 
 
 const Home = () => {

@@ -3,45 +3,52 @@
 import vamosApi from "@/app/api/vamosApi";
 import FormtArticle from "@/components/dashboard/FormtArticle";
 import { ICategory, ITag } from "@/interface/article";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
+import { AdminContext } from "../../context/AdminContext";
+
 
 const CrearArticle = () => {
+    const { category, addCategory, addTag, tag } = useContext(AdminContext)
+
     const [isCategory, setIsCategory] = useState<ICategory[]>([])
     const [isTag, setIsTag] = useState<ITag[]>([])
 
     const get = async () => {
         try {
             const categoria = await vamosApi.get('/categorias')
-            setIsCategory(categoria.data)
+            addCategory(categoria.data)
         } catch (error) {
             console.log(error)
         }
-
         try {
             const etiqueta = await vamosApi.get('/etiquetas')
-
-            setIsTag(etiqueta.data)
+            addTag(etiqueta.data)
         } catch (error) {
             console.log(error)
         }
-
     }
     useEffect(() => {
+
+        if (category.length > 0) return
+        console.log('first')
         get()
+
     }, [])
 
 
-    if (isCategory.length === 0) return <div>No hay categorías</div>
-    if (isTag.length === 0) return <div>No hay etiquetas</div>
+    if (category.length === 0) return <div>No hay categorías</div>
+    if (tag.length === 0) return <div>No hay etiquetas</div>
 
     return (
         <div>
             <FormtArticle
-                category={isCategory}
-                tags={isTag}
+                category={category}
+                tags={tag}
             />
 
         </div>
+
     )
 }
 

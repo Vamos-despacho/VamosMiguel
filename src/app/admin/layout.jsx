@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './dashboard.css';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -11,9 +11,10 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
+import { AdminProvider } from './context/AdminContext';
 
 const ArticlesLayout = ({ children }) => {
+
     return (
         <div className="dashboard-container">
 
@@ -120,7 +121,10 @@ const ArticlesLayout = ({ children }) => {
 
             <div className="">
                 {/* Contenido principal (children) */}
-                {children}
+                <AdminProvider>
+
+                    {children}
+                </AdminProvider>
             </div>
         </div >
     );

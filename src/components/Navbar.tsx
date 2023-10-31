@@ -25,7 +25,7 @@ const Navbar = async () => {
             <div className='flex w-screen  max-w-7xl m-auto md:px-2 px-4 py-2 md:justify-between items-center  '>
                 <div className=' flex w-screen md:w-auto justify-between'>
                     <Link href="/" className="flex items-center">
-                        <Image src="/logovm.png" width='180' height='150' className=" mb-2 w-36  lg:w-48 md:w-44  " alt="Vamos Panamá" />
+                        <Image src="/logovm.png" width='180' height='150' className=" mb-2 w-36 h-auto lg:w-48 md:w-44  " alt="Vamos Panamá" />
 
                         {/* <Image src="/v.png" width='30' height='30' className="h-10 mb-2 mr-1" alt="Vamos Panamá" /> */}
                         {/* <span className="self-center font-display text-2xl font-semibold text text-gray-800 whitespace-nowrap dark:text-white">Miguel Ángel</span> */}

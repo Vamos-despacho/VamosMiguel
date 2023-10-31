@@ -1,12 +1,14 @@
 "use client"
+import { AdminContext } from '@/app/admin/context/AdminContext'
 import vamosApi from '@/app/api/vamosApi'
 import FormtArticleEdit from '@/components/dashboard/FormtArticleEdit'
 import { ICategory, ITag, Post } from '@/interface/article'
 
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 
 const EditarArticulo = ({ params }: { params: { slug: string } }) => {
+    const { category, addCategory, addTag, tag } = useContext(AdminContext)
 
     const [isArticle, setIsArticle] = useState<Post>()
     const [isCategory, setIsCategory] = useState<ICategory[]>([])
@@ -14,24 +16,30 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
     const [error, setError] = useState<string | null>(null);
 
 
-    useState
+
     useEffect(() => {
         getArticle(params.slug)
 
     }, [params.slug])
 
+    useEffect(() => {
+        if (category.length > 0) return
+        getCategoryTag()
+    }, [])
 
-    const getArticle = async (slug: string) => {
-
+    const getCategoryTag = async () => {
         const resp = await vamosApi.get('/categorias')
         const categorias = await resp.data
-        setIsCategory(categorias)
+        addCategory(categorias)
 
 
         const res = await vamosApi.get('/etiquetas')
         const etiquetas = await res.data
 
-        setIsTag(etiquetas)
+        addTag(etiquetas)
+    }
+
+    const getArticle = async (slug: string) => {
 
         try {
             const resp = await vamosApi.get(`/articulos/slug/${slug}`)
@@ -46,15 +54,15 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
             }
         }
     }
-    if (!isTag) return <div>No hay etiquetas</div>
-    if (!isCategory) return <div>No hay categorías</div>
+    if (category.length === 0) return <div>...Cargando Categorías</div>
+    if (tag.length === 0) return <div>...Cargando Etiquetas</div>
     if (!isArticle) return <div>Cargando...</div>
 
     return (
         <div className='h-full flex max-w-7xl m-auto'>
             <FormtArticleEdit
-                category={isCategory}
-                tags={isTag}
+                category={category}
+                tags={tag}
                 articulo={isArticle}
             />
         </div>
