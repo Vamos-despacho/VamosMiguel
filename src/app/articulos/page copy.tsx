@@ -50,7 +50,7 @@ const Articulos = () => {
                     Artículos
                 </h3>
                 {/* <h2 className='mb-10 text-4xl font-semibold'>Artículos</h2> */}
-                <ViewArticle articles={articles} />
+                {/* <ViewArticle articles={articles} /> */}
                 <div className='pt-10 '>
                     <Pagination
                         currentPage={currentPage}
