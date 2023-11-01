@@ -31,7 +31,7 @@ export async function generateMetadata(
 
 
     const description = product?.content
-        ? product?.content.slice(0, 100)
+        ? product?.content.slice(0, 150)
         : ''
 
     return {

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   },
 }
 import { Providers } from './Providers'
+import { Toaster } from '@/components/ui/toaster'
 
 
 const inter = Inter({
@@ -41,6 +42,7 @@ export default function RootLayout({
             <Navbar />
 
             {children}
+            <Toaster />
             <Footer />
           </main>
           {/* </ThemeProvider> */}

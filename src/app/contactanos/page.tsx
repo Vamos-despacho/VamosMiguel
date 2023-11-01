@@ -1,18 +1,11 @@
 import { EnvelopeClosedIcon, MobileIcon } from '@radix-ui/react-icons';
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from '@/components/ui/button';
+
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { CardsContact } from '@/components/CardsContact';
 
+} from "@/components/ui/card";
+import ContactForm from '@/components/ContactForm';
 const Contactanos = () => {
     return (
         <>
@@ -131,25 +124,7 @@ const Contactanos = () => {
                             </div>
                         </div>
                         <div className="" style={{ opacity: 1, transform: 'none' }}>
-                            <Card className='p-2 shadow-md '>
-                                <CardContent>
-                                    <form>
-                                        <div className='mt-3 space-y-1'>
-                                            <Label htmlFor="nombre">Nombre</Label>
-                                            <Input type="nombre" placeholder="Juan" />
-                                        </div>
-                                        <div className='mt-3 space-y-1'>
-                                            <Label htmlFor="correo">Correo Electrónico</Label>
-                                            <Input type="correo" placeholder="juan@gmail.com" />
-                                        </div>
-                                        <div className='mt-3 space-y-1'>
-                                            <Label htmlFor="mensaje">Mensaje</Label>
-                                            <Textarea style={{ height: 150 }} />
-                                        </div>
-                                        <Button className='mt-3'>Enviar</Button>
-                                    </form>
-                                </CardContent>
-                            </Card>
+                            <ContactForm />
                         </div>
 
 

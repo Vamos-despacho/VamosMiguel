@@ -8,6 +8,10 @@ const nextConfig = {
 
         return config;
     },
+    experimental: {
+        serverComponents: true,
+        serverActions: true, // Habilita Server Actions
+    },
 }
 
 module.exports = nextConfig

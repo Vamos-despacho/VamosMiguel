@@ -34,19 +34,19 @@ const Home = () => {
       </div>
 
 
-      <section id='trayectoria' className=' py-28 bg-zinc-50  '>
+      <section id='trayectoria' className=' py-28 bg-zinc-100  '>
         <Trayectoria />
       </section>
       <section id='suplente' className=' py-28 border-gray-50'>
         <Suplente />
       </section>
-      <section id='propuestas' className='bg-zinc-50 py-24 '>
+      <section id='propuestas' className='bg-zinc-100 py-24 '>
         <Propuestas />
       </section>
       <section id='articulos' className=' py-24 '>
         <Articulos />
       </section>
-      <section id='contactanos' className='bg-zinc-50 py-24   border-t '>
+      <section id='contactanos' className='bg-zinc-100 py-24   border-t '>
         <Contactanos />
       </section>
     </>
