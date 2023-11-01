@@ -28,12 +28,15 @@ export async function generateMetadata(
         },
     })
     const image = product?.imageUrl || 'https://vamos-miguel-angel.vercel.app/icon2.png'
-    // // optionally access and extend (rather than replace) parent metadata
-    const previousImages = (await parent).openGraph?.images || []
+
+
+    const description = product?.content
+        ? product?.content.slice(0, 100)
+        : ''
 
     return {
-        title: "Miguel Ángel - Artículo",
-        description: product?.title,
+        title: `Miguel Ángel | ${product?.title}`,
+        description: `${description}...`,
         openGraph: {
             images: [image],
         },
