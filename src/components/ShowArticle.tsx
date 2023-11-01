@@ -1,4 +1,4 @@
-import { Post, PostA } from '@/interface/article'
+"use client"
 import React, { lazy } from 'react'
 import { Button } from './ui/button'
 // import "@/app/articulo/articulo.css"
@@ -7,11 +7,14 @@ import Image from 'next/image'
 
 import { ArrowLeftIcon } from 'lucide-react'
 import BtnAtras from './BtnAtras'
+import { Metadata } from 'next'
+import Head from 'next/head'
 
 
 interface Props {
     article: any
 }
+
 
 const ShowArticle = ({ article }: Props) => {
 
@@ -23,6 +26,8 @@ const ShowArticle = ({ article }: Props) => {
     };
     return (
         <div className=' max-w-7xl mx-auto w-full lg:px-8 mb-14'  >
+
+
             <div className='relative px-4  sm:px-8 lg:px-12' >
                 <div className='mx-auto max-w-2xl lg:max-w-5xl' >
                     <div className='xl:relative'>
@@ -32,7 +37,7 @@ const ShowArticle = ({ article }: Props) => {
                         <article className='flex flex-col'>
                             <header className='flex flex-col mt-3'>
                                 <h1 className='mt-3 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl'>{article.title}</h1>
-                                <time className='order-first flex items-center text-base text-zinc-400 dark:text-zinc-500'>{fecha(article.createdAt)}</time>
+                                <p className='order-first flex items-center text-base text-zinc-400 dark:text-zinc-500'>{fecha(article.createdAt)}</p>
                             </header>
                             <div className='mx-auto mt-8  '>
 
