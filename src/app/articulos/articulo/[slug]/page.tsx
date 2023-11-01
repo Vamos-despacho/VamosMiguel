@@ -27,7 +27,7 @@ export async function generateMetadata(
             tags: true,
         },
     })
-
+    const image = product?.imageUrl || 'https://vamos-miguel-angel.vercel.app/icon2.png'
     // // optionally access and extend (rather than replace) parent metadata
     const previousImages = (await parent).openGraph?.images || []
 
@@ -35,7 +35,7 @@ export async function generateMetadata(
         title: "Miguel Ángel - Artículo",
         description: product?.title,
         openGraph: {
-            images: [product?.imageUrl || '', ...previousImages],
+            images: [image],
         },
     }
 }
