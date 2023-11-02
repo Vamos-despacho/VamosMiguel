@@ -1,6 +1,7 @@
 "use client"
 import React from "react";
 import { Button } from "./ui/button";
+import { on } from "events";
 
 interface Props {
     currentPage: number;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
+
     const maxPagesToShow = 4; // Número máximo de páginas para mostrar
     const pageNumbers = [];
 

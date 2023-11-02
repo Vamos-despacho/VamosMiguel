@@ -7,7 +7,7 @@ import ListArticle from '@/components/dashboard/ListArticles';
 import ListArticles from '@/components/dashboard/ListArticles';
 import axios from 'axios';
 
-const itemsPerPage = 8; // Cantidad de elementos por página
+const itemsPerPage = 6; // Cantidad de elementos por página
 interface IArticles {
     articles: Post[];
     totalArticles: number;

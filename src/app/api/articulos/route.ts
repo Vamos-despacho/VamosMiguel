@@ -16,14 +16,12 @@ export async function GET(req: NextRequest) {
         // Configura el tamaño de página y la cantidad de elementos a omitir
         const pageSize = 6;
         const skip = (page - 1) * pageSize;
-
         const where = from === "admin" ? {} : { published: true }
-
         // Realiza una consulta a la base de datos para obtener los artículos de la página actual
         const totalArticles = await prisma.post.count({
             where: where,
         });
-
+        console.log(totalArticles)
         const articles = await prisma.post.findMany({
             where: where,
 
@@ -37,6 +35,7 @@ export async function GET(req: NextRequest) {
                 createdAt: "desc", // Ordenar por fecha de creación en orden descendente (las más recientes primero)
             },
         });
+
         if (!articles) return NextResponse.json({ message: "No hay articulos" })
         // Retorna los artículos como respuesta JSON
         return new Response(JSON.stringify({ articles, totalArticles }), {

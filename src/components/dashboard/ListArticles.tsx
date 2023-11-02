@@ -32,13 +32,15 @@ interface Props {
 
 const ListArticles = ({ articles }: Props) => {
 
-
     const [allArticle, setAllArticle] = useState(articles);
 
     const fecha = (fecha: string) => {
         const formattedDate = new Date(fecha).toLocaleDateString();
         return formattedDate;
     };
+    useEffect(() => {
+        setAllArticle(articles)
+    }, [articles])
 
 
 
