@@ -74,7 +74,7 @@ const ListArticles = ({ articles }: Props) => {
                                 <TableCell style={{ color: article.published ? 'green' : 'red' }} className="font-medium">{article.published ? 'Publicado' : 'Pendiente'}</TableCell>
                                 <TableCell className='text-sm'>{fecha(article.createdAt)}</TableCell>
                                 <TableCell>
-                                    <Link href={`/articulo/${article.slug}`}>
+                                    <Link href={`/articulos/articulo/${article.slug}`}>
 
                                         <EyeOpenIcon className="w-5 h-5" />
                                     </Link>

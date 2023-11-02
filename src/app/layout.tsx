@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 }
 import { Providers } from './Providers'
 import { Toaster } from '@/components/ui/toaster'
+import SesionObtions from '@/components/SesionObtions'
 
 
 const inter = Inter({
@@ -39,11 +40,13 @@ export default function RootLayout({
         <Providers>
 
           <main className=' w-full h-full '>
-            <Navbar />
-
+            {/* <Navbar /> */}
+            <div className=' '>
+              <SesionObtions />
+            </div>
             {children}
             <Toaster />
-            <Footer />
+            {/* <Footer /> */}
           </main>
           {/* </ThemeProvider> */}
 
