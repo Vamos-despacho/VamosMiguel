@@ -5,18 +5,15 @@ import { useToast } from "@/components/ui/use-toast"
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
+
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from '@/components/ui/button';
 import { FormEvent } from "react";
-import ResendContact from "./server/ResendContact";
-import sendEmail from "@/app/_actions";
+
+import vamosApi from "@/app/api/vamosApi";
 const ContactForm = () => {
 
     const { toast } = useToast()
@@ -24,10 +21,6 @@ const ContactForm = () => {
         e.preventDefault()
 
 
-        toast({
-            title: "Emeail enviado",
-            description: "Friday, February 10, 2023 at 5:57 PM",
-        })
 
         const formData = new FormData(e.currentTarget)
         const nameForm = formData.get('nombre')
@@ -41,16 +34,26 @@ const ContactForm = () => {
         const email = String(emailForm);
         const message = String(messageForm);
 
-        sendEmail({ name, email, message })
+        try {
+            e.currentTarget.reset()
+            const res = await vamosApi.post('/send', { name, email, message })
 
-        toast({
-            variant: "default",
-            title: "¡Mensaje enviado!",
+            if (res.status === 400) return toast({
+                variant: "destructive",
+                title: "¡Mensaje no enviado!",
+                description: "Hubo un error al enviar el mensaje, por favor intente de nuevo.",
+            })
+            if (res.status === 200) {
+                toast({
+                    variant: "default",
+                    title: "¡Mensaje enviado!",
+                    description: "Gracias por contactarnos, te responderemos lo más pronto posible.",
+                })
+            }
 
-        })
-        e.currentTarget.reset()
-
-
+        } catch (error) {
+            console.log({ error })
+        }
 
     }
     return (
@@ -69,13 +72,7 @@ const ContactForm = () => {
                         <Label htmlFor="mensaje">Mensaje</Label>
                         <Textarea name="mensaje" id="mensaje" required style={{ height: 150 }} />
                     </div>
-                    <Button className='mt-3' onClick={() => {
-                        toast({
-                            variant: "destructive",
-                            title: "Uh oh! Something went wrong.",
-                            description: "There was a problem with your request.",
-                        })
-                    }}>Enviar</Button>
+                    <Button className='mt-3' >Enviar</Button>
                 </form>
 
             </CardContent>
