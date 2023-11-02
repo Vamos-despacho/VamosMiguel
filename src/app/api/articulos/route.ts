@@ -21,9 +21,7 @@ export async function GET(req: NextRequest) {
 
         // Realiza una consulta a la base de datos para obtener los artículos de la página actual
         const totalArticles = await prisma.post.count({
-            where: {
-                published: true,
-            },
+            where: where,
         });
 
         const articles = await prisma.post.findMany({

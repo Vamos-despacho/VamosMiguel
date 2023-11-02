@@ -45,9 +45,9 @@ const Navbar = async () => {
                                 <DropdownMenuContent className='w-screen shadow-none border-none h-screen  p-0 mt-2 bg-neutral-50 bg-opacity-50 backdrop-blur-sm' >
                                     <div className='bg-white h-1/4 pt-3 ps-3 space-y-2 ' >
                                         <Link
-                                            href="/#trayectoria">
+                                            href="/#biografia">
                                             <DropdownMenuItem>
-                                                <span className="relative z-10">Trayectoria</span>
+                                                <span className="relative z-10">Biografía</span>
                                             </DropdownMenuItem>
                                         </Link>
                                         <Link
@@ -91,8 +91,8 @@ const Navbar = async () => {
                             <span className="relative z-10">Inicio</span>
                         </Link> */}
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
-                            href="/#trayectoria">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Trayectoria</span>
+                            href="/#biografia">
+                            <span className="relative z-10 text- lg:text-lg font-medium">Biografía</span>
                         </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#suplente">

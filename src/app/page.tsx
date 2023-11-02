@@ -1,11 +1,10 @@
-import { ModeToggle } from '@/components/ModeToggle'
-import Trayectoria from './trayectoria/page'
 import Suplente from './suplente/page'
 
 import Contactanos from './contactanos/page';
 import Propuestas from './propuestas/page';
 import Image from 'next/image';
 import Articulos from './articulos/page';
+import Biografia from './biografia/page';
 
 
 const Home = () => {
@@ -34,8 +33,8 @@ const Home = () => {
       </div>
 
 
-      <section id='trayectoria' className=' py-28 bg-zinc-100  '>
-        <Trayectoria />
+      <section id='biografia' className=' py-28 bg-zinc-100  '>
+        <Biografia />
       </section>
       <section id='suplente' className=' py-28 border-gray-50'>
         <Suplente />
