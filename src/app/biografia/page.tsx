@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Biografia = () => {
+const Trayectoria = () => {
     return (
         <div className="mx-auto w-full max-w-7xl lg:px-8 ">
             <div className="relative px-4 sm:px-8 lg:px-12">
@@ -23,12 +23,12 @@ const Biografia = () => {
                             </h1>
                             <h1 className="text-2xl font-semibold tracking-tight text-zinc-700 dark:text-zinc-100 sm:text-lg text-justify mt-1">
                                 Candidato a Diputado independiente del circuito 9-1</h1>
-                            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-600 text-justify antialiased">
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum nemo, dolore dolorum ratione quisquam sint nisi qui excepturi velit voluptates.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quis tempore ex fugiat maiores? Molestias quasi beatae, excepturi illum vero minima eius nemo accusantium animi!</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nobis quos vitae dolor a ipsa, qui ut dignissimos labore laudantium repudiandae dolorem esse molestiae obcaecati culpa, ea tempore sequi fuga eius deleniti neque facilis at beatae alias! Animi, soluta porro.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nobis quos vitae dolor a ipsa, qui ut dignissimos labore laudantium repudiandae dolorem esse molestiae obcaecati culpa, ea tempore sequi fuga eius deleniti neque facilis at beatae alias! Animi, soluta porro.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nobis quos vitae dolor a ipsa, qui ut dignissimos labore laudantium repudiandae dolorem esse molestiae obcaecati culpa, ea tempore sequi fuga eius deleniti neque facilis at beatae alias! Animi, soluta porro.</p>
+                            <div className="mt-6 space-y-3 text-base text-zinc-600 dark:text-zinc-600 text-justify antialiased">
+                                <p>Nacido el 1 de septiembre de 1998 en la Barriada San Vicente. Con 25 años de edad, su vida ha estado marcada por un fuerte compromiso con la institucionalidad y el servicio público </p>
+                                <p>Miguel Ángel se graduó de bachiller en Ciencias y Letras del prestigioso Colegio San Vicente de Paúl, donde demostró su dedicación y pasión por el aprendizaje. Posteriormente, continuó su formación académica y obtuvo el título de Licenciado en Derecho y Ciencias Políticas, consolidando así su interés en la legislación y la política.</p>
+                                <p>Su sed de conocimiento lo llevó a especializarse aún más en el ámbito político al obtener un diplomado en Asesor Político y Descentralización Pública. Además, su habilidad para comunicarse en dos idiomas lo convierte en un individuo bilingüe, lo que amplía su alcance y capacidad de colaboración en contextos internacionales.</p>
+                                <p>Miguel Ángel Campos Lima es conocido por sus destacadas habilidades para trabajar en equipo y liderar con naturalidad. Su capacidad para desempeñarse bajo presión, junto con una inquebrantable voluntad para alcanzar sus metas, lo distinguen como un individuo comprometido y resiliente.</p>
+                                <p>Su incursión en la política no es casualidad, sino una elección consciente motivada por su firme creencia en el poder de la juventud para aportar conocimientos y soluciones que impulsen el desarrollo de su país. Miguel Ángel aspira a ocupar un cargo como Diputado para aprovechar su influencia legislativa y proponer proyectos de ley que transformen la vida de las personas, mejorando su calidad de vida y promoviendo un futuro más prometedor para todos. Su determinación y pasión por el servicio público son ejemplos claros de su compromiso con el bienestar de la sociedad.</p>
                             </div>
                         </div>
                         <div className='lg:pl-20'>
@@ -65,7 +65,7 @@ const Biografia = () => {
                                 </li>
 
 
-                                <li className="mt-8 border-t border-zinc-50 pt-8 dark:border-zinc-700/40 flex">
+                                <li className="mt-8 border-t border-gray-300 pt-8 dark:border-zinc-700/40 flex">
                                     <a className="group flex text-sm font-medium text-zinc-800 
                                     transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
                                         href="mailto:miguel@gmail.com">
@@ -84,4 +84,4 @@ const Biografia = () => {
     )
 }
 
-export default Biografia
+export default Trayectoria

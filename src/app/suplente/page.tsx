@@ -23,7 +23,7 @@ const Suplente = () => {
                                 Sara Itzela Gómez Castillo </h1>
                             <h1 className="text-2xl font-semibold tracking-tight text-zinc-700 dark:text-zinc-100 sm:text-lg text-justify mt-1">
                                 Candidata a Diputada Suplente independiente del circuito 9-1</h1>
-                            <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-600 text-justify antialiased ">
+                            <div className="mt-6 space-y-3 text-base text-zinc-600 dark:text-zinc-600 text-justify antialiased ">
                                 <p>Nacida un 14 de septiembre de 1966 y actualmente reside en Canto del Llano. Su trayectoria académica incluye estudios en el Instituto Urracá, posteriormente obtuvo su título de Licenciada en Farmacia, con una especialización en Farmacia Clínica y un enfoque especial en Atención Farmacéutica de la Universidad de Panamá.</p>
                                 <p>Desde 1994 hasta la fecha, ha contribuido al Ministerio de Salud, ejerciendo con compromiso y dedicación sus funciones como farmacéutica. Además, ha continuado su formación con estudios en Docencia Superior y Alta Gerencia en la Universidad Latina.</p>
                                 <p>Con más de 14 años de experiencia como docente, ha desempeñado un papel crucial como coordinadora de la carrera de Licenciatura en Farmacia en la Universidad Latina. Es miembro activo del Colegio Nacional de Farmacéuticos y de la Asociación de Farmacéuticos al Servicio del Estado, desempeñando un rol en la junta directiva del capítulo de Provincias Centrales.</p>
