@@ -11,9 +11,8 @@ export const metadata: Metadata = {
     images: ["https://vamos-miguel-angel.vercel.app/icon1.png"],
   },
 }
-import { Providers } from './Providers'
+import { Providers } from '../Providers'
 import { Toaster } from '@/components/ui/toaster'
-import SesionObtions from '@/components/SesionObtions'
 
 
 const inter = Inter({
@@ -41,9 +40,7 @@ export default function RootLayout({
 
           <main className=' w-full h-full '>
             <Navbar />
-            <div className=' '>
 
-            </div>
             {children}
             <Toaster />
             <Footer />

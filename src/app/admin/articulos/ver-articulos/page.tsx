@@ -23,7 +23,7 @@ const VerArticulos = () => {
     async function fetchArticulos(page: number) {
         try {
 
-            const response = await axios.get(`/api/articulos?page=${page}`);
+            const response = await axios.get(`/api/articulos?page=${page}&from=admin`);
             const { articles, totalArticles }: IArticles = response.data;
             setArticles(articles);
             setTotalArticles(totalArticles);

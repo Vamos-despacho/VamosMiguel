@@ -59,8 +59,6 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
     const handleSlugChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
 
-
-
         const withoutAccents = newValue
             .toLowerCase()
             .normalize("NFD")

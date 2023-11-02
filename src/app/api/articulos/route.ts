@@ -11,15 +11,24 @@ export async function GET(req: NextRequest) {
         // Obtén el número de página de la solicitud
         const query = new URL(req.url).searchParams;
         const page = parseInt(query.get('page') || '1');
+        const from = query.get('from') || 'home';
 
         // Configura el tamaño de página y la cantidad de elementos a omitir
         const pageSize = 6;
         const skip = (page - 1) * pageSize;
 
+        const where = from === "admin" ? {} : { published: true }
+
         // Realiza una consulta a la base de datos para obtener los artículos de la página actual
-        const totalArticles = await prisma.post.count();
+        const totalArticles = await prisma.post.count({
+            where: {
+                published: true,
+            },
+        });
 
         const articles = await prisma.post.findMany({
+            where: where,
+
             include: {
                 category: true,
                 tags: true,

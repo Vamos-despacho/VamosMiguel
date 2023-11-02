@@ -54,10 +54,6 @@ const FormtArticle = ({ category, tags }: Props) => {
     const handleSlugChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
 
-        // Usar una expresión regular para permitir solo letras, números, guiones y sin espacios
-        // const validSlug = newValue.replace(/[^a-zA-Z0-9-]/g, '');
-        // const validSlug = newValue.replace(/\s+/g, '-');
-
         const withoutAccents = newValue
             .toLowerCase()
             .normalize("NFD")
