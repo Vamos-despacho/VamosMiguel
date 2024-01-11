@@ -9,7 +9,7 @@ interface Props {
 }
 const Article = ({ article }: Props) => {
     // const formattedDate = new Date(article.createdAt).toLocaleDateString();
-    const formattedDate = new Date(article.createdAt).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
+    const formattedDate = new Date(article.updatedAt).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
 
 
     return (

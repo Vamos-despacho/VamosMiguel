@@ -92,23 +92,27 @@ const Navbar = async () => {
                         </Link> */}
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#biografia">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Biografía</span>
+                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Biografía</span>
                         </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#suplente">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Suplente</span>
+                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Suplente</span>
                         </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#propuestas">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Propuestas</span>
+                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Propuestas</span>
                         </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2   transition-colors delay-150 hover:text-azulv hover:bg-slate-100  hover:delay-0"
                             href="/#articulos">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Artículos</span>
+                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Artículos</span>
                         </Link>
                         <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#contactanos">
-                            <span className="relative z-10 text- lg:text-lg font-medium">Contáctanos</span>
+                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Contáctanos</span>
+                        </Link>
+                        <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSfCFq1gpT_aZC0X-jzSx2TRfpbi9Zhl-8uZYv6sITcMSvf5EA/viewform">
+                            <span className="relative z-10 text-amarillov  lg:text-lg font-semibold">Voluntariado</span>
                         </Link>
 
 

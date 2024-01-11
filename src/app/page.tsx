@@ -5,6 +5,7 @@ import Propuestas from './propuestas/page';
 import Image from 'next/image';
 import Articulos from './articulos/page';
 import Biografia from './biografia/page';
+import { ImgCarousel } from '@/components/ImgCarousel';
 
 
 const Home = () => {
@@ -20,10 +21,11 @@ const Home = () => {
             </div>
             <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
               <div className=''></div>
-              <Image alt='Miguel Angel' loading='lazy' width="800" height="800" decoding='async' data-nimg="1"
+              {/* <Image alt='Miguel Angel' loading='lazy' width="800" height="800" decoding='async' data-nimg="1"
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 src='/logovm.png'
-                className=" aspect-square rounded-2xl bg-zinc-400 object-cover dark:bg-zinc-800" />
+                className=" aspect-square rounded-2xl bg-zinc-400 object-cover dark:bg-zinc-800" /> */}
+              <ImgCarousel />
             </div>
             <div className="relative mt-4 lg:col-span-7 lg:mt-0 xl:col-span-6">
             </div>

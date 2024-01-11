@@ -21,7 +21,6 @@ export async function GET(req: NextRequest) {
         const totalArticles = await prisma.post.count({
             where: where,
         });
-        console.log(totalArticles)
         const articles = await prisma.post.findMany({
             where: where,
 

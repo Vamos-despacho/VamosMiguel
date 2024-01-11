@@ -22,7 +22,7 @@ module.exports = {
     },
     extend: {
       borderColors: {
-        azulv: "#0E2B55",
+        azulv: "#164067",
         amarillov: "#EAAB32",
         grisv: "#7A7A7A",
       }

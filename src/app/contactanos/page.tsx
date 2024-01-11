@@ -40,7 +40,7 @@ const Contactanos = () => {
                                                     href="mailto:miguel@gmail.com"
                                                 >
                                                     <EnvelopeClosedIcon className="h-5 w-4 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
-                                                    <span className=" font-light ms-2  ">vamosmiguelangel@gmail.com</span>
+                                                    <span className=" font-light ms-2  ">vamosmiguelangel@hotmail.com</span>
                                                 </a>
                                             </div>
                                             <div className='flex space-x-2 items-end ms-1 '>
