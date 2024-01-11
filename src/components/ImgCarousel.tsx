@@ -2,10 +2,11 @@
 import Image from 'next/image'
 
 import * as React from "react"
+
+
+
 import Autoplay from "embla-carousel-autoplay"
 
-
-import { Card, CardContent } from "@/components/ui/card"
 import {
     Carousel,
     CarouselContent,
@@ -19,13 +20,13 @@ const imgs = [
 ]
 export function ImgCarousel() {
     const plugin = React.useRef(
-        Autoplay({ delay: 3000, stopOnInteraction: true })
+        Autoplay({ delay: 2000, stopOnInteraction: true })
     )
 
     return (
         <Carousel
             plugins={[plugin.current]}
-            className="relative w-full h-full"
+
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
         >
