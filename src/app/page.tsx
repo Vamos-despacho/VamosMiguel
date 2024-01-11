@@ -16,8 +16,12 @@ const Home = () => {
           <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
             <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
               <h1 className="text-4xl font-semibold tracking-tight text-gray-900">Con buena voluntad,Vamos a CUMPLIRTE!</h1>
-              <p className="mt-6 text-lg text-gray-600">
-                "No solo es nuestra tarea elegir al ejercer nuestro voto, sino también asegurarnos de contar con una representatividad auténtica. Mi compromiso es ser el portavoz de esa voluntad y trabajar contigo para construir un futuro en el que cada voto contado consolida la verdadera esencia de la democracia: el poder del pueblo para definir su propio rumbo."
+              <p className="mt-6 text-lg text-gray-600 ">
+                &quot;No solo es nuestra tarea elegir al ejercer nuestro voto,
+                sino también asegurarnos de contar con una representatividad auténtica.
+                Mi compromiso es ser el portavoz de esa voluntad y trabajar contigo para construir
+                un futuro en el que cada voto contado consolida la verdadera esencia de la democracia:
+                el poder del pueblo para definir su propio rumbo.&quot;
               </p>
             </div>
             <div className="relative mt-10 sm:mt-20 lg:col-span-5 lg:row-span-2 lg:mt-0 xl:col-span-6">
