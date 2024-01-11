@@ -74,6 +74,15 @@ const Navbar = async () => {
                                                 <span className="relative z-10">Contáctanos</span>
                                             </DropdownMenuItem>
                                         </Link>
+                                        <Link
+                                            href="/#contactanos">
+                                            <DropdownMenuItem>
+                                                <Link className="relative -mx-3  rounded-lg px-3   transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfCFq1gpT_aZC0X-jzSx2TRfpbi9Zhl-8uZYv6sITcMSvf5EA/viewform">
+                                                    <span className="relative z-10 text-amarillov  lg:text-lg font-semibold">Voluntariado</span>
+                                                </Link>
+                                            </DropdownMenuItem>
+                                        </Link>
 
                                     </div>
                                 </DropdownMenuContent>
