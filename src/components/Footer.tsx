@@ -23,7 +23,7 @@ export const Footer = () => {
 
 
                                     <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                                        © 2023 Vamos Panamá
+                                        © 2024 Vamos Panamá
                                     </p>
                                 </div>
                             </div>
