@@ -46,13 +46,13 @@ const Home = () => {
       <section id='suplente' className=' py-28 border-gray-50'>
         <Suplente />
       </section>
-      <section id='propuestas' className='bg-zinc-100 py-24 '>
+      {/* <section id='propuestas' className='bg-zinc-100 py-24 '>
         <Propuestas />
-      </section>
-      <section id='articulos' className=' py-24 '>
+      </section> */}
+      <section id='articulos' className='bg-zinc-100 py-24 '>
         <Articulos />
       </section>
-      <section id='contactanos' className='bg-zinc-100 py-24   border-t '>
+      <section id='contactanos' className=' py-24   border-t '>
         <Contactanos />
       </section>
     </>

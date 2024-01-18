@@ -53,7 +53,7 @@ const Propuestas = () => {
                 </div>
                 {/* <Deporte pag={currentPage} /> */}
 
-                {/* <PropuestasPDF pag={currentPage} /> */}
+                <PropuestasPDF pag={currentPage} />
 
             </div>
 

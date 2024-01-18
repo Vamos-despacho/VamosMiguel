@@ -43,7 +43,7 @@ const Navbar = async () => {
 
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent className='w-screen shadow-none border-none h-screen  p-0 mt-2 bg-neutral-50 bg-opacity-50 backdrop-blur-sm' >
-                                    <div className='bg-white h-1/4 pt-3 ps-3 space-y-2 ' >
+                                    <div className='bg-white  py-3 ps-3 space-y-2 ' >
                                         <Link
                                             href="/#biografia">
                                             <DropdownMenuItem>
@@ -56,12 +56,12 @@ const Navbar = async () => {
                                                 <span className="relative z-10">Suplente</span>
                                             </DropdownMenuItem>
                                         </Link>
-                                        <Link
+                                        {/* <Link
                                             href="/#propuestas">
                                             <DropdownMenuItem>
                                                 <span className="relative z-10">Propuestas</span>
                                             </DropdownMenuItem>
-                                        </Link>
+                                        </Link> */}
                                         <Link
                                             href="/#blog">
                                             <DropdownMenuItem>
@@ -75,14 +75,19 @@ const Navbar = async () => {
                                             </DropdownMenuItem>
                                         </Link>
                                         <Link
-                                            href="/#contactanos">
+                                            href="/transparencia">
                                             <DropdownMenuItem>
-                                                <Link className="relative -mx-3  rounded-lg px-3 pb-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
-                                                    href="https://docs.google.com/forms/d/e/1FAIpQLSfCFq1gpT_aZC0X-jzSx2TRfpbi9Zhl-8uZYv6sITcMSvf5EA/viewform">
-                                                    <span className="relative z-10 text-amarillov  lg:text-lg font-semibold">Voluntariado</span>
-                                                </Link>
+                                                <span className="relative z-10">Transparencia</span>
                                             </DropdownMenuItem>
                                         </Link>
+
+                                        <Link className="relative   rounded-lg  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                                            href="https://docs.google.com/forms/d/e/1FAIpQLSfCFq1gpT_aZC0X-jzSx2TRfpbi9Zhl-8uZYv6sITcMSvf5EA/viewform">
+                                            <DropdownMenuItem>
+                                                <span className="relative z-10 text-amarillov  lg:text-lg font-semibold">Voluntariado</span>
+                                            </DropdownMenuItem>
+                                        </Link>
+
 
                                     </div>
                                 </DropdownMenuContent>
@@ -99,27 +104,31 @@ const Navbar = async () => {
                             href="/">
                             <span className="relative z-10">Inicio</span>
                         </Link> */}
-                        <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                        <Link className="relative -mx-3 rounded-lg  lg:px-1 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#biografia">
-                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Biografía</span>
+                            <span className="relative z-10 text-azulv lg:text-lg lg:font-medium">Biografía</span>
                         </Link>
-                        <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                        <Link className="relative -mx-3 rounded-lg  lg:px-1 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#suplente">
-                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Suplente</span>
+                            <span className="relative z-10 text-azulv lg:text-lg lg:font-medium">Suplente</span>
                         </Link>
-                        <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                        {/* <Link className="relative -mx-3 rounded-lg  lg:px-1 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#propuestas">
-                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Propuestas</span>
-                        </Link>
-                        <Link className="relative -mx-3  rounded-lg px-3 py-2   transition-colors delay-150 hover:text-azulv hover:bg-slate-100  hover:delay-0"
+                            <span className="relative z-10 text-azulv lg:text-lg lg:font-medium">Propuestas</span>
+                        </Link> */}
+                        <Link className="relative -mx-3 rounded-lg  lg:px-1 py-2   transition-colors delay-150 hover:text-azulv hover:bg-slate-100  hover:delay-0"
                             href="/#articulos">
-                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Artículos</span>
+                            <span className="relative z-10 text-azulv lg:text-lg lg:font-medium">Artículos</span>
                         </Link>
-                        <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                        <Link className="relative -mx-3 rounded-lg  lg:px-1 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="/#contactanos">
-                            <span className="relative z-10 text-azulv lg:text-lg font-medium">Contáctanos</span>
+                            <span className="relative z-10 text-azulv lg:text-lg lg:font-medium">Contáctanos</span>
                         </Link>
-                        <Link className="relative -mx-3  rounded-lg px-3 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                        <Link className="relative -mx-3 rounded-lg  lg:px-1 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
+                            href="/transparencia">
+                            <span className="relative z-10 text-azulv lg:text-lg lg:font-medium">Transparencia</span>
+                        </Link>
+                        <Link className="relative -mx-3 rounded-lg  lg:px-1 py-2  transition-colors delay-150 hover:text-gray-900 hover:bg-slate-100  hover:delay-0"
                             href="https://docs.google.com/forms/d/e/1FAIpQLSfCFq1gpT_aZC0X-jzSx2TRfpbi9Zhl-8uZYv6sITcMSvf5EA/viewform">
                             <span className="relative z-10 text-amarillov  lg:text-lg font-semibold">Voluntariado</span>
                         </Link>
