@@ -1,7 +1,11 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
 import React from 'react'
-
+export const metadata: Metadata = {
+    title: "Suplente - Sara Gómez"
+}
 const Suplente = () => {
+
     return (
         <div className="mx-auto w-full max-w-7xl lg:px-8 ">
             <div className="relative px-4 sm:px-8 lg:px-12">

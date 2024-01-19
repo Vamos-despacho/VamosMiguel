@@ -1,6 +1,9 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
 import React from 'react'
-
+export const metadata: Metadata = {
+    title: "Biografía"
+}
 const Trayectoria = () => {
     return (
         <div className="mx-auto w-full max-w-7xl lg:px-8 ">

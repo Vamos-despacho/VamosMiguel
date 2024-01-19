@@ -6,6 +6,11 @@ import {
 
 } from "@/components/ui/card";
 import ContactForm from '@/components/ContactForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Contáctanos"
+}
 const Contactanos = () => {
     return (
         <>

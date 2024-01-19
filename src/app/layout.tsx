@@ -5,15 +5,23 @@ import Navbar from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Miguel Ángel!',
+  title: {
+    default: 'Vamos Miguel Angel',
+    template: '%s | Miguel Ángel'
+  },
   description: 'Candidato a Diputado independiente del circuito 9-1',
+
   openGraph: {
     images: ["https://vamos-miguel-angel.vercel.app/icon1.png"],
   },
+  twitter: {
+    card: "summary_large_image"
+  }
 }
 import { Providers } from './Providers'
 import { Toaster } from '@/components/ui/toaster'
 import SesionObtions from '@/components/SesionObtions'
+import Head from 'next/head'
 
 
 const inter = Inter({
@@ -30,7 +38,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-
+      <Head>
+        <meta name="google-site-verification" content="6PSbBKqUoAuPIQWB8vi85fN0U6LyCxSfMCAvo1_bPjw" />
+      </Head>
       <body className={inter.className}>
         {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
         {/* <div className='flex items-center border-b bg-background/95 backdrop-blur '>

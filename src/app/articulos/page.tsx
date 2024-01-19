@@ -3,7 +3,10 @@ import vamosApi from '@/app/api/vamosApi';
 import ViewArticle from '@/components/ViewArticle';
 import Pagination from '@/components/Pagination'; // Asegúrate de tener un componente de paginación
 import { Post } from '@/interface/article';
-
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+    title: "Artículos"
+}
 const itemsPerPage = 6; // Cantidad de elementos por página
 interface IArticles {
     articles: Post[];
