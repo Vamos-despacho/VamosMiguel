@@ -34,12 +34,11 @@ const Transparencias = () => {
                 className='flex flex-col justify-center items-center'
                 value="renuncia">
                 <TransparenciaInformacion
-                    images={['renuncia-1.png']}
+                    images={['renuncia-1.png', 'renuncia-2.jpeg']}
 
                     title='Renuncia al Fuero Electoral Penal'
-                    introText="Presento mi renuncia explícita y general al fuero electoral penal. Valoro la igualdad ante la ley y creo en la rendición de cuentas. Esta renuncia refleja mi compromiso con un proceso electoral justo y transparente."
+                    introText="Presentamos nuestras renuncias explícitas y generales al fuero electoral penal. Valoramos la igualdad ante la ley y creemos en la rendición de cuentas. Estas renuncias reflejan nuestro compromiso con un proceso electoral justo y transparente."
                 />
-
             </TabsContent>
         </Tabs>
 
