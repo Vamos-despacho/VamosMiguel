@@ -16,7 +16,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image"
-  }
+  },
+  verification: { google: "6PSbBKqUoAuPIQWB8vi85fN0U6LyCxSfMCAvo1_bPjw" }
 }
 import { Providers } from './Providers'
 import { Toaster } from '@/components/ui/toaster'
@@ -38,9 +39,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
+      {/* <Head>
         <meta name="google-site-verification" content="6PSbBKqUoAuPIQWB8vi85fN0U6LyCxSfMCAvo1_bPjw" />
-      </Head>
+      </Head> */}
       <body className={inter.className}>
         {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem> */}
         {/* <div className='flex items-center border-b bg-background/95 backdrop-blur '>
