@@ -24,8 +24,8 @@ const Trayectoria = () => {
                             <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl text-justify">
                                 Miguel Ángel Campos Lima
                             </h1>
-                            <h1 className="text-2xl font-semibold tracking-tight text-zinc-700 dark:text-zinc-100 sm:text-lg text-justify mt-1">
-                                Candidato a Diputado independiente del circuito 9-1</h1>
+                            <h2 className="text-2xl font-semibold tracking-tight text-zinc-700 dark:text-zinc-100 sm:text-lg text-justify mt-1">
+                                Candidato a Diputado independiente del circuito 9-1</h2>
                             <div className="mt-6 space-y-3 text-base text-zinc-600 dark:text-zinc-600 text-justify antialiased">
                                 <p>Nacido el 1 de septiembre de 1998 en la Barriada San Vicente. Con 25 años de edad, su vida ha estado marcada por un fuerte compromiso con la institucionalidad y el servicio público </p>
                                 <p>Miguel Ángel se graduó de bachiller en Ciencias y Letras del prestigioso Colegio San Vicente de Paúl, donde demostró su dedicación y pasión por el aprendizaje. Posteriormente, continuó su formación académica y obtuvo el título de Licenciado en Derecho y Ciencias Políticas, consolidando así su interés en la legislación y la política.</p>

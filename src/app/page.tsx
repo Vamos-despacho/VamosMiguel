@@ -15,7 +15,7 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
             <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
-              <h1 className="text-4xl font-semibold tracking-tight text-gray-900">Con buena voluntad,Vamos a CUMPLIRTE!</h1>
+              <p className="text-4xl font-semibold tracking-tight text-gray-900">Con buena voluntad,Vamos a CUMPLIRTE!</p>
               <p className="mt-6 text-lg text-gray-600 ">
                 &quot;No solo es nuestra tarea elegir al ejercer nuestro voto,
                 sino también asegurarnos de contar con una representatividad auténtica.

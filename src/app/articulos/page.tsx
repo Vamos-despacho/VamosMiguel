@@ -36,9 +36,9 @@ const Articulos = async () => {
     return (
         <div className=' mx-auto max-w-full  '>
             <div className='mx-2 sm:mx-auto sm:container'>
-                <h3 className="block mb-5 font-semibold font-display text-xl text-sneutral-950">
+                <h2 className="block mb-5 font-semibold font-display text-xl text-sneutral-950">
                     Artículos
-                </h3>
+                </h2>
                 {/* <h2 className='mb-10 text-4xl font-semibold'>Artículos</h2> */}
                 <ViewArticle articles={resp.articles} totalArticles={resp.totalArticles} />
 

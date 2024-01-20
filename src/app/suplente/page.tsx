@@ -23,10 +23,10 @@ const Suplente = () => {
                             </div>
                         </div>
                         <div className=' lg:row-span-2'>
-                            <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl text-justify">
-                                Sara Itzela Gómez Castillo </h1>
-                            <h1 className="text-2xl font-semibold tracking-tight text-zinc-700 dark:text-zinc-100 sm:text-lg text-justify mt-1">
-                                Candidata a Diputada Suplente independiente del circuito 9-1</h1>
+                            <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl text-justify">
+                                Sara Itzela Gómez Castillo </h2>
+                            <h3 className="text-2xl font-semibold tracking-tight text-zinc-700 dark:text-zinc-100 sm:text-lg text-justify mt-1">
+                                Candidata a Diputada Suplente independiente del circuito 9-1</h3>
                             <div className="mt-6 space-y-3 text-base text-zinc-600 dark:text-zinc-600 text-justify antialiased ">
                                 <p>Nacida un 14 de septiembre de 1966 y actualmente reside en Canto del Llano. Su trayectoria académica incluye estudios en el Instituto Urracá, posteriormente obtuvo su título de Licenciada en Farmacia, con una especialización en Farmacia Clínica y un enfoque especial en Atención Farmacéutica de la Universidad de Panamá.</p>
                                 <p>Desde 1994 hasta la fecha, ha contribuido al Ministerio de Salud, ejerciendo con compromiso y dedicación sus funciones como farmacéutica. Además, ha continuado su formación con estudios en Docencia Superior y Alta Gerencia en la Universidad Latina.</p>

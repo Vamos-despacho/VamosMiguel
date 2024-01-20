@@ -1,6 +1,9 @@
 import Transparencias from '@/components/transparencia/Transparencias'
+import { Metadata } from 'next'
 import React from 'react'
-
+export const metadata: Metadata = {
+    title: "Transparencia",
+}
 const Transparencia = () => {
     return (
 

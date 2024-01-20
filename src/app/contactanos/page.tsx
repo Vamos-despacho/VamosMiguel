@@ -15,9 +15,9 @@ const Contactanos = () => {
     return (
         <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h3 className="block font-semibold font-display text-xl text-neutral-950">
+                <h2 className="block font-semibold font-display text-xl text-neutral-950">
                     Contáctanos
-                </h3>
+                </h2>
                 <h3 className="mt-2 max-w-5xl text-xl font-medium tracking-tighter text-neutral-900 text-wrap:balance sm:text-5xl">
                     Si tienes algún comentario o consulta, dejanos un mensaje.
                 </h3>
