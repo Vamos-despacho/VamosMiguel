@@ -25,11 +25,11 @@ const ImageSlider = ({ images }: ImageSliderProps) => {
                 <img className="w-full h-full object-cover shadow-lg" src={`/images/compromiso/${images[currentPage]}`} alt={`Image ${currentPage + 1}`} />
             </div>
             <div className="flex items-center mt-6">
-                <button className="bg-gray-200 p-2 rounded-md" onClick={prevPage}>
+                <button arial-label='Atras' className="bg-gray-200 p-2 rounded-md" onClick={prevPage}>
                     <ArrowLeftIcon className="w-4 h-4" />
                 </button>
                 <span className="mx-4">{currentPage + 1} de {totalPages}</span>
-                <button className="bg-gray-200 p-2 rounded-md" onClick={nextPage}>
+                <button arial-label='Siguiente' className="bg-gray-200 p-2 rounded-md" onClick={nextPage}>
                     <ArrowRightIcon className="w-4 h-4" />
                 </button>
             </div>

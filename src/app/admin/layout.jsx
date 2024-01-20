@@ -23,7 +23,7 @@ const ArticlesLayout = ({ children }) => {
                     <h2 className='font-semibold ms-2' >Articulos</h2>
                     <div className=''>
                         <Link href="/admin/articulos/ver-articulos" className='w-full'>
-                            <Button variant="ghost" className=" w-full justify-start">
+                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
                                 Ver
                             </Button>
@@ -31,7 +31,7 @@ const ArticlesLayout = ({ children }) => {
                     </div>
                     <div className=''>
                         <Link href="/admin/articulos/crear-articulo">
-                            <Button variant="ghost" className=" w-full justify-start">
+                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
                                 <Pencil1Icon className='mr-2' />
                                 Crear
                             </Button>
@@ -41,7 +41,7 @@ const ArticlesLayout = ({ children }) => {
 
                     <div className=''>
                         <Link href="/admin/categorias/ver-categorias" className='w-full'>
-                            <Button variant="ghost" className=" w-full justify-start">
+                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
                                 Ver
                             </Button>
@@ -49,7 +49,7 @@ const ArticlesLayout = ({ children }) => {
                     </div>
                     <div className=''>
                         <Link href="/admin/categorias/crear-categoria">
-                            <Button variant="ghost" className=" w-full justify-start">
+                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
                                 <Pencil1Icon className='mr-2' />
                                 Crear
                             </Button>
@@ -62,7 +62,7 @@ const ArticlesLayout = ({ children }) => {
 
                     <div className=''>
                         <Link href="/admin/etiquetas/ver-etiquetas" className='w-full'>
-                            <Button variant="ghost" className=" w-full justify-start">
+                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
                                 Ver
                             </Button>
@@ -70,7 +70,7 @@ const ArticlesLayout = ({ children }) => {
                     </div>
                     <div className=''>
                         <Link href="/admin/etiquetas/crear-etiqueta">
-                            <Button variant="ghost" className=" w-full justify-start">
+                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
                                 <Pencil1Icon className='mr-2' />
                                 Crear
                             </Button>

@@ -2,24 +2,15 @@
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
 
-import { EyeOpenIcon, Pencil1Icon, ShadowIcon, TrashIcon } from '@radix-ui/react-icons';
+import { EyeOpenIcon, Pencil1Icon } from '@radix-ui/react-icons';
 import Link from 'next/link';
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
+
 import { Post } from "@/interface/article";
 import Image from "next/image";
 import BtnDeleteAlert from "./BtnDeleteAlert";

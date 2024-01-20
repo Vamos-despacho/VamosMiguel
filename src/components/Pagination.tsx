@@ -28,7 +28,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
     return (
         <div className="flex justify-center ">
             {currentPage > 1 && (
-                <Button
+                <Button arial-label='Anterior'
                     variant="ghost"
                     onClick={() => onPageChange(currentPage - 1)}
                     className="text-gray-500 text-base "
@@ -38,6 +38,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
             )}
             {pageNumbers.slice(startPage - 1, endPage).map((pageNumber) => (
                 <Button
+                    arial-label='Pagina'
                     variant="ghost"
                     key={pageNumber}
                     onClick={() => onPageChange(pageNumber)}
@@ -54,7 +55,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
                     <p className="text-lg px-0 my-0     text-gray-500 py-2 ">...</p>
                     <Button
                         variant="ghost"
-
+                        arial-label='Ultima pagina'
                         onClick={() => onPageChange(totalPages)}
                         className="text-lg   text-red-500 py-2 px-4 mr-2"
                     >
@@ -64,6 +65,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
             }
             {currentPage < totalPages && (
                 <Button
+                    arial-label='Siguiente'
                     variant="ghost"
                     onClick={() => onPageChange(currentPage + 1)}
                     className="text-gray-500  text-base  "

@@ -1,14 +1,12 @@
 "use client"
 import React, { lazy } from 'react'
-import { Button } from './ui/button'
-// import "@/app/articulo/articulo.css"
+
 import parse from 'html-react-parser'
 import Image from 'next/image'
 
-import { ArrowLeftIcon } from 'lucide-react'
+
 import BtnAtras from './BtnAtras'
-import { Metadata } from 'next'
-import Head from 'next/head'
+
 
 
 interface Props {

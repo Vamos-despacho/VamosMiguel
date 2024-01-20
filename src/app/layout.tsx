@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
+
   title: {
     default: 'Miguel Angel Campos Lima - Candidato a Diputado del circuito 9-1',
     template: '%s | Miguel Ángel - Candidato a Diputado del circuito 9-1'

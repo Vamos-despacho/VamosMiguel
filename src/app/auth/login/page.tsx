@@ -37,7 +37,7 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit} className="mx-auto lg:w-3/12 shadow-xl p-6 transition hover:bg-neutral-50 ">
                 <h1>Login</h1>
                 <div className="h-4 ">
-                    {error && <p className="bg-red-500 text-xs text-white ">{error}</p>}
+                    {error && <p className="bg-red-500 text-sm text-white ">{error}</p>}
                 </div>
                 <div className="grid gap-2">
 
@@ -75,7 +75,7 @@ const LoginPage = () => {
                                 className="bg-zinc-200 px-4 py-2 block mb-2 w-full"
                             />
 
-                            <button type="button" className="absolute cursor-pointer right-3 top-2"
+                            <button arial-label='Ver' type="button" className="absolute cursor-pointer right-3 top-2"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
                                 {
@@ -85,7 +85,7 @@ const LoginPage = () => {
                             </button>
                         </div>
                     </div>
-                    <Button disabled={isLoading} className="mt-4">
+                    <Button arial-label='Inicir sesión' disabled={isLoading} className="mt-4">
                         {isLoading && (
                             <IconJarLogoIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}

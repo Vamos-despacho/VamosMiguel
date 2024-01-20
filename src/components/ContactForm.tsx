@@ -72,7 +72,7 @@ const ContactForm = () => {
                         <Label htmlFor="mensaje">Mensaje</Label>
                         <Textarea name="mensaje" id="mensaje" required style={{ height: 150 }} />
                     </div>
-                    <Button className='mt-3' >Enviar</Button>
+                    <Button arial-label='Enviar' className='mt-3' >Enviar</Button>
                 </form>
 
             </CardContent>

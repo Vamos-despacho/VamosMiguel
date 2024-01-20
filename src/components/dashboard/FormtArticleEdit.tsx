@@ -229,7 +229,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
                     </div>
 
                     <div className="sm:flex space-y-2 flex-col  sm:flex-row pb-8  sm:space-x-8 justify-center items-center m-auto">
-                        <Button type="button" variant="outline" onClick={handleClick}>
+                        <Button arial-label='Agregar Imagen' type="button" variant="outline" onClick={handleClick}>
                             Agregar Imágenes
                         </Button>
                         <input
@@ -288,7 +288,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
                 </div>
                 <div className="flex gap-6 mt-20 justify-center items-center">
 
-                    <Button disabled={isLoading} className="">
+                    <Button arial-label='Guardar' disabled={isLoading} className="">
                         {isLoading && (
                             <IconJarLogoIcon className="mr-2 h-4 w-4 animate-spin" />
                         )}

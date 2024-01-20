@@ -41,6 +41,7 @@ const Propuestas = () => {
 
 
                             <Button
+                                arial-label='Ver'
                                 key={index}
                                 className={`rounded-md border border-slate-200 hover:border-slate-300 hover:bg-slate-200 ${currentPage === propuesta.pag ? 'bg-white text-black' : 'bg-slate-300 text-gray-800'}`}
                                 onClick={() => handlePageChange(index + 1)}

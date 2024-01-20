@@ -50,8 +50,8 @@ const Article = ({ article }: Props) => {
                 <div className='space-y-1'>
                     <p className='font-semibold text-sm'>Miguel Ángel Campos</p>
                     <div className='flex space-x-2  text-neutral-950 items-center'>
-                        <p className='font-semibold text-xs'>{article.category.name}</p>
-                        <p className='text-neutral-400 text-xs'>{formattedDate}</p>
+                        <p className='font-semibold text-sm'>{article.category.name}</p>
+                        <p className='text-neutral-400 text-sm'>{formattedDate}</p>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@ const Article = ({ article }: Props) => {
             </div>
             <div className='flex justify-end '>
                 <Link href={`/articulo/${article.slug}`}>
-                    <Button variant="link" className='  text-base'>Leer mas</Button>
+                    <Button arial-label='Leer más' variant="link" className='  text-base'>Leer más</Button>
                 </Link>
             </div>
         </article>

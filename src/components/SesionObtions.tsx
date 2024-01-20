@@ -36,9 +36,11 @@ const SesionObtions = () => {
                                     </DropdownMenuItem>
                                 </Link>
 
-                                <button onClick={() => signOut({
-                                    callbackUrl: "/"
-                                })}>
+                                <button
+                                    arial-label='Cerrar sesión'
+                                    onClick={() => signOut({
+                                        callbackUrl: "/"
+                                    })}>
                                     <DropdownMenuItem>
                                         <span className="relative z-10">Cerrar sesión</span>
                                     </DropdownMenuItem>

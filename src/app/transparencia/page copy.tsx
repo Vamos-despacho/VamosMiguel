@@ -46,10 +46,10 @@ const ImageViewer: FC<ImageViewerProps> = ({ images, title, introText }) => {
                 <p>
                     Página {pageNumber} de {totalPages}
                 </p>
-                <button onClick={previousPage} disabled={pageNumber <= 1}>
+                <button arial-label='Anterior' onClick={previousPage} disabled={pageNumber <= 1}>
                     Anterior
                 </button>
-                <button onClick={nextPage} disabled={pageNumber >= totalPages}>
+                <button arial-label='siguiente' onClick={nextPage} disabled={pageNumber >= totalPages}>
                     Siguiente
                 </button>
             </div>

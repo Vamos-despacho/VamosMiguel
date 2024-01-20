@@ -10,6 +10,7 @@ const BtnAtras = () => {
 
     return (
         <Button
+            arial-label='Atras'
             onClick={() => router.back()}
             variant="ghost"
             className='p-0 m-0'>

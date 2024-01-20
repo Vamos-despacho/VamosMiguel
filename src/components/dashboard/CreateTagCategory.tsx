@@ -49,7 +49,7 @@ const CreateTagCategory = ({ link }: Props) => {
                     required
                     className="bg-zinc-200 px-4 py-2 block mb-2 w-auto"
                 />
-                <Button>Crear</Button>
+                <Button arial-label='Crear'>Crear</Button>
             </form>
         </div>
     )
