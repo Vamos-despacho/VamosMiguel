@@ -33,7 +33,7 @@ const LoginPage = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-[calc(100vh-23rem)] w-screen">
+        <div className="flex justify-center items-center h-[calc(100vh-18rem)] w-screen">
             <form onSubmit={handleSubmit} className="mx-auto lg:w-3/12 shadow-xl p-6 transition hover:bg-neutral-50 ">
                 <h1>Login</h1>
                 <div className="h-4 ">
