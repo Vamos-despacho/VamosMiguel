@@ -29,6 +29,10 @@ export async function POST(request: Request) {
             message: "Error"
         }, { status: 400 });
 
+        return NextResponse.json({
+            message: "Register disabled"
+        }, { status: 400 });
+
         const hashedPassword = await bcrypt.hash(password, 12)
         data.password = hashedPassword
         const user = await prisma.user.create({ data })

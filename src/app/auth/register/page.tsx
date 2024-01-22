@@ -11,7 +11,7 @@ import { FormEvent, useState } from 'react';
 import vamosApi from "@/app/api/vamosApi";
 
 const RegisterPage = () => {
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const [error, setError] = useState()
     const router = useRouter()
 
