@@ -63,7 +63,7 @@ const Navbar = async () => {
                                             </DropdownMenuItem>
                                         </Link> */}
                                         <Link
-                                            href="/#blog">
+                                            href="/#articulos">
                                             <DropdownMenuItem>
                                                 <span className="relative z-10">Artículos</span>
                                             </DropdownMenuItem>
