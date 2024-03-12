@@ -10,14 +10,23 @@ import BtnAtras from './BtnAtras'
 
 
 interface Props {
-    article: any
+    article: {
+        id: number;
+        title: string;
+        content: string;
+        imageUrl: string;
+        slug: string;
+        category: string;
+        createdAt: string;
+        published: boolean;
+    }
 }
 
 
 const ShowArticle = ({ article }: Props) => {
 
     const fecha = (fecha: string) => {
-        const formattedDate = new Date(article.updatedAt).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
+        const formattedDate = new Date(article.createdAt).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
 
         // const formattedDate = new Date(fecha).toLocaleDateString();
         return formattedDate;

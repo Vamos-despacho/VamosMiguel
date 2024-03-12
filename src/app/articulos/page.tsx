@@ -4,6 +4,8 @@ import ViewArticle from '@/components/ViewArticle';
 import Pagination from '@/components/Pagination'; // Asegúrate de tener un componente de paginación
 import { Post } from '@/interface/article';
 import { Metadata } from 'next';
+import { articlesData } from '@/app/data/article'
+
 export const metadata: Metadata = {
     title: "Artículos"
 }
@@ -24,14 +26,15 @@ async function fetchArticulos(page: number) {
         console.error('Error al obtener los artículos', error);
     }
 }
-const Articulos = async () => {
-    const resp = await fetchArticulos(0);
-    const handlePageChange = (newPage: number) => {
-        fetchArticulos(newPage);
 
-    };
-    if (!resp?.articles) return <div>No hay artículos</div>;
-    if (resp.articles.length === 0) return <div className=' flex h-[600px] justify-center items-center'>Cargando Artículos...</div>;
+const Articulos = async () => {
+    // const resp = await fetchArticulos(0);
+    // const handlePageChange = (newPage: number) => {
+    //     fetchArticulos(newPage);
+    // };
+
+    // if (!resp?.articles) return <div>No hay artículos</div>;
+    // if (resp.articles.length === 0) return <div className=' flex h-[600px] justify-center items-center'>Cargando Artículos...</div>;
 
     return (
         <div className=' mx-auto max-w-full  '>
@@ -40,7 +43,8 @@ const Articulos = async () => {
                     Artículos
                 </h2>
                 {/* <h2 className='mb-10 text-4xl font-semibold'>Artículos</h2> */}
-                <ViewArticle articles={resp.articles} totalArticles={resp.totalArticles} />
+                <ViewArticle articles={articlesData} totalArticles={articlesData.length} />
+                {/* <ViewArticle articles={resp.articles} totalArticles={resp.totalArticles} /> */}
 
             </div>
         </div>

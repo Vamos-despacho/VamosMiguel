@@ -1,8 +1,9 @@
-import vamosApi from '@/app/api/vamosApi';
+
 import ShowArticle from '@/components/ShowArticle';
-import { Post } from '@/interface/article';
+
 import { prisma } from '@/libs/prisma';
 import { Metadata, ResolvingMetadata } from 'next';
+import { articlesData } from '@/app/data/article'
 
 type Props = {
     params: { slug: string }
@@ -18,15 +19,17 @@ export async function generateMetadata(
 
     // fetch data
     // const product = await fetch(`https://.../${id}`).then((res) => res.json())
-    const product = await prisma.post.findUnique({
-        where: {
-            slug: id
-        },
-        include: {
-            category: true,
-            tags: true,
-        },
-    })
+    // const product = await prisma.post.findUnique({
+    //     where: {
+    //         slug: id
+    //     },
+    //     include: {
+    //         category: true,
+    //         tags: true,
+    //     },
+    // })
+    const product = articlesData.find((article) => article.slug === params.slug)
+
     const image = product?.imageUrl || 'https://vamos-miguel-angel.vercel.app/icon2.png'
 
 
@@ -69,8 +72,8 @@ async function fetchArticulos(id: string) {
 
 
 const Articulo = async ({ params }: { params: { slug: string } }) => {
-    const article = await fetchArticulos(params.slug);
-
+    // const article = await fetchArticulos(params.slug);
+    const article = articlesData.find((article) => article.slug === params.slug)
     if (!article) return <div>loading...</div>
     return (
         <div className='  flex-auto '>

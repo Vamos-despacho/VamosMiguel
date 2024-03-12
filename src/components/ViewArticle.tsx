@@ -11,27 +11,36 @@ interface Props {
 const itemsPerPage = 6; // Cantidad de elementos por página
 
 interface IArticles {
-    articles: Post[];
+    articles: {
+        id: number;
+        title: string;
+        content: string;
+        imageUrl: string;
+        slug: string;
+        category: string;
+        createdAt: string;
+        published: boolean;
+    }[]
     totalArticles: number;
 }
 const ViewArticle = ({ articles, totalArticles }: IArticles) => {
-    const [articlesa, setArticlesa] = useState<Post[]>(articles);
+    const [articlesa, setArticlesa] = useState(articles);
     const [totalArticlesa, setTotalArticlesa] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
 
     const handlePageChange = (newPage: number) => {
-        console.log(newPage)
-        setCurrentPage(newPage);
+        // console.log(newPage)
+        // setCurrentPage(newPage);
     };
 
-    const getArticle = async (page: number) => {
-        const response = await vamosApi.get(`/articulos?page=${page}`);
-        setArticlesa(response.data.articles);
-    }
+    // const getArticle = async (page: number) => {
+    //     const response = await vamosApi.get(`/articulos?page=${page}`);
+    //     setArticlesa(response.data.articles);
+    // }
 
-    useEffect(() => {
-        getArticle(currentPage);
-    }, [currentPage])
+    // useEffect(() => {
+    //     getArticle(currentPage);
+    // }, [currentPage])
 
     if (!articles) return (
         <div className="flex justify-center items-center h-screen">
@@ -40,7 +49,6 @@ const ViewArticle = ({ articles, totalArticles }: IArticles) => {
     )
     return (
         <div>
-
             <div
                 className="grid md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-3  grid-cols-2
             lg:grid-flo-row  gap-1 sm:gap-3  m-auto   ">
@@ -52,8 +60,10 @@ const ViewArticle = ({ articles, totalArticles }: IArticles) => {
                         //     key={index}
                         //     article={article}
                         // />
+
+
                         <Article
-                            key={index}
+                            key={article.id}
                             article={article}
                         />
 

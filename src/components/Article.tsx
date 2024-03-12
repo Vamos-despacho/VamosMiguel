@@ -1,15 +1,23 @@
-import React from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Post } from '@/interface/article'
+
+
 import Link from 'next/link'
 import { Button } from './ui/button'
 import Image from 'next/image'
 interface Props {
-    article: Post
+    article: {
+        id: number;
+        title: string;
+        content: string;
+        imageUrl: string;
+        slug: string;
+        category: string;
+        createdAt: string;
+        published: boolean;
+    }
 }
 const Article = ({ article }: Props) => {
     // const formattedDate = new Date(article.createdAt).toLocaleDateString();
-    const formattedDate = new Date(article.updatedAt).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
+    const formattedDate = new Date(article.createdAt).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
 
 
     return (
@@ -49,7 +57,7 @@ const Article = ({ article }: Props) => {
                 <div className='sm:space-y-1'>
                     <p className='  font-semibold text-[10px] sm:text-sm'>Miguel Ángel Campos</p>
                     <div className='flex flex-col sm:flex-row sm:space-x-2  text-neutral-950  items-center'>
-                        <p className=' font-medium text-[10px] text-red-400 sm:text-sm'>{article.category.name}</p>
+                        <p className=' font-medium text-[10px] text-red-400 sm:text-sm'>{article.category}</p>
                         <p className='text-neutral-400 text-[9px] sm:text-xs'>{formattedDate}</p>
                     </div>
                 </div>

@@ -60,7 +60,7 @@ const handler = NextAuth({
     callbacks: {
         jwt({ account, token, user, profile, session }) {
 
-            if (user) token.user = user as IUser
+            if (user) token.user = user
             return token
         },
         session({ session, token }) {
