@@ -116,22 +116,11 @@ const Calendario: React.FC = () => {
                     {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map((dayName, index) => (
                         <div key={index} className="text-center font-bold">{dayName}</div>
                     ))}
-                    {days.map((day, index) => (
-                        <Day
-                            key={index}
-                            day={day}
-                            currentMonth={currentDate}
-                            events={getEventsForDay(day)}
-                            onClick={handleDayClick}
-                            isSelected={isSelected(day)}
-                        />
-                    ))}
+
                 </div>
             </div>
             <div className='mt-2 lg:mt-0 p-4 border rounded-lg shadow-sm lg:w-[45%]'>
-                {selectedDayEvents.length > 0 && (
-                    <EventList events={selectedDayEvents} />
-                )}
+
             </div>
         </div>
     );
