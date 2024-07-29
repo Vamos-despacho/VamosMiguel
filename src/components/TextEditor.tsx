@@ -2,8 +2,7 @@
 "use client"
 import { on } from 'events';
 import { useState } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'; // Estilos de Quill
+
 
 interface Props {
     value: string;
@@ -33,12 +32,7 @@ const TextEditor = ({ value, onChange }: Props) => {
     };
     return (
         <div className=''>
-            <ReactQuill
-                formats={formats}
-                value={value}
-                modules={modules}
-                onChange={onChange}
-                className='h-80' />
+
         </div>
     );
 };

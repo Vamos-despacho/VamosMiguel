@@ -18,7 +18,7 @@ import { ImageIcon } from "lucide-react";
 import TextEditor from "../TextEditor";
 import vamosApi from "@/app/api/vamosApi";
 import { useSession, signOut } from "next-auth/react"
-import { MyTextEditor } from "../MyTextEdition";
+
 import axios, { AxiosError } from "axios";
 import DOMPurify from 'dompurify';
 
