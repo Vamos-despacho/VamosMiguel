@@ -1,0 +1,15 @@
+export enum Category {
+    Educacion = 'Educación',
+    Salud = 'Salud',
+    ServiciosBasicos = 'Servicios Básicos',
+    Desempleo = 'Desempleo',
+    Justicia = 'Justicia',
+    Anticorrupcion = 'Anticorrupción',
+    Institucionalidad = 'Institucionalidad',
+    Seguridad = 'Seguridad',
+    Economia = 'Economía',
+    MedioAmbiente = 'Medio Ambiente',
+    Cultura = 'Cultura',
+    Deporte = 'Deporte',
+    Eleccion2024 = 'Elección 2024',
+}

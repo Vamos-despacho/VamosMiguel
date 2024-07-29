@@ -11,6 +11,9 @@ module.exports = {
     fontFamily: {
       'display': ['Inter', 'sans-serif'],
       'body': ['Inter', 'sans-serif'],
+      mona: ['"Mona Sans"', 'sans-serif'],
+
+
 
     },
     container: {

@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Roboto, DM_Sans } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+
+
 
 export const metadata: Metadata = {
 
@@ -19,9 +21,17 @@ export const metadata: Metadata = {
 }
 import { Providers } from './Providers'
 import { Toaster } from '@/components/ui/toaster'
-
+const roboto_init = Roboto({
+  subsets: ["latin-ext"],
+  weight: ["300", "400", "500", "700"],
+})
 const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
+  style: ["normal"],
+  subsets: ["latin-ext"],
+})
+const dm_sans = DM_Sans({
+  weight: ["400", "500", "700"],
   style: ["normal"],
   subsets: ["latin-ext"],
 })
@@ -35,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-      <body className={inter.className}>
+      <body className={dm_sans.className}>
 
         <Providers>
 

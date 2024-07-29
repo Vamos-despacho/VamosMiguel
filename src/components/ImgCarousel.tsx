@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/carousel"
 
 const imgs = [
-    'img2', 'img3', 'img1'
+    'img', 'img2', 'img3', 'img1'
 ]
 export function ImgCarousel() {
     const plugin = React.useRef(
@@ -25,7 +25,7 @@ export function ImgCarousel() {
     return (
         <Carousel
             plugins={[plugin.current]}
-            className="relative w-full h-full"
+            className="relative  w-[500px]"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
         >
@@ -34,16 +34,16 @@ export function ImgCarousel() {
                 {imgs.map((img, index) => (
                     // {Array.from({ length: 5 }).map((_, index) => (
                     <CarouselItem key={index}
-                        className="relative w-full h-full"
+                        className="relative  "
                     >
 
-                        <div>
-                            <Image alt='Miguel Angel' loading='lazy' width="800" height="800" decoding='async' data-nimg="1"
-                                sizes="(min-width: 1024px) 32rem, 20rem"
-                                src={`/images/${img}.png`}
-                                // src='/images/img2.png'
-                                className=" aspect-square rounded-2xl bg-zinc-400 object-cover dark:bg-zinc-800" />
-                        </div>
+
+                        <Image alt='Miguel Angel' loading='lazy' width="500" height="500" decoding='async' data-nimg="1"
+                            // sizes="(min-width: 1024px) 32rem, 20rem"
+                            src={`/images/${img}.png`}
+                            // src='/images/img2.png'
+                            className=" aspect-square rounded-2xl bg-zinc-400 object-cover dark:bg-zinc-800" />
+
 
 
                     </CarouselItem>

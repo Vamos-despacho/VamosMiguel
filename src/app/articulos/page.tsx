@@ -37,11 +37,16 @@ const Articulos = async () => {
     // if (resp.articles.length === 0) return <div className=' flex h-[600px] justify-center items-center'>Cargando Artículos...</div>;
 
     return (
-        <div className=' mx-auto max-w-full  '>
+        <div className=' mx-auto max-w-full sm:py-20 py-6 '>
             <div className='mx-2 sm:mx-auto sm:container'>
-                <h2 className="block mb-5 font-semibold font-display text-xl text-sneutral-950">
+
+
+                <h2 className='block px-3 mb-10  font-display tracking-tight [text-wrap:balance] text-3xl font-medium sm:text-4xl text-azulv'>
+
                     Artículos
                 </h2>
+
+
                 {/* <h2 className='mb-10 text-4xl font-semibold'>Artículos</h2> */}
                 <ViewArticle articles={articlesData} totalArticles={articlesData.length} />
                 {/* <ViewArticle articles={resp.articles} totalArticles={resp.totalArticles} /> */}

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const Contactanos = () => {
     return (
         <>
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 sm:py-20 p-6 lg:px-8">
                 <h2 className="block font-semibold font-display text-xl text-neutral-950">
                     Contáctanos
                 </h2>

@@ -51,16 +51,10 @@ const ViewArticle = ({ articles, totalArticles }: IArticles) => {
         <div>
             <div
                 className="grid md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-3  grid-cols-2
-            lg:grid-flo-row  gap-1 sm:gap-3  m-auto   ">
+            lg:grid-flo-row  gap-1 sm:gap-3 sm:gap-y-7 m-auto   ">
 
                 {
                     articlesa.map((article, index) => (
-
-                        // <CardArticle
-                        //     key={index}
-                        //     article={article}
-                        // />
-
 
                         <Article
                             key={article.id}

@@ -76,6 +76,14 @@ const ArticlesLayout = ({ children }) => {
                             </Button>
                         </Link>
                     </div>
+                    <div className=''>
+                        <Link href="/admin/fotos">
+                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
+                                <Pencil1Icon className='mr-2' />
+                                Subir Fotos
+                            </Button>
+                        </Link>
+                    </div>
 
                 </div>
                 <div className='dropdownBtn'>
