@@ -1,5 +1,4 @@
 import { use, useEffect, useState } from 'react';
-import { pdfjs, Document, Page } from 'react-pdf';
 
 
 const options = {
@@ -26,12 +25,6 @@ const PropuestasPDF = ({ pag }: { pag: number }) => {
     return (
 
         <div className="Example__container__document " style={{ width: "100%" }}>
-            <Document file="/Reforma.pdf" onLoadSuccess={onDocumentLoadSuccess} >
-                <Page pageNumber={pageNumber}
-                    className="bg-red-400 "
-
-                />
-            </Document>
 
 
         </div>

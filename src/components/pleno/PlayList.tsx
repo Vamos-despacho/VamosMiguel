@@ -18,7 +18,7 @@ export const PlayListYoutube = ({ showId, setShowId, onPlay, onPause }: { showId
         const newCurrentVideo = videosYotube.find(video => video.id === showId);
         setCurrentVideo(newCurrentVideo || videoList[0]);
         setCurrentIndex(videoList.findIndex(video => video.id === newCurrentVideo?.id));
-    }, [selectList, showId]);
+    }, [selectList, showId, videoList]);
 
     const handleClick = (id: string, index: number) => {
         setShowId(id);

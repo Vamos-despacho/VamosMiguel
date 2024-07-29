@@ -1,6 +1,7 @@
 import { memo, useEffect, useRef } from 'react';
 
-export const YoutubeEventsIframe = memo(({ id }: { id?: string }) => {
+// Define el componente funcional
+const YoutubeEventsIframeComponent = ({ id }: { id?: string }) => {
     const videoRef = useRef<HTMLIFrameElement>(null);
 
     useEffect(() => {
@@ -26,4 +27,8 @@ export const YoutubeEventsIframe = memo(({ id }: { id?: string }) => {
             </div>
         </div>
     );
-});
+};
+
+// Envuelve el componente en `memo` y asigna `displayName`
+export const YoutubeEventsIframe = memo(YoutubeEventsIframeComponent);
+YoutubeEventsIframe.displayName = 'YoutubeEventsIframe';

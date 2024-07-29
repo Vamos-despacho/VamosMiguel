@@ -15,21 +15,21 @@ const VideosTop = forwardRef<VideosTopHandles>((props, ref: ForwardedRef<VideosT
     const [showId, setShowId] = useState<string>(videosYotube[0].id);
     const [showDate, setShowDate] = useState<Date>(videosYotube[0].date);
     const playerRef = useRef<any>(null);
-    const [playStop, setPlayStop] = useState('pausa');
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const onReady = (event: any) => {
         playerRef.current = event.target;
     };
 
     const handlePlay = () => {
-        setPlayStop('play');
+        setIsPlaying(true);
         if (playerRef.current) {
             playerRef.current.playVideo();
         }
     };
 
     const handlePause = () => {
-        setPlayStop('pausa');
+        setIsPlaying(false);
         if (playerRef.current) {
             playerRef.current.pauseVideo();
         }
@@ -67,10 +67,10 @@ const VideosTop = forwardRef<VideosTopHandles>((props, ref: ForwardedRef<VideosT
                     <Button onClick={handlePrevious} variant="ghost" size="icon" className="w-12 h-12 hover:bg-muted">
                         <RewindIcon className="w-6 h-6 text-foreground" />
                     </Button>
-                    <Button onClick={handlePlay} variant="ghost" size="icon" className={`${playStop === 'play' ? 'bg-muted' : ''} w-12 h-12 hover:bg-muted`}>
+                    <Button onClick={handlePlay} variant="ghost" size="icon" className={`${isPlaying ? 'bg-muted' : ''} w-12 h-12 hover:bg-muted`}>
                         <PlayIcon className="w-6 h-6 text-foreground" />
                     </Button>
-                    <Button onClick={handlePause} variant="ghost" size="icon" className={`${playStop === 'pausa' ? 'bg-muted' : ''} w-12 h-12 hover:bg-muted`}>
+                    <Button onClick={handlePause} variant="ghost" size="icon" className={`${!isPlaying ? 'bg-muted' : ''} w-12 h-12 hover:bg-muted`}>
                         <PauseIcon className="w-6 h-6 text-foreground" />
                     </Button>
                     <Button onClick={handleNext} variant="ghost" size="icon" className="w-12 h-12 hover:bg-muted">
@@ -81,5 +81,8 @@ const VideosTop = forwardRef<VideosTopHandles>((props, ref: ForwardedRef<VideosT
         </div>
     );
 });
+
+// Asigna un displayName al componente
+VideosTop.displayName = 'VideosTop';
 
 export default VideosTop;

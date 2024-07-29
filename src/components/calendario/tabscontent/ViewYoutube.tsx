@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import React, { useCallback, useEffect, useState } from 'react';
 import { YoutubeEventsIframe } from '../YoutubeEvents';
 import { Providers } from '../../../app/Providers';
+import { se } from 'date-fns/locale';
 
 export const ViewYoutube = ({ idsYoutube }: { idsYoutube?: string[] }) => {
     const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -18,7 +19,7 @@ export const ViewYoutube = ({ idsYoutube }: { idsYoutube?: string[] }) => {
         if (idsYoutube && !idsYoutube.includes(selectedVideo ?? '')) {
             setSelectedVideo(idsYoutube[0] ?? null);
         }
-    }, [idsYoutube]);
+    }, [idsYoutube, selectedVideo]);
 
     const handleVideoSelect = useCallback((id: string) => {
         setSelectedVideo(id);
