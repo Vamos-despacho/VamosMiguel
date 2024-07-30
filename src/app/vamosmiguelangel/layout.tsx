@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Miguel Ángel!',
-  description: 'Candidato a Diputado independiente del circuito 9-1',
+  description: 'Diputado independiente del circuito 9-1',
   openGraph: {
     images: ["https://vamos-miguel-angel.vercel.app/icon1.png"],
   },
