@@ -9,10 +9,10 @@ import { Footer } from '@/components/Footer'
 export const metadata: Metadata = {
 
   title: {
-    default: 'Miguel Angel Campos Lima - Candidato a Diputado del circuito 9-1',
-    template: '%s | Miguel Ángel - Candidato a Diputado del circuito 9-1'
+    default: 'Miguel Angel Campos Lima - Diputado del circuito 9-1',
+    template: '%s | Miguel Ángel - Diputado del circuito 9-1'
   },
-  description: 'Candidato a Diputado independiente del circuito 9-1 Santiago de Veraguas.',
+  description: 'Diputado independiente del circuito 9-1 Santiago de Veraguas.',
 
   openGraph: {
     images: ["https://www.vamosmiguelangel.com/icon1.png"],
