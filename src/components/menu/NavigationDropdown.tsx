@@ -109,9 +109,9 @@ export const NavigationDropdown = () => {
                                             <Link href="/actividades">
                                                 <DropdownMenuItem>Actividades Legislativas</DropdownMenuItem>
                                             </Link>
-                                            <Link href="/informe">
+                                            {/* <Link href="/informe">
                                                 <DropdownMenuItem>Informe de Gestion</DropdownMenuItem>
-                                            </Link>
+                                            </Link> */}
                                         </DropdownMenuSubContent>
 
                                     </DropdownMenuSub>

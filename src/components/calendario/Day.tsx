@@ -43,7 +43,7 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
     return (
         <div
             onClick={() => dayEvents.length > 0 && onClick(day)}
-            className={`h-36 md:h-[120px] border  p-0 text-center cursor-pointer 
+            className={`min-h-[80px] md:h-[120px] border  p-0 text-center cursor-pointer 
                         ${!isCurrentMonth ? 'text-gray-400' : ''} 
                         ${isTodayDate ? 'bg-green-50 border-green-300' : ''} 
                         ${isSelected ? 'bg-blue-50 border-blue-300' : ''} 

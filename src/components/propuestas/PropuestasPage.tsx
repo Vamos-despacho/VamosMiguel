@@ -4,13 +4,13 @@ import ProposalAccordion from './AccordionPropuestas';
 
 export const PropuestasPage = () => {
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-2 sm:p-4 ">
             {propuestas.map((propuesta, index) => (
                 <div
                     key={propuesta.id}
-                    className={`mb-8 md:mb-4 p-6 md:p-14 border-l border-t  ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                    className={`mb-8 md:mb-4 md:p-14 border-l border-t  ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
                 >
-                    <div className=" ">
+                    <div className=" pl-3 pt-3">
                         <h2 className="text-2xl font-bold text-gray-700 ">{propuesta.titulo}</h2>
                     </div>
                     <div className='px-1 md:px-2'>

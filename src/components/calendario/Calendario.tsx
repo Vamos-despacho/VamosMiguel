@@ -99,7 +99,7 @@ const Calendario: React.FC = () => {
         <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[800px] '>
             <div className="p-1 sm:px-2 lg:w-[60%] border rounded-lg shadow-sm flex flex-col justify-around">
 
-                <div className='pt-2 pb-6 lg:p-0 justify-center items-center mx-auto'>
+                <div className='sm:pt-2 pb-6 lg:p-0 justify-center items-center mx-auto'>
                     <Icons />
 
                 </div>
