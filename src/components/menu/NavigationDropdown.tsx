@@ -87,6 +87,7 @@ export const NavigationDropdown = () => {
                                                                     <span className="relative z-10">Solicitar Reunión</span>
                                                                 </DropdownMenuItem>
                                                             </Link>
+
                                                             <Link href="/participacion-ciudadana">
                                                                 <DropdownMenuItem>
                                                                     <span className="relative z-10">Participación Ciudadana</span>
@@ -102,6 +103,11 @@ export const NavigationDropdown = () => {
                                             </DropdownMenuSub>
                                             <Link href="/anteproyectos">
                                                 <DropdownMenuItem>Anteproyectos</DropdownMenuItem>
+                                            </Link>
+                                            <Link href="/pleno">
+                                                <DropdownMenuItem>
+                                                    <span className="relative z-10">Pleno</span>
+                                                </DropdownMenuItem>
                                             </Link>
                                             <Link href="/comisiones">
                                                 <DropdownMenuItem>Comisiones</DropdownMenuItem>

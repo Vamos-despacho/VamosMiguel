@@ -30,7 +30,7 @@ const SliderTop = () => {
         <div className="">
 
             <Slider {...settings}>
-                <div>
+                <div >
                     <VideosTop ref={videosTopRef} />
                 </div>
                 <div>

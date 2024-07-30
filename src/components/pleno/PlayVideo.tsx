@@ -28,7 +28,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ id, onReady }) => {
         <div className="flex-1 bg-background rounded-lg overflow-hidden">
             <div className="aspect-video relative">
                 <div
-                    className={`absolute inset-0 transition-opacity duration-500 ${isReady ? 'opacity-100' : 'opacity-0'}`}
+                    className={`absolute inset-0  transition-opacity duration-500 ${isReady ? 'opacity-100' : 'opacity-0'}`}
                 >
                     <YouTube
                         videoId={id}
