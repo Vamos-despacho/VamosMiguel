@@ -6,13 +6,13 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 const imgs = [
     {
         img: 'imagen01.png',
-        title: 'Presentación de mi primer anteproyecto: Transparencia y Equidad en Auxilios Económicos',
-        description: 'Este anteproyecto propone prohibir el acceso a auxilios económicos para funcionarios de alto rango y sus familiares, promoviendo así la transparencia y equidad en la distribución de recursos educativos.'
+        title: 'Presentación de anteproyecto: Transparencia y Equidad en Auxilios Económicos',
+        description: 'Este anteproyecto propone prohibir el acceso a auxilios económicos para funcionarios de alto rango y sus familiares cuarto grado de consanguinidad y segundo de afinidad, promoviendo así la transparencia y equidad en la distribución de recursos educativos.'
     },
     {
         img: 'imagen02.jpg',
-        title: 'Presentación de mi segundo anteproyecto: Educación de Calidad para Todos',
-        description: 'Este anteproyecto propone garantizar la educación de calidad para todos los ciudadanos, promoviendo la equidad y el acceso a oportunidades educativas para todos los niños y jóvenes.'
+        title: 'Incidencia en el Pleno: Garantizando Derechos Básicos para Todos los Panameños',
+        description: 'Entre las prioridades de los panameños, según las encuestas realizadas, se encuentran el agua y la educación. Es fundamental crear políticas públicas que aseguren que estos derechos lleguen a toda la población.'
     },
 ];
 

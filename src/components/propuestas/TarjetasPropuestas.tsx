@@ -96,24 +96,24 @@ const CardPropuestas = () => {
 
 
     return (
-        <div className='flex flex-col py-8 pb-16'>
+        <div className='flex flex-col sm:py-8 sm:pb-16'>
 
             <h2 className='block px-3  pl-8 sm:pl-16  font-display tracking-tight [text-wrap:balance] text-2xl font-medium sm:text-4xl text-azulv'>
 
                 Propuestas de Campaña
             </h2>
 
-            <div className='flex mt-12 relative h-auto justify-center items-center'>
+            <div className='flex mt-6 sm:mt-12 relative h-auto justify-center items-center'>
                 <div className="w-8 absolute left-0 ">
                     {!isAtStart && <ScrollButton onClick={() => scrollHandler("left")} direction="left" />}
                 </div>
                 <div
-                    className='container mx-auto grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-3'
+                    className='container mx-auto grid grid-cols-1 gap-4 sm:gap-9 sm:grid-cols-2 lg:grid-cols-3'
                 >
                     {propuestas.map((item, index) => (
                         <Dialog key={item.id} >
                             <DialogTrigger className=''>
-                                <div className="bg-card rounded-lg shadow-md p-6 h-36">
+                                <div className="bg-card rounded-lg shadow-md p-4 sm:p-6 h-36">
                                     <div className="flex items-center gap-4">
                                         <div className="bg-primary rounded-full p-2 text-primary-foreground">
                                             <svg

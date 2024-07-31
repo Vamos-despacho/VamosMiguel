@@ -42,8 +42,8 @@ export const ViewYoutube = ({ idsYoutube }: { idsYoutube?: string[] }) => {
                     <div className="flex space-x-2 mt-1 justify-center">
                         {idsYoutube.map((id, idx) => (
                             <Button
-                                variant={'secondary'}
-                                className={`shadow-sm h-7 w-7 ${id === selectedVideo ? 'bg-blue-500 text-white' : ''}`}
+                                variant={'outline'}
+                                className={`shadow-sm h-7 w-3 ${id === selectedVideo ? 'text-blue-500 ' : 'text-gray-400'}`}
                                 key={id}
                                 onClick={() => handleVideoSelect(id)}
                             >

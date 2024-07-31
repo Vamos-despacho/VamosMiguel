@@ -5,6 +5,7 @@ import Day from './Day';
 import EventList from './EventList';
 import { events, IEvent } from '@/app/api/data/EventDays';
 import Icons from '../asistencia/Icons';
+import { BsExclamation } from "react-icons/bs";
 
 interface MonthsDatabase {
     [year: number]: {
@@ -137,9 +138,13 @@ const Calendario: React.FC = () => {
                     <EventList events={selectedDayEvents} />
                 ) : (
                     <div className='flex justify-center items-center mt-3 p-2'>
-                        <h2 className="text-lg text-gray-800 font-base mb-2">
-                            Seleccione la fecha de su interés.
-                        </h2>
+                        <div className="text-lg text-gray-800 font-base mb-4">
+                            <p className="mb-2">Seleccione la fecha de su interés.</p>
+                            <p className="text-sm text-gray-600">
+                                Solo las fechas marcadas con <strong className='text-green-600'>!</strong> contienen información relevante.
+                            </p>
+                        </div>
+
                     </div>
                 )}
             </div>

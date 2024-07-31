@@ -1,102 +1,76 @@
-'use client';
-
-import Slider, { CustomArrowProps, Settings } from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useEffect, useState } from "react";
 import { IEventDetails } from "@/app/api/data/EventDays";
 import { ViewYoutube } from "./tabscontent/ViewYoutube";
 import { ViewInstagram } from "./tabscontent/ViewInstagram";
+import ViewImagen from "./tabscontent/ViewImagen";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import { useRef, useState } from "react";
-
-const NextArrow = (props: CustomArrowProps) => {
-  const { onClick } = props;
-  return (
-    <button
-      onClick={onClick}
-      style={{ display: "block", position: "absolute", top: "-35px", right: "45px", zIndex: 1 }}
-      className="text-gray-600 hover:text-gray-800"
-    >
-      <ChevronRightIcon className="w-6 h-6" />
-    </button>
-  );
-};
-
-const PrevArrow = (props: CustomArrowProps) => {
-  const { onClick } = props;
-  return (
-    <button
-      onClick={onClick}
-      style={{ display: "block", position: "absolute", top: "-35px", left: "45px", zIndex: 1 }}
-      className="text-gray-600 hover:text-gray-800"
-    >
-      <ChevronLeftIcon className="w-6 h-6" />
-    </button>
-  );
-};
-const ArrowButton = ({ direction, onClick }: { direction: "next" | "prev", onClick: () => void }) => {
-  const isNext = direction === "next";
-  return (
-    <button
-      onClick={onClick}
-      className={`absolute top-1/2 ${isNext ? "right-4" : "left-4"} transform -translate-y-1/2 z-10 text-gray-600 hover:text-gray-800`}
-    >
-      {isNext ? <ChevronRightIcon className="w-6 h-6" /> : <ChevronLeftIcon className="w-6 h-6" />}
-    </button>
-  );
-};
 
 const TabsContentEvent = ({ event }: { event?: IEventDetails }) => {
-  const sliderRef = useRef<Slider>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slides, setSlides] = useState<React.ReactNode[]>([]);
 
-  const handleAfterChange = (index: number) => {
-    setCurrentSlide(index);
+  useEffect(() => {
+    // Actualiza los slides cuando cambie el evento
+    const updatedSlides = [
+      event?.idsYoutube ? <ViewYoutube idsYoutube={event.idsYoutube} /> : null,
+      event?.linkInstagram ? <ViewInstagram linkInstagram={event.linkInstagram} /> : null,
+      event?.eventoImagen ? <ViewImagen eventoImagen={event.eventoImagen} /> : null,
+    ].filter(Boolean);
+
+    setSlides(updatedSlides);
+    // Resetear el slide actual al primer slide si hay datos
+    setCurrentSlide(0);
+  }, [event]);
+
+  const slideCount = slides.length;
+
+  const goToPrevious = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? slideCount - 1 : prevSlide - 1
+    );
   };
 
-  // Contar las propiedades directamente en el objeto `event`
-  const numberOfItems = Object.keys(event || {}).length;
-  const hasMultipleItems = numberOfItems > 1;
-
-  const settings: Settings = {
-    dots: hasMultipleItems,
-    infinite: hasMultipleItems,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: hasMultipleItems ? <NextArrow onClick={() => sliderRef.current?.slickNext()} /> : undefined,
-    prevArrow: hasMultipleItems ? <PrevArrow onClick={() => sliderRef.current?.slickPrev()} /> : undefined,
-    appendDots: (dots: React.ReactNode) => (
-      <div style={{ position: "absolute", top: "-25px", width: "100%", display: "flex", justifyContent: "center" }}>
-        <ul style={{ display: "flex", justifyContent: "center", listStyle: "none", padding: 0 }}> {dots} </ul>
-      </div>
-    ),
-    customPaging: (i: number) => (
-      <div
-        className="w-3 h-3 rounded-full"
-        style={{
-          backgroundColor: i === currentSlide ? "blue" : "gray",
-        }}
-      />
-    ),
-    afterChange: handleAfterChange,
+  const goToNext = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === slideCount - 1 ? 0 : prevSlide + 1
+    );
   };
 
   return (
     <div className="relative">
-      <Slider
-        {...settings}>
-        {event?.idsYoutube && (
-          <div className="mt-3">
-            <ViewYoutube idsYoutube={event.idsYoutube} />
-          </div>
+      <div className="overflow-hidden relative">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {slides.length > 0 ? (
+            slides.map((slide, index) => (
+              <div key={index} className="min-w-full">
+                {slide}
+              </div>
+            ))
+          ) : (
+            <div className="min-w-full text-center">No hay datos disponibles.</div>
+          )}
+        </div>
+
+        {slideCount > 1 && (
+          <>
+            <button
+              onClick={goToPrevious}
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 opacity-50 hover:opacity-70 z-10 bg-gray-100 p-2 rounded-full "
+            >
+              <ChevronLeftIcon className="w-6 h-6" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 opacity-50 hover:opacity-70 bg-gray-100 p-2 rounded-full "
+            >
+              <ChevronRightIcon className="w-6 h-6" />
+            </button>
+          </>
         )}
-        {event?.linkInstagram && (
-          <div className="mt-3">
-            <ViewInstagram linkInstagram={event.linkInstagram} />
-          </div>
-        )}
-      </Slider>
+      </div>
     </div>
   );
 };

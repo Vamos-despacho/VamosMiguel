@@ -54,6 +54,7 @@ export const events: IEvent[] = [
         pleno:
         {
             idsYoutube: ['8VSgt-aAk7Y'],
+
         }
 
 
@@ -72,6 +73,13 @@ export const events: IEvent[] = [
         {
 
             idsYoutube: ['cOAzSJ4SqTg'],
+            eventoImagen: [
+                {
+                    linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1720125718/VamosMA/dp98baum47ljffjbilkc.png'],
+                    titulo: 'Presentación de anteproyecto: Transparencia y Equidad en Auxilios Económicos',
+                    descripcion: 'Este anteproyecto propone prohibir el acceso a auxilios económicos para funcionarios de alto rango y sus familiares cuarto grado de consanguinidad y segundo de afinidad, promoviendo así la transparencia y equidad en la distribución de recursos educativos.'
+                }
+            ]
         },
 
     },
@@ -336,10 +344,22 @@ export const events: IEvent[] = [
                 nombre: "Pleno",
                 estado: true
             },
+            {
+                nombre: "Educación",
+                estado: true
+            }
 
         ],
+    },
+    {
+        date: new Date(2024, 6, 30),
+        eventos: [
+            {
+                nombre: "Pleno",
+                estado: true
+            },
 
-
+        ],
     },
 ]
 

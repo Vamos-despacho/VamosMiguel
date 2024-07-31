@@ -6,6 +6,9 @@ import { BsHeartPulse } from "react-icons/bs";
 import { PiUsersFourLight } from 'react-icons/pi';
 
 import { IoIosMore } from "react-icons/io";
+import { BsExclamationLg } from "react-icons/bs";
+import { BsExclamationCircle } from "react-icons/bs";
+import { BsExclamation } from "react-icons/bs";
 
 
 interface DayProps {
@@ -19,6 +22,8 @@ interface DayProps {
 const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelected }) => {
     const isCurrentMonth = isSameMonth(day, currentMonth);
     const isTodayDate = isToday(day);
+
+    const numberOfItems = Object.keys(events[0] || {}).length;
 
     // Filtrar eventos del día actual
     const dayEvents = useMemo(() => {
@@ -49,13 +54,30 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
                         ${isSelected ? 'bg-blue-50 border-blue-300' : ''} 
                         ${dayEvents.length > 0 ? ' ' : ''}`}
         >
-            <div className="font-medium p-1 text-base bg-slate-100 border-b ">{format(day, 'd')}</div>
+            <div className="flex justify-center font-medium py-1 text-base bg-slate-100 border-b ">
+                <div className='w-5'></div>
+                <div>
+
+                    {format(day, 'd')}
+                </div>
+                <div className='w-5 ml-[-6px] mt-[-5px]'>
+
+                    {
+                        (dayEvents.length > 0 && numberOfItems > 2) && (
+                            <div className="flex items-center justify-center">
+                                <BsExclamation className="w-5 h-5 text-green-600" />
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
             <div className='sm:grid grid-cols-2 gap-y-1 mt-1 px-1'>
                 {dayEvents.map((event, idx) => (
                     <div key={idx} className="flex items-center justify-center">
                         {renderIcon(event.nombre)}
                     </div>
                 ))}
+
             </div>
         </div>
     );
@@ -68,6 +90,8 @@ const IconWithCheck: React.FC<{ icon: React.ElementType }> = ({ icon: IconCompon
         </div> */}
         <div className="flex items-center justify-center h-full">
             <IconComponent className="w-6 h-6 text-neutral-800" />
+
+
         </div>
     </div>
 );

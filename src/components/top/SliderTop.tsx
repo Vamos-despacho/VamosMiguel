@@ -27,14 +27,14 @@ const SliderTop = () => {
 
     };
     return (
-        <div className="">
+        <div className="pb-2">
 
             <Slider {...settings}>
                 <div >
-                    <VideosTop ref={videosTopRef} />
+                    <ImagenTop />
                 </div>
                 <div>
-                    <ImagenTop />
+                    <VideosTop ref={videosTopRef} />
                 </div>
 
             </Slider>
