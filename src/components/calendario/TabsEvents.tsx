@@ -74,25 +74,25 @@ export const TabsEvents = ({ events }: { events: IEvent[] }) => {
                 ))}
             </TabsList>
 
-            <TabsContent value="pleno" className="justify-center pt-10" >
+            <TabsContent value="pleno" className="justify-center pt-0" >
 
                 {/* <AcordionEvent event={events.find(event => event.pleno)?.pleno as IEventDetails} /> */}
                 <TabsContentEvent event={events.find(event => event.pleno)?.pleno as IEventDetails} />
 
             </TabsContent>
-            <TabsContent value="salud" className="justify-center pt-10">
+            <TabsContent value="salud" className="justify-center pt-0">
 
 
                 <TabsContentEvent event={events.find(event => event.salud)?.salud as IEventDetails} />
 
             </TabsContent>
-            <TabsContent value="educacion" className="justify-center pt-10">
+            <TabsContent value="educacion" className="justify-center pt-0">
 
 
                 <TabsContentEvent event={events.find(event => event.educacion)?.educacion as IEventDetails} />
 
             </TabsContent>
-            <TabsContent value="otros" className="justify-center pt-10">
+            <TabsContent value="otros" className="justify-center pt-0">
 
                 {/* {events.map((event, idx) => (
                         <div key={idx} className="text-center font-semibold py-2">

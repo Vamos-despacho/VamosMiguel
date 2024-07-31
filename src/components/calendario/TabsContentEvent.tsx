@@ -38,7 +38,30 @@ const TabsContentEvent = ({ event }: { event?: IEventDetails }) => {
 
   return (
     <div className="relative">
-      <div className="overflow-hidden relative">
+      {/* Contenedor para los botones de navegación */}
+      <div className="absolute top-[-45px] left-1/2 transform -translate-x-1/2 flex justify-between w-full px-4 z-20">
+        {slideCount > 1 && (
+          <>
+            <button
+              onClick={goToPrevious}
+              className="bg-gray-100 p-2 rounded-full opacity-90 hover:opacity-100 transition-opacity duration-300"
+              aria-label="Previous slide"
+            >
+              <ChevronLeftIcon className="w-6 h-6 text-gray-600" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="bg-gray-100 p-2 rounded-full opacity-90 hover:opacity-100 transition-opacity duration-300"
+              aria-label="Next slide"
+            >
+              <ChevronRightIcon className="w-6 h-6 text-gray-600" />
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Contenedor del slider */}
+      <div className="overflow-hidden relative mt-8">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -53,23 +76,6 @@ const TabsContentEvent = ({ event }: { event?: IEventDetails }) => {
             <div className="min-w-full text-center">No hay datos disponibles.</div>
           )}
         </div>
-
-        {slideCount > 1 && (
-          <>
-            <button
-              onClick={goToPrevious}
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 opacity-50 hover:opacity-70 z-10 bg-gray-100 p-2 rounded-full "
-            >
-              <ChevronLeftIcon className="w-6 h-6" />
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 opacity-50 hover:opacity-70 bg-gray-100 p-2 rounded-full "
-            >
-              <ChevronRightIcon className="w-6 h-6" />
-            </button>
-          </>
-        )}
       </div>
     </div>
   );

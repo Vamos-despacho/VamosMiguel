@@ -56,7 +56,7 @@ const VideosTop = forwardRef<VideosTopHandles>((props, ref: ForwardedRef<VideosT
     return (
 
 
-        <div className="flex flex-col lg:flex-row  max-w-6xl w-auto mx-auto h-[600px] sm:h-[450px] items-center justify-center">
+        <div className="flex flex-col lg:flex-row  max-w-6xl w-auto mx-auto h-[600px] sm:h-[500px] items-center justify-center">
             <div className="flex flex-col  lg:flex-row gap-4 p-2 md:py-6 max-w-6xl w-full md:w-[700px] lg:items-center justify-center ">
 
                 {/* <div className="flex overflow-hidden h-auto rounded-lg w-[700px] mx-auto md:mx-0"> */}

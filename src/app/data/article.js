@@ -3,6 +3,22 @@ import { Category } from "@/interface/category"
 
 export const articlesData = [
     {
+        "id": 5,
+        "title": "Reunión con el Ministro de Salud para Mejorar la Atención en Veraguas",
+        "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">
+  <p class="text-justify">Mantuvimos una reunión con el Ministro de Salud, Fernando Boyd, en la cual expusimos las urgentes necesidades de la provincia de Veraguas.</p>
+  <p class="text-justify">Durante la reunión, abordamos las diversas problemáticas que enfrenta el hospital Luis "Chicho" Fábrega, tales como la inestabilidad laboral de tecnólogos médicos, enfermeras y otros profesionales que desempeñan una labor crucial en esta institución. También discutimos la necesidad de mejorar la infraestructura de los centros de salud, el banco de sangre, y la urgencia de adquirir equipos médicos modernos.</p>
+  <p class="text-justify">Adicionalmente, subrayamos la importancia de implementar programas de capacitación continua para el personal de salud y de mejorar los servicios de atención primaria, con un enfoque especial en la prevención y tratamiento de enfermedades crónicas. Esperamos que estas solicitudes sean atendidas con prontitud para mejorar la calidad de vida de nuestros ciudadanos.</p>
+ 
+</div>
+ `,
+        "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1722443811/VamosMA/byttzkdiok8bxz9bqhx3.jpg",
+        "slug": "Reunion-con-el-director-de-CSS",
+        "category": Category.Salud,
+        "createdAt": "True Jul 30 2024 22:12:41 GMT-0500 (hora estándar oriental)",
+        "published": true,
+    },
+    {
         "id": 4,
         "title": "Reunión con el Director de CSS",
         "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">

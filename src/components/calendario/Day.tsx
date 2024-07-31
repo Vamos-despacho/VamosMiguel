@@ -48,30 +48,32 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
     return (
         <div
             onClick={() => dayEvents.length > 0 && onClick(day)}
-            className={`min-h-[80px] md:h-[120px] border  p-0 text-center cursor-pointer 
+            className={`min-h-[80px] md:h-[120px] border border-gray-200  p-0 text-center cursor-pointer 
                         ${!isCurrentMonth ? 'text-gray-400' : ''} 
                         ${isTodayDate ? 'bg-green-50 border-green-300' : ''} 
-                        ${isSelected ? 'bg-blue-50 border-blue-300' : ''} 
-                        ${dayEvents.length > 0 ? ' ' : ''}`}
+                        ${isSelected ? ' border-green-300' : ''} 
+                        ${dayEvents.length > 0 ? ' ' : ''}
+                        ${(dayEvents.length > 0 && numberOfItems > 2) ? 'bg-blue-50' : ''}
+                        `}
         >
             <div className="flex justify-center font-medium py-1 text-base bg-slate-100 border-b ">
                 <div className='w-5'></div>
-                <div>
+                <div >
 
                     {format(day, 'd')}
                 </div>
                 <div className='w-5 ml-[-6px] mt-[-5px]'>
 
-                    {
+                    {/* {
                         (dayEvents.length > 0 && numberOfItems > 2) && (
                             <div className="flex items-center justify-center">
                                 <BsExclamation className="w-5 h-5 text-green-600" />
                             </div>
                         )
-                    }
+                    } */}
                 </div>
             </div>
-            <div className='sm:grid grid-cols-2 gap-y-1 mt-1 px-1'>
+            <div className='sm:grid grid-cols-2 gap-y-1 mt-1 px-1 '>
                 {dayEvents.map((event, idx) => (
                     <div key={idx} className="flex items-center justify-center">
                         {renderIcon(event.nombre)}

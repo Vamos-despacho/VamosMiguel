@@ -14,6 +14,11 @@ const imgs = [
         title: 'Incidencia en el Pleno: Garantizando Derechos Básicos para Todos los Panameños',
         description: 'Entre las prioridades de los panameños, según las encuestas realizadas, se encuentran el agua y la educación. Es fundamental crear políticas públicas que aseguren que estos derechos lleguen a toda la población.'
     },
+    {
+        img: 'imagen03.jpg',
+        title: 'Reunión con el Ministro de Salud para Mejorar la Atención en Veraguas',
+        description: 'Mantuvimos una reunión con el Ministro de Salud, Fernando Boyd, donde expusimos las urgentes necesidades de Veraguas. Discutimos las problemáticas del hospital Luis "Chicho" Fábrega, incluyendo la inestabilidad laboral del personal, la necesidad de mejorar la infraestructura, el banco de sangre y la urgencia de adquirir equipos médicos modernos.'
+    },
 ];
 
 export default function ImagenTop() {
@@ -32,14 +37,18 @@ export default function ImagenTop() {
             <div className="relative">
                 <div className="relative w-full h-full overflow-hidden">
                     <div className="relative w-full h-full transition-transform duration-500">
-                        <Image loading='lazy' width="800" height="800" decoding='async'
+                        <Image
+                            loading="lazy"
+                            decoding="async"
                             src={`/images/top/${imgs[currentIndex].img}`}
                             alt={`Slide ${currentIndex + 1}`}
-                            //className="object-cover w-full h-full transition-opacity duration-500 rounded-md"
-                            // style={{ width: '100%', height: '450px' }}
-                            sizes="(min-width: 1024px) 32rem, 20rem"
-                            className=" aspect-square rounded-md bg-zinc-400 object-cover dark:bg-zinc-800 h-[400px]" />
+                            width={1200} // Asegúrate de usar dimensiones adecuadas
+                            height={800}
+                            sizes="(min-width: 1024px) 1200px, (min-width: 768px) 800px, 100vw"
 
+                            className="aspect-square rounded-md object-cover"
+                            quality={100} // Usa la máxima calidad
+                        />
 
 
                     </div>
