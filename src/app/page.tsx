@@ -12,14 +12,14 @@ const page = () => {
 
         <SliderTop />
       </div>
-      <div className='bg-gray-100 py-10'>
+      <div className='bg-gray-100 py-10 border-t  border-gray-50'>
         <CardPropuestas />
       </div>
-      <div className=' '>
+      <div className=' border-t border-gray-50'>
 
         <Articulos />
       </div>
-      <div className='bg-gray-100 pb-20'>
+      <div id='contactanos' className='bg-gray-100 pb-20 border-t border-gray-50 '>
 
         <Contactanos />
       </div>

@@ -36,7 +36,7 @@ export default function ImagenTop() {
     };
 
     return (
-        <div className="grid grid-cols-1 bg-white md:grid-cols-2 gap-3 md:gap-8 items-center  max-w-6xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 bg-white md:grid-cols-2 gap-3 md:gap-8 items-center pb-8 max-w-6xl mx-auto px-4 md:px-6">
             <div className="relative">
                 <div className="relative w-full h-full overflow-hidden">
                     <div className="relative w-full h-full transition-transform duration-500">

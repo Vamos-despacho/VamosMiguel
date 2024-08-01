@@ -30,7 +30,7 @@ const CardAnteProyecto = ({ categoria, descripcion, fecha, icon, id, proponente,
                     <p className='mt-6 font-display text-xl font-semibold text-neutral-850'>
                         {titulo}
                     </p>
-                    <p className='mt-4 text-base font-light text-neutral-600  '>{descripcion}</p>
+                    <p className='mt-4 text-base font-light text-gray-600  '>{descripcion}</p>
                 </div>
                 <div className="flex w-full justify-between items-center mt-3">
                     <div className=' flex flex-col items-start gap-1'>

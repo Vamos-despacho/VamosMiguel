@@ -73,7 +73,7 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
                     } */}
                 </div>
             </div>
-            <div className='sm:grid grid-cols-2 gap-y-1 mt-1 px-1 '>
+            <div className='sm:grid grid-cols-2 gap-y-1 mt-2 px-2 '>
                 {dayEvents.map((event, idx) => (
                     <div key={idx} className="flex items-center justify-center">
                         {renderIcon(event.nombre)}
@@ -91,7 +91,7 @@ const IconWithCheck: React.FC<{ icon: React.ElementType }> = ({ icon: IconCompon
             <CheckIcon className="w-2.5 h-2.5 text-white" />
         </div> */}
         <div className="flex items-center justify-center h-full">
-            <IconComponent className="w-6 h-6 text-neutral-800" />
+            <IconComponent className="w-5 h-5 text-neutral-800" />
 
 
         </div>

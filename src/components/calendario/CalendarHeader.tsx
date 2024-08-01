@@ -13,9 +13,9 @@ interface CalendarHeaderProps {
 const CalendarHeader: React.FC<CalendarHeaderProps> = ({ currentDate, onPreviousMonth, onNextMonth, isFirstMonth, isLastMonth }) => {
     return (
         <div className="flex justify-between items-center mb-4 px-3">
-            <button onClick={onPreviousMonth} disabled={isFirstMonth}>Anterior</button>
+            <button className={`px-2.5  py-1 rounded-sm ${isFirstMonth ? 'text-gray-600' : 'bg-slate-50 shadow-sm hover:bg-slate-100'}`} onClick={onPreviousMonth} disabled={isFirstMonth}>Anterior</button>
             <h2 className='font-medium'>{format(currentDate, 'MMMM yyyy', { locale: es })}</h2>
-            <button onClick={onNextMonth} disabled={isLastMonth}>Siguiente</button>
+            <button className={`px-2.5  py-1 rounded-sm ${isFirstMonth ? 'bg-slate-50 shadow-sm hover:bg-slate-100' : 'text-gray-600'}`} onClick={onNextMonth} disabled={isLastMonth}>Siguiente</button>
         </div>
     );
 };

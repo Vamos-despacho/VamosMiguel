@@ -1,7 +1,7 @@
 
 export default function ComisionPage() {
     return (
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 h-[100dvh]">
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 md:h-[100dvh]">
             <div className="container px-4 md:px-6">
                 <div className="mx-auto max-w-4xl text-center">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight">Comisiones</h2>
