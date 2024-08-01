@@ -329,12 +329,7 @@ export const events: IEvent[] = [
             },
 
         ],
-        pleno:
-        {
 
-
-            idsYoutube: ['8VSgt-aAk7Y'],
-        },
 
     },
     {
@@ -378,7 +373,6 @@ export const events: IEvent[] = [
         pleno:
         {
             idsYoutube: ['tYES-_JdAP0'],
-            linkInstagram: ['https://www.instagram.com/p/C9oZMYzurXG'],
         },
     },
     {

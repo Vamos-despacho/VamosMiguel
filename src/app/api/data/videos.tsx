@@ -20,20 +20,11 @@ export const videosYotube: IVideoYoutube[] = [
         description: 'Descripción del video 1',
         date: new Date(2024, 6, 30),
         list: 'incidencia',
-        day: '25',
+        day: '30',
         month: 'julio',
 
     },
-    {
-        id: '8VSgt-aAk7Y',
-        title: 'Incidencia en el Pleno',
-        description: 'Descripción del video 1',
-        date: new Date(2024, 6, 26),
-        list: 'incidencia',
-        day: '25',
-        month: 'julio',
 
-    },
     {
         id: 'rq1XwsgjvjU',
         title: 'Incidencia en el Pleno',
@@ -44,16 +35,7 @@ export const videosYotube: IVideoYoutube[] = [
         month: 'julio',
 
     },
-    {
-        id: 'rq1XwsgjvjU',
-        title: 'Incidencia en el Pleno',
-        description: 'Descripción del video 1',
-        date: new Date(2024, 6, 25),
-        list: 'incidencia',
-        day: '25',
-        month: 'julio',
 
-    },
     {
         id: 'ONHEb8A4nQA',
         title: 'Ratificación de Funcionarios',

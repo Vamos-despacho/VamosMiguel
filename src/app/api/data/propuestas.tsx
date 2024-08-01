@@ -84,7 +84,7 @@ export const propuestas: IPropuestas[] = [
             {
                 id: 3,
                 titulo: 'Regulaciones para Otorgamiento de Becas',
-                text: 'Proponer regulaciones para que las becas de estudio se otorguen por mérito y no por afiliaciones políticas, asegurando que los estudiantes beneficiados sean acompañados y puedan servir al país en cargos públicos al culminar sus estudios.',
+                text: 'Proponer regulaciones para que las becas de estudio se otorguen por mérito y no por afiliaciones políticas, asegurando que los estudiantes beneficiados sean acompañados y puedan servir al país en sus diversas áreas prioritarias.',
                 link: 'pdfs/ReformaparalaTransparenciayEquidadenAuxiliosEconomicos.pdf',
 
                 estado: LawProposalState.Presentado,
