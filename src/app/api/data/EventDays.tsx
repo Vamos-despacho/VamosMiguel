@@ -366,7 +366,7 @@ export const events: IEvent[] = [
         otros:
         {
 
-            idsYoutube: ['cOAzSJ4SqTg'],
+
             eventoImagen: [
                 {
                     linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1722443811/VamosMA/byttzkdiok8bxz9bqhx3.jpg'],
@@ -377,17 +377,21 @@ export const events: IEvent[] = [
         },
         pleno:
         {
-
-            idsYoutube: ['cOAzSJ4SqTg'],
+            idsYoutube: ['tYES-_JdAP0'],
             linkInstagram: ['https://www.instagram.com/p/C9oZMYzurXG'],
-            eventoImagen: [
-                {
-                    linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1722437609/VamosMA/tmfuit86bcp9wpijesyj.jpg'],
-                    titulo: 'Reunión con el Ministro de Salud para Mejorar la Atención en Veraguas',
-                    descripcion: 'Mantuvimos una reunión con el Ministro de Salud, Fernando Boyd, donde expusimos las urgentes necesidades de Veraguas. Discutimos las problemáticas del hospital Luis "Chicho" Fábrega, incluyendo la inestabilidad laboral del personal, la necesidad de mejorar la infraestructura, el banco de sangre y la urgencia de adquirir equipos médicos modernos.'
-                }
-            ]
         },
+    },
+    {
+        date: new Date(2024, 6, 31),
+        eventos: [
+            {
+                nombre: "Pleno",
+                estado: true
+            },
+
+        ],
+
+
     },
 ]
 

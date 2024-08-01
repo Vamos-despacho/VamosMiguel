@@ -26,7 +26,7 @@ export const NavigationDropdown = () => {
 
         <div className="flex items-center md:order-2">
             <div data-collapse-toggle="navbar-user"
-                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500
+                className="inline-flex items-center p-4 w-10 h-10 justify-center text-sm text-gray-500
                 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2
                 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700
                 dark:focus:ring-gray-600"
@@ -36,9 +36,9 @@ export const NavigationDropdown = () => {
                         <HamburgerMenuIcon className="w-7 h-7" />
                     </DropdownMenuTrigger>
                     <DropdownMenuPortal>
-                        <DropdownMenuContent className='w-screen shadow-none border-none h-screen m-2 mt-2 bg-neutral-50 bg-opacity-50 backdrop-blur-sm'>
-                            <div className='w-[325px] bg-white'>
-                                <div className='bg-white py-3 ps-0 space-y-1 w-[120px] h-screen'>
+                        <DropdownMenuContent className='w-screen shadow-none border-none h-screen bg-neutral-50 bg-opacity-50 backdrop-blur-sm'>
+                            <div className='w-[325px] bg-white p-0 m-0'>
+                                <div className='bg-white py-2 ps-1 space-y-1 w-[120px] h-screen'>
                                     <Link href="/biografia">
                                         <DropdownMenuItem>
                                             <span className="relative z-10">Biografía</span>

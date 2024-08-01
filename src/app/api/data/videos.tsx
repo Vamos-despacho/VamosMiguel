@@ -15,6 +15,36 @@ export type IVideoYoutube = {
 
 export const videosYotube: IVideoYoutube[] = [
     {
+        id: 'tYES-_JdAP0',
+        title: 'Incidencia en el Pleno',
+        description: 'Descripción del video 1',
+        date: new Date(2024, 6, 30),
+        list: 'incidencia',
+        day: '25',
+        month: 'julio',
+
+    },
+    {
+        id: '8VSgt-aAk7Y',
+        title: 'Incidencia en el Pleno',
+        description: 'Descripción del video 1',
+        date: new Date(2024, 6, 26),
+        list: 'incidencia',
+        day: '25',
+        month: 'julio',
+
+    },
+    {
+        id: 'rq1XwsgjvjU',
+        title: 'Incidencia en el Pleno',
+        description: 'Descripción del video 1',
+        date: new Date(2024, 6, 25),
+        list: 'incidencia',
+        day: '25',
+        month: 'julio',
+
+    },
+    {
         id: 'rq1XwsgjvjU',
         title: 'Incidencia en el Pleno',
         description: 'Descripción del video 1',

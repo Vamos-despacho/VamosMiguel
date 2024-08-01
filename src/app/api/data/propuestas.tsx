@@ -319,7 +319,7 @@ export const propuestas: IPropuestas[] = [
     },
     {
         id: 9,
-        titulo: 'Reglamento Interno de la Asamblea ',
+        titulo: 'Reglamento Interno de la Asamblea',
         subtitulo: 'Reformando y Recuperando la Integridad de la Asamblea Nacional',
         progress: 0,
         link: 'https://example.com/salud',

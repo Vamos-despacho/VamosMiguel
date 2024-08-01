@@ -3,10 +3,6 @@ import Calendario from '@/components/calendario/Calendario'
 
 
 
-
-import React from 'react'
-
-
 const ActividadesPage = () => {
     return (
         <div className='mx-auto w-full max-w-7xl justify-center items-center h-full  sm:py-20 py-6 space-y-1 pb-16'>

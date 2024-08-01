@@ -14,11 +14,98 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
+import { LucideSchool } from "lucide-react";
+import { BsHeartPulse } from "react-icons/bs";
+import { PiUsersFourLight } from 'react-icons/pi';
+import { IoBookOutline } from "react-icons/io5";
+import { PiBriefcase } from "react-icons/pi";
+
+import { IoIosMore } from "react-icons/io";
+const IconWithCheck: React.FC<{ icon: React.ElementType }> = ({ icon: IconComponent }) => (
+    <div className=" relative  p-1 rounded-lg ">
+        <div className="flex items-center justify-center h-full">
+            <IconComponent className="w-10 h-10" />
+        </div>
+    </div>
+);
+import { TbHeartHandshake } from "react-icons/tb";
+import { MdOutlineSportsSoccer } from "react-icons/md";
+import { GiTap } from "react-icons/gi";
+import { PiProhibitBold } from "react-icons/pi";
+import { MdOutlineBalance } from "react-icons/md";
+import { RiGovernmentLine } from "react-icons/ri";
+import { CgFileDocument } from "react-icons/cg";
+
+
+const renderIcon = (eventName: string) => {
+    switch (eventName) {
+        case 'Salud':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <TbHeartHandshake className="w-8 h-8" />
+                </div>
+            </div>;
+        case 'Educación':
+            return <div className=" relative  p-1 w-10 h-10 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <IoBookOutline className="w-8 h-8" />
+                </div>
+            </div>
+
+        case 'Desempleo':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <PiBriefcase className="w-8 h-8" />
+                </div>
+            </div>
+        case 'Deporte':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <MdOutlineSportsSoccer className="w-8 h-8" />
+                </div>
+            </div>
+        case 'Servicios Básicos':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <GiTap className="w-8 h-8" />
+                </div>
+            </div>
+        case 'Anticorrupción':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <PiProhibitBold className="w-8 h-8" />
+                </div>
+            </div>
+        case 'Justicia':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <MdOutlineBalance className="w-8 h-8" />
+                </div>
+            </div>
+        case 'Institucionalidad':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <RiGovernmentLine className="w-8 h-8" />
+                </div>
+            </div>
+        case 'Reglamento Interno de la Asamblea':
+            return <div className=" relative  p-1 rounded-lg ">
+                <div className="flex items-center justify-center h-full">
+                    <CgFileDocument className="w-8 h-8" />
+                </div>
+            </div>
+
+        default:
+            return null;
+    }
+};
 
 const CardPropuestas = () => {
     return (
-        <div className='flex flex-col sm:py-8 sm:pb-16'>
-            <h2 className='block px-3 pl-8 sm:pl-16 font-display tracking-tight [text-wrap:balance] text-2xl font-medium sm:text-4xl text-azulv'>
+
+        <div className='mx-auto max-w-7xl sm:px-6 px-0 lg:px-8   sm:py-12 md:mb-10 '>
+            <h2 className='block px-3 font-display tracking-tight [text-wrap:balance] text-3xl font-medium sm:text-4xl text-azulv'>
+
                 Propuestas de Campaña
             </h2>
 
@@ -29,21 +116,12 @@ const CardPropuestas = () => {
                             <DialogTrigger className=''>
                                 <div className="bg-card rounded-lg shadow-md p-2 sm:p-6 sm:h-36">
                                     <div className="flex flex-col sm:flex-row items-center gap-2">
-                                        <div className="bg-primary rounded-full p-2 text-primary-foreground">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                                                />
-                                            </svg>
+                                        <div className="bg-primary rounded-full p-1 text-primary-foreground">
+
+                                            {
+                                                renderIcon(item.titulo)
+                                            }
+
                                         </div>
                                         <h3 className="sm:text-lg font-semibold">{item.titulo}</h3>
                                     </div>
@@ -95,3 +173,14 @@ const CardPropuestas = () => {
 };
 
 export default CardPropuestas;
+
+
+
+const IconEducation = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2L2 8l10 6 10-6-10-6zm0 8l6 3-6 3-6-3 6-3zm0 6v4m0-4l6 3-6-3-6 3 6-3z" />
+        </svg>
+
+    );
+}
