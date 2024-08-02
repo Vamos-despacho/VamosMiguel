@@ -1,8 +1,34 @@
+// Icons.tsx
 import { SchoolIcon } from "lucide-react";
-import { BsHeartPulse, BsMotherboard } from "react-icons/bs";
-import { MdOutlineMore } from "react-icons/md";
+import { BsHeartPulse } from "react-icons/bs";
 import { PiUsersFourLight } from "react-icons/pi";
 import { IoIosMore } from "react-icons/io";
+import React from "react";
+
+interface Asistencia {
+    Pleno: number;
+    Salud: number;
+    Educación: number;
+    Otros: number;
+}
+
+type Meses = 'Julio' | 'Agosto'; // Define todos los meses relevantes
+
+const asistenciaData: Record<Meses, Asistencia> = {
+    Julio: {
+        Pleno: 100,
+        Salud: 100,
+        Educación: 100,
+        Otros: 0,
+    },
+    Agosto: {
+        Pleno: 0,
+        Salud: 0,
+        Educación: 0,
+        Otros: 0,
+    },
+    // Agrega aquí los datos para otros meses si es necesario
+};
 
 const iconData = [
     {
@@ -27,28 +53,53 @@ const iconData = [
     },
 ];
 
-export default function Icons() {
+interface IconsProps {
+    currentDate: Date;
+}
+
+const Icons: React.FC<IconsProps> = ({ currentDate }) => {
+    const currentMonthIndex = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+
+    const getMonthName = (monthIndex: number): Meses | undefined => {
+        // Aquí convertimos el índice del mes a su nombre en español
+        const monthNames: Record<number, Meses> = {
+            6: 'Julio',
+            7: 'Agosto',
+            // Agrega nombres de meses según los datos disponibles
+        };
+        return monthNames[monthIndex];
+    };
+
+    const isPreviousMonth = (month: number): boolean => {
+        const today = new Date();
+        return (currentYear < today.getFullYear()) ||
+            (currentYear === today.getFullYear() && month < today.getMonth());
+    };
+
     return (
-        <section className="w-full  px-1 sm:px-4">
-            <div className="sm:flex sm:flex-row grid grid-cols-4  sm:gap-8 lg:gap-6 gap-x-4 justify-center items-center mx-auto">
-                {iconData.map((item, index) => (
-                    <div key={index}
-                        className="flex w-auto gap-1.5 p-1 items-end rounded-lg"
-                    >
-                        <div className="rounded-md p-0 flex items-center justify-center   ">
-                            <item.icon className="w-5 h-5 text-gray-700" />
-                        </div>
+        <section className="w-full px-4 py-1 pb-5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 justify-center items-center mx-auto">
+                {iconData.map((item, index) => {
+                    const monthName = getMonthName(currentMonthIndex);
+                    const isDataAvailable = monthName && isPreviousMonth(currentMonthIndex);
+                    const percentage = monthName && isDataAvailable ? asistenciaData[monthName][item.label2 as keyof Asistencia] : 0;
 
-                        <div>
-                            {/* Mostrar 'label' en pantallas grandes */}
-                            <h3 className="hidden md:block text-sm text-gray-800">{item.label}</h3>
-                            {/* Mostrar 'label2' en pantallas pequeñas */}
-                            <h3 className="block md:hidden text-sm text-gray-800">{item.label2}</h3>
+                    return (
+                        <div key={index} className="flex flex-col items-center">
+                            <div className="bg-muted rounded-full p-3 mb-1 flex items-center justify-center">
+                                <item.icon className="w-6 h-6 text-muted-foreground" />
+                            </div>
+                            <div className="text-xs text-gray-800 text-center">{item.label}</div>
+                            <div className={`text-xs text-muted-foreground h-3  ${item.label === 'Otros' ? 'opacity-0' : 'opacity-100'}`}>
+                                {isDataAvailable ? `${percentage}% Asistencia` : ''}
+                            </div>
                         </div>
-
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </section>
     );
-}
+};
+
+export default Icons;

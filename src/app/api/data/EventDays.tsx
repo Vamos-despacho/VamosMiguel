@@ -260,6 +260,10 @@ export const events: IEvent[] = [
                 nombre: "Pleno",
                 estado: true
             },
+            {
+                nombre: "Otros",
+                estado: true
+            }
 
         ],
         pleno:
@@ -267,7 +271,10 @@ export const events: IEvent[] = [
 
             idsYoutube: ['EIeaKpatIDI'],
         },
-
+        otros:
+        {
+            linkInstagram: ['https://www.instagram.com/reel/C9v4gqXOo7v/?igsh=MThlbjV0cmRkeXJubg%3D%3D'],
+        }
     },
     {
         date: new Date(2024, 6, 23),
@@ -384,8 +391,16 @@ export const events: IEvent[] = [
             },
 
         ],
+    },
+    {
+        date: new Date(2024, 7, 1),
+        eventos: [
+            {
+                nombre: "Pleno",
+                estado: true
+            },
 
-
+        ],
     },
 ]
 

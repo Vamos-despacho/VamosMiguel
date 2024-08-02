@@ -33,17 +33,43 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
     const renderIcon = (eventName: string) => {
         switch (eventName) {
             case 'Salud':
-                return <IconWithCheck icon={BsHeartPulse} />;
+                return <div className='flex justify-center items-center gap-0.5'>
+
+                    <p className='text-sm  list-disc'>Salud</p>
+                </div>
             case 'Educación':
-                return <IconWithCheck icon={LucideSchool} />;
+                return <div className='flex justify-center items-center gap-0.5'>
+
+                    <p className='text-sm '>Educación</p>
+                </div>
             case 'Pleno':
-                return <IconWithCheck icon={PiUsersFourLight} />;
+                return <div className='flex justify-center items-center gap-0.5 '>
+
+                    <p className='text-sm  '>Pleno</p>
+                </div>
             case 'Otros':
-                return <IconWithCheck icon={IoIosMore} />;
+                return <div className='flex justify-center items-center gap-0.5'>
+
+                    <p className='text-sm '>Otros</p>
+                </div>
             default:
                 return null;
         }
     };
+    // const renderIcon = (eventName: string) => {
+    //     switch (eventName) {
+    //         case 'Salud':
+    //             return <IconWithCheck icon={BsHeartPulse} />;
+    //         case 'Educación':
+    //             return <IconWithCheck icon={LucideSchool} />;
+    //         case 'Pleno':
+    //             return <IconWithCheck icon={PiUsersFourLight} />;
+    //         case 'Otros':
+    //             return <IconWithCheck icon={IoIosMore} />;
+    //         default:
+    //             return null;
+    //     }
+    // };
 
     return (
         <div
@@ -51,12 +77,13 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
             className={`min-h-[80px] md:h-[120px] border border-gray-200  p-0 text-center cursor-pointer 
                         ${!isCurrentMonth ? 'text-gray-400' : ''} 
                         ${isTodayDate ? 'bg-green-50 border-green-300' : ''} 
-                        ${isSelected ? ' border-green-300' : ''} 
+                        ${isSelected ? ' bg-blue-50' : ''} 
                         ${dayEvents.length > 0 ? ' ' : ''}
-                        ${(dayEvents.length > 0 && numberOfItems > 2) ? 'bg-blue-50' : ''}
+                       
                         `}
         >
-            <div className="flex justify-center font-medium py-1 text-base bg-slate-100 border-b ">
+            <div className={`flex justify-center font-medium py-1 text-base bg-slate-100 border-b
+                ${!isCurrentMonth ? 'bg-white' : ''}`}>
                 <div className='w-5'></div>
                 <div >
 
@@ -73,9 +100,9 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
                     } */}
                 </div>
             </div>
-            <div className='sm:grid grid-cols-2 gap-y-1 mt-2 px-2 '>
+            <div className='flex flex-col justify-start items-start ml-3 mt-3 gap-1 '>
                 {dayEvents.map((event, idx) => (
-                    <div key={idx} className="flex items-center justify-center">
+                    <div key={idx} className={` ${(dayEvents.length > 0 && numberOfItems > 2) ? 'text-blue-400' : ''}`}>
                         {renderIcon(event.nombre)}
                     </div>
                 ))}
@@ -86,13 +113,10 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
 };
 
 const IconWithCheck: React.FC<{ icon: React.ElementType }> = ({ icon: IconComponent }) => (
-    <div className=" relative  p-1.5 rounded-lg ">
-        {/* <div className="absolute top-[-4px] right-[-4px] w-3 h-3 bg-green-300 rounded-full flex items-center justify-center">
-            <CheckIcon className="w-2.5 h-2.5 text-white" />
-        </div> */}
-        <div className="flex items-center justify-center h-full">
-            <IconComponent className="w-5 h-5 text-neutral-800" />
+    <div className=" relative rounded-lg ">
 
+        <div className="flex items-center justify-center h-full">
+            <IconComponent className="w-4 h-4 text-neutral-800" />
 
         </div>
     </div>

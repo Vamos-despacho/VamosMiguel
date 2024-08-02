@@ -17,8 +17,7 @@ const ActividadesPage = () => {
                 <div className="mt-6 ">
 
                     <p className="mb-4 text-xl font-display text-neutral-700">
-                        Revisa un resumen de las actividades y sesiones en el pleno y en las comisiones. Garantizamos la transparencia y el cumplimiento de las responsabilidades legislativas.
-                    </p>
+                        Consulta un resumen de las actividades, sesiones en el pleno y en las comisiones. Garantizamos la transparencia y el cumplimiento de las responsabilidades legislativas.</p>
                 </div>
             </div>
 

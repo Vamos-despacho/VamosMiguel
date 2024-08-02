@@ -18,7 +18,7 @@ const Suplente = () => {
                                 <Image width="800" height="800" decoding='async' data-nimg="1"
                                     alt='Sara Gómez' loading='lazy'
                                     sizes="(min-width: 1024px) 32rem, 20rem"
-                                    src='/images/SaraItzela.jpeg'
+                                    src='/images/SaraItzela3.jpg'
                                     className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800" />
                             </div>
                         </div>

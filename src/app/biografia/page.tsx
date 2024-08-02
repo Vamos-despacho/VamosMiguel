@@ -17,7 +17,7 @@ const Trayectoria = () => {
                             <div className="max-w-xs px-2.5 lg:max-w-none" >
                                 <Image alt='Miguel Angel' loading='lazy' width="800" height="800" decoding='async' data-nimg="1"
                                     sizes="(min-width: 1024px) 32rem, 20rem"
-                                    src='/images/MiguelAngel.jpeg'
+                                    src='/images/MiguelAngel3.jpg'
                                     className="aspect-square rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800" />
                             </div>
                         </div>
@@ -32,7 +32,7 @@ const Trayectoria = () => {
                                 <p>Miguel Ángel se graduó de bachiller en Ciencias y Letras del prestigioso Colegio San Vicente de Paúl, donde demostró su dedicación y pasión por el aprendizaje. Posteriormente, continuó su formación académica y obtuvo el título de Licenciado en Derecho y Ciencias Políticas, consolidando así su interés en la legislación y la política.</p>
                                 <p>Su sed de conocimiento lo llevó a especializarse aún más en el ámbito político al obtener un diplomado en Asesor Político y Descentralización Pública. Además, su habilidad para comunicarse en dos idiomas lo convierte en un individuo bilingüe, lo que amplía su alcance y capacidad de colaboración en contextos internacionales.</p>
                                 <p>Miguel Ángel Campos Lima es conocido por sus destacadas habilidades para trabajar en equipo y liderar con naturalidad. Su capacidad para desempeñarse bajo presión, junto con una inquebrantable voluntad para alcanzar sus metas, lo distinguen como un individuo comprometido y resiliente.</p>
-                                <p>Su incursión en la política no es casualidad, sino una elección consciente motivada por su firme creencia en el poder de la juventud para aportar conocimientos y soluciones que impulsen el desarrollo de su país. Miguel Ángel aspira a ocupar un cargo como Diputado para aprovechar su influencia legislativa y proponer proyectos de ley que transformen la vida de las personas, mejorando su calidad de vida y promoviendo un futuro más prometedor para todos. Su determinación y pasión por el servicio público son ejemplos claros de su compromiso con el bienestar de la sociedad.</p>
+                                <p>Su incursión en la política no es casualidad, sino una elección consciente motivada por su firme creencia en el poder de la juventud para aportar conocimientos y soluciones que impulsen el desarrollo de su país. Miguel Ángel se dedica a proponer proyectos de ley que transformen la vida de las personas, mejorando su calidad de vida y promoviendo un futuro más prometedor para todos. Su determinación y pasión por el servicio público son ejemplos claros de su compromiso con el bienestar de la sociedad.</p>
                             </div>
                         </div>
                         <div className='lg:pl-20'>
@@ -76,7 +76,7 @@ const Trayectoria = () => {
                                         <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7 flex-none fill-zinc-800 transition group-hover:fill-teal-500">
                                             <path fillRule="evenodd" d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"></path>
                                         </svg>
-                                        <span className="ml-4">vamosmiguelangel@hotmail.com</span>
+                                        <span className="ml-4">macampos@asamblea.gob.pa</span>
                                     </Link>
                                 </li>
                             </ul>

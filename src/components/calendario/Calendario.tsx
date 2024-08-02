@@ -101,7 +101,7 @@ const Calendario: React.FC = () => {
             <div className="p-1 sm:px-2 lg:w-[60%] border rounded-lg shadow-sm flex flex-col justify-around">
 
                 <div className='sm:pt-2 pb-6 lg:p-0 justify-center items-center mx-auto'>
-                    <Icons />
+                    <Icons currentDate={currentDate} />
 
                 </div>
 
