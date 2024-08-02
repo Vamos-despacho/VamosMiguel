@@ -26,7 +26,7 @@ const renderIcon = (eventName: string) => (
 
 const enabledTabs = " border-gray-200 ";
 const disabledTabs = "opacity-70";
-const classIcon = " gap-2 px-3 hover:opacity-100 transition-opacity duration-300 border border-gray-200 rounded-sm ";
+const classIcon = " gap-4  px-4 hover:opacity-100 transition-opacity duration-300 border border-gray-200 rounded-sm ";
 
 export const TabsEvents = ({ events }: { events: IEvent[] }) => {
     const [activeTab, setActiveTab] = useState<string>('pleno');

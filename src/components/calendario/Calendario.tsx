@@ -137,9 +137,10 @@ const Calendario: React.FC = () => {
                 {selectedDayEvents.length > 0 ? (
                     <EventList events={selectedDayEvents} />
                 ) : (
-                    <div className='flex justify-center items-center mt-3 p-2'>
+                    <div className='flex pl-3 mt-3 p-2'>
                         <div className="text-base text-gray-800 font-base mb-4">
-                            <p className="mb-2">Seleccione un día. Los días con fondo <strong className='text-blue-500'>Azul</strong>  contienen información relevante.</p>
+                            <p className="text-lg">Seleccione una fecha</p>
+                            <p className='font-light text-sm'> Las actividades en <strong className='text-blue-500'>color azul</strong> contienen información relevante.</p>
                         </div>
 
                     </div>

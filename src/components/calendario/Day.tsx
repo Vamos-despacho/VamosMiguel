@@ -102,7 +102,7 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
             </div>
             <div className='flex flex-col justify-start items-start ml-3 mt-3 gap-1 '>
                 {dayEvents.map((event, idx) => (
-                    <div key={idx} className={` ${(dayEvents.length > 0 && numberOfItems > 2) ? 'text-blue-400' : ''}`}>
+                    <div key={idx} className={` ${(dayEvents.length > 0 && numberOfItems > 2) ? 'text-blue-500' : ''}`}>
                         {renderIcon(event.nombre)}
                     </div>
                 ))}
