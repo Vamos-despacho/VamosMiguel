@@ -13,7 +13,7 @@ export const articlesData = [
 </div>
  `,
         "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1722443811/VamosMA/byttzkdiok8bxz9bqhx3.jpg",
-        "slug": "Reunion-con-el-director-de-CSS",
+        "slug": "Reunion-con-el-ministro-de-salud-para-mejorar-la-atencion-en-veraguas",
         "category": Category.Salud,
         "createdAt": "True Jul 30 2024 22:12:41 GMT-0500 (hora estándar oriental)",
         "published": true,
