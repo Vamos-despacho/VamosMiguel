@@ -87,8 +87,8 @@ const Icons: React.FC<IconsProps> = ({ currentDate }) => {
 
                     return (
                         <div key={index} className="flex flex-col items-center">
-                            <div className="bg-muted rounded-full p-3 mb-1 flex items-center justify-center">
-                                <item.icon className="w-6 h-6 text-muted-foreground" />
+                            <div className="bg-muted rounded-full p-2 mb-1 flex items-center justify-center">
+                                <item.icon className="w-5 h-5 text-muted-foreground" />
                             </div>
                             <div className="text-xs text-gray-800 text-center">{item.label}</div>
                             <div className={`text-xs text-muted-foreground h-3  ${item.label === 'Otros' ? 'opacity-0' : 'opacity-100'}`}>

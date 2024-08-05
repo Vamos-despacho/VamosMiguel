@@ -99,19 +99,7 @@ export const events: IEvent[] = [
         },
 
     },
-    {
-        date: new Date(2024, 6, 5),
-        eventos: [
-            {
-                nombre: "Pleno",
-                estado: true
-            },
 
-        ],
-
-
-
-    },
     {
         date: new Date(2024, 6, 8),
         eventos: [
@@ -172,16 +160,7 @@ export const events: IEvent[] = [
         },
 
     },
-    {
-        date: new Date(2024, 6, 12),
-        eventos: [
-            {
-                nombre: "Pleno",
-                estado: true
-            },
 
-        ],
-    },
     {
         date: new Date(2024, 6, 15),
         eventos: [
@@ -229,18 +208,9 @@ export const events: IEvent[] = [
         },
 
     },
+
     {
         date: new Date(2024, 6, 19),
-        eventos: [
-            {
-                nombre: "Pleno",
-                estado: true
-            },
-
-        ],
-    },
-    {
-        date: new Date(2024, 6, 20),
         eventos: [
             {
                 nombre: "Otros",
@@ -327,18 +297,7 @@ export const events: IEvent[] = [
         },
 
     },
-    {
-        date: new Date(2024, 6, 26),
-        eventos: [
-            {
-                nombre: "Pleno",
-                estado: true
-            },
 
-        ],
-
-
-    },
     {
         date: new Date(2024, 6, 29),
         eventos: [
