@@ -5,8 +5,6 @@ import Day from './Day';
 import EventList from './EventList';
 import { events, IEvent } from '@/app/api/data/EventDays';
 import Icons from '../asistencia/Icons';
-import { BsExclamation } from "react-icons/bs";
-
 interface MonthsDatabase {
     [year: number]: {
         [month: number]: Date[];

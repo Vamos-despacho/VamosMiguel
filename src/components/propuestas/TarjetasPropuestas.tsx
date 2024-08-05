@@ -14,9 +14,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { LucideSchool } from "lucide-react";
-import { BsHeartPulse } from "react-icons/bs";
-import { PiUsersFourLight } from 'react-icons/pi';
+
 import { IoBookOutline } from "react-icons/io5";
 import { PiBriefcase } from "react-icons/pi";
 
@@ -110,7 +108,7 @@ const CardPropuestas = () => {
             </h2>
 
             <div className='flex mt-6 sm:mt-12 relative h-auto justify-center items-center'>
-                <div className='px-3 sm:container justify-center mx-auto grid grid-cols-2 gap-4 sm:gap-9 sm:grid-cols-2 lg:grid-cols-3'>
+                <div className='px-3 sm:container justify-center mx-auto grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3'>
                     {propuestas.map((item, index) => (
                         <Dialog key={item.id}>
                             <DialogTrigger className=''>

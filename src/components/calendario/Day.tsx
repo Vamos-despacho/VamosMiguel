@@ -1,15 +1,6 @@
 import React, { useMemo } from 'react';
 import { format, isSameMonth, isToday } from 'date-fns';
 import { IEvent } from '@/app/api/data/EventDays';
-import { LucideSchool } from "lucide-react";
-import { BsHeartPulse } from "react-icons/bs";
-import { PiUsersFourLight } from 'react-icons/pi';
-
-import { IoIosMore } from "react-icons/io";
-import { BsExclamationLg } from "react-icons/bs";
-import { BsExclamationCircle } from "react-icons/bs";
-import { BsExclamation } from "react-icons/bs";
-
 
 interface DayProps {
     day: Date;
@@ -23,8 +14,6 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
     const isCurrentMonth = isSameMonth(day, currentMonth);
     const isTodayDate = isToday(day);
 
-    const numberOfItems = Object.keys(events[0] || {}).length;
-
     // Filtrar eventos del día actual
     const dayEvents = useMemo(() => {
         return events.find(event => isSameDay(day, event.date))?.eventos || [];
@@ -34,117 +23,62 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
         switch (eventName) {
             case 'Salud':
                 return <div className='flex justify-center items-center gap-0.5'>
-
-                    <p className='md:text-sm text-xs  list-disc'>Salud</p>
-                </div>
+                    <p className='md:text-sm text-xs list-disc'>Salud</p>
+                </div>;
             case 'Educación':
                 return <div className='flex justify-center items-center gap-0.5'>
-
-                    <p className='md:text-sm text-xs '>Educación</p>
-                </div>
+                    <p className='md:text-sm text-xs'>Educación</p>
+                </div>;
             case 'Pleno':
-                return <div className='flex justify-center items-center gap-0.5 '>
-
-                    <p className='md:text-sm text-xs '>Pleno</p>
-                </div>
+                return <div className='flex justify-center items-center gap-0.5'>
+                    <p className='md:text-sm text-xs'>Pleno</p>
+                </div>;
             case 'Otros':
                 return <div className='flex justify-center items-center gap-0.5'>
-
-                    <p className='md:text-sm text-xs '>Otros</p>
-                </div>
+                    <p className='md:text-sm text-xs'>Otros</p>
+                </div>;
             default:
                 return null;
         }
     };
-    // const renderIcon = (eventName: string) => {
-    //     switch (eventName) {
-    //         case 'Salud':
-    //             return <IconWithCheck icon={BsHeartPulse} />;
-    //         case 'Educación':
-    //             return <IconWithCheck icon={LucideSchool} />;
-    //         case 'Pleno':
-    //             return <IconWithCheck icon={PiUsersFourLight} />;
-    //         case 'Otros':
-    //             return <IconWithCheck icon={IoIosMore} />;
-    //         default:
-    //             return null;
-    //     }
-    // };
+
+    const hasEventDetails = (eventDetails: any): boolean => {
+        return eventDetails && Object.keys(eventDetails).length > 0;
+    };
 
     return (
         <div
             onClick={() => dayEvents.length > 0 && onClick(day)}
-            className={`min-h-[80px] md:h-[120px] border border-gray-200  p-0 text-center cursor-pointer 
-                        ${!isCurrentMonth ? 'text-gray-400' : ''} 
+            className={`min-h-[80px] md:h-[120px] border border-gray-200 p-0 text-center cursor-pointer 
+                        ${!isCurrentMonth ? ' opacity-75' : ''} 
                         ${isTodayDate ? 'bg-green-50 border-green-300' : ''} 
-                        ${isSelected ? ' bg-blue-50' : ''} 
-                        ${dayEvents.length > 0 ? ' ' : ''}
-                       
+                        ${isSelected ? 'bg-blue-50' : ''} 
+                        ${dayEvents.length > 0 ? '' : ''}
                         `}
         >
             <div className={`flex justify-center font-medium py-1 text-base bg-slate-100 border-b
                 ${!isCurrentMonth ? 'bg-white' : ''}`}>
                 <div className='w-5'></div>
-                <div >
-
+                <div>
                     {format(day, 'd')}
                 </div>
-                <div className='w-5 ml-[-6px] mt-[-5px]'>
-
-                    {/* {
-                        (dayEvents.length > 0 && numberOfItems > 2) && (
-                            <div className="flex items-center justify-center">
-                                <BsExclamation className="w-5 h-5 text-green-600" />
-                            </div>
-                        )
-                    } */}
-                </div>
+                <div className='w-5 ml-[-6px] mt-[-5px]'></div>
             </div>
-            <div className='flex flex-col justify-start items-start md:ml-3 md:mt-3 gap-1 '>
+            <div className='flex flex-col justify-start items-start md:ml-3 md:mt-3 gap-1'>
                 {dayEvents.map((event, idx) => (
-                    <div key={idx} className={` ${(dayEvents.length > 0 && numberOfItems > 2) ? 'text-blue-500' : ''}`}>
+                    <div key={idx} className={` ${hasEventDetails(event.event) ? 'text-blue-500' : ''}`}>
                         {renderIcon(event.nombre)}
                     </div>
                 ))}
-
             </div>
         </div>
     );
 };
 
-const IconWithCheck: React.FC<{ icon: React.ElementType }> = ({ icon: IconComponent }) => (
-    <div className=" relative rounded-lg ">
-
-        <div className="flex items-center justify-center h-full">
-            <IconComponent className="w-4 h-4 text-neutral-800" />
-
-        </div>
-    </div>
-);
-
 function isSameDay(date1: Date, date2: Date): boolean {
     return date1.getFullYear() === date2.getFullYear() &&
         date1.getMonth() === date2.getMonth() &&
         date1.getDate() === date2.getDate();
-}
-
-function CheckIcon(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M20 6 9 17l-5-5" />
-        </svg>
-    );
 }
 
 export default Day;

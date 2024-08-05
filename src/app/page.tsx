@@ -12,7 +12,7 @@ const page = () => {
 
         <SliderTop />
       </div>
-      <div className='bg-gray-100 py-10 border-t  border-gray-50'>
+      <div className='bg-gray-100 py-6 border-t  border-gray-50'>
         <CardPropuestas />
       </div>
       <div className=' border-t border-gray-50'>
