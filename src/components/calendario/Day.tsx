@@ -35,22 +35,22 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
             case 'Salud':
                 return <div className='flex justify-center items-center gap-0.5'>
 
-                    <p className='text-sm  list-disc'>Salud</p>
+                    <p className='md:text-sm text-xs  list-disc'>Salud</p>
                 </div>
             case 'Educación':
                 return <div className='flex justify-center items-center gap-0.5'>
 
-                    <p className='text-sm '>Educación</p>
+                    <p className='md:text-sm text-xs '>Educación</p>
                 </div>
             case 'Pleno':
                 return <div className='flex justify-center items-center gap-0.5 '>
 
-                    <p className='text-sm  '>Pleno</p>
+                    <p className='md:text-sm text-xs '>Pleno</p>
                 </div>
             case 'Otros':
                 return <div className='flex justify-center items-center gap-0.5'>
 
-                    <p className='text-sm '>Otros</p>
+                    <p className='md:text-sm text-xs '>Otros</p>
                 </div>
             default:
                 return null;
@@ -100,7 +100,7 @@ const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelecte
                     } */}
                 </div>
             </div>
-            <div className='flex flex-col justify-start items-start ml-3 mt-3 gap-1 '>
+            <div className='flex flex-col justify-start items-start md:ml-3 md:mt-3 gap-1 '>
                 {dayEvents.map((event, idx) => (
                     <div key={idx} className={` ${(dayEvents.length > 0 && numberOfItems > 2) ? 'text-blue-500' : ''}`}>
                         {renderIcon(event.nombre)}
