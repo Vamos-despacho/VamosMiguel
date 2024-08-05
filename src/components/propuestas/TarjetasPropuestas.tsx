@@ -46,7 +46,7 @@ const renderIcon = (eventName: string) => {
                 </div>
             </div>;
         case 'Educación':
-            return <div className=" relative  p-1 w-10 h-10 rounded-lg ">
+            return <div className=" relative  p-1  rounded-lg ">
                 <div className="flex items-center justify-center h-full">
                     <IoBookOutline className="w-6 h-6" />
                 </div>
