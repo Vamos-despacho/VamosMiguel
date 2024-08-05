@@ -8,7 +8,7 @@ const imgs = [
         id: 3,
         img: 'imagen03.jpg',
         title: 'Reunión con el Ministro de Salud para Mejorar la Atención en Veraguas',
-        description: 'Mantuvimos una reunión con el Ministro de Salud, Fernando Boyd, donde expusimos las urgentes necesidades de Veraguas. Discutimos las problemáticas del hospital Luis "Chicho" Fábrega, incluyendo la inestabilidad laboral del personal, la necesidad de mejorar la infraestructura, el banco de sangre y la urgencia de adquirir equipos médicos modernos.'
+        description: 'En reunión sostenida con el Ministro de Salud, Fernando Boyd, expusimos las urgentes necesidades de la provincia de Veraguas, específicamente las problemáticas del Hospital Regional Luis "Chicho" Fábrega, entre ellas la inestabilidad laboral del personal, la necesidad de mejorar la infraestructura, el banco de sangre y la urgencia de adquirir equipos médicos modernos.'
     },
     {
         id: 2,
@@ -20,7 +20,7 @@ const imgs = [
         id: 1,
         img: 'imagen01.png',
         title: 'Presentación de anteproyecto: Transparencia y Equidad en Auxilios Económicos',
-        description: 'Este anteproyecto propone prohibir el acceso a auxilios económicos para funcionarios de alto rango y sus familiares cuarto grado de consanguinidad y segundo de afinidad, promoviendo así la transparencia y equidad en la distribución de recursos educativos.'
+        description: 'Este anteproyecto propone prohibir el acceso a auxilios económicos para funcionarios de alto rango y sus familiares hasta el cuarto grado de consanguinidad y segundo de afinidad, promoviendo así la transparencia y equidad en la distribución de recursos educativos.'
     },
 ];
 

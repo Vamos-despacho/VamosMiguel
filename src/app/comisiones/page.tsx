@@ -5,12 +5,15 @@ export default function ComisionPage() {
             <div className="container px-4 md:px-6">
                 <div className="mx-auto max-w-4xl text-center">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight">Comisiones</h2>
-                    <p className="mt-4 text-muted-foreground">
+                    <p className="mt-4 text-lg text-muted-foreground">
 
-                        Participamos de manera activa en las comisiones de salud y educación, enfocándonos en elevar la calidad de vida de los ciudadanos y promover avances significativos en estos ámbitos.
-                    </p>
+                        Participamos de manera activa en diversas comisiones, con el objetivo de elevar la calidad de vida de los ciudadanos y promover avances significativos en todos los ámbitos.                    </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <div className=" mt-16">
+                    <h3 className="text-xl text-gray-700 font-semibold">Período: Julio 2024 - Julio 2025</h3>
+                    <div className="mt-3 border-t pt-4"></div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-3">
                     <div className="bg-card border rounded-lg shadow-md p-8">
                         <div className="flex items-center gap-4">
                             <div className="bg-primary rounded-full p-2 text-primary-foreground">

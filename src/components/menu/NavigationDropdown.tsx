@@ -124,7 +124,7 @@ export const NavigationDropdown = () => {
 
 
 
-                                    <Link href="/#contactanos">
+                                    <Link href="/contactanos">
                                         <DropdownMenuItem>
                                             <span className="relative z-10">Contáctanos</span>
                                         </DropdownMenuItem>

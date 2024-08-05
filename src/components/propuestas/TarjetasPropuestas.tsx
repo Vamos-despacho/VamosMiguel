@@ -42,56 +42,56 @@ const renderIcon = (eventName: string) => {
         case 'Salud':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <TbHeartHandshake className="w-8 h-8" />
+                    <TbHeartHandshake className="w-6 h-6" />
                 </div>
             </div>;
         case 'Educación':
             return <div className=" relative  p-1 w-10 h-10 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <IoBookOutline className="w-8 h-8" />
+                    <IoBookOutline className="w-6 h-6" />
                 </div>
             </div>
 
         case 'Desempleo':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <PiBriefcase className="w-8 h-8" />
+                    <PiBriefcase className="w-6 h-6" />
                 </div>
             </div>
         case 'Deporte':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <MdOutlineSportsSoccer className="w-8 h-8" />
+                    <MdOutlineSportsSoccer className="w-6 h-6" />
                 </div>
             </div>
         case 'Servicios Básicos':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <GiTap className="w-8 h-8" />
+                    <GiTap className="w-6 h-6" />
                 </div>
             </div>
         case 'Anticorrupción':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <PiProhibitBold className="w-8 h-8" />
+                    <PiProhibitBold className="w-6 h-6" />
                 </div>
             </div>
         case 'Justicia':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <MdOutlineBalance className="w-8 h-8" />
+                    <MdOutlineBalance className="w-6 h-6" />
                 </div>
             </div>
         case 'Institucionalidad':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <RiGovernmentLine className="w-8 h-8" />
+                    <RiGovernmentLine className="w-6 h-6" />
                 </div>
             </div>
         case 'Reglamento Interno de la Asamblea':
             return <div className=" relative  p-1 rounded-lg ">
                 <div className="flex items-center justify-center h-full">
-                    <CgFileDocument className="w-8 h-8" />
+                    <CgFileDocument className="w-6 h-6" />
                 </div>
             </div>
 
@@ -114,7 +114,7 @@ const CardPropuestas = () => {
                     {propuestas.map((item, index) => (
                         <Dialog key={item.id}>
                             <DialogTrigger className=''>
-                                <div className="bg-card rounded-lg shadow-md p-2 sm:p-6 sm:h-36">
+                                <div className="bg-card rounded-lg shadow-md p-2 sm:p-5 sm:h-36">
                                     <div className="flex flex-col sm:flex-row items-center gap-2">
                                         <div className="bg-primary rounded-full p-1 text-primary-foreground">
 
