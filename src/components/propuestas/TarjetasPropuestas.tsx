@@ -121,7 +121,7 @@ const CardPropuestas = () => {
                                             }
 
                                         </div>
-                                        <h3 className="sm:text-lg font-semibold">{item.titulo}</h3>
+                                        <h3 className="sm:text-lg font-medium">{item.titulo}</h3>
                                     </div>
                                     <p className="hidden sm:block mt-2 md:mt-4 text-sm text-start text-muted-foreground ">
                                         {item.subtitulo}
