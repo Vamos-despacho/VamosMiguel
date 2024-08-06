@@ -91,9 +91,9 @@ const FormParticipacionCiudadana = () => {
 
     }
     return (
-        <Card className=' lg:p-7 shadow-md '>
+        <Card className=' lg:p-3 shadow-md max-w-2xl '>
             <CardContent>
-                <form onSubmit={handleSubmit} className="gap-2 flex flex-col ">
+                <form onSubmit={handleSubmit} className="gap-3 flex flex-col ">
                     <div className="mt-3 md:space-y-0 md:flex md:space-x-4">
                         <div className="w-full lg:w-1/2">
                             <Label htmlFor="nombre">Nombre *</Label>
@@ -134,7 +134,7 @@ const FormParticipacionCiudadana = () => {
                         <Label htmlFor="adjuntar">Adjuntar Imagen</Label>
                         <Input name="file" id="adjuntar" type="file" accept="image/jpeg,image/png,image/gif" />
                     </div>
-                    <div className="flex justify-center py-4 items-center gap-3 bg-red-50">
+                    <div className="flex justify-center py-4 pl-4 items-center gap-3 bg-red-50">
                         <Input className="w-4" type="checkbox" id="consentimiento" name="consentimiento" />
                         <Label htmlFor="consentimiento">
                             Acepto que mis datos sean utilizados únicamente para fines de evaluación de propuestas legislativas.
