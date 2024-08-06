@@ -14,7 +14,7 @@ const PageParticipacionCiudadana = () => {
                         <p className="mb-4 text-xl font-display text-neutral-700">
                             Queremos escuchar tus ideas y sugerencias para mejorar nuestras leyes y hacer que reflejen mejor las necesidades de nuestra comunidad.                         </p>
                         <p className="mb-1 text-xl text-neutral-700  font-display">
-                            Por favor, completa el siguiente formulario para enviarnos tus propuestas.
+                            Completa el siguiente formulario para enviarnos tus propuestas.
                         </p>
                     </div>
                 </div>

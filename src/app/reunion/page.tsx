@@ -18,7 +18,7 @@ const SolicitarReunionPage = () => {
                             Solicita una reunión para discutir tus inquietudes, ideas o proyectos. Tu voz es importante en el proceso legislativo y estamos aquí para escucharte y explorar cómo tus propuestas pueden contribuir al bienestar de la comunidad.
                         </p> */}
                         <p className="mb-1 text-xl text-neutral-600  font-display">
-                            Por favor, completa el siguiente formulario para solicitar una reunión.
+                            Completa el siguiente formulario para solicitar una reunión.
                         </p>
                     </div>
                 </div>
