@@ -56,13 +56,13 @@ const VideosTop = forwardRef<VideosTopHandles>((props, ref: ForwardedRef<VideosT
     return (
 
 
-        <div className="flex flex-col lg:flex-row  max-w-6xl w-auto mx-auto h-[600px] sm:h-[500px] items-center justify-center">
-            <div className="flex flex-col  lg:flex-row gap-4 p-2 md:py-6 max-w-6xl w-full md:w-[700px] lg:items-center justify-center ">
+        <div className="flex flex-col lg:flex-row  max-w-6xl w-auto mx-auto h-[600px] sm:h-[500px] items-center justify-center  ">
 
-                {/* <div className="flex overflow-hidden h-auto rounded-lg w-[700px] mx-auto md:mx-0"> */}
+            {/* <div className="flex overflow-hidden h-auto rounded-lg w-[700px] mx-auto md:mx-0"> */}
+            <div className=" p-2  max-w-6xl w-full md:w-[700px] items-center justify-center ">
                 <VideoSection id={showId} onReady={onReady} />
             </div>
-            <div className="flex flex-col items-center justify-center gap-6 p-6 bg-background md:ml-6">
+            <div className="flex flex-col items-center justify-center gap-6  bg-background lg:ml-6">
                 <div className="flex flex-col items-center gap-3 pt-4">
                     <h2 className="text-3xl font-bold">Actividad legislativa</h2>
                     <p className="text-muted-foreground text-lg">{format(showDate, 'PPPP', { locale: es })}</p>
