@@ -97,38 +97,38 @@ const FormParticipacionCiudadana = () => {
                     <div className="mt-3 md:space-y-0 md:flex md:space-x-4">
                         <div className="w-full lg:w-1/2">
                             <Label htmlFor="nombre">Nombre *</Label>
-                            <Input name="nombre" id="nombre" type="text" required placeholder="" />
+                            <Input name="nombre" id="nombre" type="text" required placeholder="Ingresa tu nombre" />
                         </div>
                         <div className=" mt-3 md:mt-0  w-full lg:mt-0 lg:w-1/2">
                             <Label htmlFor="telefono">Teléfono de Contacto</Label>
-                            <Input name="telefono" id="telefono" type="tel" placeholder="" />
+                            <Input name="telefono" id="telefono" type="tel" placeholder="Ingresa tu número de teléfono" />
                         </div>
                     </div>
 
                     <div className=' space-y-1'>
                         <Label htmlFor="correo">Correo Electrónico *</Label>
-                        <Input name="correo" id="correo" required type="email" placeholder="juan@gmail.com" />
+                        <Input name="correo" id="correo" required type="email" placeholder="Ingresa tu correo" />
                     </div>
 
                     <div className=' space-y-1'>
                         <Label htmlFor="titulo">Título de la Propuesta</Label>
-                        <Input name="titulo" id="titulo" type="text" placeholder="" />
+                        <Input name="titulo" id="titulo" type="text" placeholder="Ingresa el título" />
                     </div>
                     <div className=' space-y-1'>
                         <Label htmlFor="descripcion">Descripción de la Propuesta *</Label>
-                        <Textarea name="descripcion" id="descripcion" style={{ height: 80 }} />
+                        <Textarea name="descripcion" id="descripcion" style={{ height: 80 }} placeholder="Ingresa una descripción" />
                     </div>
                     <div className=' space-y-1'>
                         <Label htmlFor="justificacion">Justificación de la Propuesta</Label>
-                        <Textarea name="justificacion" id="justificacion" style={{ height: 80 }} />
+                        <Textarea name="justificacion" id="justificacion" style={{ height: 80 }} placeholder="Ingresa una justificación" />
                     </div>
                     <div className=' space-y-1'>
                         <Label htmlFor="area">Área Afectada</Label>
-                        <Input name="area" id="area" type="text" placeholder="" />
+                        <Input name="area" id="area" type="text" placeholder="Ingresa área afectada" />
                     </div>
                     <div className=' space-y-1'>
                         <Label htmlFor="area">Comentarios Adicionales</Label>
-                        <Textarea name="comentarios" id="comentarios" style={{ height: 80 }} />
+                        <Textarea name="comentarios" id="comentarios" style={{ height: 80 }} placeholder="Ingresa comentarios" />
                     </div>
                     <div className=' space-y-1 pb-2'>
                         <Label htmlFor="adjuntar">Adjuntar Imagen</Label>
