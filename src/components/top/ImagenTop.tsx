@@ -36,7 +36,7 @@ export default function ImagenTop() {
     };
 
     return (
-        <div className="grid grid-cols-1 bg-white md:grid-cols-2 gap-3 md:gap-8 items-center pb-8 max-w-6xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 bg-white md:grid-cols-2 gap-3 md:gap-8 items-center pb-0 max-w-6xl mx-auto px-4 md:px-6">
             <div className="relative">
                 <div className="relative w-full h-full overflow-hidden">
                     <div className="relative w-full h-full transition-transform duration-500">
@@ -71,7 +71,7 @@ export default function ImagenTop() {
             </div>
             <div className=" space-y-2 md:space-y-4">
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{imgs[currentIndex].title}</h2>
-                <p className="text-muted-foreground mt-2 lg:mt-6 text-lg text-gray-600 text-justify">
+                <p className=" mt-2 lg:mt-6 txt-sm sm:text-lg text-gray-600 text-justify tracking-tight">
                     {imgs[currentIndex].description}
                 </p>
             </div>

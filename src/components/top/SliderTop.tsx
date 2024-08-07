@@ -45,7 +45,7 @@ const SliderTop = () => {
     };
 
     return (
-        <div className="pb-4 relative">
+        <div className="pb-0 relative">
             <Slider ref={sliderRef} {...settings}>
                 <div>
                     <ImagenTop />
