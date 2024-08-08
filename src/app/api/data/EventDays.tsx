@@ -302,4 +302,27 @@ export const events: IEvent[] = [
             }
         ]
     },
+    {
+        date: new Date(2024, 7, 7),
+        eventos: [
+            {
+                nombre: "Otros",
+                event: {
+                    idsYoutube: ['GSVn1AppIr0'],
+                }
+            },
+            {
+                nombre: "Salud",
+                event: {
+
+                }
+            },
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+        ]
+    },
 ];

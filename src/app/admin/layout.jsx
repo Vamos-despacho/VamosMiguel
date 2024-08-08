@@ -20,6 +20,23 @@ const ArticlesLayout = ({ children }) => {
 
             <div className="navigation ">
                 <div className='dropdown '>
+                    <h2 className='font-semibold ms-2' >Eventos</h2>
+                    <div className=''>
+                        <Link href="/admin/" className='w-full'>
+                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
+                                <EyeOpenIcon className='mr-2' />
+                                Ver
+                            </Button>
+                        </Link>
+                    </div>
+                    <div className=''>
+                        <Link href="/admin/event/crear">
+                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
+                                <Pencil1Icon className='mr-2' />
+                                Crear
+                            </Button>
+                        </Link>
+                    </div>
                     <h2 className='font-semibold ms-2' >Articulos</h2>
                     <div className=''>
                         <Link href="/admin/articulos/ver-articulos" className='w-full'>

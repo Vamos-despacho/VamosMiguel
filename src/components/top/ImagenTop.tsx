@@ -49,7 +49,7 @@ export default function ImagenTop() {
                             height={800}
                             sizes="(min-width: 1024px) 1200px, (min-width: 768px) 800px, 100vw"
 
-                            className=" sm:w-[600px] h-[380px] sm:h-[500px] rounded-md object-cover"
+                            className=" sm:w-[600px] h-[340px] sm:h-[500px] rounded-md object-cover"
                             quality={100} // Usa la máxima calidad
                         />
 
