@@ -16,7 +16,7 @@ export interface IAnteProyecto {
 export const Anteproyectos: IAnteProyecto[] = [
     {
         id: 2,
-        titulo: 'Anteproyecto de Alto Rendimiento Deportivo y Medicina Deportiva',
+        titulo: 'Alto Rendimiento Deportivo y Medicina Deportiva',
         // titulo: 'Reforma Integral para la Transparencia y Equidad en la Asignación de Auxilios Económicos',
         // titulo:'Que modifica la Ley 1 del 11 de enero de 1965 y prohíbe el acceso a Auxilios Económicos a funcionarios de Alto Mando y Jurisdicción ya sus familiares con parentesco hasta el cuarto grado de consanguinidad y segundo de afinidad',
 

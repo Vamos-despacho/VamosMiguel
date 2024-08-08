@@ -298,6 +298,19 @@ export const events: IEvent[] = [
                 nombre: "Pleno",
                 event: {
                     idsYoutube: ['n5Yv3sNukXM'],
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1723138831/VamosMA/re3t673rmd6xxxn9rlnn.png'],
+                            titulo: 'Presentación de anteproyecto: Alto Rendimiento Deportivo y Medicina Deportiva',
+                            descripcion: 'Este anteproyecto busca proporcionar los recursos necesarios para elevar el nivel competitivo de nuestros atletas, implementar la medicina deportiva preventiva, y transformar el deporte en una cultura y una industria. Con un sólido respaldo en salud y entrenamiento, se garantizará el éxito internacional de nuestros deportistas y el desarrollo sostenible de nuestra industria deportiva.'
+                        }
+                    ]
+                }
+            },
+            {
+                nombre: "Otros",
+                event: {
+                    idsYoutube: ['GSVn1AppIr0'],
                 }
             }
         ]
@@ -305,18 +318,24 @@ export const events: IEvent[] = [
     {
         date: new Date(2024, 7, 7),
         eventos: [
-            {
-                nombre: "Otros",
-                event: {
-                    idsYoutube: ['GSVn1AppIr0'],
-                }
-            },
+
             {
                 nombre: "Salud",
                 event: {
 
                 }
             },
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 7, 8),
+        eventos: [
             {
                 nombre: "Pleno",
                 event: {

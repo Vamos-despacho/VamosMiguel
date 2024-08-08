@@ -5,6 +5,12 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
 const imgs = [
     {
+        id: 4,
+        img: 'image04.png',
+        title: 'Presentación de anteproyecto: Alto Rendimiento Deportivo y Medicina Deportiva',
+        description: 'Este anteproyecto busca proporcionar los recursos necesarios para elevar el nivel competitivo de nuestros atletas, implementar la medicina deportiva preventiva, y transformar el deporte en una cultura y una industria. Con un sólido respaldo en salud y entrenamiento, se garantizará el éxito internacional de nuestros deportistas y el desarrollo sostenible de nuestra industria deportiva.'
+    },
+    {
         id: 3,
         img: 'imagen03.jpg',
         title: 'Reunión con el Ministro de Salud para Mejorar la Atención en Veraguas',
@@ -18,7 +24,7 @@ const imgs = [
     },
     {
         id: 1,
-        img: 'imagen01.png',
+        img: 'image001.png',
         title: 'Presentación de anteproyecto: Transparencia y Equidad en Auxilios Económicos',
         description: 'Este anteproyecto propone prohibir el acceso a auxilios económicos para funcionarios de alto rango y sus familiares hasta el cuarto grado de consanguinidad y segundo de afinidad, promoviendo así la transparencia y equidad en la distribución de recursos educativos.'
     },

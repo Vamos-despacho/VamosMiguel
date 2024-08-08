@@ -12,8 +12,10 @@ interface VideosTopHandles {
 
 const VideosTop = forwardRef<VideosTopHandles>((props, ref: ForwardedRef<VideosTopHandles>) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [showId, setShowId] = useState<string>(videosYotube[0].id);
-    const [showDate, setShowDate] = useState<Date>(videosYotube[0].date);
+    const [showId, setShowId] = useState<string>('GSVn1AppIr0');
+    const [showDate, setShowDate] = useState<Date>(new Date(2024, 7, 6));
+    // const [showId, setShowId] = useState<string>(videosYotube[0].id);
+    // const [showDate, setShowDate] = useState<Date>(videosYotube[0].date);
     const playerRef = useRef<any>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
