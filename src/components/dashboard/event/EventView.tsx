@@ -72,33 +72,45 @@ const EventView = ({ events: initialEvents }: Props) => {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {events.map((event) => (
-                            <TableRow
-                                key={event._id}
-                                className={`hover:bg-gray-100 ${new Date(event.date).toDateString() === mostRecentDate.toDateString() ? 'bg-green-50' : ''}`}
-                            >
-                                <TableCell>{format(new Date(event.date), 'PPPP', { locale: es })}</TableCell>
-                                <TableCell className="flex gap-1">
-                                    {event.eventos?.map((evento) => (
-                                        <button
-                                            key={evento._id}
-                                            className={`border rounded-sm p-1 px-2 hover:bg-blue-100 ${selectedEvent?.eventos?.[0]?._id === evento._id ? 'bg-blue-100 ' : ''}`}
-                                            onClick={() => handleEventClick(evento._id, event)}
-                                        >
-                                            {evento.nombre}
-                                        </button>
-                                    ))}
-                                </TableCell>
-                                <TableCell>
-                                    <BtnDeleteAlert
-                                        id={2}
-                                        link={`/events/${event._id}`}
-                                        onClickDelete={() => handleDelete(event._id)}
-                                        msg={`Evento ${event.date}`}
-                                    />
+                        {events.length > 0 ? (
+                            events.map((event) => (
+                                <TableRow
+                                    key={event._id}
+                                    className={`hover:bg-gray-100 ${new Date(event.date).toDateString() === mostRecentDate.toDateString() ? 'bg-green-50' : ''}`}
+                                >
+                                    <TableCell>{format(new Date(event.date), 'PPPP', { locale: es })}</TableCell>
+                                    <TableCell className="flex gap-1">
+                                        {event.eventos && event.eventos.length > 0 ? (
+                                            event.eventos.map((evento) => (
+                                                <button
+                                                    key={evento._id}
+                                                    className={`border rounded-sm p-1 px-2 hover:bg-blue-100 ${selectedEvent?.eventos?.[0]?._id === evento._id ? 'bg-blue-100 ' : ''}`}
+                                                    onClick={() => handleEventClick(evento._id, event)}
+                                                >
+                                                    {evento.nombre}
+                                                </button>
+                                            ))
+                                        ) : (
+                                            <span>No hay eventos</span>
+                                        )}
+                                    </TableCell>
+                                    <TableCell>
+                                        <BtnDeleteAlert
+                                            id={2}
+                                            link={`/events/${event._id}`}
+                                            onClickDelete={() => handleDelete(event._id)}
+                                            msg={`Evento ${event.date}`}
+                                        />
+                                    </TableCell>
+                                </TableRow>
+                            ))
+                        ) : (
+                            <TableRow>
+                                <TableCell colSpan={3} className="text-center">
+                                    No hay eventos disponibles
                                 </TableCell>
                             </TableRow>
-                        ))}
+                        )}
                     </TableBody>
                 </Table>
             </div>
