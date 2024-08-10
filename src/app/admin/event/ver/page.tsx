@@ -20,7 +20,7 @@ const verEventoPage = async () => {
         <div className=" h-full p-3 pt-7">
 
             <h1>Eventos</h1>
-            <EventView events={event} />
+            <EventView />
         </div>)
 }
 
