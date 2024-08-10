@@ -22,7 +22,7 @@ const ArticlesLayout = ({ children }) => {
                 <div className='dropdown '>
                     <h2 className='font-semibold ms-2' >Eventos</h2>
                     <div className=''>
-                        <Link href="/admin/" className='w-full'>
+                        <Link href="/admin/event/ver" className='w-full'>
                             <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
                                 Ver

@@ -1,51 +1,54 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-// Define schemas
-const EventDetailsSchema = new mongoose.Schema({
-    evento: { type: String, required: true },
-    idsYoutube: { type: [String], default: [] },
-    linkInstagram: { type: [String], default: [] },
-    fotos: { type: [String], default: [] },
-    anteproyecto: { type: String, default: null },
-    proyecto: { type: String, default: null },
-    reforma: { type: String, default: null }
-}, { _id: false }); // _id: false para evitar IDs anidadas innecesarias
+// Definición de los tipos para cada evento en TypeScript
+interface IEventDetails {
+    idsYoutube?: string[]; // IDs de videos de YouTube
+    linkInstagram?: string[]; // URLs de Instagram
+    eventoImagen?: {
+        linkImagen: string[]; // URLs de las imágenes
+        titulo: string; // Título de la imagen
+        descripcion?: string; // Descripción opcional de la imagen
+    }[]; // Arreglo de imágenes con detalles
+    anteproyecto?: string; // URL o identificador del anteproyecto
+    proyecto?: string; // URL o identificador del proyecto
+    reforma?: string; // URL o identificador de la reforma
+}
 
-const OtrosEventosSchema = new mongoose.Schema({
-    evento: { type: String, required: true },
-    idsYoutube: { type: [String], default: [] },
-    linkInstagram: { type: [String], default: [] },
-    eventoImagen: {
-        type: [{
-            linkImagen: { type: [String], default: [] },
-            titulo: { type: String, required: true },
-            descripcion: { type: String, required: true }
-        }],
-        default: []
-    }
-}, { _id: false });
+interface IEventos {
+    nombre: string;
+    event: IEventDetails; // Detalles del evento
+}
 
-const EventosSchema = new mongoose.Schema({
-    nombre: { type: String, required: true },
-    estado: { type: Boolean, required: true }
-}, { _id: false });
+export interface IEvent extends Document {
+    date: Date;
+    eventos: IEventos[]; // Lista de eventos en el día
+    createdAt: Date; // Fecha de creación
+    updatedAt: Date; // Fecha de última modificación
+}
 
-const EventSchema = new mongoose.Schema({
-    date: { type: Date, required: true, index: true }, // Index para mejorar consultas por fecha
-    eventos: { type: [EventosSchema], required: true },
-    pleno: { type: EventDetailsSchema, default: null },
-    salud: { type: EventDetailsSchema, default: null },
-    educacion: { type: EventDetailsSchema, default: null },
-    otros: { type: OtrosEventosSchema, default: null }
+// Esquema de Mongoose para IEvent
+const EventSchema: Schema = new Schema({
+    date: { type: Date, required: true },
+    eventos: [{
+        nombre: { type: String, required: true },
+        event: {
+            idsYoutube: [{ type: String }],
+            linkInstagram: [{ type: String }],
+            eventoImagen: [{
+                linkImagen: [{ type: String }],
+                titulo: { type: String },
+                descripcion: { type: String }
+            }],
+            anteproyecto: { type: String },
+            proyecto: { type: String },
+            reforma: { type: String }
+        }
+    }]
 }, {
     timestamps: true // Agrega createdAt y updatedAt automáticamente
 });
 
-// Middlewares
-EventSchema.pre('save', function (next) {
-    console.log('Evento va a ser guardado:', this);
-    next();
-});
+// Verificar si el modelo ya existe antes de crearlo
+const Event = mongoose.models.Event || mongoose.model<IEvent>('Event', EventSchema);
 
-// Model definition
-export default mongoose.models.Event || mongoose.model('Event', EventSchema);
+export { Event };

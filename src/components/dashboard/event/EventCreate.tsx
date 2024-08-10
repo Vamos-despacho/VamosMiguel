@@ -1,35 +1,78 @@
-'use client'
-import React, { useState } from 'react';
+'use client';
 
+import React, { FormEvent, useState } from 'react';
 import DatePickerForm from './DatePickerform';
 import { Label } from '@radix-ui/react-label';
 import { Input } from '@/components/ui/input';
+import vamosApi from '@/app/api/vamosApi';
+import { useToast } from "@/components/ui/use-toast"
 
 const events = ['Pleno', 'Salud', 'Educación', 'Otros'];
 
 const EventCreate = () => {
     const [selectedEvents, setSelectedEvents] = useState<string[]>([]);
+    const [selectedDate, setSelectedDate] = useState<Date>();
+    const { toast } = useToast();
+
+    const handleDateChange = (date: Date) => {
+        setSelectedDate(date);
+    };
 
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value, checked } = event.target;
-        setSelectedEvents((prev) =>
-            checked ? [...prev, value] : prev.filter((e) => e !== value)
+        setSelectedEvents(prev =>
+            checked ? [...prev, value] : prev.filter(e => e !== value)
         );
     };
 
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        // Prepara los datos para enviar
+        const data = {
+            date: selectedDate,
+            eventos: selectedEvents.map(eventName => ({
+                nombre: eventName,
+                event: {} // Aquí puedes incluir más detalles si es necesario
+            }))
+        };
+
+        try {
+            const response = await vamosApi.post('/events', data);
+
+            if (response.status === 200) {
+                toast({
+                    variant: "default",
+                    title: "¡Evento Creado!",
+                    description: "El evento ha sido creado exitosamente.",
+                });
+                // Limpiar el estado del formulario
+                setSelectedEvents([]);
+                setSelectedDate(new Date());
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
+                checkboxes.forEach(checkbox => checkbox.checked = false);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
-        <div className="flex flex-col space-y-8 p-4 bg-white rounded-lg shadow-md">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-8 p-4 max-w-md">
             {/* Fecha */}
-            <div className="space-y-1">
+            <div className="space-x-2">
                 <Label className="font-semibold">Fecha del evento</Label>
-                <DatePickerForm />
+                <DatePickerForm
+                    selectedDate={selectedDate}
+                    onDateChange={handleDateChange}
+                />
             </div>
 
             {/* Selección de evento */}
             <div className="space-y-1">
                 <Label className="font-semibold">Selecciona un evento</Label>
                 <div className="flex gap-4 flex-wrap">
-                    {events.map((event) => (
+                    {events.map(event => (
                         <div key={event} className="flex items-center">
                             <input
                                 id={event}
@@ -45,49 +88,14 @@ const EventCreate = () => {
                 </div>
             </div>
 
-            {/* Mostrar EventData si hay eventos seleccionados */}
-            {selectedEvents.length > 0 && (
-                <div>
-                    <Label className="font-semibold">Eventos seleccionados:</Label>
-                    <ul className="list-disc list-inside">
-                        {selectedEvents.map((event) => (
-                            <li key={event}>{event}</li>
-                        ))}
-                    </ul>
-
-                    {/* EventData */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                        <div className="space-y-1">
-                            <Label className="font-semibold">ID de YouTube</Label>
-                            <Input name="IdYoutube" type="text" className="w-full border rounded-md p-2" />
-                        </div>
-                        <div className="space-y-1">
-                            <Label className="font-semibold">Link de Instagram</Label>
-                            <Input name="linkInstagram" type="text" className="w-full border rounded-md p-2" />
-                        </div>
-                    </div>
-
-                    {/* Detalles del evento */}
-                    <div className="space-y-4 mt-4">
-                        <Label className="font-semibold">Detalles del evento</Label>
-                        <div className="space-y-2">
-                            <div className="space-y-1">
-                                <Label>Título</Label>
-                                <Input name="TituloEvento" type="text" className="w-full border rounded-md p-2" />
-                            </div>
-                            <div className="space-y-1">
-                                <Label>Descripción</Label>
-                                <Input name="DescripcionEvento" type="text" className="w-full border rounded-md p-2" />
-                            </div>
-                            <div className="space-y-1">
-                                <Label>Link de Imagen</Label>
-                                <Input name="ImagenEvento" type="text" className="w-full border rounded-md p-2" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
+            <button
+                type="submit"
+                disabled={selectedEvents.length === 0 || !selectedDate}
+                className={`py-2 px-4 rounded-md text-white font-semibold ${(selectedEvents.length === 0 || !selectedDate) ? 'bg-gray-300' : 'bg-blue-500'}`}
+            >
+                Enviar
+            </button>
+        </form>
     );
 };
 

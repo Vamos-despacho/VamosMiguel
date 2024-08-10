@@ -14,12 +14,23 @@ import {
     PopoverTrigger,
 } from '@/components/ui/popover';
 
-const DatePickerForm = () => {
-    const [date, setDate] = React.useState<Date>();
+interface DatePickerFormProps {
+    selectedDate: Date | undefined;
+    onDateChange: (date: Date) => void; // Cambiado para asegurar que sea un Date
+}
+
+const DatePickerForm: React.FC<DatePickerFormProps> = ({ selectedDate, onDateChange }) => {
+    const [date, setDate] = React.useState<Date | undefined>(selectedDate);
+
+    const handleDateSelect = (newDate: Date | undefined) => {
+        if (newDate) { // Solo pasa una fecha si existe
+            setDate(newDate);
+            onDateChange(newDate);
+        }
+    };
 
     return (
         <Popover>
-
             <PopoverTrigger asChild>
                 <Button
                     variant={'outline'}
@@ -36,7 +47,7 @@ const DatePickerForm = () => {
                 <Calendar
                     mode="single"
                     selected={date}
-                    onSelect={setDate}
+                    onSelect={handleDateSelect}
                     disabled={(date) =>
                         date > new Date() || date < new Date('1900-01-01')
                     }

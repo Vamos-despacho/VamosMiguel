@@ -3,7 +3,7 @@ import React from 'react'
 
 const CrearEvent = () => {
     return (
-        <div className=" h-screen p-3 pt-7">
+        <div className="flex flex-col h-full p-3 pt-12">
 
             <h1>Crear Evento</h1>
             <EventCreate />
