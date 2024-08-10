@@ -24,12 +24,11 @@ interface Props {
 
 const EventView = ({ events: initialEvents }: Props) => {
     const [events, setEvents] = useState<IIEvent[]>(initialEvents);
-
     const [selectedEvent, setSelectedEvent] = useState<IIEvent | null>(null);
     const [selectedEventDate, setSelectedEventDate] = useState<Date | null>(null);
 
     const handleEventClick = (eventoId: string, parentEvent: IIEvent) => {
-        const selected = parentEvent.eventos.find(evento => evento._id === eventoId);
+        const selected = parentEvent.eventos?.find(evento => evento._id === eventoId);
         if (selected) {
             setSelectedEvent({
                 ...parentEvent,
@@ -57,7 +56,7 @@ const EventView = ({ events: initialEvents }: Props) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        // Lógica para manejar la sumisión del formulario
     }
 
     return (
@@ -80,10 +79,10 @@ const EventView = ({ events: initialEvents }: Props) => {
                             >
                                 <TableCell>{format(new Date(event.date), 'PPPP', { locale: es })}</TableCell>
                                 <TableCell className="flex gap-1">
-                                    {event.eventos.map((evento) => (
+                                    {event.eventos?.map((evento) => (
                                         <button
                                             key={evento._id}
-                                            className={`border rounded-sm p-1 px-2 hover:bg-blue-100 ${selectedEvent?.eventos[0]._id === evento._id ? 'bg-blue-100 ' : ''}`}
+                                            className={`border rounded-sm p-1 px-2 hover:bg-blue-100 ${selectedEvent?.eventos?.[0]?._id === evento._id ? 'bg-blue-100 ' : ''}`}
                                             onClick={() => handleEventClick(evento._id, event)}
                                         >
                                             {evento.nombre}
@@ -111,21 +110,21 @@ const EventView = ({ events: initialEvents }: Props) => {
                     )}
 
                     <div className="flex items-end mb-4">
-
-                        <h2 className="text-3xl font-bold text-blue-600 ">{selectedEvent.eventos[0].nombre}</h2>
+                        <h2 className="text-3xl font-bold text-blue-600 ">
+                            {selectedEvent.eventos?.[0]?.nombre || 'Evento no disponible'}
+                        </h2>
                         <div className="bg-gray-50 border ">
-
-                            <BtnDeleteAlert
-                                id={2}
-                                link={`/events/${selectedEvent.eventos[0]._id}`}
-                                onClickDelete={() => handleDelete(selectedEvent.eventos[0]._id)}
-                                msg={`Evento ${selectedEvent.eventos[0].nombre}`}
-                            />
+                            {selectedEvent.eventos?.[0] && (
+                                <BtnDeleteAlert
+                                    id={2}
+                                    link={`/events/${selectedEvent.eventos[0]._id}`}
+                                    onClickDelete={() => handleDelete(selectedEvent.eventos[0]._id)}
+                                    msg={`Evento ${selectedEvent.eventos[0].nombre}`}
+                                />
+                            )}
                         </div>
                     </div>
                     <form onSubmit={handleSubmit}>
-
-
                         <div className="space-y-6">
                             <div className="space-y-2">
                                 <Label htmlFor="youtube" className="text-gray-700 font-medium">IDs de YouTube</Label>
@@ -184,7 +183,6 @@ const EventView = ({ events: initialEvents }: Props) => {
                             </div>
                         </div>
                         <Button variant={'default'} className="w-full text-base my-4">Guardar</Button>
-
                     </form>
                 </div>
             )}
