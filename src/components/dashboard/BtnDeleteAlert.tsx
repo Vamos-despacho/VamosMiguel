@@ -13,6 +13,7 @@ import {
 import vamosApi from '@/app/api/vamosApi';
 import { TrashIcon } from '@radix-ui/react-icons';
 import { AxiosError } from 'axios';
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 interface Props {
     id: number;
@@ -39,7 +40,7 @@ const BtnDeleteAlert = ({ id, link, onClickDelete, msg }: Props) => {
     }
     return (
         <div><AlertDialog>
-            <AlertDialogTrigger>  <TrashIcon className="w-6 h-6 text-red-600" /></AlertDialogTrigger>
+            <AlertDialogTrigger className=' border p-0.5 bg-white rounded-sm'>  <RiDeleteBin6Line className="w-5 h-6  text-gray-500 hover:text-red-500" /></AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>Eliminar {msg}</AlertDialogTitle>

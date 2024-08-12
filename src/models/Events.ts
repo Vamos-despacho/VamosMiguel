@@ -30,7 +30,7 @@ export interface IEvent extends Document {
 const EventSchema: Schema = new Schema({
     date: { type: Date, required: true },
     eventos: [{
-        nombre: { type: String, required: true },
+        nombre: { type: String },
         event: {
             idsYoutube: [{ type: String }],
             linkInstagram: [{ type: String }],

@@ -271,7 +271,7 @@ export const events: IEvent[] = [
                 event: {
                     eventoImagen: [
                         {
-                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1722898985/VamosMA/kthtkle39jhkbglsytvw.png'],
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1723493842/VamosMA/okdvyqw2otghhzb2ce37.jpg                                '],
                             titulo: 'Reunión con el Grupo de Pacientes de Diálisis (Grupadi) y la Policlínica Horacio Díaz Gómez',
                             descripcion: 'Nos reunimos con representantes del Grupo de Pacientes de Diálisis (Grupadi) y el personal directivo de la Policlínica Horacio Díaz Gómez. En esta reunión, abordamos las problemáticas que enfrentan los pacientes debido a la falta de insumos y equipos médicos necesarios.'
                         }
@@ -340,6 +340,23 @@ export const events: IEvent[] = [
                 nombre: "Pleno",
                 event: {
 
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 7, 9),
+        eventos: [
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1723495867/VamosMA/xocmeimbht0htosf3zuq.jpg'],
+                            titulo: 'Visita a la Sala de Hemodiálisis en la Policlínica Horacio Díaz Gómez',
+                            descripcion: 'Durante nuestra visita a la sala de hemodiálisis, conversamos directamente con los pacientes y el personal médico, observando de primera mano las condiciones en las que reciben tratamiento. Esta experiencia nos permitió comprender mejor las necesidades urgentes de insumos y equipos médicos, y reafirmar nuestro compromiso de buscar soluciones para mejorar la atención y calidad de vida de los pacientes.'
+                        }
+                    ]
                 }
             },
         ]
