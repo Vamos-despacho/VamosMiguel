@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter, Roboto, DM_Sans } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 
 
@@ -45,11 +46,12 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-KPRNQPQW" />
 
       <body className={dm_sans.className}>
 
         <Providers>
-          <head>
+          {/* <head>
             <Script
               id='gtm'
               strategy='afterInteractive'
@@ -65,12 +67,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             >
 
             </Script>
-          </head>
+          </head> */}
           <main className=' w-full h-full '>
             <Navbar />
             <div className=' '>
 
             </div>
+
             {children}
             <Toaster />
             <Footer />
