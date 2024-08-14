@@ -10,6 +10,7 @@ export interface IEventDetails {
     anteproyecto?: string; // URL o identificador del anteproyecto
     proyecto?: string; // URL o identificador del proyecto
     reforma?: string; // URL o identificador de la reforma
+    LinkArticulo?: string; // URL de la noticia
 }
 
 export interface IEventos {
@@ -357,6 +358,49 @@ export const events: IEvent[] = [
                             descripcion: 'Durante nuestra visita a la sala de hemodiálisis, conversamos directamente con los pacientes y el personal médico, observando de primera mano las condiciones en las que reciben tratamiento. Esta experiencia nos permitió comprender mejor las necesidades urgentes de insumos y equipos médicos, y reafirmar nuestro compromiso de buscar soluciones para mejorar la atención y calidad de vida de los pacientes.'
                         }
                     ]
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 7, 12),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 7, 13),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+            {
+                nombre: "Otros",
+                event: {
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 7, 14),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+            {
+                nombre: "Salud",
+                event: {
                 }
             },
         ]
