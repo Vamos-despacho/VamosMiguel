@@ -36,7 +36,7 @@ export async function GET(request: Request) {
         // Busca todos los eventos en la base de datos
         const events = await Event.find({}).sort({ date: 1 }); // Orden ascendente por fecha
 
-        console.log('Events:', events);
+
 
         // Retorna una respuesta exitosa con los eventos encontrados
         return new Response(JSON.stringify(events), { status: 200 });

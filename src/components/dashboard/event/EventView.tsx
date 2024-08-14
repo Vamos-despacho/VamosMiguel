@@ -9,7 +9,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { useState } from 'react';
-import { IIEvent } from '@/interface/event';
+import { IIEvent, IIEventDetails } from '@/interface/event';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
 import BtnDeleteAlert from "../BtnDeleteAlert";
@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MdDelete } from "react-icons/md";
+import vamosApi from "@/app/api/vamosApi";
 
 interface Props {
     events: IIEvent[]
@@ -47,16 +48,23 @@ const EventView = ({ events: initialEvents }: Props) => {
             console.error('Error:', error);
         }
     };
-    const handleDeleteEventDay = async (id: string) => {
-
-        console.log(id)
+    const handleDeleteEventDay = async (eventId: string) => {
         try {
-            const updatedEvents = events.filter((event) => event._id !== id);
+            const updatedEvents = events.map((event) => {
+                return {
+                    ...event,
+                    eventos: event.eventos?.filter(evento => evento._id !== eventId) || [],
+                };
+            })
+            // .filter(event => event.eventos?.length > 0);
+
             setEvents(updatedEvents);
+            setSelectedEvent(null); // Resetea el evento seleccionado si se elimina.
         } catch (error) {
             console.error('Error:', error);
         }
     };
+
 
     const getMostRecentEventDate = () => {
         const dates = events.map(event => new Date(event.date));
@@ -65,10 +73,70 @@ const EventView = ({ events: initialEvents }: Props) => {
 
     const mostRecentDate = getMostRecentEventDate();
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Lógica para manejar la sumisión del formulario
-    }
+
+        const formData = new FormData(e.currentTarget);
+        const idEvento = formData.get('idEvento')?.toString(); // ID del evento
+        const idYoutube = formData.get('idYoutube')?.toString();
+        const linkInstagram = formData.get('linkInstagram')?.toString();
+        const titulo = formData.get('titulo')?.toString();
+        const descripcion = formData.get('descripcion')?.toString();
+        const urlImagen = formData.get('urlImagen')?.toString();
+
+        const eventDetails: IIEventDetails = {};
+
+        // Manejo de IDs de YouTube
+        if (idYoutube && idYoutube.trim() !== '') {
+            eventDetails.idsYoutube = idYoutube.split(',').map(id => id.trim());
+        }
+
+        // Manejo de enlaces de Instagram
+        if (linkInstagram && linkInstagram.trim() !== '') {
+            eventDetails.linkInstagram = linkInstagram.split(',').map(link => link.trim());
+        }
+
+        // Manejo de imágenes
+        if (urlImagen && urlImagen.trim() !== '') {
+            eventDetails.eventoImagen = [{
+                linkImagen: [urlImagen.trim()],
+                titulo: titulo || '', // Título opcional
+                descripcion: descripcion || '' // Descripción opcional
+            }];
+        }
+
+        // Solo procede si hay datos para actualizar y un ID de evento
+        if (Object.keys(eventDetails).length > 0 && idEvento) {
+            try {
+                // Lógica para actualizar el evento en el servidor
+                const resp = await vamosApi.put(`/events/eventday/${idEvento}`, eventDetails);
+                console.log({ idEvento });
+                console.log(eventDetails);
+                console.log(resp.data);
+
+                // Actualiza el estado local si es necesario
+                // const updatedEvents = events.map(event => {
+                //     if (event._id === idEvento) {
+                //         return {
+                //             ...event,
+                //             eventos: event.eventos?.map(e => e._id === selectedEvent?.eventos?.[0]?._id ? { ...e, ...eventDetails } : e)
+                //         };
+                //     }
+                //     return event;
+                // });
+
+                // setEvents(updatedEvents);
+                // console.log('Evento actualizado:', updatedEvents);
+
+            } catch (error) {
+                console.error('Error al actualizar el evento:', error);
+            }
+        } else {
+            console.log('No hay datos válidos para guardar.');
+        }
+    };
+
+
     if (!events || events.length === 0) {
         return <p>No hay eventos disponibles.</p>;
     }
@@ -141,6 +209,7 @@ const EventView = ({ events: initialEvents }: Props) => {
                     <form onSubmit={handleSubmit}>
                         <div className="space-y-6">
                             <div className="space-y-2">
+                                <input type="hidden" name="idEvento" value={selectedEvent.eventos[0]._id} />
                                 <Label htmlFor="youtube" className="text-gray-700 font-medium">IDs de YouTube</Label>
                                 <Input
                                     name="idYoutube"

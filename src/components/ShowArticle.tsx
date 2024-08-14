@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 
 import BtnAtras from './BtnAtras'
+import SliderArticle from './SliderArticle'
 
 
 
@@ -15,6 +16,7 @@ interface Props {
         title: string;
         content: string;
         imageUrl: string;
+        imagenArray: string[];
         slug: string;
         category: string;
         createdAt: string;
@@ -41,12 +43,12 @@ const ShowArticle = ({ article }: Props) => {
                         <div className='max-w-2xl mt-6 '>
                             <BtnAtras />
                         </div>
-                        <article className='flex flex-col justify-center r'>
+                        <article className='flex flex-col justify-center'>
                             <header className='flex flex-col mt-3'>
                                 <h1 className='mt-3 text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl'>{article.title}</h1>
                                 <p className='order-first flex items-center text-base text-zinc-400 dark:text-zinc-500'>{fecha(article.createdAt)}</p>
                             </header>
-                            <div className='mx-auto mt-4  '>
+                            <div className='mx-auto my-4  '>
 
                                 {article.imageUrl ? <Image loading="lazy" className='object-cover' width={810} height={672} src={article.imageUrl} alt={article.title} />
                                     : <Image className='w-auto h-auto object-cover' width={1310} height={872} src='/logovm.png' alt={article.title} />}
@@ -56,8 +58,27 @@ const ShowArticle = ({ article }: Props) => {
 
                                     {parse(article.content)}
                                 </div>
-
                             </div>
+                            {article.imagenArray.length > 0 && (
+
+
+                                <SliderArticle imgs={article.imagenArray} />
+
+
+                            )}
+                            {/* {article.imagenArray.length > 0 && (
+                                <div className='flex flex-col justify-center items-center mt-4'>
+                                    <h2 className='text-2xl font-bold text-zinc-800 dark:text-zinc-100'>Galería de Imágenes</h2>
+                                    <div className='flex flex-wrap justify-center items-center'>
+                                        {article.imagenArray.map((imagen, index) => (
+                                            <div key={index} className='flex flex-col justify-center items-center mt-4'>
+                                                <Image className='object-cover' width={810} height={672} src={imagen} alt={article.title} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )} */}
+
 
                         </article>
 
