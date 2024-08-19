@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* <GoogleTagManager gtmId="GTM-KPRNQPQW" /> */}
-      <Head>
+      <head>
         <Script
           id='gtm'
           strategy='afterInteractive'
@@ -63,7 +63,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         >
 
         </Script>
-      </Head>
+      </head>
       <body className={dm_sans.className}>
         <Providers>
           <main className=' w-full h-full '>
