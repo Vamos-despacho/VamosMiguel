@@ -396,6 +396,13 @@ export const events: IEvent[] = [
                 nombre: "Pleno",
                 event: {
                     idsYoutube: ['IDk0v8GkFjs', 'hVvN445FqMk'],
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1724082808/VamosMA/j3x13wpwjh62qmp9eqzx.jpg'],
+                            titulo: 'Presentación de Proyecto que Modifica la Ley 16 de 1995: Reorganización del Instituto de Deportes y Normativas Antidopaje',
+                            descripcion: 'Este anteproyecto de ley modifica la Ley 16 de 1995 para reorganizar el Instituto Nacional de Deportes, incluyendo los artículos 15K, 15L, y 15M, con la finalidad de velar por el cumplimiento de las normas nacionales e internacionales sobre el uso y control de sustancias y métodos prohibidos, según la Organización Nacional Antidopaje de Panamá (ONAD-PAN).'
+                        }
+                    ]
                 }
             },
             {

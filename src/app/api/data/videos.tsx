@@ -15,11 +15,31 @@ export type IVideoYoutube = {
 
 export const videosYotube: IVideoYoutube[] = [
     {
+        id: 'hVvN445FqMk',
+        title: 'Presentación de Proyecto que Modifica la Ley 16 de 1995: Reorganización del Instituto de Deportes y Normativas Antidopaje',
+        description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',
+        date: new Date(2024, 7, 14),
+        list: 'presentacion',
+        day: '14',
+        month: 'agosto',
+
+    },
+    {
+        id: 'IDk0v8GkFjs',
+        title: 'Incidencia en el Pleno',
+        description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',
+        date: new Date(2024, 7, 14),
+        list: 'incidencia',
+        day: '14',
+        month: 'agosto',
+
+    },
+    {
         id: 'n5Yv3sNukXM',
         title: 'Programa de Alto Rendimiento Deportivo y Medicina Deportiva',
         description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',
         date: new Date(2024, 7, 6),
-        list: 'incidencia',
+        list: 'presentacion',
         day: '6',
         month: 'agosto',
 
