@@ -395,7 +395,7 @@ export const events: IEvent[] = [
             {
                 nombre: "Pleno",
                 event: {
-
+                    idsYoutube: ['IDk0v8GkFjs', 'hVvN445FqMk'],
                 }
             },
             {

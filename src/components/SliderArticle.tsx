@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -80,11 +80,13 @@ const SliderArticle = ({ imgs }: { imgs: string[] }) => {
     };
 
     const handleImageChange = (direction: "left" | "right") => {
-        if (direction === "left") {
-            setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : imgs.length - 1));
-        } else {
-            setCurrentIndex((prevIndex) => (prevIndex < imgs.length - 1 ? prevIndex + 1 : 0));
-        }
+        setCurrentIndex((prevIndex) => {
+            if (direction === "left") {
+                return prevIndex > 0 ? prevIndex - 1 : imgs.length - 1;
+            } else {
+                return prevIndex < imgs.length - 1 ? prevIndex + 1 : 0;
+            }
+        });
     };
 
     useEffect(() => {
@@ -126,7 +128,7 @@ const SliderArticle = ({ imgs }: { imgs: string[] }) => {
                     {!isAtStart && <ScrollButton onClick={() => scrollHandler("left")} direction="left" />}
                 </div>
                 <div
-                    className="w-full  space-x-1 overflow-x-hidden flex"
+                    className="w-full space-x-1 overflow-x-hidden flex"
                     ref={divRef}
                     onMouseDown={handleMouseDown}
                     onMouseLeave={handleMouseLeaveOrUp}
@@ -135,7 +137,7 @@ const SliderArticle = ({ imgs }: { imgs: string[] }) => {
                 >
                     {imgs.map((item, index) => (
                         <Dialog key={item}>
-                            <DialogTrigger>
+                            <DialogTrigger onClick={() => setCurrentIndex(index)}>
                                 <img src={item} alt="imagen" className="object-cover h-full w-full" />
                             </DialogTrigger>
                             <DialogContent className="flex flex-col lg:max-h-[95dvh] md:max-w-2xl lg:max-w-4xl m-auto justify-center items-center p-2">
