@@ -34,7 +34,7 @@ export async function DELETE(request: Request, { params }: Params) {
 
 
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
-    console.log('update event');
+
     try {
         // Conéctate a la base de datos
         await connectDB();
@@ -42,7 +42,7 @@ export async function PUT(request: Request, { params }: { params: { id: string }
         // Obtén el ID del evento a actualizar y los detalles del campo `event` desde el cuerpo de la solicitud
         const eventId = params.id;
         const eventDetails = await request.json(); // Asegúrate de que esto sea lo que estás enviando
-        console.log(eventDetails)
+
         // Actualiza el campo `event` en el evento específico en el array `eventos`
         const result = await Event.updateOne(
             { 'eventos._id': eventId },

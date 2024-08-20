@@ -40,7 +40,7 @@ const BtnDeleteAlert = ({ id, link, onClickDelete, msg }: Props) => {
     }
     return (
         <div><AlertDialog>
-            <AlertDialogTrigger className=' border p-0.5 bg-white rounded-sm'>  <RiDeleteBin6Line className="w-5 h-5  text-gray-500 hover:text-red-500" /></AlertDialogTrigger>
+            <AlertDialogTrigger className=' border p-1 bg-white rounded-sm hover:text-red-500'>  <RiDeleteBin6Line className="w-5 h-5 hover:text-red-500 text-gray-700 " /></AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>Eliminar {msg}</AlertDialogTitle>

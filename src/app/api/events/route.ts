@@ -3,6 +3,7 @@
 import connectDB from '@/lib/mongodb';
 import { Event } from '@/models/Events';
 import { revalidatePath } from 'next/cache';
+import { NextRequest } from 'next/server';
 
 export async function POST(request: Request) {
     try {
@@ -28,18 +29,35 @@ export async function POST(request: Request) {
     }
 }
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
+    console.log('Get----')
+
+    const { searchParams } = new URL(request.url);
+    const desde = searchParams.get('desde') || '0'; // Valor por defecto es '0'
+    const limit = searchParams.get('limit') || '5'; // Valor por defecto es '5'
+    console.log(desde, limit)
     try {
         // Conéctate a la base de datos
         await connectDB();
 
+
         // Busca todos los eventos en la base de datos
-        const events = await Event.find({}).sort({ date: 1 }); // Orden ascendente por fecha
+        // const events = await Event.find({})
+        //     .sort({ date: 1 }) // Orden ascendente por fecha
+        //     .limit(parseInt(limit)) // Limita la cantidad de eventos
+
+        const [total, events] = await Promise.all([
+            Event.countDocuments(),
+            Event.find()
+                .sort({ date: -1 })
+                .skip(parseInt(desde))
+                .limit(parseInt(limit))
+        ]);
 
 
 
         // Retorna una respuesta exitosa con los eventos encontrados
-        return new Response(JSON.stringify(events), { status: 200 });
+        return new Response(JSON.stringify({ total, events }), { status: 200 });
 
     } catch (error) {
         console.error('Error:', error);

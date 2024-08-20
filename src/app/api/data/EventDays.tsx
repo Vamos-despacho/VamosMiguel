@@ -272,7 +272,7 @@ export const events: IEvent[] = [
                 event: {
                     eventoImagen: [
                         {
-                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1723493842/VamosMA/okdvyqw2otghhzb2ce37.jpg                                '],
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1723493842/VamosMA/okdvyqw2otghhzb2ce37.jpg'],
                             titulo: 'Reunión con el Grupo de Pacientes de Diálisis (Grupadi) y la Policlínica Horacio Díaz Gómez',
                             descripcion: 'Nos reunimos con representantes del Grupo de Pacientes de Diálisis (Grupadi) y el personal directivo de la Policlínica Horacio Díaz Gómez. En esta reunión, abordamos las problemáticas que enfrentan los pacientes debido a la falta de insumos y equipos médicos necesarios.'
                         }
@@ -399,7 +399,7 @@ export const events: IEvent[] = [
                     eventoImagen: [
                         {
                             linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1724082808/VamosMA/j3x13wpwjh62qmp9eqzx.jpg'],
-                            titulo: 'Presentación de Proyecto que Modifica la Ley 16 de 1995: Reorganización del Instituto de Deportes y Normativas Antidopaje',
+                            titulo: 'Presentación de Anteproyecto que Modifica la Ley 16 de 1995: Reorganización del Instituto de Deportes y Normativas Antidopaje',
                             descripcion: 'Este anteproyecto de ley modifica la Ley 16 de 1995 para reorganizar el Instituto Nacional de Deportes, incluyendo los artículos 15K, 15L, y 15M, con la finalidad de velar por el cumplimiento de las normas nacionales e internacionales sobre el uso y control de sustancias y métodos prohibidos, según la Organización Nacional Antidopaje de Panamá (ONAD-PAN).'
                         }
                     ]
@@ -410,6 +410,30 @@ export const events: IEvent[] = [
                 event: {
                 }
             },
+        ]
+    },
+    {
+        date: new Date(2024, 7, 19),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['mGtMdRQjr2M'],
+                }
+            },
+
+        ]
+    },
+    {
+        date: new Date(2024, 7, 20),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['iiXg9wc1apY'],
+                }
+            },
+
         ]
     },
 ];

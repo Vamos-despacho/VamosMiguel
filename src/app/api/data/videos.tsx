@@ -15,6 +15,26 @@ export type IVideoYoutube = {
 
 export const videosYotube: IVideoYoutube[] = [
     {
+        id: 'iiXg9wc1apY',
+        title: 'Incidencia en el Pleno',
+        description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',
+        date: new Date(2024, 7, 20),
+        list: 'incidencia',
+        day: '19',
+        month: 'agosto',
+
+    },
+    {
+        id: 'mGtMdRQjr2M',
+        title: 'Incidencia en el Pleno',
+        description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',
+        date: new Date(2024, 7, 19),
+        list: 'incidencia',
+        day: '19',
+        month: 'agosto',
+
+    },
+    {
         id: 'hVvN445FqMk',
         title: 'Presentación de Proyecto que Modifica la Ley 16 de 1995: Reorganización del Instituto de Deportes y Normativas Antidopaje',
         description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',

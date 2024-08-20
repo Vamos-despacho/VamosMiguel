@@ -15,6 +15,20 @@ export interface IAnteProyecto {
 
 export const Anteproyectos: IAnteProyecto[] = [
     {
+        id: 3,
+        titulo: 'Reorganización del Instituto de Deportes y Normativas Antidopaje',
+        // titulo: 'Reforma Integral para la Transparencia y Equidad en la Asignación de Auxilios Económicos',
+        // titulo:'Que modifica la Ley 1 del 11 de enero de 1965 y prohíbe el acceso a Auxilios Económicos a funcionarios de Alto Mando y Jurisdicción ya sus familiares con parentesco hasta el cuarto grado de consanguinidad y segundo de afinidad',
+
+        descripcion: 'Este anteproyecto modifica la Ley 16 de 1995 para reorganizar el Instituto Nacional de Deportes, en los artículos 15K, 15L, y 15M para asegurar el cumplimiento de normas antidopaje según la ONAD-PAN y el código mundial antidopaje vigente.',
+        fecha: 'Tue Aug 14 2024 22:12:41 GMT-0500 (hora estándar oriental)',
+        categoria: Category.Educacion,
+        proponente: 'H.D. Miguel Ángel Campos Lima',
+        icon: 'MdOutlineSportsSoccer',
+        link: 'pdfs/AnteproyectodeLeyANTIDOPING.pdf',
+        estado: LawProposalState.Presentado
+    },
+    {
         id: 2,
         titulo: 'Alto Rendimiento Deportivo y Medicina Deportiva',
         // titulo: 'Reforma Integral para la Transparencia y Equidad en la Asignación de Auxilios Económicos',

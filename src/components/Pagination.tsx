@@ -1,79 +1,67 @@
-"use client"
+"use client";
+
 import React from "react";
 import { Button } from "./ui/button";
-import { on } from "events";
 
-interface Props {
+interface PaginationProps {
     currentPage: number;
     totalPages: number;
     onPageChange: (newPage: number) => void;
 }
 
-const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
+const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+    const maxPagesToShow = 3;
+    const startPage = Math.max(1, Math.min(currentPage - Math.floor(maxPagesToShow / 2), totalPages - maxPagesToShow + 1));
+    const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
-    const maxPagesToShow = 4; // Número máximo de páginas para mostrar
-    const pageNumbers = [];
-
-    for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
-    }
-
-    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-    const endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
-
-    if (totalPages - startPage < maxPagesToShow - 1) {
-        startPage = totalPages - maxPagesToShow + 1;
-    }
+    const PageButton: React.FC<{ pageNumber: number; isCurrent?: boolean }> = ({ pageNumber, isCurrent }) => (
+        <Button
+            aria-label={`Página ${pageNumber}`}
+            variant="ghost"
+            onClick={() => onPageChange(pageNumber)}
+            className={`text-lg py-2 rounded ${isCurrent ? "text-red-500" : "text-gray-500"}`}
+        >
+            {pageNumber}
+        </Button>
+    );
 
     return (
-        <div className="flex justify-center ">
+        <div className="flex justify-center space-x-2">
             {currentPage > 1 && (
-                <Button arial-label='Anterior'
+                <Button
+                    aria-label="Página anterior"
                     variant="ghost"
                     onClick={() => onPageChange(currentPage - 1)}
-                    className="text-gray-500 text-base "
+                    className="text-base text-gray-500"
                 >
                     Anterior
                 </Button>
             )}
-            {pageNumbers.slice(startPage - 1, endPage).map((pageNumber) => (
-                <Button
-                    arial-label='Pagina'
-                    variant="ghost"
-                    key={pageNumber}
-                    onClick={() => onPageChange(pageNumber)}
-                    className={`${pageNumber === currentPage
-                        ? "text-red-500 "
-                        : "text-gray-500 "
-                        }  text-lg py-2 rounded`}
-                >
-                    {pageNumber}
-                </Button>
-            ))}
-            {currentPage < totalPages - 1 &&
+            {startPage > 1 && (
                 <>
-                    <p className="text-lg px-0 my-0     text-gray-500 py-2 ">...</p>
-                    <Button
-                        variant="ghost"
-                        arial-label='Ultima pagina'
-                        onClick={() => onPageChange(totalPages)}
-                        className="text-lg   text-red-500 py-2 px-4 mr-2"
-                    >
-                        {totalPages}
-                    </Button>
+                    <PageButton pageNumber={1} />
+                    {startPage > 2 && <span className="text-lg text-gray-500">...</span>}
                 </>
-            }
+            )}
+            {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map(pageNumber => (
+                <PageButton key={pageNumber} pageNumber={pageNumber} isCurrent={pageNumber === currentPage} />
+            ))}
+            {endPage < totalPages && (
+                <>
+                    {endPage < totalPages - 1 && <span className="text-lg text-gray-500">...</span>}
+                    <PageButton pageNumber={totalPages} />
+                </>
+            )}
             {currentPage < totalPages && (
                 <Button
-                    arial-label='Siguiente'
+                    aria-label="Página siguiente"
                     variant="ghost"
                     onClick={() => onPageChange(currentPage + 1)}
-                    className="text-gray-500  text-base  "
+                    className="text-base text-gray-500"
                 >
                     Siguiente
                 </Button>
             )}
-
         </div>
     );
 };

@@ -13,7 +13,7 @@ export interface IIEventDetails {
     reforma?: string; // URL o identificador de la reforma
 }
 
-interface IEventos {
+export interface IIEventos {
     _id: string;
     nombre: string;
     event: IIEventDetails; // Detalles del evento
@@ -22,7 +22,7 @@ interface IEventos {
 export interface IIEvent extends Document {
     _id: string;
     date: Date;
-    eventos: IEventos[]; // Lista de eventos en el día
+    eventos: IIEventos[]; // Lista de eventos en el día
     createdAt: Date; // Fecha de creación
     updatedAt: Date; // Fecha 
 }
