@@ -20,7 +20,7 @@ export const videosYotube: IVideoYoutube[] = [
         description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',
         date: new Date(2024, 7, 20),
         list: 'incidencia',
-        day: '19',
+        day: '20',
         month: 'agosto',
 
     },

@@ -82,8 +82,8 @@ export default function ImagenTop() {
                 </button>
             </div>
             <div className=" space-y-2 md:space-y-4">
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight">{imgs[currentIndex].title}</h2>
-                <p className=" mt-2 lg:mt-6 txt-sm sm:text-lg text-gray-600 text-justify tracking-tight">
+                <h2 className="text-xl md:text-3xl font-bold tracking-tight">{imgs[currentIndex].title}</h2>
+                <p className=" mt-1 lg:mt-6 txt-xs sm:text-lg text-gray-600 text-justify tracking-tight">
                     {imgs[currentIndex].description}
                 </p>
             </div>

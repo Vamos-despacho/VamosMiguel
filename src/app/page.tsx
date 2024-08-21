@@ -8,7 +8,7 @@ import CardPropuestas from '@/components/propuestas/TarjetasPropuestas'
 const page = () => {
   return (
     <div >
-      <div className='py-10'>
+      <div className='sm:py-10 py-1 pb-6'>
 
         <SliderTop />
       </div>
