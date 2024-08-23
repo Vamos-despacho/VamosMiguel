@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // Puedes usar rutas relativas para evitar problemas de CORS en producción
-const baseURL = 'http://localhost:3000/api';
-// const baseURL = 'https://vamos-miguel-angel.vercel.app/api';
+// const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://vamos-miguel-angel.vercel.app/api';
 // Crear una instancia de Axios con la URL base configurada
 const vamosApi = axios.create({
     baseURL,
