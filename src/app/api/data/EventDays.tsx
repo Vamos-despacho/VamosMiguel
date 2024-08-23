@@ -454,10 +454,45 @@ export const events: IEvent[] = [
             {
                 nombre: "Pleno",
                 event: {
-                    idsYoutube: ['mGtMdRQjr2M'],
+
                 }
             },
+            {
+                nombre: "Educación",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1724428214/VamosMA/eixourckgaobvydic8ls.jpg'],
+                            titulo: 'Compromiso en la Comisión de Educación, Cultura y Deportes',
+                            descripcion: 'Participé en las sesiones de la Comisión, donde se realizaron los prohijamientos de diversos anteproyectos presentados, trabajando para impulsar iniciativas que fortalezcan la educación, la cultura y el deporte en nuestra comunidad.'
+                        }
+                    ]
+                }
+            },
+            {
+                nombre: "Salud",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1724426339/VamosMA/pb1b7jt6x9ka1is0nmxl.jpg'],
+                            titulo: 'Participación en la Comisión de Trabajo, Salud y Desarrollo Social',
+                            descripcion: 'Presente en las sesiones de la Comisión de Trabajo, Salud y Desarrollo Social, contribuyendo al análisis y discusión de las propuestas de expertos sobre la Caja de Seguro Social (IVM) para el bienestar laboral y la salud de todos los asegurados.'
+                        }
+                    ]
+                }
+            }
 
+        ]
+    },
+    {
+        date: new Date(2024, 7, 22),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['_s0qFTmxopQ'],
+                }
+            },
         ]
     },
 ];
