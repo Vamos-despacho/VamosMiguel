@@ -382,11 +382,7 @@ export const events: IEvent[] = [
 
                 }
             },
-            {
-                nombre: "Otros",
-                event: {
-                }
-            },
+
         ]
     },
     {
