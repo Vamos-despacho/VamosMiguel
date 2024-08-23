@@ -73,6 +73,8 @@ const EventList: React.FC<EventListProps> = ({ events }) => {
                 <h3 className="text-sm font-medium text-gray-400">{format(events[0].date, 'PPPP', { locale: es })}</h3>
             </div>
 
+
+            {/* <pre>{JSON.stringify(events, null, 4)}</pre> */}
             <TabsEvents events={events} />
         </div>
     );

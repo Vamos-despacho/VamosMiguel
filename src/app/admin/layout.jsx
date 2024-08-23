@@ -37,6 +37,22 @@ const ArticlesLayout = ({ children }) => {
                             </Button>
                         </Link>
                     </div>
+                    <div className=''>
+                        <Link href="/admin/event/asistencia" className='w-full'>
+                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
+                                <EyeOpenIcon className='mr-2' />
+                                Asistencia
+                            </Button>
+                        </Link>
+                    </div>
+                    <div className=''>
+                        <Link href="/admin/event/crear-comision" className='w-full'>
+                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
+                                <EyeOpenIcon className='mr-2' />
+                                Crear Comisión
+                            </Button>
+                        </Link>
+                    </div>
                     <h2 className='font-semibold ms-2' >Articulos</h2>
                     <div className=''>
                         <Link href="/admin/articulos/ver-articulos" className='w-full'>

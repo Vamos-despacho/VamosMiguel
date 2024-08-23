@@ -7,7 +7,7 @@ import { PiUsersFourLight } from "react-icons/pi";
 import { IoIosMore } from "react-icons/io";
 import TabsContentEvent from "./TabsContentEvent";
 
-const iconBaseStyle = "w-10 h-10 rounded-lg flex items-center justify-center transition-transform transform hover:scale-105";
+const iconBaseStyle = "w-6 h-6 rounded-lg flex items-center justify-center transition-transform transform hover:scale-105";
 
 const icons: { [key: string]: JSX.Element } = {
     Salud: <BsHeartPulse className="w-6 h-6" />,
@@ -24,18 +24,34 @@ const renderIcon = (eventName: string) => (
 
 const enabledTabs = "border-gray-200";
 const disabledTabs = "opacity-70";
-const classIcon = "gap-4 px-4 hover:opacity-100 transition-opacity duration-300 border border-gray-200 rounded-sm";
+const classIcon = "gap-1 px-3 hover:opacity-100 transition-opacity duration-300  border border-gray-200 rounded-sm";
+
+// Funciones de verificación
+const hasValidIdsYoutube = (idsYoutube: string[] | undefined): boolean => {
+    return idsYoutube?.some(id => id.trim().length > 0) ?? false;
+};
+
+const hasValidInstagramLinks = (linksInstagram: string[] | undefined): boolean => {
+    return linksInstagram?.some(link => link.trim().length > 0) ?? false;
+};
+
+const hasValidEventImages = (eventImages: { linkImagen: string[]; titulo: string; descripcion?: string }[] | undefined): boolean => {
+    return eventImages?.some(image => image.linkImagen.some(link => link.trim().length > 0)) ?? false;
+};
 
 export const TabsEvents = ({ events }: { events: IEvent[] }) => {
     const [activeTab, setActiveTab] = useState<string | null>(null);
     const [availableTabs, setAvailableTabs] = useState<string[]>([]);
 
     useEffect(() => {
-        // Filtrar tabs disponibles basados en la existencia de eventos con `event`
+        // Filtrar tabs disponibles basados en la existencia de eventos con datos válidos
         const tabs = ['Pleno', 'Salud', 'Educación', 'Otros'].filter(tabName =>
             events.some(event =>
                 event.eventos.some(e =>
-                    e.nombre === tabName && Object.keys(e.event || {}).length > 0 // Verifica que `event` no esté vacío
+                    e.nombre === tabName &&
+                    (hasValidIdsYoutube(e.event?.idsYoutube) ||
+                        hasValidInstagramLinks(e.event?.linkInstagram) ||
+                        hasValidEventImages(e.event?.eventoImagen))
                 )
             )
         );
@@ -55,7 +71,7 @@ export const TabsEvents = ({ events }: { events: IEvent[] }) => {
 
     return (
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full p-0 mt-4 h-full">
-            <TabsList className="flex h-12 justify-around items-center mb- bg-white">
+            <TabsList className="flex h-10 justify-around items-center  bg-white">
                 {availableTabs.map((tabName, idx) => (
                     <TabsTrigger
                         key={idx}
@@ -70,7 +86,14 @@ export const TabsEvents = ({ events }: { events: IEvent[] }) => {
 
             {availableTabs.map((tabName) => (
                 <TabsContent key={tabName} value={tabName} className="justify-center pt-0">
-                    <TabsContentEvent event={events.flatMap(event => event.eventos).find(e => e.nombre === tabName)?.event as IEventDetails} />
+                    {/* Busca el primer evento correspondiente a la pestaña activa */}
+                    {events.flatMap(event => event.eventos)
+                        .find(e => e.nombre === tabName)?.event ? (
+                        <TabsContentEvent event={events.flatMap(event => event.eventos).find(e => e.nombre === tabName)?.event as IEventDetails} />
+                    ) : (
+                        <div className="text-center text-gray-500">No hay datos disponibles</div>
+                    )
+                    }
                 </TabsContent>
             ))}
         </Tabs>

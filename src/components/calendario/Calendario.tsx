@@ -1,10 +1,14 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays } from 'date-fns';
 import CalendarHeader from './CalendarHeader';
 import Day from './Day';
 import EventList from './EventList';
-import { events, IEvent } from '@/app/api/data/EventDays';
+
 import Icons from '../asistencia/Icons';
+import vamosApi from '@/app/api/vamosApi';
+import { IIEvent } from '@/interface/event';
+
+
 interface MonthsDatabase {
     [year: number]: {
         [month: number]: Date[];
@@ -51,7 +55,28 @@ const monthsDatabase: MonthsDatabase = generateMonthsDatabase(yearInit, monthIni
 
 const Calendario: React.FC = () => {
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
-    const [selectedDayEvents, setSelectedDayEvents] = useState<IEvent[]>([]);
+    const [selectedDayEvents, setSelectedDayEvents] = useState<IIEvent[]>([]);
+    const [events, setEvents] = useState<IIEvent[]>([]);
+
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+
+    const getEventsForMonth = async () => {
+        try {
+            const res = await vamosApi.get(`/events/get?month=${month + 1}&year=${year}`); // ajustar el mes
+            const eventsData = res.data.events.map((event: any) => ({
+                ...event,
+                date: new Date(event.date), // convertir fechas si es necesario
+            }));
+            setEvents(eventsData);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getEventsForMonth();
+    }, [currentDate]);
 
     const days = useMemo(() => {
         return monthsDatabase[currentDate.getFullYear()][currentDate.getMonth()];
@@ -84,8 +109,12 @@ const Calendario: React.FC = () => {
     }, [currentDate]);
 
     const getEventsForDay = useCallback((day: Date) => {
-        return events.filter(event => event.date.getTime() === day.getTime());
-    }, []);
+        return events.filter(event =>
+            event.date.getFullYear() === day.getFullYear() &&
+            event.date.getMonth() === day.getMonth() &&
+            event.date.getDate() === day.getDate()
+        );
+    }, [events]);
 
     const handleDayClick = useCallback((day: Date) => {
         const dayEvents = getEventsForDay(day);
@@ -95,12 +124,10 @@ const Calendario: React.FC = () => {
     }, [getEventsForDay]);
 
     return (
-        <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[800px] '>
+        <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[730px] '>
             <div className="p-1 sm:px-2 lg:w-[60%] border rounded-lg shadow-sm flex flex-col justify-around">
-
-                <div className='sm:pt-2 pb-6 lg:p-0 justify-center items-center mx-auto'>
+                <div className='sm:pt-2 pb-1 lg:p-0 justify-center items-center mx-auto0'>
                     <Icons currentDate={currentDate} />
-
                 </div>
 
                 <CalendarHeader
@@ -125,11 +152,7 @@ const Calendario: React.FC = () => {
                         />
                     ))}
                 </div>
-                <div>
-
-                </div>
             </div>
-
 
             <div className='lg:mt-0 p-0.5 border rounded-lg shadow-sm lg:w-[40%]'>
                 {selectedDayEvents.length > 0 ? (
@@ -140,7 +163,6 @@ const Calendario: React.FC = () => {
                             <p className="text-lg">Seleccione una fecha</p>
                             <p className='font-light text-sm'> Las actividades en <strong className='text-blue-500'>color azul</strong> contienen información relevante.</p>
                         </div>
-
                     </div>
                 )}
             </div>

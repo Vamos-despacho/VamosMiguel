@@ -78,7 +78,7 @@ const Icons: React.FC<IconsProps> = ({ currentDate }) => {
     };
 
     return (
-        <section className="w-full px-4 py-1 md:pb-5">
+        <section className="w-full px-4 py-1 ">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 md:gap-4  justify-center items-center mx-auto">
                 {iconData.map((item, index) => {
                     const monthName = getMonthName(currentMonthIndex);

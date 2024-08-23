@@ -433,6 +433,30 @@ export const events: IEvent[] = [
                     idsYoutube: ['iiXg9wc1apY'],
                 }
             },
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1724250419/VamosMA/bfehzihcav0lbggmujch.jpg'],
+                            titulo: 'Entrevistas Públicas para Contralor y Subcontralor',
+                            descripcion: 'Participé en las entrevistas de los candidatos a Contralor y Subcontralor, organizadas por la Bancada Independiente Vamos, con el objetivo de evaluar y seleccionar a los aspirantes más capacitados. Las entrevistas se realizaron de forma pública para garantizar transparencia y permitir que la ciudadanía y la Asamblea Nacional sigan el proceso.'
+                        }
+                    ]
+                }
+            }
+
+        ]
+    },
+    {
+        date: new Date(2024, 7, 21),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['mGtMdRQjr2M'],
+                }
+            },
 
         ]
     },
