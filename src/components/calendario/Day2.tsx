@@ -10,7 +10,7 @@ interface DayProps {
     isSelected: boolean;
 }
 
-const Day: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelected }) => {
+const Day2: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelected }) => {
     const [loading, setLoading] = useState(true);
     const isCurrentMonth = isSameMonth(day, currentMonth);
     const isTodayDate = isToday(day);
@@ -77,4 +77,4 @@ function isSameDay(date1: Date, date2: Date): boolean {
         date1.getDate() === date2.getDate();
 }
 
-export default Day;
+export default Day2;

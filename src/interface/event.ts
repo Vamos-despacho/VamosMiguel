@@ -20,7 +20,7 @@ export interface IIEventos {
 }
 
 export interface IIEvent extends Document {
-    _id: string;
+    id: string;
     date: Date;
     eventos: IIEventos[]; // Lista de eventos en el día
     createdAt: Date; // Fecha de creación

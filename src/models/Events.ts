@@ -27,26 +27,48 @@ export interface IEvent extends Document {
 }
 
 // Esquema de Mongoose para IEvent
-const EventSchema: Schema = new Schema({
-    date: { type: Date, required: true },
-    eventos: [{
-        nombre: { type: String },
-        event: {
-            idsYoutube: [{ type: String }],
-            linkInstagram: [{ type: String }],
-            eventoImagen: [{
-                linkImagen: [{ type: String }],
-                titulo: { type: String },
-                descripcion: { type: String }
-            }],
-            anteproyecto: { type: String },
-            proyecto: { type: String },
-            reforma: { type: String }
-        }
-    }]
-}, {
-    timestamps: true // Agrega createdAt y updatedAt automáticamente
-});
+const EventSchema: Schema = new Schema(
+    {
+        date: { type: Date, required: true },
+        eventos: [
+            {
+                nombre: { type: String },
+                event: {
+                    idsYoutube: [{ type: String }],
+                    linkInstagram: [{ type: String }],
+                    eventoImagen: [
+                        {
+                            linkImagen: [{ type: String }],
+                            titulo: { type: String },
+                            descripcion: { type: String },
+                        },
+                    ],
+                    anteproyecto: { type: String },
+                    proyecto: { type: String },
+                    reforma: { type: String },
+                },
+            },
+        ],
+    },
+    {
+        timestamps: true, // Agrega createdAt y updatedAt automáticamente
+    }
+);
+
+// Método toJSON para ajustar la salida
+// EventSchema.methods.toJSON = function () {
+//     const { __v, _id, ...event } = this.toObject();
+//     event.id = _id.toString(); // Convertir _id a string y asignarlo a id
+//     return event;
+// };
+EventSchema.methods.toJSON = function () {
+    const { __v, _id, ...event } = this.toObject();
+    return {
+        ...event,
+        id: _id.toString(), // Convertir _id a string
+    };
+};
+
 
 // Verificar si el modelo ya existe antes de crearlo
 const Event = mongoose.models.Event || mongoose.model<IEvent>('Event', EventSchema);

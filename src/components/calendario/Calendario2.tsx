@@ -1,13 +1,12 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays } from 'date-fns';
 import CalendarHeader from './CalendarHeader';
-import Day from './Day';
+import Day2 from './Day2';
 import EventList from './EventList';
-
 import Icons from '../asistencia/Icons';
 import vamosApi from '@/app/api/vamosApi';
 import { IIEvent } from '@/interface/event';
-import IconsBD from '../asistencia/IconsBD';
+import { getActivitesDate } from '@/libs/actividades/actions';
 
 interface MonthsDatabase {
     [year: number]: {
@@ -49,11 +48,11 @@ function generateMonthsDatabase(startYear: number, startMonth: number): MonthsDa
     return monthsDatabase;
 }
 
-const monthInit = 6; // Junio 2024
+const monthInit = 6;
 const yearInit = 2024;
 const monthsDatabase: MonthsDatabase = generateMonthsDatabase(yearInit, monthInit);
 
-const Calendario: React.FC = () => {
+const Calendario2: React.FC = () => {
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
     const [selectedDayEvents, setSelectedDayEvents] = useState<IIEvent[]>([]);
     const [events, setEvents] = useState<IIEvent[]>([]);
@@ -61,70 +60,75 @@ const Calendario: React.FC = () => {
     const month = currentDate.getMonth();
     const year = currentDate.getFullYear();
 
-    const getEventsForMonth = async () => {
+    const getEventsForMonth = async (): Promise<void> => {
         try {
-            const res = await vamosApi.get(`/events/get?month=${month + 1}&year=${year}`); // ajustar el mes
-            const eventsData = res.data.events.map((event: any) => ({
+            const eventsData = await getActivitesDate(month + 1, year);
+            console.log(eventsData);
+            const formattedEvents = eventsData.map(event => ({
                 ...event,
-                date: new Date(event.date), // convertir fechas si es necesario
+                date: new Date(event.date),
             }));
-            setEvents(eventsData);
+            setEvents(formattedEvents);
+            console.log({ formattedEvents });
+
         } catch (error) {
             console.log(error);
         }
     };
+
+
 
     useEffect(() => {
         getEventsForMonth();
     }, [currentDate]);
 
     const days = useMemo(() => {
-        return monthsDatabase[currentDate.getFullYear()][currentDate.getMonth()];
-    }, [currentDate]);
+        return monthsDatabase[year][month];
+    }, [year, month]);
 
     const isSelected = useCallback((day: Date) => {
-        return selectedDayEvents.length > 0 && selectedDayEvents[0].date.getTime() === day.getTime();
+        return selectedDayEvents.length > 0 && isSameDay(selectedDayEvents[0].date, day);
     }, [selectedDayEvents]);
 
     const handlePreviousMonth = useCallback(() => {
-        const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
-        setCurrentDate(prevMonth);
-    }, [currentDate]);
+        setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() - 1));
+    }, []);
 
     const handleNextMonth = useCallback(() => {
-        const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
-        setCurrentDate(nextMonth);
-    }, [currentDate]);
+        setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() + 1));
+    }, []);
 
-    const isFirstMonth = useCallback(() => {
+    const isFirstMonth = useMemo(() => {
         const firstMonth = new Date(yearInit, monthInit);
-        const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1);
+        const prevMonth = new Date(year, month - 1);
         return prevMonth < firstMonth;
-    }, [currentDate]);
+    }, [year, month]);
 
-    const isLastMonth = useCallback(() => {
+    const isLastMonth = useMemo(() => {
         const today = new Date();
-        const nextMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
+        const nextMonth = new Date(year, month + 1);
         return nextMonth.getFullYear() === today.getFullYear() && nextMonth.getMonth() > today.getMonth();
-    }, [currentDate]);
+    }, [year, month]);
 
     const getEventsForDay = useCallback((day: Date) => {
-        return events.filter(event =>
-            event.date.getFullYear() === day.getFullYear() &&
-            event.date.getMonth() === day.getMonth() &&
-            event.date.getDate() === day.getDate()
-        );
+        return events.filter(event => isSameDay(event.date, day));
     }, [events]);
+
+    function isSameDay(date1: Date | string, date2: Date | string): boolean {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+        return d1.getFullYear() === d2.getFullYear() &&
+            d1.getMonth() === d2.getMonth() &&
+            d1.getDate() === d2.getDate();
+    }
 
     const handleDayClick = useCallback((day: Date) => {
         const dayEvents = getEventsForDay(day);
-        if (dayEvents.length > 0) {
-            setSelectedDayEvents(dayEvents);
-        }
+        setSelectedDayEvents(dayEvents);
     }, [getEventsForDay]);
 
     return (
-        <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[730px] '>
+        <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[730px]'>
             <div className="p-1 sm:px-2 lg:w-[60%] border rounded-lg shadow-sm flex flex-col justify-around">
                 <div className='sm:pt-2 pb-1 lg:p-0 justify-center items-center mx-auto0'>
                     <Icons currentDate={currentDate} />
@@ -134,15 +138,15 @@ const Calendario: React.FC = () => {
                     currentDate={currentDate}
                     onPreviousMonth={handlePreviousMonth}
                     onNextMonth={handleNextMonth}
-                    isFirstMonth={isFirstMonth()}
-                    isLastMonth={isLastMonth()}
+                    isFirstMonth={isFirstMonth}
+                    isLastMonth={isLastMonth}
                 />
-                <div className="grid grid-cols-7 ">
+                <div className="grid grid-cols-7">
                     {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map((dayName, index) => (
                         <div key={index} className="text-center font-medium">{dayName}</div>
                     ))}
                     {days.map((day, index) => (
-                        <Day
+                        <Day2
                             key={index}
                             day={day}
                             currentMonth={currentDate}
@@ -161,7 +165,9 @@ const Calendario: React.FC = () => {
                     <div className='flex pl-3 mt-3 p-2'>
                         <div className="text-base text-gray-800 font-base mb-4">
                             <p className="text-lg">Seleccione una fecha</p>
-                            <p className='font-light text-sm'> Las actividades en <strong className='text-blue-500'>color azul</strong> contienen información relevante.</p>
+                            <p className='font-light text-sm'>
+                                Las actividades en <strong className='text-blue-500'>color azul</strong> contienen información relevante.
+                            </p>
                         </div>
                     </div>
                 )}
@@ -170,4 +176,4 @@ const Calendario: React.FC = () => {
     );
 };
 
-export default Calendario;
+export default Calendario2;
