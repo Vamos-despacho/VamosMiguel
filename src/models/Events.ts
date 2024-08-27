@@ -61,13 +61,13 @@ const EventSchema: Schema = new Schema(
 //     event.id = _id.toString(); // Convertir _id a string y asignarlo a id
 //     return event;
 // };
-EventSchema.methods.toJSON = function () {
-    const { __v, _id, ...event } = this.toObject();
-    return {
-        ...event,
-        id: _id.toString(), // Convertir _id a string
-    };
-};
+// EventSchema.methods.toJSON = function () {
+//     const { __v, _id, ...event } = this.toObject();
+//     return {
+//         ...event,
+//         id: _id.toString(), // Convertir _id a string
+//     };
+// };
 
 
 // Verificar si el modelo ya existe antes de crearlo
