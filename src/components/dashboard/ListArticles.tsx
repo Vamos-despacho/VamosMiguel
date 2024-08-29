@@ -33,10 +33,7 @@ const ListArticles = ({ articles }: Props) => {
         setAllArticle(articles)
     }, [articles])
 
-
-
-    const handleFilterItems = (id: number) => {
-
+    const handleFilterItems = (id: string) => {
         const updatedArticles = allArticle.filter((article) => article.id !== id);
         setAllArticle(updatedArticles);
 
@@ -111,9 +108,6 @@ const ListArticles = ({ articles }: Props) => {
                 </TableBody>
             </Table>
         </div>
-
-
-
     )
 }
 
