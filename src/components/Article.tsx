@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 import Image from 'next/image'
 interface Props {
     article: {
-        id: number;
+        id: string;
         title: string;
         content: string;
         imageUrl: string;

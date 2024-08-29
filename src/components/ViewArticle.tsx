@@ -12,7 +12,7 @@ const itemsPerPage = 6; // Cantidad de elementos por página
 
 interface IArticles {
     articles: {
-        id: number;
+        id: string;
         title: string;
         content: string;
         imageUrl: string;
