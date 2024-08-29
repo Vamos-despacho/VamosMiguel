@@ -141,15 +141,15 @@ const SliderArticle = ({ imgs }: { imgs: string[] }) => {
                                 <img src={item} alt="imagen" className="object-cover h-full w-full" />
                             </DialogTrigger>
                             <DialogContent className="flex flex-col lg:max-h-[95dvh] md:max-w-2xl lg:max-w-4xl m-auto justify-center items-center p-2">
+                                <button onClick={() => handleImageChange("left")} className="absolute left-0 p-2">
+                                    <IconChevronLeft />
+                                </button>
                                 <div className="relative flex justify-center items-center">
-                                    <button onClick={() => handleImageChange("left")} className="absolute left-0 p-2">
-                                        <IconChevronLeft />
-                                    </button>
-                                    <img src={imgs[currentIndex]} alt="imagen" className="h-full w-full" />
-                                    <button onClick={() => handleImageChange("right")} className="absolute right-0 p-2">
-                                        <IconChevronRight />
-                                    </button>
+                                    <img src={imgs[currentIndex]} alt="imagen" className="h-full w-full lg:max-h-[95dvh] rounded-sm" />
                                 </div>
+                                <button onClick={() => handleImageChange("right")} className="absolute right-0 p-2">
+                                    <IconChevronRight />
+                                </button>
                             </DialogContent>
                         </Dialog>
                     ))}

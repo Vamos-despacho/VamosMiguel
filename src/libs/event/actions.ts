@@ -229,3 +229,14 @@ export const createComsionMonth = async (values: any) => {
         return { status: 400 };
     }
 }
+
+export const getComsionMonth = async () => {
+    console.log('getComsionMonth')
+    try {
+        await connectDB();
+        const resp = await MesModel.find();
+        return JSON.stringify(resp)
+    } catch (error) {
+        return JSON.stringify({ status: 500 })
+    }
+}

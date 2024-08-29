@@ -50,8 +50,8 @@ const ShowArticle = ({ article }: Props) => {
                             </header>
                             <div className='mx-auto my-4  '>
 
-                                {article.imageUrl ? <Image loading="lazy" className='object-cover' width={810} height={672} src={article.imageUrl} alt={article.title} />
-                                    : <Image className='w-auto h-auto object-cover' width={1310} height={872} src='/logovm.png' alt={article.title} />}
+                                {article.imageUrl ? <Image loading="lazy" className='object-cover rounded-sm' width={810} height={672} src={article.imageUrl} alt={article.title} />
+                                    : <Image className='w-auto h-auto object-cover ' width={1310} height={872} src='/logovm.png' alt={article.title} />}
                                 <div className='mx-auto mt-4 max-w-5xl flex justify-center '>
                                 </div>
                                 <div className='prose mx-auto mt-2 max-w-3xl'>

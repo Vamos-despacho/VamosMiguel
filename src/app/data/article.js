@@ -3,6 +3,23 @@ import { Category } from "@/interface/category"
 
 export const articlesData = [
     {
+        "id": '7',
+        "title": "Fortaleciendo la Integridad Deportiva en Panamá",
+        "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">
+  <p class="text-justify">Se llevó a cabo un conversatorio con los miembros de la World Anti-Doping Agency (WADA), donde se abordaron aspectos clave en la lucha contra el dopaje en el deporte. El encuentro estuvo enfocado en la revisión de las políticas actuales de la agencia, el análisis de casos recientes de violaciones a las normas antidopaje, y la exploración de nuevas estrategias para mejorar la eficacia de las pruebas en Panamá.</p>
+  <p class="text-justify">Durante el evento, se discutieron tanto temas técnicos como administrativos relacionados con el control antidopaje. Estas discusiones buscaron fortalecer los mecanismos existentes y asegurar la integridad en el ámbito deportivo, así como mejorar la formulación de políticas públicas.</p>
+  <p class="text-justify">Este tipo de iniciativas son esenciales para mantener un entorno deportivo justo y libre de sustancias prohibidas, reafirmando el compromiso de las autoridades con la transparencia y la ética en el deporte.</p>
+ 
+</div>
+ `,
+        "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1724947452/VamosMA/xyju8pcdmk5ehy1trc78.jpg",
+        'imagenArray': ['https://res.cloudinary.com/dl6oea68u/image/upload/v1724949083/VamosMA/b6ynmcxrnrl4qrpvy6xp.jpg', 'https://res.cloudinary.com/dl6oea68u/image/upload/v1724949128/VamosMA/a1jfa93ykaudlfp2qtfl.jpg', 'https://res.cloudinary.com/dl6oea68u/image/upload/v1724949223/VamosMA/wx4br9rrikt7tb9vletv.jpg', 'https://res.cloudinary.com/dl6oea68u/image/upload/v1724949274/VamosMA/xhgkwfjozjav3zmtc2lu.jpg', 'https://res.cloudinary.com/dl6oea68u/image/upload/v1724949309/VamosMA/t4nbcyfeyeahlw9szxny.jpg'],
+        "slug": "fortaleciendo-la-integridad-deportiva-en-panama",
+        "category": Category.Deporte,
+        "createdAt": "True Aug 28 2024 22:12:41 GMT-0500 (hora estándar oriental)",
+        "published": true,
+    },
+    {
         "id": '6',
         "title": "Visita a la Ciudad de la Salud",
         "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">
@@ -12,7 +29,7 @@ export const articlesData = [
 </div>
  `,
         "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1723645097/VamosMA/u1zq4uhoufmca78vtoft.jpg",
-        'imagenArray': ['/images/articulo/01.jpg', '/images/articulo/02.jpg', '/images/articulo/03.jpg', '/images/articulo/04.jpg', '/images/articulo/05.jpg', '/images/articulo/06.jpg', '/images/articulo/07.jpg'],
+        'imagenArray': ['/images/articulo/01.jpg', '/images/articulo/02.jpg', '/images/articulo/03.jpg', '/images/articulo/04.jpg', '/images/articulo/05.jpg', '/images/articulo/06.jpg'],
         "slug": "visita-a-la-ciudad-de-la-salud",
         "category": Category.Salud,
         "createdAt": "True Aug 13 2024 22:12:41 GMT-0500 (hora estándar oriental)",
@@ -86,16 +103,16 @@ export const articlesData = [
         "createdAt": "Fri Jun 21 2024 22:12:41 GMT-0500 (hora estándar oriental)",
         "published": true,
     },
-    {
-        "id": '1',
-        "title": "La importancia del voto de los jóvenes en este 2024",
-        "content": "<p class=\"ql-align-justify\">A escasos meses para las elecciones, me he detenido a pensar que nos encontramos ante un ciclo electoral crucial: elegir a nuestros futuros gobernantes. Este hecho marcará el futuro de nuestro país los próximos 5 años.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">Panamá se encuentra en una encrucijada histórica, marcada por estallidos sociales significativos y un protagonismo emergente de la juventud como catalizador de cambio. En los últimos meses, hemos sido testigos de los movimientos sociales que han sacudido las calles de nuestro país. El descontento con las políticas públicas gubernamentales, corrupción percibida y una desigualdad que crece a pasos agigantados han obligado a la juventud a movilizarse. Todo esto no es nada ajeno al clamor de reformas educativas, laborales, transparencia, rendición de cuentas y a una verdadera participación ciudadana.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">Nuestro país enfrenta desafíos económicos y sociales que impactan de forma directa a los jóvenes, alta tasa de desempleo juvenil, acceso limitado a una educación de calidad y una creciente sensación de exclusión política, lo que ha encendido esa chispa de lucha y protesta en el corazón de la juventud.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">A medida que las elecciones de 2024 se acercan, la pregunta del peso del voto joven cobra una alta relevancia. Con cerca del 20% de la población joven habilitada para ejercer su voto, la influencia de este porcentaje sobre el resultado electoral es indiscutible. Sin embargo, más allá de la mera estadística, el voto joven trae consigo una real promesa de renovación y cambio. Es una generación más informada, conectada y consciente de sus derechos y responsabilidades cívicas.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">El camino hacia las urnas no se encuentra exento de obstáculos para los jóvenes panameños. La desilusión política, la falta de representatividad y las barreras para el acceso a la información son solo algunos de los retos a superar. Pero, estos desafíos también presentan oportunidades para el surgimiento de nuevas plataformas de participación, el cuestionamiento de narrativas tradicionales y el potencial de forjar un amanecer distinto para el país.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">Los jóvenes no solo somos un número en las próximas elecciones; somos una voz, un símbolo de esperanza y un agente de cambio. En la medida en que nos acercamos a un momento histórico en nuestra democracia, el poder de los jóvenes para influir en el curso del país es más evidente que nunca. Nuestro desafío está en no solo reconocer, sino poder catalizarlo hacia la construcción de un Panamá más justo y próspero. El futuro de Panamá está, en gran medida, en las manos de su juventud, y su voto es la llave para el cambio que tanto anhelan ver.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">La situación de Panamá es un llamado a la acción para todos, pero especialmente para los jóvenes. A cuatro meses de las elecciones, la expectativa es alta, y el margen para influir, amplio. El voto joven no solo puede ser determinante en 2024: puede ser el comienzo de una nueva era para Panamá.</p>",
-        "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1704659900/VamosMA/nbqz14zjoktr1boa8rwi.avif",
-        'imagenArray': [],
-        "slug": "la-importancia-del-voto-de-los-jovenes-en-este-2024",
-        "category": 'Elección 2024',
-        "createdAt": "Fri Oct 27 2023 22:12:41 GMT-0500 (hora estándar oriental)",
-        "published": true,
-    },
+    // {
+    //     "id": '1',
+    //     "title": "La importancia del voto de los jóvenes en este 2024",
+    //     "content": "<p class=\"ql-align-justify\">A escasos meses para las elecciones, me he detenido a pensar que nos encontramos ante un ciclo electoral crucial: elegir a nuestros futuros gobernantes. Este hecho marcará el futuro de nuestro país los próximos 5 años.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">Panamá se encuentra en una encrucijada histórica, marcada por estallidos sociales significativos y un protagonismo emergente de la juventud como catalizador de cambio. En los últimos meses, hemos sido testigos de los movimientos sociales que han sacudido las calles de nuestro país. El descontento con las políticas públicas gubernamentales, corrupción percibida y una desigualdad que crece a pasos agigantados han obligado a la juventud a movilizarse. Todo esto no es nada ajeno al clamor de reformas educativas, laborales, transparencia, rendición de cuentas y a una verdadera participación ciudadana.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">Nuestro país enfrenta desafíos económicos y sociales que impactan de forma directa a los jóvenes, alta tasa de desempleo juvenil, acceso limitado a una educación de calidad y una creciente sensación de exclusión política, lo que ha encendido esa chispa de lucha y protesta en el corazón de la juventud.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">A medida que las elecciones de 2024 se acercan, la pregunta del peso del voto joven cobra una alta relevancia. Con cerca del 20% de la población joven habilitada para ejercer su voto, la influencia de este porcentaje sobre el resultado electoral es indiscutible. Sin embargo, más allá de la mera estadística, el voto joven trae consigo una real promesa de renovación y cambio. Es una generación más informada, conectada y consciente de sus derechos y responsabilidades cívicas.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">El camino hacia las urnas no se encuentra exento de obstáculos para los jóvenes panameños. La desilusión política, la falta de representatividad y las barreras para el acceso a la información son solo algunos de los retos a superar. Pero, estos desafíos también presentan oportunidades para el surgimiento de nuevas plataformas de participación, el cuestionamiento de narrativas tradicionales y el potencial de forjar un amanecer distinto para el país.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">Los jóvenes no solo somos un número en las próximas elecciones; somos una voz, un símbolo de esperanza y un agente de cambio. En la medida en que nos acercamos a un momento histórico en nuestra democracia, el poder de los jóvenes para influir en el curso del país es más evidente que nunca. Nuestro desafío está en no solo reconocer, sino poder catalizarlo hacia la construcción de un Panamá más justo y próspero. El futuro de Panamá está, en gran medida, en las manos de su juventud, y su voto es la llave para el cambio que tanto anhelan ver.</p><p class=\"ql-align-justify\"><br></p><p class=\"ql-align-justify\">La situación de Panamá es un llamado a la acción para todos, pero especialmente para los jóvenes. A cuatro meses de las elecciones, la expectativa es alta, y el margen para influir, amplio. El voto joven no solo puede ser determinante en 2024: puede ser el comienzo de una nueva era para Panamá.</p>",
+    //     "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1704659900/VamosMA/nbqz14zjoktr1boa8rwi.avif",
+    //     'imagenArray': [],
+    //     "slug": "la-importancia-del-voto-de-los-jovenes-en-este-2024",
+    //     "category": 'Elección 2024',
+    //     "createdAt": "Fri Oct 27 2023 22:12:41 GMT-0500 (hora estándar oriental)",
+    //     "published": true,
+    // },
 
 ]

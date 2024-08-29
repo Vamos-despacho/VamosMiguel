@@ -1,8 +1,19 @@
-import React from 'react'
+import ShowMonth from '@/components/dashboard/event/ShowMonth';
+import { getComsionMonth } from '@/libs/event/actions'
+import { MesDocument } from '@/models/Mes';
 
-const pageVerMes = () => {
+async function getMes() {
+    const resp = await getComsionMonth()
+    const parsedResponse = JSON.parse(resp)
+    return parsedResponse;
+}
+
+const pageVerMes = async () => {
+    const mes: MesDocument[] = await getMes()
     return (
-        <div>pageVerMes</div>
+        <div>
+            <ShowMonth month={mes} />
+        </div>
     )
 }
 
