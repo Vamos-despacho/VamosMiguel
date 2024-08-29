@@ -12,7 +12,7 @@ import SliderArticle from './SliderArticle'
 
 interface Props {
     article: {
-        id: number;
+        id: string;
         title: string;
         content: string;
         imageUrl: string;
