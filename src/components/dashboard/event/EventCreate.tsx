@@ -6,6 +6,7 @@ import { Label } from '@radix-ui/react-label';
 import { Input } from '@/components/ui/input';
 import vamosApi from '@/app/api/vamosApi';
 import { useToast } from "@/components/ui/use-toast"
+import { createEvent } from '@/libs/event/actions';
 
 const events = ['Pleno', 'Salud', 'Educación', 'Otros'];
 
@@ -38,19 +39,28 @@ const EventCreate = () => {
         };
 
         try {
-            const response = await vamosApi.post('/events', data);
-
-            if (response.status === 200) {
+            // const response = await vamosApi.post('/events', data);
+            const response = await createEvent(data);
+            console.log(response);
+            if (response?.status === 200) {
                 toast({
                     variant: "default",
                     title: "¡Evento Creado!",
                     description: "El evento ha sido creado exitosamente.",
-                });
+                })
+
+
                 // Limpiar el estado del formulario
                 setSelectedEvents([]);
                 setSelectedDate(new Date());
                 const checkboxes = document.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
                 checkboxes.forEach(checkbox => checkbox.checked = false);
+            } else {
+                toast({
+                    variant: "destructive",
+                    title: "¡Error!",
+                    description: "Ha ocurrido un error al crear el evento.",
+                })
             }
         } catch (error) {
             console.error('Error:', error);

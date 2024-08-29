@@ -13,11 +13,11 @@ const MesSchema = new Schema<MesDocument>({
     month: { type: Date, required: true }, // Cambiado a tipo Date
     categorias: [{
         categoria: { type: Schema.Types.ObjectId, ref: 'Categoria', required: true }, // Referencia a la categoría
-        asistencia: { type: Number, required: true }, // Asistencia de la categoría en el mes
+        asistencia: { type: Number, default: 0 }, // Asistencia de la categoría en el mes
     }],
 });
 
-// Crea el modelo basado en el esquema
-const MesModel: Model<MesDocument> = mongoose.model<MesDocument>('Mes', MesSchema);
+// Verifica si el modelo ya ha sido compilado para evitar sobrescribirlo
+const MesModel: Model<MesDocument> = mongoose.models.Mes || mongoose.model<MesDocument>('Mes', MesSchema);
 
 export default MesModel;

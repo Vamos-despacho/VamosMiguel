@@ -14,40 +14,30 @@ import vamosApi from '@/app/api/vamosApi';
 import { TrashIcon } from '@radix-ui/react-icons';
 import { AxiosError } from 'axios';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { deleteEvent, eventDeleteDay } from '@/libs/event/actions';
 
 interface Props {
-    id: string;
+    id: number;
     link: string
-    onClickDelete: (id: string) => void
+    onClickDelete: (id: number) => void
     msg: string
 }
 const BtnDeleteAlert = ({ id, link, onClickDelete, msg }: Props) => {
 
-    const handleDelete = async () => {
+    const handleDelete = async (id: number) => {
+
         try {
-            let resp;
 
-            // Determina la función correcta basada en el valor de `link`
-            if (link === 'deleteEvent') {
-                resp = await deleteEvent(id);
-            } else if (link === 'eventDeleteDay') {
-                resp = await eventDeleteDay(id);
-            }
+            const resp = await vamosApi.delete(link);
 
-            // Verifica la respuesta solo si la solicitud fue realizada
-            if (resp?.status === 200) {
-                return onClickDelete(id);
-            }
+            if (resp.status === 200) return onClickDelete(id)
+
         } catch (error) {
             if (error instanceof AxiosError) {
-                alert(error.response?.data.message);
-            } else {
-                console.error('Error inesperado:', error);
+                alert(error.response?.data.message)
             }
         }
-    };
 
+    }
     return (
         <div><AlertDialog>
             <AlertDialogTrigger className=' border p-1 bg-white rounded-sm hover:text-red-500'>  <RiDeleteBin6Line className="w-5 h-5 hover:text-red-500 text-gray-700 " /></AlertDialogTrigger>
@@ -60,7 +50,7 @@ const BtnDeleteAlert = ({ id, link, onClickDelete, msg }: Props) => {
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleDelete}>
+                    <AlertDialogAction onClick={() => handleDelete(id)}>
                         Eliminar
                     </AlertDialogAction>
                 </AlertDialogFooter>

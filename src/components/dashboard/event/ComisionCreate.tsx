@@ -6,6 +6,7 @@ import { IoIosMore } from 'react-icons/io';
 import { PiUsersFourLight } from 'react-icons/pi';
 import { SchoolIcon } from 'lucide-react';
 import vamosApi from '@/app/api/vamosApi';
+import { createComision } from '@/libs/event/actions';
 
 // Opciones de iconos que puedes mostrar al usuario para seleccionar
 const iconOptions = [
@@ -61,7 +62,8 @@ const ComisionCreate: React.FC = () => {
         // Aquí puedes hacer una solicitud para guardar la categoría en la base de datos
         console.log('Enviando datos:', formValues);
 
-        const resp = await vamosApi.post('/events/createcomision', formValues);
+        // const resp = await vamosApi.post('/events/createcomision', formValues);
+        const resp = await createComision(formValues);
 
         // Ejemplo de llamada a una API
         // await fetch('/api/categories', {

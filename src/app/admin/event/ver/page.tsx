@@ -5,6 +5,7 @@ import vamosApi from '@/app/api/vamosApi';
 import EventView from '@/components/dashboard/event/EventView';
 import Pagination from '@/components/Pagination';
 import { SkeletonTable } from '@/components/skeleton/TablaEventSkeletor';
+import { getEvents } from '@/libs/event/actions';
 
 const VerEventoPage = () => {
     const [events, setEvents] = useState([]);
@@ -22,9 +23,20 @@ const VerEventoPage = () => {
         }
 
         try {
-            const res = await vamosApi.get(`/events?desde=${desde}&limit=${limit}`);
-            setEvents(res.data.events);
-            setTotal(res.data.total);
+
+            // const res = await vamosApi.get(`/events?desde=${desde}&limit=${limit}`);
+            const respuesta = await getEvents(desde, limit);
+
+            const parsedResponse = JSON.parse(respuesta)
+
+            // Verifica si la respuesta contiene un error
+            if ('error' in parsedResponse) {
+                console.error('Error:', parsedResponse.error);
+            } else {
+                setEvents(parsedResponse.events);
+                setTotal(parsedResponse.total);
+
+            }
         } catch (error) {
             console.log(error);
         } finally {

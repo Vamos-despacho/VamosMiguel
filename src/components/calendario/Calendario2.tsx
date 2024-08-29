@@ -63,7 +63,7 @@ const Calendario2: React.FC = () => {
     const getEventsForMonth = async (): Promise<void> => {
         try {
             const eventsData = await getActivitesDate(month + 1, year);
-            console.log(eventsData);
+
             const formattedEvents = eventsData.map(event => ({
                 ...event,
                 date: new Date(event.date),

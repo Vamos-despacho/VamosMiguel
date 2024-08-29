@@ -25,7 +25,7 @@ const ArticlesLayout = ({ children }) => {
                         <Link href="/admin/event/ver" className='w-full'>
                             <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
-                                Ver
+                                Ver Eventos
                             </Button>
                         </Link>
                     </div>
@@ -33,22 +33,30 @@ const ArticlesLayout = ({ children }) => {
                         <Link href="/admin/event/crear">
                             <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
                                 <Pencil1Icon className='mr-2' />
-                                Crear
+                                Crear Evento
                             </Button>
                         </Link>
                     </div>
                     <div className=''>
-                        <Link href="/admin/event/asistencia" className='w-full'>
+                        <Link href="/admin/event/crear-mes" className='w-full'>
+                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
+                                <Pencil1Icon className='mr-2' />
+                                Crear Mes
+                            </Button>
+                        </Link>
+                    </div>
+                    <div className=''>
+                        <Link href="/admin/event/ver-mes" className='w-full'>
                             <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
                                 <EyeOpenIcon className='mr-2' />
-                                Asistencia
+                                Ver Mes
                             </Button>
                         </Link>
                     </div>
                     <div className=''>
                         <Link href="/admin/event/crear-comision" className='w-full'>
                             <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <EyeOpenIcon className='mr-2' />
+                                <Pencil1Icon className='mr-2' />
                                 Crear Comisión
                             </Button>
                         </Link>

@@ -21,7 +21,7 @@ import {
 import { useState, useEffect } from 'react';
 import { IIEvent, IIEventDetails } from '@/interface/event';
 import { format } from 'date-fns';
-import { es, se } from 'date-fns/locale';
+import { es, id, se } from 'date-fns/locale';
 import BtnDeleteAlert from "../BtnDeleteAlert";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -29,6 +29,7 @@ import { Button } from "@/components/ui/button";
 import vamosApi from "@/app/api/vamosApi";
 import { useToast } from "@/components/ui/use-toast"
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { addEvent, updateEvent } from '../../../libs/event/actions';
 const eventsAdd = ['Pleno', 'Salud', 'Educación', 'Otros'];
 
 interface Props {
@@ -36,7 +37,7 @@ interface Props {
 }
 
 const EventView = ({ events: initialEvents }: Props) => {
-    console.log(initialEvents.length)
+
     const { toast } = useToast()
 
     const [events, setEvents] = useState<IIEvent[]>(initialEvents);
@@ -130,9 +131,10 @@ const EventView = ({ events: initialEvents }: Props) => {
 
         if (idEvento) {
             try {
-                const res = await vamosApi.put(`/events/eventday/${idEvento}`, eventDetails);
+                // const res = await vamosApi.put(`/events/eventday/${idEvento}`, eventDetails);
+                const res = await updateEvent(idEvento, eventDetails)
                 console.log(res.status)
-                if (res.status === 400) return toast({
+                if (res.status === 500) return toast({
                     variant: "destructive",
                     title: "¡Mensaje no enviado!",
                     description: "Hubo un error al enviar el mensaje, por favor intente de nuevo.",
@@ -176,22 +178,23 @@ const EventView = ({ events: initialEvents }: Props) => {
 
         if (selectedEvent) {
             try {
-                const res = await vamosApi.put(`/events/${eventId}`, selectedEvent);
+                // const res = await vamosApi.put(`/events/${eventId}`, selectedEvent);
+                const res = await addEvent(eventId, selectedEvent)
+                const parsedResponse: IIEvent = JSON.parse(res)
+                console.log('asdf', parsedResponse.eventos)
 
-                console.log('asdf', res.data)
 
-
-                if (res.status === 400) return toast({
+                if (!res) return toast({
                     variant: "destructive",
                     title: "¡Mensaje no enviado!",
                     description: "Hubo un error al enviar el mensaje, por favor intente de nuevo.",
                 })
-                if (res.status === 200) {
+                if (res) {
                     const updatedEvents = events.map(event => {
                         if (event._id === eventId) {
                             return {
                                 ...event,
-                                eventos: res.data.eventos // Reemplazar el array eventos con el actualizado del servidor
+                                eventos: parsedResponse.eventos // Reemplazar el array eventos con el actualizado del servidor
                             };
                         }
                         return event;
@@ -302,8 +305,8 @@ const EventView = ({ events: initialEvents }: Props) => {
 
 
                                         <BtnDeleteAlert
-                                            id={2}
-                                            link={`/events/${event._id}`}
+                                            id={event._id}
+                                            link={`deleteEvent`}
                                             onClickDelete={() => handleDelete(event._id)}
                                             msg={`Evento ${event.date}`}
                                         />
@@ -329,8 +332,8 @@ const EventView = ({ events: initialEvents }: Props) => {
                                 <div className="pl-2 ">
                                     {selectedEvent.eventos?.[0] && (
                                         <BtnDeleteAlert
-                                            id={2}
-                                            link={`/events/eventday/${selectedEvent.eventos[0]._id}`}
+                                            id={selectedEvent.eventos[0]._id}
+                                            link={`eventDeleteDay`}
                                             onClickDelete={() => handleDeleteEventDay(selectedEvent.eventos[0]._id)}
                                             msg={`Evento ${selectedEvent.eventos[0].nombre}`}
                                         />
