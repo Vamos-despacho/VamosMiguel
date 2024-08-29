@@ -30,7 +30,7 @@ const ListCategorias = ({ categorias }: Props) => {
     };
 
 
-    const handleFilterItems = (id: number) => {
+    const handleFilterItems = (id: string) => {
 
         const updateCategorias = allcategoria.filter((categoria) => categoria.id !== id);
         setAllcategoria(updateCategorias);

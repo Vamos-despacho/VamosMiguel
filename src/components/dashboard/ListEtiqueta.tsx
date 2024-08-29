@@ -26,8 +26,8 @@ const ListEtiquetas = ({ etiquetas }: Props) => {
 
     const handleFilterItems = (id: number) => {
 
-        const updateCategorias = allEtiquetas.filter((etiqueta) => etiqueta.id !== id);
-        setAllEtiquetas(updateCategorias);
+        // const updateCategorias = allEtiquetas.filter((etiqueta) => etiqueta.id !== id);
+        // setAllEtiquetas(updateCategorias);
 
 
     }
@@ -41,7 +41,7 @@ const ListEtiquetas = ({ etiquetas }: Props) => {
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {
+                    {/* {
                         allEtiquetas.map((etiqueta) => (
                             <TableRow key={etiqueta.id}>
                                 <TableCell className="font-medium" key={etiqueta.id}> {etiqueta.name}</TableCell>
@@ -55,7 +55,7 @@ const ListEtiquetas = ({ etiquetas }: Props) => {
                                 </TableCell>
                             </TableRow>
                         ))
-                    }
+                    } */}
                 </TableBody>
             </Table>
         </div>

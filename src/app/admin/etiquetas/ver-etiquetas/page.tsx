@@ -15,7 +15,7 @@ const VerEtiquetas = async () => {
     return (
         <div>
             <h2 className="text-xl font-bold p-4 pb-0">Etiquetas</h2>
-            <ListEtiquetas etiquetas={etiquetas} />
+            {/* <ListEtiquetas etiquetas={etiquetas} /> */}
         </div>
     )
 }

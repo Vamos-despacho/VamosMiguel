@@ -59,7 +59,7 @@ export type ITagA = [{
 }];
 
 export type ICategory = {
-    id: number;
+    id: string;
     name: string;
 
 };
