@@ -75,7 +75,7 @@ export const updateEvent = async (eventId: string, eventDetails: any) => {
 
         // Verifica si se realizó la actualización
 
-        console.log(result)
+
         // Retorna una respuesta exitosa con el resultado
         return { status: 200 };
 
@@ -128,7 +128,7 @@ export const deleteEvent = async (id: string) => {
 
         // Elimina el evento de la base de datos
         const result = await Event.findByIdAndDelete(id);
-        console.log('Deleted Event:', result);
+
 
         // Retorna una respuesta exitosa con el resultado
         return { status: 200 };
@@ -142,14 +142,14 @@ export const deleteEvent = async (id: string) => {
 
 
 export const eventDeleteDay = async (id: string) => {
-    console.log('delete event');
+
     try {
         // Conéctate a la base de datos
         await connectDB();
 
         // Obtén el ID del evento a eliminar
         // const { id } = params;
-        console.log(id)
+
 
         // Elimina el evento de la base de datos
         const result = await Event.updateOne(
@@ -175,14 +175,14 @@ export const createComision = async (values: any) => {
 
         // Obtén los valores del cuerpo de la solicitud
         // const values = await request.json();
-        console.log(values)
+
         // Crea un nuevo documento de Categoria
         const categoria = new Categoria(values);
 
         // Guarda el documento en la base de datos
         const result = await categoria.save();
 
-        console.log(result);
+
 
         // Retorna una respuesta exitosa con el resultado
         return { status: 200 };
@@ -204,7 +204,7 @@ export const getComision = async () => {
 
         // Busca todas las categorías en la base de datos
         const categorias = await Categoria.find();
-        console.log({ categorias })
+
         // Retorna una respuesta exitosa con las categorías encontradas
         return JSON.stringify(categorias)
 
@@ -216,7 +216,7 @@ export const getComision = async () => {
 }
 
 export const createComsionMonth = async (values: any) => {
-    console.log('createcommission++++++')
+
     try {
         await connectDB();
         const mes = new MesModel(values);
@@ -231,7 +231,7 @@ export const createComsionMonth = async (values: any) => {
 }
 
 export const getComsionMonth = async () => {
-    console.log('getComsionMonth')
+
     try {
         await connectDB();
         const resp = await MesModel.find()
@@ -245,7 +245,7 @@ export const getComsionMonth = async () => {
 }
 
 export const deleteComsionMonth = async (id: string) => {
-    console.log('deleteComsionMonth')
+
     try {
         await connectDB();
         const result = await MesModel.findByIdAndDelete(id);
@@ -255,15 +255,88 @@ export const deleteComsionMonth = async (id: string) => {
     }
 }
 
-export const updateComsionMonth = async (id: string, values: any) => {
 
+
+
+
+
+
+
+
+interface UpdateComisionMonthPayload {
+    [key: string]: number; // El key es el ID de la categoría y el valor es la asistencia actualizada
+}
+
+export const updateComsionMonth = async (idMes: string, updatedValues: UpdateComisionMonthPayload) => {
+    try {
+        // Encuentra el mes por su ID
+        const mes = await MesModel.findById(idMes);
+        if (!mes) {
+            throw new Error('Mes no encontrado');
+        }
+
+        // Actualiza las asistencias basadas en los valores proporcionados
+        mes.categorias.forEach((categoria) => {
+            const updatedAsistencia = updatedValues[categoria.categoria.toString()];
+            if (updatedAsistencia !== undefined) {
+                categoria.asistencia = updatedAsistencia;
+            }
+        });
+
+        // Guarda el documento actualizado
+        await mes.save();
+        if (mes) {
+            return { status: 200 }
+        } else {
+            return { status: 400 }
+        }
+
+
+    } catch (error) {
+        console.error('Error al actualizar el mes:', error);
+        throw error;
+    }
+};
+
+export const getMonthShow = async (monthDate: Date) => {
+    console.log('getMonthShow', monthDate);
 
     try {
         await connectDB();
-        const result = await MesModel.findByIdAndUpdate
-            (id, values, { new: true });
-        return { status: 200 }
+
+        const startOfMonth = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+        const endOfMonth = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 1);
+        console.log('Rango de búsqueda:', startOfMonth, 'a', endOfMonth);
+
+        const mes = await MesModel.findOne({
+            month: {
+                $gte: startOfMonth,
+                $lt: endOfMonth
+            }
+        })
+            .populate('categorias.categoria')
+            .exec();
+
+        if (mes) {
+            console.log('Mes encontrado:', mes);
+            return {
+                status: 200,
+                data: JSON.stringify(mes)
+            };
+        } else {
+            console.log('Mes no encontrado');
+            return {
+                status: 404,
+                message: 'Mes no encontrado'
+            };
+        }
+
     } catch (error) {
-        return { status: 500 }
+        console.error('Error al buscar el mes:', error);
+        return {
+            status: 500,
+            message: 'Error al buscar el mes',
+            error: error
+        };
     }
-}
+};

@@ -5,7 +5,7 @@ import { SchoolIcon } from 'lucide-react';
 import { BsHeartPulse } from 'react-icons/bs';
 import { PiUsersFourLight } from 'react-icons/pi';
 import { IoIosMore } from 'react-icons/io';
-
+import { MdOutlineBalance } from "react-icons/md";
 interface Comision {
     _id: string;
     label: string;
@@ -23,6 +23,7 @@ const iconMap: Record<string, React.ComponentType> = {
     BsHeartPulse: BsHeartPulse,
     PiUsersFourLight: PiUsersFourLight,
     IoIosMore: IoIosMore,
+    MdOutlineBalance: MdOutlineBalance,
 };
 
 const ComisionShow: FC<ComisionListProps> = ({ comisiones }) => {

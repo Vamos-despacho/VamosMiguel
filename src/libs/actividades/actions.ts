@@ -104,7 +104,7 @@ export const getActivitesDate = async (month: number, year: number): Promise<IIE
             },
         }).lean();
 
-        console.log('formattedEvents', events);
+
         return JSON.parse(JSON.stringify(events))
     } catch (error) {
         console.error('Error:', error);

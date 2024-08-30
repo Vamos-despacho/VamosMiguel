@@ -3,10 +3,10 @@ import { startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays } from 'date-
 import CalendarHeader from './CalendarHeader';
 import Day2 from './Day2';
 import EventList from './EventList';
-import Icons from '../asistencia/Icons';
-import vamosApi from '@/app/api/vamosApi';
+
 import { IIEvent } from '@/interface/event';
 import { getActivitesDate } from '@/libs/actividades/actions';
+import IconsBD from '../asistencia/IconsBD';
 
 interface MonthsDatabase {
     [year: number]: {
@@ -69,7 +69,7 @@ const Calendario2: React.FC = () => {
                 date: new Date(event.date),
             }));
             setEvents(formattedEvents);
-            console.log({ formattedEvents });
+
 
         } catch (error) {
             console.log(error);
@@ -131,7 +131,7 @@ const Calendario2: React.FC = () => {
         <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[730px]'>
             <div className="p-1 sm:px-2 lg:w-[60%] border rounded-lg shadow-sm flex flex-col justify-around">
                 <div className='sm:pt-2 pb-1 lg:p-0 justify-center items-center mx-auto0'>
-                    <Icons currentDate={currentDate} />
+                    <IconsBD currentDate={currentDate} />
                 </div>
 
                 <CalendarHeader

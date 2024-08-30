@@ -41,6 +41,7 @@ export interface PopulatedCategory {
     _id: mongoose.Types.ObjectId;
     label: string; // El label de la categoría poblada
     icon: string; // El icono de la categoría poblada
+    key: string; // La clave de la categoría poblada
 }
 
 

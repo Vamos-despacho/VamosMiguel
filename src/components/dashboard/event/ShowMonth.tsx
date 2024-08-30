@@ -9,6 +9,7 @@ import { PiUsersFourLight } from 'react-icons/pi';
 import { IoIosMore } from 'react-icons/io';
 import BtnDeleteAlert from '../BtnDeleteAlert';
 import { updateComsionMonth } from '@/libs/event/actions';
+import { useToast } from '@/components/ui/use-toast';
 
 interface ShowMonthProps {
     month: IMesDocument[];
@@ -26,27 +27,36 @@ const formatFecha = (fecha: Date) => {
 };
 
 const ShowMonth: React.FC<ShowMonthProps> = ({ month }) => {
-    const [formValues, setFormValues] = useState<Record<string, number>>({});
+    const [formValues, setFormValues] = useState<Record<string, Record<string, number>>>({});
+    const { toast } = useToast();
 
     useEffect(() => {
-        // Inicializar formValues con los valores de la data
-        const initialValues: Record<string, number> = {};
-        month.forEach((mes) => {
-            mes.categorias.forEach((categoria) => {
+        const initialValues = month.reduce((acc, mes) => {
+            const categoriaValues = mes.categorias.reduce((catAcc, categoria) => {
                 if (categoria.categoria.label !== 'Otros') {
-                    initialValues[categoria.categoria._id.toString()] = categoria.asistencia || 0; // Asigna el valor de la data, o 0 si no hay valor
+                    catAcc[categoria.categoria._id.toString()] = categoria.asistencia || 0;
                 }
-            });
-        });
+                return catAcc;
+            }, {} as Record<string, number>);
+
+            acc[mes._id.toString()] = categoriaValues;
+            return acc;
+        }, {} as Record<string, Record<string, number>>);
+
         setFormValues(initialValues);
     }, [month]);
 
-    const handleInputChange = (id: string, value: number) => {
+
+    const handleInputChange = (mesId: string, catId: string, value: number) => {
         setFormValues((prevValues) => ({
             ...prevValues,
-            [id]: value,
+            [mesId]: {
+                ...prevValues[mesId],
+                [catId]: value,
+            },
         }));
     };
+
 
     const handleFilterItems = (id: string) => {
         // Implementación de filtro
@@ -56,21 +66,46 @@ const ShowMonth: React.FC<ShowMonthProps> = ({ month }) => {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-        const id = formData.get('idEvento')?.toString();
-        if (!id) return;
+        const idMes = formData.get('idEvento')?.toString();
 
-        const resp = await updateComsionMonth(id, formValues);
-        console.log(formValues);
+        if (!idMes) return;
+
+        try {
+            const updatedData = formValues[idMes]; // Obtener los datos solo para el mes actual
+            const response = await updateComsionMonth(idMes, updatedData);
+            console.log(response);
+            if (response?.status === 200) {
+                toast({
+                    variant: "default",
+                    title: '¡Éxito!',
+                    description: "Se a Actializado exitosamente.",
+                })
+
+            } else {
+                toast({
+                    variant: "destructive",
+                    title: "¡Error!",
+                    description: "Ha ocurrido un error.",
+                })
+            }
+        } catch (error) {
+            toast({
+                variant: "destructive",
+                title: "¡Error!",
+                description: "Ha ocurrido un error.",
+            })
+        }
     };
+
 
     if (!month || month.length === 0) return null;
 
     return (
-        <div className='max-w-sm ml-3 gap-1'>
+        <div className='max-w-sm ml-4 pb-4'>
             {month.map((mes) => (
                 <Accordion key={mes._id.toString()} type="single" collapsible>
                     <AccordionItem value="item-1">
-                        <AccordionTrigger className='flex px-3 bg-gray-100 justify-between items-center'>
+                        <AccordionTrigger className='flex px-3 bg-gray-100 justify-between items-center border-b'>
                             <span>{formatFecha(mes.month)}</span>
                             <div className='flex gap-2'>
                                 {mes.categorias.map((comision) => {
@@ -94,9 +129,10 @@ const ShowMonth: React.FC<ShowMonthProps> = ({ month }) => {
                                             <input
                                                 type='number'
                                                 className='border rounded-md p-1 w-16 text-center'
-                                                value={formValues[categoria.categoria._id.toString()] || ''}
-                                                onChange={(e) => handleInputChange(categoria.categoria._id.toString(), Number(e.target.value))}
+                                                value={formValues[mes._id.toString()]?.[categoria.categoria._id.toString()] || ''}
+                                                onChange={(e) => handleInputChange(mes._id.toString(), categoria.categoria._id.toString(), Number(e.target.value))}
                                             />
+
                                         )}
                                     </div>
                                 ))}
