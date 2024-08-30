@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export interface IEventDetails {
     evento: string;
     idsYoutube?: string[]; // Aquí puedes usar el ID del video o algún identificador
@@ -31,4 +33,24 @@ export interface IEvent {
     salud?: IEventDetails;
     educacion?: IEventDetails;
     otros?: IOtrosEventos;
+}
+
+
+
+export interface PopulatedCategory {
+    _id: mongoose.Types.ObjectId;
+    label: string; // El label de la categoría poblada
+    icon: string; // El icono de la categoría poblada
+}
+
+
+export interface IMesDocument extends Document {
+    _id: mongoose.Types.ObjectId; // ID
+    createdAt: Date; // Fecha de creación
+    updatedAt: Date; // Fecha de última modificación
+    month: Date; // Mes en formato de fecha
+    categorias: {
+        categoria: PopulatedCategory; // Referencia a la categoría
+        asistencia: number; // Porcentaje de asistencia para la categoría en el mes
+    }[];
 }

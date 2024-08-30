@@ -527,7 +527,30 @@ export const events: IEvent[] = [
                 event: {
 
                 }
+            },
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1725029566/VamosMA/j9husmfuqtgslzqjwuzk.jpg'],
+                            titulo: 'Fortaleciendo la Integridad Deportiva en Panamá',
+                            descripcion: 'Conversatorio con la World Anti-Doping Agency (WADA), se revisaron políticas actuales, analizaron casos recientes de dopaje y se exploraron nuevas estrategias para mejorar la eficacia de las pruebas en Panamá. Durante el evento, se discutieron aspectos técnicos y administrativos para fortalecer los mecanismos de control antidopaje y garantizar la integridad en el deporte, reafirmando el compromiso con la transparencia y la ética.'
+                        }
+                    ]
+                }
             }
+        ]
+    },
+    {
+        date: new Date(2024, 7, 29),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
         ]
     },
 ];

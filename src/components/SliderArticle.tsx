@@ -141,7 +141,7 @@ const SliderArticle = ({ imgs }: { imgs: string[] }) => {
                                 <img src={item} alt="imagen" className="object-cover h-full w-full" />
                             </DialogTrigger>
                             <DialogContent className="flex flex-col lg:max-h-[95dvh] md:max-w-2xl lg:max-w-4xl m-auto justify-center items-center p-2">
-                                <button onClick={() => handleImageChange("left")} className="absolute left-0 p-2">
+                                <button onClick={() => handleImageChange("left")} className="absolute left-0 p-2 z-10">
                                     <IconChevronLeft />
                                 </button>
                                 <div className="relative flex justify-center items-center">

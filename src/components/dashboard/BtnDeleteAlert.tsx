@@ -10,11 +10,10 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import vamosApi from '@/app/api/vamosApi';
-import { TrashIcon } from '@radix-ui/react-icons';
+
 import { AxiosError } from 'axios';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { deleteEvent, eventDeleteDay } from '@/libs/event/actions';
+import { deleteComsionMonth, deleteEvent, eventDeleteDay } from '@/libs/event/actions';
 
 interface Props {
     id: string;
@@ -33,6 +32,8 @@ const BtnDeleteAlert = ({ id, link, onClickDelete, msg }: Props) => {
                 resp = await deleteEvent(id);
             } else if (link === 'eventDeleteDay') {
                 resp = await eventDeleteDay(id);
+            } else if (link === 'deleteMonth') {
+                resp = await deleteComsionMonth(id);
             }
 
             // Verifica la respuesta solo si la solicitud fue realizada

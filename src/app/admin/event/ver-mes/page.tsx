@@ -9,9 +9,9 @@ async function getMes() {
 }
 
 const pageVerMes = async () => {
-    const mes: MesDocument[] = await getMes()
+    const mes = await getMes()
     return (
-        <div>
+        <div className='pt-6'>
             <ShowMonth month={mes} />
         </div>
     )

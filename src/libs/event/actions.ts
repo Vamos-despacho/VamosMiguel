@@ -234,9 +234,36 @@ export const getComsionMonth = async () => {
     console.log('getComsionMonth')
     try {
         await connectDB();
-        const resp = await MesModel.find();
+        const resp = await MesModel.find()
+            .sort({ date: -1 })
+            .populate('categorias.categoria', ['label', 'icon']);
+
         return JSON.stringify(resp)
     } catch (error) {
         return JSON.stringify({ status: 500 })
+    }
+}
+
+export const deleteComsionMonth = async (id: string) => {
+    console.log('deleteComsionMonth')
+    try {
+        await connectDB();
+        const result = await MesModel.findByIdAndDelete(id);
+        return { status: 200 }
+    } catch (error) {
+        return { status: 500 }
+    }
+}
+
+export const updateComsionMonth = async (id: string, values: any) => {
+
+
+    try {
+        await connectDB();
+        const result = await MesModel.findByIdAndUpdate
+            (id, values, { new: true });
+        return { status: 200 }
+    } catch (error) {
+        return { status: 500 }
     }
 }
