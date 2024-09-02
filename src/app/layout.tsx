@@ -23,6 +23,7 @@ import { Providers } from './Providers'
 import { Toaster } from '@/components/ui/toaster'
 import Script from 'next/script'
 import Head from 'next/head'
+import { headers } from 'next/headers'
 const roboto_init = Roboto({
   subsets: ["latin-ext"],
   weight: ["300", "400", "500", "700"],
@@ -43,7 +44,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-
+  const pathname = headers().get('x-next-pathname') as string;
+  console.log(pathname)
+  const headersList = headers();
+  const referer = headersList.get("referer");
+  console.log(referer)
   return (
     <html lang="en">
       {/* <GoogleTagManager gtmId="GTM-KPRNQPQW" /> */}

@@ -3,6 +3,26 @@ import { Category } from "@/interface/category"
 
 export const articlesData = [
     {
+        "id": '8',
+        "title": "¿Cómo funcionan las franquicias deportivas y los centros de alto rendimiento? ",
+        "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">
+  <p class="text-justify">¿Alguna vez te has preguntado qué hay detrás de los logros épicos de tus equipos deportivos favoritos o cómo esos atletas de alto rendimiento se preparan para alcanzar la gloria? La respuesta está en el fascinante mundo de las franquicias deportivas y los centros de alto rendimiento. Estos dos gigantes de la industria del deporte trabajan en perfecta sincronía para hacer posible lo imposible, combinando estrategia empresarial con ciencia de vanguardia. </p>
+  <p class="text-justify">Imagina que el deporte es un gran escenario y las franquicias deportivas son los astros principales. Desde el beisbol hasta el baloncesto, las franquicias son organizaciones que no solo buscan ganar partidos, sino también maximizar ganancias y expandir su marca. La clave está en que estas franquicias no solo seleccionan a sus jugadores y entrenadores por su talento en el campo, sino también por su capacidad para generar ingresos. Esto incluye desde contratos multimillonarios hasta estrategias de marketing que convierten a los atletas en íconos globales. El objetivo es crear una marca poderosa que atraiga a fanáticos, patrocinadores y por supuesto, ingresos.</p>
+  <p class="text-justify">Además, las franquicias se benefician de un enfoque de red: compartir recursos, conocimientos y estrategias dentro de una liga o grupo de franquicias. Por ejemplo, la NBA no solo gestiona sus propios equipos, sino que también crea un ecosistema en el que cada franquicia puede aprender de las demás, compartir innovaciones y mantener un alto nivel de competencia. Es como una colaboración secreta entre los rivales para asegurar que el espectáculo siempre sea de primer nivel.</p>
+  <p class="text-justify">Los centros de alto rendimiento son el equivalente moderno de los antiguos gimnasios de gladiadores, pero con tecnología y ciencia de punta. Aquí, los atletas utilizan equipos avanzados y programas de entrenamiento personalizados para alcanzar sus máximos niveles de rendimiento. En un centro de alto rendimiento, el proceso comienza con un análisis exhaustivo del atleta. Desde estudios de biomecánica hasta evaluaciones de salud, cada detalle se examina para crear un programa de entrenamiento adaptado a las necesidades específicas del deportista. Imagina ser un atleta y tener un equipo de científicos, nutricionistas y entrenadores dedicados a maximizar tu potencial. Este enfoque multidisciplinario asegura que no solo te prepares físicamente, sino también mentalmente para los desafíos que se avecinan.</p>
+  <p class="text-justify">Los centros de alto rendimiento también son pioneros en la innovación. Aquí se desarrollan nuevas técnicas de entrenamiento, tecnologías de monitoreo y métodos de recuperación. Los atletas no solo entrenan; experimentan con lo último en tecnología de rendimiento. Desde cámaras de crioterapia hasta simuladores de altitud, estos centros están a la vanguardia de la ciencia deportiva, creando un entorno en el que los atletas pueden probar sus límites y alcanzar nuevas alturas.</p>
+ 
+</div>
+ `,
+        // "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1725304821/VamosMA/iimnrhj7ekl325lykueh.webp",
+        "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1725305383/VamosMA/dgh3oexly9vfvsz6vek6.jpg        ",
+        'imagenArray': [],
+        "slug": "como-funcionan-las-franquicias-deportivas-y-los-centros-de-alto-rendimiento",
+        "category": Category.Deporte,
+        "createdAt": "True Sept 2 2024 22:12:41 GMT-0500 (hora estándar oriental)",
+        "published": true,
+    },
+    {
         "id": '7',
         "title": "Fortaleciendo la Integridad Deportiva en Panamá",
         "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">
@@ -85,24 +105,24 @@ export const articlesData = [
         "createdAt": "Tue Jul 02 2024 22:12:41 GMT-0500 (hora estándar oriental)",
         "published": true,
     },
-    {
-        "id": '2',
-        "title": "Entrega de Credenciales",
-        "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">
-  <p class="text-justify">Recibimos las credenciales por parte del Tribunal Electoral (TE), acreditándonos como diputados de la República luego de las elecciones del 5 de mayo, para el periodo constitucional 2024-2029. Las credenciales fueron entregadas el viernes 21 de junio de 2024 durante un acto celebrado en la sede principal del TE, presidido por los magistrados en Pleno.</p>
-  <p class="text-justify">Las nuevas autoridades, habilitadas por el TE, estarán listas para ocupar sus curules a partir del próximo 1 de julio de 2024, conforme a lo dispuesto por la Constitución Política de la República. Esta fecha marca el inicio de nuestro compromiso y trabajo legislativo para el periodo constitucional 2024-2029.</p>
-  <p class="text-justify">En total, se entregaron 70 credenciales a los diputados de la Asamblea Nacional y 20 a los representantes del Parlamento Centroamericano (Parlacen), reflejando el mandato otorgado por el pueblo en las pasadas elecciones del 5 de mayo.</p>
-  
-</div>
- `,
-        "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1720126164/VamosMA/i6y4yvz9sk0e7gmsjqfm.png",
-        // "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1720120177/VamosMA/o5mg5qzxjwwgdenihlhs.jpg",
-        'imagenArray': [],
-        "slug": "Entrega-de-credenciales",
-        "category": 'Elección 2024',
-        "createdAt": "Fri Jun 21 2024 22:12:41 GMT-0500 (hora estándar oriental)",
-        "published": true,
-    },
+    //     {
+    //         "id": '2',
+    //         "title": "Entrega de Credenciales",
+    //         "content": `<div className="prose mx-auto mt-4 max-w-3xl space-y-4">
+    //   <p class="text-justify">Recibimos las credenciales por parte del Tribunal Electoral (TE), acreditándonos como diputados de la República luego de las elecciones del 5 de mayo, para el periodo constitucional 2024-2029. Las credenciales fueron entregadas el viernes 21 de junio de 2024 durante un acto celebrado en la sede principal del TE, presidido por los magistrados en Pleno.</p>
+    //   <p class="text-justify">Las nuevas autoridades, habilitadas por el TE, estarán listas para ocupar sus curules a partir del próximo 1 de julio de 2024, conforme a lo dispuesto por la Constitución Política de la República. Esta fecha marca el inicio de nuestro compromiso y trabajo legislativo para el periodo constitucional 2024-2029.</p>
+    //   <p class="text-justify">En total, se entregaron 70 credenciales a los diputados de la Asamblea Nacional y 20 a los representantes del Parlamento Centroamericano (Parlacen), reflejando el mandato otorgado por el pueblo en las pasadas elecciones del 5 de mayo.</p>
+
+    // </div>
+    //  `,
+    //         "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1720126164/VamosMA/i6y4yvz9sk0e7gmsjqfm.png",
+    //         // "imageUrl": "https://res.cloudinary.com/dl6oea68u/image/upload/v1720120177/VamosMA/o5mg5qzxjwwgdenihlhs.jpg",
+    //         'imagenArray': [],
+    //         "slug": "Entrega-de-credenciales",
+    //         "category": 'Elección 2024',
+    //         "createdAt": "Fri Jun 21 2024 22:12:41 GMT-0500 (hora estándar oriental)",
+    //         "published": true,
+    //     },
     // {
     //     "id": '1',
     //     "title": "La importancia del voto de los jóvenes en este 2024",

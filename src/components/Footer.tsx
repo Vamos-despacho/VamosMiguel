@@ -1,7 +1,15 @@
+'use client'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 export const Footer = () => {
+    const pathname: string = usePathname()
+    console.log(pathname)
+    const hideNavbarAndFooter = ['/linkss', '/links'];
+
+    if (hideNavbarAndFooter.includes(pathname)) return null
+
     return (
         <footer className='  h-full bg-neutral-50 border-t'>
             <div className="sm:px-8">

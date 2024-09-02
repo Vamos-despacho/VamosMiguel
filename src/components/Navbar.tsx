@@ -1,4 +1,5 @@
 
+'use client'
 import Link from 'next/link'
 
 import {
@@ -16,10 +17,15 @@ import SesionObtions from './SesionObtions'
 import Navigation from './menu/Navigation'
 import { DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from '@radix-ui/react-dropdown-menu'
 import { NavigationDropdown } from './menu/NavigationDropdown'
+import { usePathname } from 'next/navigation'
 
 
-const Navbar = async () => {
+const Navbar = () => {
+    const pathname: string = usePathname()
+    console.log(pathname)
+    const hideNavbarAndFooter = ['/linkss', '/links'];
 
+    if (hideNavbarAndFooter.includes(pathname)) return null
 
     return (
 
