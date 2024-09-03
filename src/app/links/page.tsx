@@ -4,13 +4,14 @@ import Link from "next/link";
 import { TiSocialFacebook, TiSocialTwitter, TiSocialYoutube, TiSocialLinkedin } from "react-icons/ti";
 import { SlSocialInstagram } from "react-icons/sl";
 import { IoShareSocialOutline, IoDocumentTextOutline } from "react-icons/io5";
+import ShareButton from '../../components/Share';
 
 const socialLinks = [
     { href: "https://www.instagram.com/miguelangelcamposlima", label: "Instagram", icon: SlSocialInstagram },
-    { href: "#", label: "Twitter", icon: TiSocialTwitter },
-    { href: "#", label: "Facebook", icon: TiSocialFacebook },
-    { href: "#", label: "Youtube", icon: TiSocialYoutube },
-    { href: "#", label: "LinkedIn", icon: TiSocialLinkedin },
+    { href: "https://x.com/miguel3965", label: "Twitter", icon: TiSocialTwitter },
+    { href: "https://www.facebook.com/miguelangel.camposlima", label: "Facebook", icon: TiSocialFacebook },
+    { href: "https://www.youtube.com/channel/UCuexZ8gpDzoGJOrcY-YEqkw", label: "Youtube", icon: TiSocialYoutube },
+    // { href: "#", label: "LinkedIn", icon: TiSocialLinkedin },
 ];
 
 const links = [
@@ -88,10 +89,11 @@ export default function Component() {
                     ))}
                 </div>
 
-                <Button className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                {/* <Button className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors">
                     <IoShareSocialOutline className="h-5 w-5" />
-                    Share
-                </Button>
+                    Compartir
+                </Button> */}
+                <ShareButton />
             </div>
         </div>
     );
