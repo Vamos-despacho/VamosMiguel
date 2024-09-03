@@ -1,3 +1,4 @@
+
 // Definición de los tipos para cada evento
 export interface IEventDetails {
     idsYoutube?: string[]; // Aquí puedes usar el ID del video o algún identificador
@@ -579,6 +580,27 @@ export const events: IEvent[] = [
                     idsYoutube: ['qQbpDe7s9Pw'],
                 }
             },
+
+        ]
+    },
+    {
+        date: new Date(2024, 8, 3),
+        eventos: [
+
+            {
+                nombre: "Otros",
+                event: {
+                    idsYoutube: ['w2golsrih60'],
+                }
+            },
+            {
+                nombre: "Educación",
+                event: {
+                    idsYoutube: ['fgnPvgsvijE'],
+                    linkInstagram: ['https://www.instagram.com/p/C_dn6BFPMeH/?img_index=1'],
+                }
+            },
+
         ]
     },
 ];
