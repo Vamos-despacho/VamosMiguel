@@ -553,4 +553,32 @@ export const events: IEvent[] = [
             },
         ]
     },
+    {
+        date: new Date(2024, 7, 30),
+        eventos: [
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1725377705/VamosMA/zndjy5uvbboghmujvula.jpg'],
+                            titulo: 'Compromiso por el Desarrollo Integral de Veraguas',
+                            descripcion: 'Hoy, los alcaldes y diputados de la provincia de Veraguas sostuvimos una segunda reunión con el objetivo de avanzar en la creación de una hoja de ruta que aborde temas prioritarios para nuestra región. Durante el encuentro, se discutieron aspectos clave relacionados con el desarrollo social, la seguridad, la economía, la salud y el medio ambiente. Este esfuerzo colaborativo busca fortalecer nuestras estrategias y garantizar un crecimiento sostenible y equitativo para todos los ciudadanos de Veraguas.'
+                        }
+                    ]
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 8, 2),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['qQbpDe7s9Pw'],
+                }
+            },
+        ]
+    },
 ];

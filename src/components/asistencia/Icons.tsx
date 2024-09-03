@@ -22,9 +22,9 @@ const asistenciaData: Record<Meses, Asistencia> = {
         Otros: 0,
     },
     Agosto: {
-        Pleno: 0,
-        Salud: 0,
-        Educación: 0,
+        Pleno: 100,
+        Salud: 100,
+        Educación: 100,
         Otros: 0,
     },
     // Agrega aquí los datos para otros meses si es necesario

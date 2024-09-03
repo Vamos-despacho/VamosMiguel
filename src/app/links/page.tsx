@@ -1,133 +1,107 @@
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { TiSocialFacebook, TiSocialTwitter, TiSocialYoutube, TiSocialLinkedin } from "react-icons/ti";
+import { SlSocialInstagram } from "react-icons/sl";
+import { IoShareSocialOutline, IoDocumentTextOutline } from "react-icons/io5";
 
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import Link from "next/link"
+const socialLinks = [
+    { href: "https://www.instagram.com/miguelangelcamposlima", label: "Instagram", icon: SlSocialInstagram },
+    { href: "#", label: "Twitter", icon: TiSocialTwitter },
+    { href: "#", label: "Facebook", icon: TiSocialFacebook },
+    { href: "#", label: "Youtube", icon: TiSocialYoutube },
+    { href: "#", label: "LinkedIn", icon: TiSocialLinkedin },
+];
+
+const links = [
+    { href: "/", label: "Mi Página Web", icon: LinkIcon },
+];
+
+const anteProyectos = [
+    {
+        href: "/pdfs/AnteproyectodeAltoRendimientoDeportivoyMedicinaDeportiva.pdf",
+        label: "Alto Rendimiento Deportivo y Medicina Deportiva",
+        icon: IoDocumentTextOutline
+    },
+    {
+        href: "/pdfs/AnteproyectodeLeyANTIDOPING.pdf",
+        label: "Reorganización del Instituto de Deportes y Normativas Antidopaje",
+        icon: IoDocumentTextOutline
+    },
+];
 
 export default function Component() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-primary to-secondary">
-            <div className="max-w-md w-full px-4 py-8">
-                <div className="flex flex-col items-center space-y-6">
-                    <Avatar className="w-56 h-56 border-4 border-background">
-                        <AvatarImage src='/images/MiguelAngel3.jpg' sizes="(min-width: 1024px) 32rem, 20rem" alt="Profile" />
+        <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 p-8 rounded-lg shadow-lg max-w-md mx-auto">
+            <div className="text-center space-y-6 py-8">
+                <div className="flex items-center justify-center">
+                    <Avatar className="w-40 h-40 border-4 border-gray-100 shadow-lg">
+                        <AvatarImage
+                            src="/images/MiguelAngel3.jpg"
+                            sizes="(min-width: 1024px) 32rem, 20rem"
+                            alt="Profile"
+                        />
                         <AvatarFallback>AC</AvatarFallback>
                     </Avatar>
-                    <div className="flex flex-col items-center pb-2">
-
-                        <h2 className="text-2xl font-bold text-primary-foreground">Miguel Ángel Campos Lima</h2>
-                        <h2 className=" font-semibold tracking-tight text-zinc-700 dark:text-zinc-100 sm:text-base text-justify mt-1 text-primary-foreground">
-                            Diputado independiente del circuito 9-1</h2>
-                    </div>
-                    <div className="flex flex-col gap-4 w-full">
-                        <Link
-                            href="#"
-                            className="inline-flex gap-2 items-center justify-center h-12 px-6 rounded-full bg-background text-secondary-foreground font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            prefetch={false}
-                        >
-                            <LinkIcon className="h-5 w-5" />
-                            <span>Website</span>
-                        </Link>
-                        <Link
-                            href="#"
-                            className="inline-flex gap-2 items-center justify-center h-12 px-6 rounded-full bg-background text-secondary-foreground font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            prefetch={false}
-                        >
-                            <InstagramIcon className="h-5 w-5" />
-                            <span>Instagram</span>
-                        </Link>
-                        <Link
-                            href="#"
-                            className="inline-flex gap-2 items-center justify-center h-12 px-6 rounded-full bg-background text-secondary-foreground font-medium hover:bg-accent hover:text-accent-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                            prefetch={false}
-                        >
-                            <LinkedinIcon className="h-5 w-5" />
-                            <span>LinkedIn</span>
-
-                        </Link>
-                    </div>
                 </div>
-            </div>
-        </div >
-    )
-} function InstagramIcon(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-        </svg>
-    )
-}
+                <div className="flex flex-col items-center">
+                    <h2 className="text-2xl font-bold">Miguel Ángel Campos Lima</h2>
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mt-1">
+                        Diputado independiente del circuito 9-1
+                    </p>
+                </div>
+                <div className="flex gap-3 justify-center pb-4">
+                    {socialLinks.map(({ href, label, icon: Icon }) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            className="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-blue-500 dark:hover:bg-blue-400 transition-colors"
+                            aria-label={label}
+                        >
+                            <Icon className="h-6 w-6 text-gray-800 dark:text-gray-100" />
+                        </Link>
+                    ))}
+                </div>
+                <div className="grid gap-4 pt-4">
+                    {links.map(({ href, label, icon: Icon }) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-md hover:bg-blue-500 dark:hover:bg-blue-400 transition-colors"
+                        >
+                            <Icon className="h-5 w-5" />
+                            <span>{label}</span>
+                        </Link>
+                    ))}
+                </div>
+                <div className="grid gap-4 py-4">
+                    <h2 className="font-semibold text-lg">Anteproyectos</h2>
+                    {anteProyectos.map(({ href, label, icon: Icon }) => (
+                        <Link
+                            key={label}
+                            href={href}
+                            className="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-md hover:bg-blue-500 dark:hover:bg-blue-400 transition-colors"
+                        >
+                            <Icon className="h-6 w-6 flex-shrink-0" /> {/* Asegura que el ícono no cambie de tamaño */}
+                            <span className="flex-grow">{label}</span> {/* Asegura que el texto tome el espacio disponible */}
+                        </Link>
+                    ))}
+                </div>
 
+                <Button className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                    <IoShareSocialOutline className="h-5 w-5" />
+                    Share
+                </Button>
+            </div>
+        </div>
+    );
+}
 
 function LinkIcon(props: any) {
     return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
         </svg>
-    )
-}
-
-
-function LinkedinIcon(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-            <rect width="4" height="12" x="2" y="9" />
-            <circle cx="4" cy="4" r="2" />
-        </svg>
-    )
-}
-
-
-function TwitterIcon(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-        </svg>
-    )
+    );
 }
