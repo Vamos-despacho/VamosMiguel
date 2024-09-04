@@ -600,6 +600,12 @@ export const events: IEvent[] = [
                     linkInstagram: ['https://www.instagram.com/p/C_dn6BFPMeH/?img_index=1'],
                 }
             },
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['iYeJIxKYz5A'],
+                }
+            }
 
         ]
     },
