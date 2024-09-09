@@ -26,7 +26,7 @@ export const Anteproyectos: IAnteProyecto[] = [
         proponente: 'H.D. Miguel Ángel Campos Lima',
         icon: 'MdOutlineSportsSoccer',
         link: 'pdfs/AnteproyectodeLeyANTIDOPING.pdf',
-        estado: LawProposalState.Presentado
+        estado: LawProposalState.Prohijado
     },
     {
         id: 2,
@@ -40,7 +40,7 @@ export const Anteproyectos: IAnteProyecto[] = [
         proponente: 'H.D. Miguel Ángel Campos Lima',
         icon: 'MdOutlineSportsSoccer',
         link: 'pdfs/AnteproyectodeAltoRendimientoDeportivoyMedicinaDeportiva.pdf',
-        estado: LawProposalState.Presentado
+        estado: LawProposalState.Prohijado
     },
     {
         id: 1,
@@ -54,7 +54,7 @@ export const Anteproyectos: IAnteProyecto[] = [
         proponente: 'H.D. Miguel Ángel Campos Lima',
         icon: 'SlBookOpen',
         link: 'pdfs/ReformaparalaTransparenciayEquidadenAuxiliosEconomicos.pdf',
-        estado: LawProposalState.Presentado
+        estado: LawProposalState.Prohijado
     },
 
 

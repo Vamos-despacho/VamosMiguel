@@ -1,7 +1,7 @@
 import { IEventDeporte } from '@/interface/atletas';
 import mongoose, { Schema, model, Document } from 'mongoose';
 
-const EventSchema = new Schema<IEventDeporte>({
+const SportEventSchema = new Schema<IEventDeporte>({
     name: { type: String, required: true, maxlength: 100 }, // Máximo de caracteres
     year: {
         type: Number,
@@ -15,6 +15,6 @@ const EventSchema = new Schema<IEventDeporte>({
 }, { timestamps: true }); // Timestamps agrega createdAt y updatedAt
 
 // Usa modelos ya registrados o crea uno nuevo
-const Event = mongoose.models.Event || mongoose.model<IEventDeporte>('Event', EventSchema);
+const SportEvent = mongoose.models.SportEvent || mongoose.model<IEventDeporte>('SportEvent', SportEventSchema);
 
-export { Event };
+export { SportEvent };

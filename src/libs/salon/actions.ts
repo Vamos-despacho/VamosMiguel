@@ -2,7 +2,8 @@
 
 import Province from "@/models/Provinces";
 import connectDB from '@/lib/mongodb';
-import { Event } from "@/models/salon/Events";
+import { SportEvent } from "@/models/salon/SportEvent";
+
 
 export const crearProvincia = async (name: string) => {
     console.log(name)
@@ -44,7 +45,7 @@ export const crearEvento = async (name: string, year: number, location: string, 
     }
     try {
         await connectDB();
-        const event = new Event({ name, year, location, description })
+        const event = new SportEvent({ name, year, location, description })
         const result = await event.save()
         console.log({ event })
         console.log({ result })
@@ -63,7 +64,7 @@ export const crearEvento = async (name: string, year: number, location: string, 
 export const obtenerEventos = async () => {
     try {
         await connectDB();
-        const events = await Event.find()
+        const events = await SportEvent.find()
         return { status: 200, events }
     } catch (error) {
         console.error('Error:', error);
