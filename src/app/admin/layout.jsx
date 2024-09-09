@@ -55,6 +55,7 @@ const ArticlesLayout = ({ children }) => {
                                     Crear Comisión
                                 </Link>
                             </DropdownMenuItem>
+
                         </DropdownMenuContent>
                     </DropdownMenu>
 
@@ -83,6 +84,12 @@ const ArticlesLayout = ({ children }) => {
                                 <Link href="/admin/atletas/ver-evento" className='w-full flex items-center'>
                                     <Pencil1Icon className='mr-2' />
                                     Ver Evento
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/event/crear-aleta" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear Atleta
                                 </Link>
                             </DropdownMenuItem>
                         </DropdownMenuContent>

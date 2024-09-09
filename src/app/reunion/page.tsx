@@ -12,7 +12,7 @@ const SolicitarReunionPage = () => {
                     </h2>
                     <div className="mt-6 ">
                         <p className="mb-4 text-xl font-display text-neutral-700">
-                            Solicita una reunión para conversar sobre tus inquietudes, ideas o proyectos. Tu opinión es valiosa y ayudará a orientar la labor legislativa en beneficio de la comunidad.
+                            Solicite una reunión para conversar sobre sus inquietudes, ideas o proyectos. Su opinión es valiosa y ayudará a orientar la labor legislativa en beneficio de la comunidad.
                         </p>
                         {/* <p className="mb-4 text-xl font-display text-neutral-700">
                             Solicita una reunión para discutir tus inquietudes, ideas o proyectos. Tu voz es importante en el proceso legislativo y estamos aquí para escucharte y explorar cómo tus propuestas pueden contribuir al bienestar de la comunidad.

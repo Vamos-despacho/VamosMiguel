@@ -68,7 +68,7 @@ const SolicitarReunion = () => {
         }
     }
     return (
-        <div className="w-full max-w-2xl mx-auto space-y-0  border rounded-md shadow-md ">
+        <div className="w-full max-w-2xl mx-auto space-y-0  border rounded-md shadow-xl ">
             <form onSubmit={handleSubmit} className="pt-8 px-8">
                 <div className="space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -108,7 +108,7 @@ const SolicitarReunion = () => {
                     </div>
                 </div>
                 <div className="flex justify-end pt-6  ">
-                    <Button className="w-screen" >Enviar solicitud</Button>
+                    <Button className="w-screen text-base" >Enviar solicitud</Button>
 
                 </div>
             </form>
