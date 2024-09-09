@@ -7,6 +7,7 @@ import VideosTop from "./VideosTop";
 import ImagenTop from "./ImagenTop";
 import { useRef } from "react";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import ImagenTop2 from "./ImagenTop2";
 
 const SliderTop = () => {
     const sliderRef = useRef<any>(null);
@@ -45,10 +46,11 @@ const SliderTop = () => {
     };
 
     return (
-        <div className="lg:py-12  relative">
-            <Slider ref={sliderRef} {...settings}>
-                <div>
-                    <ImagenTop />
+        <div className="  relative">
+            <Slider ref={sliderRef} {...settings} >
+                <div className=" md:py-12">
+                    <ImagenTop2 />
+                    {/* <ImagenTop /> */}
                 </div>
                 <div >
                     <VideosTop ref={videosTopRef} />
