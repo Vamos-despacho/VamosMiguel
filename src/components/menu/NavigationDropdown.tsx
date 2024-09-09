@@ -82,7 +82,7 @@ export const NavigationDropdown = () => {
                                                     </CollapsibleTrigger>
                                                     <CollapsibleContent>
                                                         <div className="grid gap-0 ps-4 p-3 py-1 ">
-                                                            <Link href="/reunion">
+                                                            <Link href="/solicitar-reunion">
                                                                 <DropdownMenuItem>
                                                                     <span className="relative z-10">Solicitar Reunión</span>
                                                                 </DropdownMenuItem>

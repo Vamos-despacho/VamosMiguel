@@ -81,7 +81,7 @@ const Navigation = () => {
                             <LucideChevronRight className='w-3.5 h-3.5 ml-3 ' />
                         </MenubarSubTrigger>
                         <MenubarSubContent className='bg-white p-2 border rounded-sm ml-1'>
-                            <Link href='/reunion'>
+                            <Link href='/solicitar-reunion'>
                                 <MenubarItem>Solicitar Reunión</MenubarItem>
                             </Link>
                             <MenubarSeparator />
