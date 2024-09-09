@@ -1,201 +1,181 @@
-
 import './dashboard.css';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { EyeOpenIcon, Pencil1Icon, TextAlignJustifyIcon, ViewHorizontalIcon } from '@radix-ui/react-icons';
+import { EyeOpenIcon, Pencil1Icon, TextAlignJustifyIcon } from '@radix-ui/react-icons';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import { AdminProvider } from './context/AdminContext';
+import { ImageIcon } from 'lucide-react';
 
 const ArticlesLayout = ({ children }) => {
-
     return (
-        <div className="dashboard-container">
-
-            <div className="navigation ">
-                <div className='dropdown '>
-                    <h2 className='font-semibold ms-2' >Eventos</h2>
-                    <div className=''>
-                        <Link href="/admin/event/ver" className='w-full'>
-                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <EyeOpenIcon className='mr-2' />
-                                Ver Eventos
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/event/crear">
-                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
-                                <Pencil1Icon className='mr-2' />
-                                Crear Evento
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/event/crear-mes" className='w-full'>
-                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <Pencil1Icon className='mr-2' />
-                                Crear Mes
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/event/ver-mes" className='w-full'>
-                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <EyeOpenIcon className='mr-2' />
-                                Ver Mes
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/event/crear-comision" className='w-full'>
-                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <Pencil1Icon className='mr-2' />
-                                Crear Comisión
-                            </Button>
-                        </Link>
-                    </div>
-                    <h2 className='font-semibold ms-2' >Articulos</h2>
-                    <div className=''>
-                        <Link href="/admin/articulos/ver-articulos" className='w-full'>
-                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <EyeOpenIcon className='mr-2' />
-                                Ver
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/articulos/crear-articulo">
-                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
-                                <Pencil1Icon className='mr-2' />
-                                Crear
-                            </Button>
-                        </Link>
-                    </div>
-                    <h2 className='font-semibold ms-2 pt-3' >Categorías</h2>
-
-                    <div className=''>
-                        <Link href="/admin/categorias/ver-categorias" className='w-full'>
-                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <EyeOpenIcon className='mr-2' />
-                                Ver
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/categorias/crear-categoria">
-                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
-                                <Pencil1Icon className='mr-2' />
-                                Crear
-                            </Button>
-                        </Link>
-                    </div>
-                    <div >
-
-                        <h2 className='font-semibold ms-2 pt-3' >Etiquetas</h2>
-                    </div>
-
-                    <div className=''>
-                        <Link href="/admin/etiquetas/ver-etiquetas" className='w-full'>
-                            <Button arial-label='Ver' variant="ghost" className=" w-full justify-start">
-                                <EyeOpenIcon className='mr-2' />
-                                Ver
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/etiquetas/crear-etiqueta">
-                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
-                                <Pencil1Icon className='mr-2' />
-                                Crear
-                            </Button>
-                        </Link>
-                    </div>
-                    <div className=''>
-                        <Link href="/admin/fotos">
-                            <Button arial-label='Crear' variant="ghost" className=" w-full justify-start">
-                                <Pencil1Icon className='mr-2' />
-                                Subir Fotos
-                            </Button>
-                        </Link>
-                    </div>
-
-                </div>
-                <div className='dropdownBtn'>
+        <div className="dashboard-container flex flex-col lg:flex-row">
+            <div className="navigation flex-shrink-0">
+                <div className='dropdown space-y-4'>
+                    {/* Eventos */}
                     <DropdownMenu>
-                        <DropdownMenuTrigger>
-                            <TextAlignJustifyIcon className='mr-2 h-8 w-8' />
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="w-full justify-start">
+                                <TextAlignJustifyIcon className='mr-2 h-5 w-5' />
+                                Eventos
+                            </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent >
-                            <DropdownMenuLabel>Articulos</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <Link href="/admin/articulos/ver-articulos" className='w-full'>
-                                <DropdownMenuItem>
+                        <DropdownMenuContent className="w-48">
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/event/ver" className='w-full flex items-center'>
                                     <EyeOpenIcon className='mr-2' />
-                                    Ver
-                                </DropdownMenuItem>
-                            </Link>
-                            <Link href="/admin/articulos/crear-articulo">
-                                <DropdownMenuItem>
+                                    Ver Eventos
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/event/crear" className='w-full flex items-center'>
                                     <Pencil1Icon className='mr-2' />
-                                    Crear
-                                </DropdownMenuItem>
-                            </Link>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuLabel>Categorías</DropdownMenuLabel>
-                            <Link href="/admin/categorias/ver-categorias" className='w-full'>
-                                <DropdownMenuItem>
+                                    Crear Evento
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/event/crear-mes" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear Mes
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/event/ver-mes" className='w-full flex items-center'>
                                     <EyeOpenIcon className='mr-2' />
-                                    Ver
-                                </DropdownMenuItem>
-                            </Link>
-                            <Link href="/admin/categorias/crear-categoria">
-                                <DropdownMenuItem>
+                                    Ver Mes
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/event/crear-comision" className='w-full flex items-center'>
                                     <Pencil1Icon className='mr-2' />
-                                    Crear
-                                </DropdownMenuItem>
-                            </Link>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuLabel>Etiquetas</DropdownMenuLabel>
-                            <Link href="/admin/etiquetas/ver-etiquetas" className='w-full'>
-                                <DropdownMenuItem>
-                                    <EyeOpenIcon className='mr-2' />
-                                    Ver
-                                </DropdownMenuItem>
-                            </Link>
-                            <Link href="/admin/etiquetas/crear-etiqueta">
-                                <DropdownMenuItem>
-                                    <Pencil1Icon className='mr-2' />
-                                    Crear
-                                </DropdownMenuItem>
-                            </Link>
-                            <DropdownMenuSeparator />
-
-
+                                    Crear Comisión
+                                </Link>
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
 
+                    {/* Deportistas */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="w-full justify-start">
+                                <TextAlignJustifyIcon className='mr-2 h-5 w-5' />
+                                Atletas
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-48">
+                            {/* <DropdownMenuItem asChild>
+                                <Link href="/admin/atletas/crear-provincia" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear Provincia
+                                </Link>
+                            </DropdownMenuItem> */}
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/atletas/crear-evento" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear Evento
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/atletas/ver-evento" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Ver Evento
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    {/* Artículos */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="w-full justify-start">
+                                <TextAlignJustifyIcon className='mr-2 h-5 w-5' />
+                                Artículos
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-48">
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/articulos/ver-articulos" className='w-full flex items-center'>
+                                    <EyeOpenIcon className='mr-2' />
+                                    Ver Artículos
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/articulos/crear-articulo" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear Artículo
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    {/* Categorías */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="w-full justify-start">
+                                <TextAlignJustifyIcon className='mr-2 h-5 w-5' />
+                                Categorías
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-48">
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/categorias/ver-categorias" className='w-full flex items-center'>
+                                    <EyeOpenIcon className='mr-2' />
+                                    Ver Categorías
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/categorias/crear-categoria" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear Categoría
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    {/* Etiquetas */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="w-full justify-start">
+                                <TextAlignJustifyIcon className='mr-2 h-5 w-5' />
+                                Etiquetas
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-48">
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/etiquetas/ver-etiquetas" className='w-full flex items-center'>
+                                    <EyeOpenIcon className='mr-2' />
+                                    Ver Etiquetas
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/etiquetas/crear-etiqueta" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Crear Etiqueta
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+
+                    {/* Subir Fotos */}
+                    <div className='ml-4'>
+                        <Link href="/admin/fotos" className='w-full flex items-center'>
+                            <ImageIcon className='mr-2' />
+                            Subir Fotos
+                        </Link>
+                    </div>
                 </div>
-
-
             </div>
 
-
-
-            <div className="">
-                {/* Contenido principal (children) */}
+            <div className="content flex-grow">
                 <AdminProvider>
-
                     {children}
                 </AdminProvider>
             </div>
-        </div >
+        </div>
     );
 };
 

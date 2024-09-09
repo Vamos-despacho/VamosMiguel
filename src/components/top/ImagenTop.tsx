@@ -57,10 +57,9 @@ export default function ImagenTop() {
                             decoding="async"
                             src={`/images/top/${imgs[currentIndex].img}`}
                             alt={`Slide ${currentIndex + 1}`}
-                            width={1200} // Asegúrate de usar dimensiones adecuadas
-                            height={800}
+                            width={1000} // Asegúrate de usar dimensiones adecuadas
+                            height={700}
                             sizes="(min-width: 1024px) 1200px, (min-width: 768px) 800px, 100vw"
-
                             className=" sm:w-[600px] h-[340px] sm:h-[500px] rounded-md object-cover"
                             quality={100} // Usa la máxima calidad
                         />

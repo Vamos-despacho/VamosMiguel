@@ -26,8 +26,8 @@ const SliderTop = () => {
         slidesToScroll: 1,
         afterChange: handlePauseFromParent,
         appendDots: (dots: React.ReactNode[]) => (
-            <div style={{ position: 'relative' }} >
-                <ul className="  h-3" style={{ display: 'flex', justifyContent: 'center' }}> {dots} </ul>
+            <div style={{ position: 'relative' }} className="" >
+                <ul className=" h-3" style={{ display: 'flex', justifyContent: 'center' }}> {dots} </ul>
                 <button
                     onClick={() => sliderRef.current.slickPrev()}
                     className="mr-40 shadow-sm  transform -translate-y-1/2 bg-gray-200 text-white rounded-full p-2 hover:bg-gray-300"
@@ -45,7 +45,7 @@ const SliderTop = () => {
     };
 
     return (
-        <div className="pb-0 relative">
+        <div className="lg:py-12  relative">
             <Slider ref={sliderRef} {...settings}>
                 <div>
                     <ImagenTop />

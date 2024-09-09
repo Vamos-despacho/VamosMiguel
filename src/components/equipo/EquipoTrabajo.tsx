@@ -1,32 +1,55 @@
-const EquipoTrabajo = () => {
+import React from "react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+
+interface TeamMember {
+    name: string;
+    role: string;
+    salary: string;
+    imgSrc: string;
+}
+
+const teamMembers: TeamMember[] = [
+    { name: "Antonio Sanmartin", role: "JEFE DE DESPACHO", salary: "$0,00", imgSrc: "/placeholder.jpg" },
+    { name: "Alexandra Flores", role: "ADMINISTRADORA DE DESPACHO", salary: "$0,00", imgSrc: "/placeholder.jpg" },
+    { name: "Aracely Achille", role: "ASESOR LEGAL", salary: "$0,00", imgSrc: "/placeholder.jpg" },
+    { name: "Christhian Peñalba", role: "GESTOR DE TECNOLOGÍA Y CONTENIDOS DIGITALES", salary: "$0,00", imgSrc: "/placeholder.jpg" },
+    { name: "Jose Moscoso", role: "PRODUCTOR AUDIOVISUAL", salary: "$0,00", imgSrc: "/placeholder.jpg" },
+    { name: "Marco Rodríguez", role: "INVESTIGADOR", salary: "$0,00", imgSrc: "/placeholder.jpg" },
+];
+
+const EquipoTrabajo: React.FC = () => {
     return (
-        <section className="bg-white">
-            <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
-                <div className="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
-                    <div className="space-y-5 sm:space-y-4">
-                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">Equipo de Trabajo</h2>
-                        <p className="text-xl text-gray-500">Despacho 209</p>
+        <section className="bg-white py-12">
+            <div className="container mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 lg:py-16">
+                <div className="lg:grid lg:grid-cols-3 lg:gap-8">
+                    <div className="lg:col-span-1 ">
+                        <h2 className="block  font-display tracking-tight [text-wrap:balance] text-3xl font-medium sm:text-4
+                        xl text-azulv">
+                            Equipo de Trabajo
+                        </h2>
+                        <p className="mt-4 text-xl font-display text-neutral-700">Despacho 209</p>
                     </div>
-                    <div className="lg:col-span-2 lg:mt-0">
-                        <ul
-                            role="list"
-                            className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8"
-                        >
+                    <div className="mt-10 lg:mt-0 lg:col-span-2">
+                        <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                             {teamMembers.map(({ name, role, salary, imgSrc }, index) => (
-                                <li key={index}>
-                                    <div className="space-y-4">
-                                        <div className="aspect-w-3 aspect-h-2">
-                                            <img className="rounded-lg object-cover shadow-lg w-32 h-32" src={imgSrc} alt={name} />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <div className="text-lg leading-6 font-medium space-y-1">
-                                                <h3 className="text-base font-semibold leading-6 tracking-tight text-slate-900">{name}</h3>
-                                                <p className="text-neutral-600 text-sm">{role}</p>
-                                            </div>
-                                            <div className="text-lg">
-                                                <p className="text-gray-500">{salary}</p>
-                                            </div>
-                                        </div>
+                                <li key={index} className="flex flex-col items-center text-center space-y-4">
+                                    {/* <img
+                                        className="rounded-lg object-cover shadow-lg w-32 h-32"
+                                        src={imgSrc}
+                                        alt={name}
+                                    /> */}
+                                    <Avatar className="w-28 h-28 border-4 border-gray-100 shadow-lg">
+                                        <AvatarImage
+                                            src={imgSrc}
+                                            sizes="(min-width: 1024px) rem, 20rem"
+                                            alt="Profile"
+                                        />
+                                        <AvatarFallback>AC</AvatarFallback>
+                                    </Avatar>
+                                    <div className="text-lg leading-6 font-medium">
+                                        <h3 className="text-base font-semibold tracking-tight text-slate-900">{name}</h3>
+                                        <p className="text-neutral-600 text-sm">{role}</p>
+                                        <p className="text-gray-500 text-sm">{salary}</p>
                                     </div>
                                 </li>
                             ))}
@@ -37,15 +60,5 @@ const EquipoTrabajo = () => {
         </section>
     );
 };
-
-// Datos de los miembros del equipo
-const teamMembers = [
-    { name: "Antonio Sanmartin", role: "JEFE DE DESPACHO", salary: "$120,000", imgSrc: "/placeholder.jpg" },
-    { name: "Alexandra Flores", role: "ADMINISTRADORA DE DESPACHO", salary: "$100,000", imgSrc: "/placeholder.jpg" },
-    { name: "Aracely Achille", role: "ASESOR LEGAL", salary: "$90,000", imgSrc: "/placeholder.jpg" },
-    { name: "Christhian Peñalba", role: "PROGRAMADOR", salary: "$80,000", imgSrc: "/placeholder.jpg" },
-    { name: "Jose Moscoso", role: "PRODUCTOR AUDIOVISUAL", salary: "$60,000", imgSrc: "/placeholder.jpg" },
-    { name: "Marco Rodríguez", role: "INVESTIGADOR", salary: "$75,000", imgSrc: "/placeholder.jpg" },
-];
 
 export default EquipoTrabajo;
