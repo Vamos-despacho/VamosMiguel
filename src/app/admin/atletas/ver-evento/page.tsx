@@ -4,8 +4,9 @@ import React from 'react'
 
 async function getServerSideProps() {
     const resp = await obtenerEventos()
-    if (resp.status === 200) {
-        return resp.events
+    if (resp) {
+        const eventos = JSON.parse(resp)
+        return eventos
     } else {
         return null
     }

@@ -3,6 +3,7 @@
 import Province from "@/models/Provinces";
 import connectDB from '@/lib/mongodb';
 import { SportEvent } from "@/models/salon/SportEvent";
+import { Atleta } from "@/models/salon/Atleta";
 
 
 export const crearProvincia = async (name: string) => {
@@ -32,10 +33,10 @@ export const obtenerProvincias = async () => {
     try {
         await connectDB();
         const provinces = await Province.find()
-        return { status: 200, provinces }
+        return JSON.stringify(provinces);
     } catch (error) {
         console.error('Error:', error);
-        return { status: 500 }
+        return JSON.stringify({ status: 500 })
     }
 }
 
@@ -65,9 +66,32 @@ export const obtenerEventos = async () => {
     try {
         await connectDB();
         const events = await SportEvent.find()
-        return { status: 200, events }
+
+        return JSON.stringify(events);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 })
+
+    }
+}
+
+export const createAtleta = async (data: any) => {
+
+    if (!data) {
+        return { status: 400 }
+    }
+    try {
+        await connectDB();
+        const atleta = new Atleta(data)
+        console.log(atleta)
+        if (atleta) {
+            return { status: 200 }
+        }
+        return { status: 400 }
+
     } catch (error) {
         console.error('Error:', error);
         return { status: 500 }
+
     }
 }

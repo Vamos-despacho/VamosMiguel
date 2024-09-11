@@ -12,18 +12,19 @@ interface ISport {
     category: string;
 }
 
-interface IDeportista extends Document {
+export interface IAtleta extends Document {
     name: string;
     birthDate: Date;
     province: Schema.Types.ObjectId; // Referencia a Province
     sports: ISport[];
     achievements: IAchievements[];
     biography: string;
-    image: string;
+    image?: string;
     activeYears: string;
     isHighlighted: boolean;
     hallOfFameYear?: number;
     events: Schema.Types.ObjectId[];
+    state: boolean
 }
 
 const AchievementsSchema = new Schema<IAchievements>({
@@ -38,20 +39,30 @@ const SportSchema = new Schema<ISport>({
     category: { type: String, required: true },
 });
 
-const DeportistaSchema = new Schema<IDeportista>({
-    name: { type: String, required: true },
-    birthDate: { type: Date, required: true },
-    province: { type: Schema.Types.ObjectId, ref: 'Province', required: true },
-    sports: { type: [SportSchema], required: true },
-    achievements: { type: [AchievementsSchema], required: true },
-    biography: { type: String, required: true },
-    image: { type: String, required: true },
-    activeYears: { type: String, required: true },
-    isHighlighted: { type: Boolean, default: false },
-    hallOfFameYear: { type: Number },
-    events: [{ type: Schema.Types.ObjectId, ref: 'Event' }],
+interface IEventParticipation {
+    event: Schema.Types.ObjectId; // Referencia al evento
+    position?: string;             // Posición o premio obtenido
+}
+const EventParticipationSchema = new Schema<IEventParticipation>({
+    event: { type: Schema.Types.ObjectId, ref: 'Event', required: true },
+    position: { type: String },  // Nuevo campo para la posición o premio
 });
 
-const Deportista = mongoose.models.Deportista || mongoose.model<IDeportista>('Deportista', DeportistaSchema);
+const AtletaSchema = new Schema<IAtleta>({
+    name: { type: String, required: true },
+    state: { type: Boolean, default: false },
+    birthDate: { type: Date },
+    province: { type: Schema.Types.ObjectId, ref: 'Province', },
+    biography: { type: String },
+    image: { type: String },
+    activeYears: { type: String },
+    isHighlighted: { type: Boolean, default: false },
+    hallOfFameYear: { type: Number },
+    events: { type: [EventParticipationSchema] },  // Modificado para incluir posición
+    sports: { type: [SportSchema] },
+    achievements: { type: [AchievementsSchema] },
+});
 
-export { Deportista };
+const Atleta = mongoose.models.Atleta || mongoose.model<IAtleta>('Atleta', AtletaSchema);
+
+export { Atleta };

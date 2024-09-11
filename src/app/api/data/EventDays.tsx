@@ -639,12 +639,42 @@ export const events: IEvent[] = [
         ]
     },
     {
+        date: new Date(2024, 8, 6),
+        eventos: [
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1726082122/VamosMA/popjfx1aslqndbozj3lv.jpg'],
+                            titulo: 'Reunión de Participación Ciudadana en Santiago',
+                            descripcion: 'Durante la reunión de "Participación Ciudadana" en Santiago, se conversó con los residentes sobre sus preocupaciones, se debatieron proyectos y se abordaron problemas de la comunidad. Fue un espacio para intercambiar ideas y buscar soluciones de manera conjunta.'
+                        }
+                    ]
+                }
+            }
+
+        ]
+    },
+    {
         date: new Date(2024, 8, 9),
         eventos: [
             {
                 nombre: "Pleno",
                 event: {
                     idsYoutube: ['lurjre9JPcA'],
+                }
+            }
+
+        ]
+    },
+    {
+        date: new Date(2024, 8, 10),
+        eventos: [
+            {
+                nombre: "Educación",
+                event: {
+
                 }
             }
 

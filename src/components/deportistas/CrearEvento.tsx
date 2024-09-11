@@ -41,7 +41,7 @@ const CrearEvento = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="w-[60%] p-4 bg-white rounded shadow-md gap-3 flex flex-col" >
+        <form onSubmit={handleSubmit} className="w-[100%] p-4 bg-white rounded shadow-md gap-3 flex flex-col" >
             <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre del Evento</label>
                 <input
