@@ -10,7 +10,7 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
     { name: "Antonio Sanmartin", role: "JEFE DE DESPACHO", salary: "$0,00", imgSrc: "/equipo/Antonio3.webp" },
-    { name: "Alexandra Flores", role: "ADMINISTRADORA DE DESPACHO", salary: "$0,00", imgSrc: "/equipo/alexandra4.webp" },
+    { name: "Alexandra Flores", role: "ADMINISTRADORA DE DESPACHO", salary: "$0,00", imgSrc: "/equipo/Alexandra4.webp" },
     { name: "Aracely Achille", role: "ASESORA LEGAL", salary: "$0,00", imgSrc: "/equipo/Aracely4.webp" },
     { name: "Christhian Peñalba", role: "DESARROLLADOR WEB Y CONTENIDO DIGITAL", salary: "$0,00", imgSrc: "/equipo/Christhian1.webp" },
     { name: "Jose Moscoso", role: "PRODUCTOR AUDIOVISUAL", salary: "$0,00", imgSrc: "/equipo/Jose1.webp" },
