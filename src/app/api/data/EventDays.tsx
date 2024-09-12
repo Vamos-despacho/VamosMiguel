@@ -1,3 +1,5 @@
+import { id } from 'date-fns/locale';
+import { X } from 'lucide-react';
 
 // Definición de los tipos para cada evento
 export interface IEventDetails {
@@ -676,6 +678,42 @@ export const events: IEvent[] = [
                 event: {
 
                 }
+            },
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+
+        ]
+    },
+    {
+        date: new Date(2024, 8, 11),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['Yo1ahgwdBgA'],
+                }
+            },
+
+
+        ]
+    },
+    {
+        date: new Date(2024, 8, 12),
+        eventos: [
+            {
+                nombre: "Otros",
+                event: {
+                    idsYoutube: ['dA9YO5yFV_4'],
+                }
+            }, {
+                nombre: "Pleno",
+                event: {
+                }
+
             }
 
         ]

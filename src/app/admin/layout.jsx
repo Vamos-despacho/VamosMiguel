@@ -92,6 +92,12 @@ const ArticlesLayout = ({ children }) => {
                                     Crear Atleta
                                 </Link>
                             </DropdownMenuItem>
+                            <DropdownMenuItem asChild>
+                                <Link href="/admin/atletas/actualizar-atleta" className='w-full flex items-center'>
+                                    <Pencil1Icon className='mr-2' />
+                                    Actualizar Atleta
+                                </Link>
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
 

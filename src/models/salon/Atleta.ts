@@ -13,6 +13,7 @@ interface ISport {
 }
 
 export interface IAtleta extends Document {
+    _id: string;
     name: string;
     birthDate: Date;
     province: Schema.Types.ObjectId; // Referencia a Province

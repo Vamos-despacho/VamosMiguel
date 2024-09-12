@@ -83,9 +83,10 @@ export const createAtleta = async (data: any) => {
     try {
         await connectDB();
         const atleta = new Atleta(data)
-        console.log(atleta)
-        if (atleta) {
-            return { status: 200 }
+        const result = await atleta.save()
+        console.log(result)
+        if (result) {
+            return JSON.stringify(result)
         }
         return { status: 400 }
 
@@ -93,5 +94,16 @@ export const createAtleta = async (data: any) => {
         console.error('Error:', error);
         return { status: 500 }
 
+    }
+}
+
+export const getAtletas = async () => {
+    try {
+        await connectDB();
+        const atletas = await Atleta.find()
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 })
     }
 }
