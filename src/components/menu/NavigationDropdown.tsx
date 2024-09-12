@@ -51,8 +51,9 @@ export const NavigationDropdown = () => {
                                         <DropdownMenuSubContent >
                                             <Link href="/suplente">  <DropdownMenuItem>Diputada Suplente</DropdownMenuItem>  </Link>
 
-
-                                            <DropdownMenuItem>Equipo </DropdownMenuItem>
+                                            <Link href="/equipo-trabajo">
+                                                <DropdownMenuItem>Equipo de Trabajo</DropdownMenuItem>
+                                            </Link>
 
                                         </DropdownMenuSubContent>
                                     </DropdownMenuSub>

@@ -5,8 +5,8 @@ import React from 'react'
 const EquipoPage = () => {
     return (
         <div>
-            <NoDisponible />
-            {/* <EquipoTrabajo /> */}
+            {/* <NoDisponible /> */}
+            <EquipoTrabajo />
         </div>
     )
 }

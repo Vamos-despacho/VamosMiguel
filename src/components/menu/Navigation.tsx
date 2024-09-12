@@ -46,7 +46,7 @@ const Navigation = () => {
                     <Link href='/suplente'>
                         <MenubarItem>Diputada Suplente</MenubarItem>
                     </Link>
-                    <Link href='/equipo'>
+                    <Link href='/equipo-trabajo'>
                         <MenubarItem>Equipo de Trabajo</MenubarItem>
                     </Link>
 
