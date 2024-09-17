@@ -97,13 +97,137 @@ export const createAtleta = async (data: any) => {
     }
 }
 
+export const updateAtleta = async (data: any) => {
+    if (!data) {
+        return { status: 400 }
+    }
+    try {
+        await connectDB();
+        const result = await Atleta.findByIdAndUpdate
+            (data._id, data, {
+                new:
+                    true
+            })
+        console.log(result)
+        if (result) {
+            return JSON.stringify(result)
+        }
+        return { status: 400 }
+    }
+    catch (error) {
+        console.error('Error:', error);
+        return { status: 500 }
+    }
+}
+export const updateSport = async (data: any) => {
+    if (!data) {
+        return { status: 400 }
+    }
+    try {
+        await connectDB();
+        const result = await Atleta.findByIdAndUpdate
+            (data._id, {
+                $set: {
+                    sports: data.sports
+                }
+            },
+                {
+                    new:
+                        true
+                })
+        console.log(result)
+        if (result) {
+            return JSON.stringify(result)
+        }
+        return { status: 400 }
+    }
+    catch (error) {
+        console.error('Error:', error);
+        return { status: 500 }
+    }
+}
+
+export const updateEvent = async (data: any) => {
+    if (!data) {
+        return { status: 400 }
+    }
+    try {
+        await connectDB();
+        const result = await Atleta.findByIdAndUpdate(
+            data.athleteId,
+            {
+                $push: {
+                    events: data.events // $each permite agregar múltiples eventos si el array contiene más de uno
+                }
+            },
+            {
+                new: true // Devuelve el documento actualizado
+            }
+        );
+
+        if (result) {
+            return JSON.stringify(result)
+        }
+        return { status: 400 }
+    }
+    catch (error) {
+        console.error('Error:', error);
+        return { status: 500 }
+    }
+
+}
+
 export const getAtletas = async () => {
+    console.log('first')
     try {
         await connectDB();
         const atletas = await Atleta.find()
+            .populate('events.event', 'name')
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);
         return JSON.stringify({ status: 500 })
+    }
+}
+
+export const deleteAtleta = async (id: string) => {
+    console.log('Deleting', id)
+    try {
+        await connectDB();
+        const result = await Atleta.findByIdAndDelete(id)
+        console.log(result)
+        if (result) {
+            return { status: 200 }
+        }
+        return { status: 400 }
+    } catch (error) {
+        console.error('Error:', error);
+        return { status: 500 }
+    }
+}
+
+export const deleteEventAtleta = async (data: any) => {
+    console.log('Deleting', data)
+    try {
+        await connectDB();
+        const result = await Atleta.findByIdAndUpdate(
+            data.athleteId,
+            {
+                $pull: {
+                    events: { _id: data.eventId } // Se asume que `data.eventId` es el ID del evento a eliminar
+                }
+            },
+            {
+                new: true // Devuelve el documento actualizado
+            }
+        );
+        console.log(result)
+        if (result) {
+            return { status: 200 }
+        }
+        return { status: 400 }
+    } catch (error) {
+        console.error('Error:', error);
+        return { status: 500 }
     }
 }

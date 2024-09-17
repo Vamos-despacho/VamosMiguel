@@ -97,11 +97,19 @@ const DeportistaForm = ({ events }: { events: IEventDeporte[] }) => {
                         {/* Provincia */}
                         <div className="mb-4">
                             <label htmlFor="province" className="block text-sm font-medium text-gray-700">Provincia</label>
-                            <select name="province" id="province" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                                <option value="" disabled selected>Seleccione una provincia</option>
-
+                            <select
+                                name="province"
+                                id="province"
+                                defaultValue=""
+                                className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                            >
+                                <option value="" disabled>
+                                    Seleccione una provincia
+                                </option>
                                 {provincias.map((provincia) => (
-                                    <option key={provincia._id} value={provincia._id}>{provincia.name}</option>
+                                    <option key={provincia._id} value={provincia._id}>
+                                        {provincia.name}
+                                    </option>
                                 ))}
                             </select>
                         </div>

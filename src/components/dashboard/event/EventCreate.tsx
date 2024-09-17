@@ -3,8 +3,6 @@
 import React, { FormEvent, useState } from 'react';
 import DatePickerForm from './DatePickerform';
 import { Label } from '@radix-ui/react-label';
-import { Input } from '@/components/ui/input';
-import vamosApi from '@/app/api/vamosApi';
 import { useToast } from "@/components/ui/use-toast"
 import { createEvent } from '@/libs/event/actions';
 

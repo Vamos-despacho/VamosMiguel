@@ -714,6 +714,44 @@ export const events: IEvent[] = [
                 event: {
                 }
 
+
+            }, {
+                nombre: "Salud",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1726592452/VamosMA/esr3pm0equfoknhf63nq.jpg'],
+                            titulo: 'Progreso del Anteproyecto de Ley sobre el Trastorno del Espectro Autista (TEA)',
+                            descripcion: 'En la subcomisión de trabajo, salud y desarrollo social, se discutió a fondo el anteproyecto de ley sobre el Trastorno del Espectro Autista (TEA), con aportes de expertos y comisiones. Las sesiones incluyeron estudios de impacto y testimonios de familias, abordando temas clave como el acceso a servicios médicos, educación especializada e inclusión laboral. Se evaluaron los mecanismos de implementación y la necesidad de medidas de seguimiento para asegurar que la ley cumpla con sus objetivos y beneficie a las personas con TEA.'
+                        }
+                    ]
+                }
+
+            }
+
+        ]
+    },
+    {
+        date: new Date(2024, 8, 16),
+        eventos: [
+
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['HOef8pPqvYc'],
+                }
+            },
+            {
+                nombre: "Educación",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1726593428/VamosMA/u9couwabayreyrkytmyi.jpg'],
+                            titulo: 'Propuesta para Establecer el "Día del Futbolista" en Panamá',
+                            descripcion: 'La subcomisión de Educación, Cultura y Deporte analizó en detalle el anteproyecto de ley que propone la creación del "Día del Futbolista" en Panamá. Durante las sesiones, expertos del ámbito deportivo y cultural destacaron cómo esta celebración no solo honraría a los futbolistas nacionales, sino también promovería la importancia del deporte en la sociedad. Se evaluaron los beneficios culturales y sociales de la propuesta, así como los aspectos logísticos para su implementación, tomando como referencia experiencias de otros países.'
+                        }
+                    ]
+                }
             }
 
         ]

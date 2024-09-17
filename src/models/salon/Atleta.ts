@@ -7,7 +7,7 @@ interface IAchievements {
     location: string;
 }
 
-interface ISport {
+export interface ISport {
     discipline: string;
     category: string;
 }
@@ -21,7 +21,7 @@ export interface IAtleta extends Document {
     achievements: IAchievements[];
     biography: string;
     image?: string;
-    activeYears: string;
+    activeYears: number;
     isHighlighted: boolean;
     hallOfFameYear?: number;
     events: Schema.Types.ObjectId[];
@@ -45,7 +45,7 @@ interface IEventParticipation {
     position?: string;             // Posición o premio obtenido
 }
 const EventParticipationSchema = new Schema<IEventParticipation>({
-    event: { type: Schema.Types.ObjectId, ref: 'Event', required: true },
+    event: { type: Schema.Types.ObjectId, ref: 'SportEvent', required: true },
     position: { type: String },  // Nuevo campo para la posición o premio
 });
 
@@ -56,12 +56,14 @@ const AtletaSchema = new Schema<IAtleta>({
     province: { type: Schema.Types.ObjectId, ref: 'Province', },
     biography: { type: String },
     image: { type: String },
-    activeYears: { type: String },
+    activeYears: { type: Number },
     isHighlighted: { type: Boolean, default: false },
     hallOfFameYear: { type: Number },
     events: { type: [EventParticipationSchema] },  // Modificado para incluir posición
     sports: { type: [SportSchema] },
     achievements: { type: [AchievementsSchema] },
+}, {
+    timestamps: true, // Agrega createdAt y updatedAt automáticamente
 });
 
 const Atleta = mongoose.models.Atleta || mongoose.model<IAtleta>('Atleta', AtletaSchema);
