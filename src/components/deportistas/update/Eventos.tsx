@@ -31,7 +31,7 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
 
     // Función para enviar los datos a la base de datos
     const handleSave = async () => {
-        if (selectedEvent && position) {
+        if (selectedEvent) {
             const dataToSave = {
                 events: {
 

@@ -153,6 +153,17 @@ export const updateEvent = async (data: any) => {
     }
     try {
         await connectDB();
+
+        const resultEvent = await SportEvent.findByIdAndUpdate({
+            _id: data.events.event
+        }, {
+            $push: {
+                participants: data.athleteId
+            }
+        }, {
+            new: true
+        })
+
         const result = await Atleta.findByIdAndUpdate(
             data.athleteId,
             {
@@ -229,5 +240,35 @@ export const deleteEventAtleta = async (data: any) => {
     } catch (error) {
         console.error('Error:', error);
         return { status: 500 }
+    }
+}
+
+export const updateAthleteStatus = async (id: string, newState: boolean) => {
+    try {
+        await connectDB();
+        const result = await Atleta.findByIdAndUpdate
+            (id, { state: newState }, { new: true })
+
+        if (result) {
+            return JSON.stringify(result)
+        }
+        return { status: 400 }
+
+    } catch (error) {
+        console.error('Error:', error);
+        return { status: 500 }
+    }
+}
+export const getAtletasFront = async () => {
+    console.log('first')
+    try {
+        const query = { state: true }
+        await connectDB();
+        const atletas = await Atleta.find(query)
+            .populate('events.event', 'name')
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 })
     }
 }

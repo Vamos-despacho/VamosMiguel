@@ -25,7 +25,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ id, onReady }) => {
     };
 
     return (
-        <div className="flex-1 bg-background rounded-lg overflow-hidden">
+        <div className="flex-1 bg-background rounded-lg overflow-hidden shadow-lg">
             <div className="aspect-video relative">
                 <div
                     className={`absolute inset-0  transition-opacity duration-500 ${isReady ? 'opacity-100' : 'opacity-0'}`}

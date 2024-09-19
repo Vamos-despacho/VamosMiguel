@@ -11,7 +11,7 @@ const SportEventSchema = new Schema<IEventDeporte>({
     },
     location: { type: String, required: true, maxlength: 200 }, // Limitar longitud de ubicación
     description: { type: String, required: true, maxlength: 500 }, // Limitar descripción
-    participants: [{ type: Schema.Types.ObjectId, ref: 'Deportista' }], // Referencia a otra colección
+    participants: [{ type: Schema.Types.ObjectId, ref: 'Atleta' }], // Referencia a otra colección
 }, { timestamps: true }); // Timestamps agrega createdAt y updatedAt
 
 // Usa modelos ya registrados o crea uno nuevo

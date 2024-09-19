@@ -12,6 +12,7 @@ export enum LawProposalState {
     PrimerDebateObjetado = 'Primer Debate – Objetado',
     SegundoDebate = 'Segundo Debate',
     SegundoDebateObjetado = 'Segundo Debate - Objetado',
+    TercerDebate = 'Tercer Debate',
     NoIniciado = 'No Iniciado',
     EnRevision = 'En Revisión',
     Archivado = 'Archivado',

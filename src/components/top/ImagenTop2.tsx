@@ -48,10 +48,10 @@ export default function ImagenTop() {
     };
 
     return (
-        <div className="grid grid-cols-1 bg-white md:grid-cols-2 gap-3 md:gap-8 items-center pb-0 max-w-6xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 shadow-lg bg-white bg-opacity-90 md:grid-cols-2 gap-3 md:gap-8 items-center  pb-0 max-w-6xl mx-auto rounded-md ">
             <div className="relative">
-                <div className="relative w-full h-full overflow-hidden">
-                    <div className="relative w-full h-full transition-transform duration-500">
+                <div className="relative w-full h-full overflow-hidden ">
+                    <div className="relative w-full h-full transition-transform duration-500 ">
                         <Image
                             loading="lazy"
                             decoding="async"
@@ -60,7 +60,7 @@ export default function ImagenTop() {
                             width={1000} // Asegúrate de usar dimensiones adecuadas
                             height={700}
                             sizes="(min-width: 1024px) 1200px, (min-width: 768px) 800px, 100vw"
-                            className=" sm:w-[600px] h-[340px] sm:h-[500px] rounded-md object-cover"
+                            className=" sm:w-[600px] h-[340px] sm:h-[500px] rounded-l-md object-cover"
                             quality={100} // Usa la máxima calidad
                         />
 
@@ -69,20 +69,20 @@ export default function ImagenTop() {
                 </div>
                 <button
                     onClick={handlePrevious}
-                    className="absolute top-1/2 left-4 -translate-y-1/2 bg-background/20 hover:bg-background/75 p-2 rounded-full shadow-lg transition-colors border-none"
+                    className="absolute top-1/2 left-4 -translate-y-1/2 bg-background/60 hover:bg-background/80 p-2 rounded-full shadow-lg transition-colors border-none"
                 >
                     <BsChevronCompactLeft className="w-6 h-6 text-foreground" />
                 </button>
                 <button
                     onClick={handleNext}
-                    className="absolute top-1/2 right-4 -translate-y-1/2 bg-background/20 hover:bg-background/75 p-2 rounded-full shadow-lg transition-colors border-none"
+                    className="absolute top-1/2 right-4 -translate-y-1/2 bg-background/60 hover:bg-background/80 p-2 rounded-full shadow-lg transition-colors border-none"
                 >
                     <BsChevronCompactRight className="w-6 h-6 text-foreground" />
                 </button>
             </div>
             <div className=" space-y-2 md:space-y-4">
                 <h2 className="text-xl md:text-3xl font-bold text-azulv ">{imgs[currentIndex].title}</h2>
-                <p className=" mt-4 text-lg text-secondary-foreground">
+                <p className=" mt-4 text-lg text-secondary-foreground px-2">
                     {imgs[currentIndex].description}
                 </p>
             </div>

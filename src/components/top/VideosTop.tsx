@@ -64,12 +64,12 @@ const VideosTop = forwardRef<VideosTopHandles>((props, ref: ForwardedRef<VideosT
             <div className=" p-2  max-w-6xl w-full md:w-[700px] items-center justify-center ">
                 <VideoSection id={showId} onReady={onReady} />
             </div>
-            <div className="flex flex-col items-center justify-center gap-6  bg-background lg:ml-6">
+            <div className="flex flex-col items-center justify-center gap-6  bg-background lg:ml-6 bg-white bg-opacity-90 p-5 rounded-md shadow-lg">
                 <div className="flex flex-col items-center gap-3 pt-4">
                     <h2 className="text-3xl font-bold">Actividad legislativa</h2>
                     <p className="text-muted-foreground text-lg">{format(showDate, 'PPPP', { locale: es })}</p>
                 </div>
-                <div className="flex items-center gap-6 mt-2">
+                <div className="flex items-center gap-6 mt-2 ">
                     <Button onClick={handlePrevious} variant="ghost" size="icon" className="w-12 h-12 hover:bg-muted">
                         <RewindIcon className="w-6 h-6 text-foreground" />
                     </Button>
