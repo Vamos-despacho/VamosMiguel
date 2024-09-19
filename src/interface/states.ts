@@ -20,5 +20,6 @@ export enum LawProposalState {
     Rechazado = 'Rechazado',
     Prohijado = 'Prohijado',
     Presentado = 'Presentado',
+    Preliminario = 'Preliminar',
 
 }

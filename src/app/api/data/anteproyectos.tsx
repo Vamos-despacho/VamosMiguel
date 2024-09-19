@@ -41,7 +41,7 @@ export const Anteproyectos: IAnteProyecto[] = [
         proponente: 'H.D. Miguel Ángel Campos Lima',
         icon: 'MdOutlineSportsSoccer',
         link: 'pdfs/AnteproyectodeAltoRendimientoDeportivoyMedicinaDeportiva.pdf',
-        estado: LawProposalState.Prohijado
+        estado: LawProposalState.Preliminario
     },
     {
         id: 1,
