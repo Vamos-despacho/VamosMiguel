@@ -114,40 +114,42 @@ const Deportistas = () => {
                 <h2 className="text-xl font-semibold mb-4">
                     {selectedEvent ? `Atletas en ${selectedEvent.name}` : "Todos los atletas"}
                 </h2>
-                <div className="grid grid-cols-1 gap-6 pt-12 md:grid-cols-2 lg:grid-cols-3">                    {atleta.map((athlete) => (
-                    <div className="rounded-lg border bg-background p-6 shadow-sm transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg">
-                        <div className="flex flex-col h-full items-start gap-1">
-                            <div className="flex items-center gap-4">
-                                <Avatar>
-                                    <AvatarImage src="/placeholder-user.jpg" />
-                                    <AvatarFallback>JD</AvatarFallback>
-                                </Avatar>
-                                <div>
-                                    <h3 className="font-semibold">{athlete.name}</h3>
-                                    {athlete.events
-                                        .filter((event) => event.event === selectedEvent?._id)
-                                        .map((filteredEvent) => (
-                                            <div className="flex flex-col" key={filteredEvent._id}>
-                                                <span className="text-sm text-muted-foreground">{filteredEvent.dicipline}</span>
-                                            </div>
-                                        ))}
-                                </div>
-                            </div>
-                            <div className="flex-grow"></div>
-                            {athlete.events
-                                .filter((event) => event.event === selectedEvent?._id)
-                                .map((filteredEvent) => (
-                                    <div key={filteredEvent._id} className="w-full mt-auto">
-                                        <span className="block text-sm text-muted-foreground ">
-                                            {filteredEvent.position}
-                                        </span>
+                <div className="grid grid-cols-1 gap-6 pt-12 md:grid-cols-2 lg:grid-cols-3">
+                    {atleta.map((athlete) => (
+                        <div key={athlete._id}
+                            className="rounded-lg border bg-background p-6 shadow-sm transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-lg">
+                            <div className="flex flex-col h-full items-start gap-1">
+                                <div className="flex items-center gap-4">
+                                    <Avatar>
+                                        <AvatarImage src="/placeholder-user.jpg" />
+                                        <AvatarFallback>JD</AvatarFallback>
+                                    </Avatar>
+                                    <div>
+                                        <h3 className="font-semibold">{athlete.name}</h3>
+                                        {athlete.events
+                                            .filter((event) => event.event === selectedEvent?._id)
+                                            .map((filteredEvent) => (
+                                                <div className="flex flex-col" key={filteredEvent._id}>
+                                                    <span className="text-sm text-muted-foreground">{filteredEvent.dicipline}</span>
+                                                </div>
+                                            ))}
                                     </div>
-                                ))}
+                                </div>
+                                <div className="flex-grow"></div>
+                                {athlete.events
+                                    .filter((event) => event.event === selectedEvent?._id)
+                                    .map((filteredEvent) => (
+                                        <div key={filteredEvent._id} className="w-full mt-auto">
+                                            <span className="block text-sm text-muted-foreground ">
+                                                {filteredEvent.position}
+                                            </span>
+                                        </div>
+                                    ))}
+                            </div>
                         </div>
-                    </div>
 
 
-                ))}
+                    ))}
                 </div>
             </main>
             {selectedEvent && (
