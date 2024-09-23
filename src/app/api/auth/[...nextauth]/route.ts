@@ -6,6 +6,7 @@ import { prisma } from '@/libs/prisma';
 
 import bcrypt from 'bcryptjs'
 import { IUser } from '@/interface/user';
+const emailValid = ["christhianjpp@gmail.com"]
 
 
 interface User {
@@ -58,6 +59,12 @@ const handler = NextAuth({
         }),
     ],
     callbacks: {
+        async signIn({ user, account, profile, email, credentials }) {
+            if (account?.provider === "google") {
+                return emailValid.includes(profile?.email || " ")
+            }
+            return true
+        },
         jwt({ account, token, user, profile, session }) {
 
             if (user) token.user = user

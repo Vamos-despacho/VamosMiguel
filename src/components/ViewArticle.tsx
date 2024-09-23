@@ -5,6 +5,7 @@ import Article from './Article'
 import CardArticle from './dashboard/CardArticle'
 import Pagination from './Pagination'
 import vamosApi from '@/app/api/vamosApi'
+import ArticleDeporte from './ArticleDeporte'
 interface Props {
     articles: Post[]
 }
@@ -56,7 +57,7 @@ const ViewArticle = ({ articles, totalArticles }: IArticles) => {
                 {
                     articlesa.map((article, index) => (
 
-                        <Article
+                        <ArticleDeporte
                             key={article.id}
                             article={article}
                         />

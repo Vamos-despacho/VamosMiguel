@@ -48,7 +48,7 @@ export default function ImagenTop() {
     };
 
     return (
-        <div className="grid grid-cols-1 shadow-lg bg-white bg-opacity-90 md:grid-cols-2 gap-3 md:gap-8 items-center  pb-0 max-w-6xl mx-auto rounded-md ">
+        <div className="grid grid-cols-1 shadow-lg bg-white bg-opacity-90 md:grid-cols-2 gap-3 md:gap-6 items-center   max-w-6xl mx-auto rounded-md ">
             <div className="relative">
                 <div className="relative w-full h-full overflow-hidden ">
                     <div className="relative w-full h-full transition-transform duration-500 ">
@@ -80,9 +80,9 @@ export default function ImagenTop() {
                     <BsChevronCompactRight className="w-6 h-6 text-foreground" />
                 </button>
             </div>
-            <div className=" space-y-2 md:space-y-4">
-                <h2 className="text-xl md:text-3xl font-bold text-azulv ">{imgs[currentIndex].title}</h2>
-                <p className=" mt-4 text-lg text-secondary-foreground px-2">
+            <div className="flex flex-col space-y-2 md:space-y-4  mr-5">
+                <h2 className="text-xl md:text-3xl font-semibold text-azulv text-justify">{imgs[currentIndex].title}</h2>
+                <p className=" mt-4 text-xl text-secondary-foreground  text-justify">
                     {imgs[currentIndex].description}
                 </p>
             </div>

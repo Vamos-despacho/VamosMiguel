@@ -154,15 +154,27 @@ export const updateEvent = async (data: any) => {
     try {
         await connectDB();
 
-        const resultEvent = await SportEvent.findByIdAndUpdate({
-            _id: data.events.event
-        }, {
-            $push: {
-                participants: data.athleteId
+        // const resultEvent = await SportEvent.findByIdAndUpdate({
+        //     _id: data.events.event
+        // }, {
+        //     $push: {
+        //         participants: data.athleteId
+        //     }
+        // }, {
+        //     new: true
+        // })
+        const resultEvent = await SportEvent.findByIdAndUpdate(
+            { _id: data.events.event },
+            {
+                $addToSet: {
+                    participants: data.athleteId // Solo agrega si el atleta no está ya en participants
+                }
+            },
+            {
+                new: true // Devuelve el documento actualizado
             }
-        }, {
-            new: true
-        })
+        );
+
 
         const result = await Atleta.findByIdAndUpdate(
             data.athleteId,
@@ -218,30 +230,55 @@ export const deleteAtleta = async (id: string) => {
 }
 
 export const deleteEventAtleta = async (data: any) => {
-    console.log('Deleting', data)
+    console.log(data)
     try {
         await connectDB();
-        const result = await Atleta.findByIdAndUpdate(
+
+        // Eliminar el evento específico del array de eventos del atleta
+        const atleta = await Atleta.findByIdAndUpdate(
             data.athleteId,
             {
                 $pull: {
-                    events: { _id: data.eventId } // Se asume que `data.eventId` es el ID del evento a eliminar
-                }
+                    events: { _id: data.eventId } // Se asume que data.eventId es el ID del evento a eliminar
+                } // Eliminar el eventId específico
             },
-            {
-                new: true // Devuelve el documento actualizado
-            }
+            { new: true } // Devuelve el documento actualizado
         );
-        console.log(result)
-        if (result) {
-            return { status: 200 }
+
+        if (!atleta) {
+            return { status: 400, message: 'Atleta no encontrado' };
         }
-        return { status: 400 }
+        console.log('sport', data.sportEvent)
+        // Verificar si el atleta todavía tiene eventos con el mismo eventId
+        const atletaConEventosRestantes = await Atleta.findOne({
+            _id: data.athleteId,
+            events: { $elemMatch: { event: data.sportEvent } } // Buscar si el atleta aún tiene eventos de este sportEvent
+        });
+
+
+
+        console.log({ atletaConEventosRestantes })
+        // Si no tiene más eventos con el eventId específico, lo eliminamos de los participantes del evento deportivo
+        if (atletaConEventosRestantes === null) {
+            console.log('delete athlete from event ++++++++', data.athleteId)
+            console.log('sportevent', data.sportEvent)
+            const asdf = await SportEvent.findByIdAndUpdate(
+                data.sportEvent,
+                {
+                    $pull: { participants: data.athleteId } // Eliminar al atleta de los participantes
+                },
+                { new: true } // Devolver el documento actualizado
+            );
+            console.log({ asdf })
+        }
+
+        return { status: 200, message: 'Evento eliminado y verificado correctamente' };
     } catch (error) {
         console.error('Error:', error);
-        return { status: 500 }
+        return { status: 500, message: 'Error en el servidor' };
     }
-}
+};
+
 
 export const updateAthleteStatus = async (id: string, newState: boolean) => {
     try {
@@ -266,6 +303,22 @@ export const getAtletasFront = async () => {
         await connectDB();
         const atletas = await Atleta.find(query)
             .populate('events.event', 'name')
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 })
+    }
+}
+
+
+export const getAtletasEvent = async (id: string) => {
+
+    try {
+        const query = { id }
+        await connectDB();
+        const atletas = await SportEvent.findById(id)
+            .populate('participants')
+
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);

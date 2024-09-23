@@ -9,15 +9,14 @@ import {
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { FaRunning } from 'react-icons/fa';
-import { IEventParticipation, IEventDeporte, IAchievements } from '@/interface/atletas'; // Ajusta según tu ruta de interfaces
-import { deleteEventAtleta, updateEvent } from '@/libs/salon/actions';
-import { MdOutlineDeleteOutline } from "react-icons/md";
+import { IEventParticipation, IEventDeporte } from '@/interface/atletas'; // Ajusta según tu ruta de interfaces
+import { updateEvent } from '@/libs/salon/actions';
 import DeleteEvent from './DeleteEvent';
-import { events } from '../../../app/api/data/asistencias';
 
 const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation[], eventsDB: IEventDeporte[], id: string, name: string }) => {
     const [selectedEvent, setSelectedEvent] = useState<IEventDeporte | null>(null); // Para almacenar el evento seleccionado
     const [position, setPosition] = useState<string>(''); // Para almacenar la posición ingresada
+    const [dicipline, setDicipline] = useState<string>(''); // Para almacenar la diciplina ingres
     const [events, setEvents] = useState(eventos)
     // Maneja la selección del evento
     const handleEventSelect = (evento: IEventDeporte) => {
@@ -28,6 +27,9 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
     const handlePositionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPosition(e.target.value);
     };
+    const handleDiciplineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDicipline(e.target.value);
+    }
 
     // Función para enviar los datos a la base de datos
     const handleSave = async () => {
@@ -37,6 +39,7 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
 
                     event: selectedEvent._id,
                     position,
+                    dicipline
                 },
                 athleteId: id, // Usamos el ID del atleta para referenciarlo
             };
@@ -77,16 +80,19 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
                         {name}</span>
                 </DialogTitle>
                 <div className='flex gap-2'>{events.map((evento) => (
-                    <div className='bg-azulv relative flex justify-center items-center flex-col text-white p-2 rounded-lg font-semibold' key={evento.event._id}>
+                    <div className='bg-azulv relative flex justify-center items-center flex-col text-white p-2 rounded-lg font-semibold' key={evento._id}>
                         <span>
                             {evento.event.name}
                         </span>
                         <span className='text-xs'>
                             {evento.position}
                         </span>
+                        <span className='text-xs'>
+                            {evento.dicipline}
+                        </span>
                         <div className='absolute top-[-10px] right-[-7px] '>
                             {/* <MdOutlineDeleteOutline className='w-5 h-5' /> */}
-                            <DeleteEvent eventId={evento._id} athleteId={id} onClickDelete={handleDelete} msg='Evento' />
+                            <DeleteEvent sportEvent={evento.event._id} eventId={evento._id} athleteId={id} onClickDelete={handleDelete} msg='Evento' />
                         </div>
 
                     </div>
@@ -115,15 +121,28 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
 
                 {selectedEvent && (
                     <form className="mt-4 flex flex-col gap-4">
-                        <Label htmlFor="position" className="text-gray-700 font-medium">Posición</Label>
-                        <Input
-                            type='text'
-                            name='position'
-                            placeholder='Posición'
-                            value={position}
-                            onChange={handlePositionChange}
-                            className="p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
-                        />
+                        <div>
+                            <Label htmlFor="position" className="text-gray-700 font-medium">Posición</Label>
+                            <Input
+                                type='text'
+                                name='position'
+                                placeholder='Posición'
+                                value={position}
+                                onChange={handlePositionChange}
+                                className="p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
+                            />
+                        </div>
+                        <div>
+                            <Label htmlFor="dicipline" className="text-gray-700 font-medium">Diciplina</Label>
+                            <Input
+                                type='text'
+                                name='dicipline'
+                                placeholder='Diciplina'
+                                value={dicipline}
+                                onChange={handleDiciplineChange}
+                                className="p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
+                            />
+                        </div>
 
                         <button
                             type="button"

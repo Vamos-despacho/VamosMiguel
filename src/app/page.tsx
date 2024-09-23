@@ -3,6 +3,7 @@ import Contactanos from './contactanos/page'
 import Articulos from './articulos/page'
 import SliderTop from '@/components/top/SliderTop'
 import CardPropuestas from '@/components/propuestas/TarjetasPropuestas'
+import FloatingButton from '@/components/FloatingButton'
 
 const page = () => {
   return (
@@ -28,6 +29,8 @@ const page = () => {
 
         <Contactanos />
       </div>
+      <FloatingButton />
+
     </div>
   )
 }

@@ -17,16 +17,19 @@ interface Props {
     eventId: string;
     athleteId: string;
     onClickDelete: (id: string) => void
-    msg?: string
+    msg?: string;
+    sportEvent: string
 }
-const DeleteEvent = ({ athleteId, eventId, onClickDelete, msg }: Props) => {
+const DeleteEvent = ({ athleteId, eventId, onClickDelete, msg, sportEvent }: Props) => {
 
     const handleDelete = async () => {
         try {
             const data = {
                 eventId,
-                athleteId
+                athleteId,
+                sportEvent
             }
+            console.log(data)
             const resp = await deleteEventAtleta(data)
             if (resp?.status === 200) {
                 return onClickDelete(eventId);

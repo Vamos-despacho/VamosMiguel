@@ -18,7 +18,6 @@ const actualizarAteletaPage = async () => {
     }
     return (
         <div>
-
             <ActualiarAtleta atletas={atletas} />
         </div>
     )
