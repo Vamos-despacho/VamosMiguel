@@ -80,7 +80,7 @@ export default function ImagenTop() {
                     <BsChevronCompactRight className="w-6 h-6 text-foreground" />
                 </button>
             </div>
-            <div className="flex flex-col space-y-2 md:space-y-4  mr-5">
+            <div className="flex px-1 flex-col space-y-2 md:space-y-4 py-3 sm:py-0  sm:mr-5">
                 <h2 className="text-xl md:text-3xl font-semibold text-azulv text-justify">{imgs[currentIndex].title}</h2>
                 <p className=" mt-4 text-xl text-secondary-foreground  text-justify">
                     {imgs[currentIndex].description}

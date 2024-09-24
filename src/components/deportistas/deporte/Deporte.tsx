@@ -1,5 +1,4 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import QueEsElDeporte from "./QueEsElDeporte"
 import { ClubIcon } from "lucide-react"
 import ArticulosDeporte from "./ArticulosDeporte"
 import Deportistas from "./Deportistas"
@@ -7,18 +6,19 @@ import Deportistas from "./Deportistas"
 
 const Deporte = () => {
     return (
-        <div className="flex  mt-6">
-
-            <Tabs defaultValue="account" className="w-screen ">
-                <TabsList className="flex  justify-end ">
-                    <div className="">
-
+        <div className="flex  mt-6 h-full">
+            <Tabs defaultValue="deportistas" className="w-screen ">
+                <TabsList className="flex  justify-between bg-white  rounded-none   ">
+                    <h2 className='block px-3 font-display tracking-tight [text-wrap:balance] text-3xl font-medium sm:text-4xl text-azulv'>
+                        Deporte en Panamá
+                    </h2>
+                    <div className="flex sm:flex-row flex-col justify-end">
                         <TabsTrigger value="deportistas">Deportistas</TabsTrigger>
                         <TabsTrigger value="articulos">Artículos</TabsTrigger>
                         <TabsTrigger value="queEsElDeporte">¿Qué es el deporte?</TabsTrigger>
                         <TabsTrigger value="legal">Fundamento Legal</TabsTrigger>
-                        {/* <TabsTrigger value="instituciones">Instituciones Panameñas</TabsTrigger> */}
                     </div>
+
                 </TabsList>
                 <TabsContent value="deportistas">
                     <Deportistas />

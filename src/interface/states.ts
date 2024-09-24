@@ -21,5 +21,6 @@ export enum LawProposalState {
     Prohijado = 'Prohijado',
     Presentado = 'Presentado',
     Preliminario = 'Preliminar',
+    Subcomision = 'Subcomisión',
 
 }

@@ -806,6 +806,30 @@ export const events: IEvent[] = [
                 }
             },
         ]
+    },
+    {
+        date: new Date(2024, 8, 23),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['psA1mqZVr8U'],
+                }
+            },
 
-    }
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1727189228/VamosMA/emrmdketarv2jwvpk2d7.webp'],
+                            titulo: 'Un Hito en la Bancada Vamos para el Deporte Nacional',
+                            descripcion: 'Con este Proyecto de Ley 76 se hace historia, siendo la primera ley de la Coalición Vamos. Luego de su aprobación en tercer debate, esta ley modifica la Ley 16 de 1995, con el fin de reorganizar el Instituto Nacional de Deportes y actualizar las normas antidopaje en Panamá. Ahora, solo queda esperar la sanción del ejecutivo, que debe ocurrir en un plazo de 30 días, para fortalecer el apoyo a nuestros deportistas y atletas.'
+                        }
+                    ],
+                    linkInstagram: ['https://www.instagram.com/p/DASLsWPOqR1/'],
+                }
+            },
+        ]
+    },
 ];

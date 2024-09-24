@@ -2,44 +2,14 @@
 import { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { Card, CardContent } from "@/components/ui/card"
 import { getAtletasEvent, getAtletasFront, obtenerEventos } from '@/libs/salon/actions'
 import { IEventDeporte, IFAtleta, IIAtleta } from '@/interface/atletas'
-
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-
-
-// Datos de ejemplo
-const events = [
-    "Maratón", "100m", "Salto de altura", "Lanzamiento de jabalina", "Natación",
-    "Salto con pértiga", "Lanzamiento de disco", "400m vallas", "Triatlón", "Ciclismo",
-    "Gimnasia", "Boxeo", "Tenis", "Baloncesto", "Voleibol"
-]
-const athletes = [
-    { name: "María García", event: "Maratón" },
-    { name: "Juan Pérez", event: "100m" },
-    { name: "Ana Rodríguez", event: "Salto de altura" },
-    { name: "Carlos López", event: "Lanzamiento de jabalina" },
-    { name: "Laura Martínez", event: "Natación" },
-    { name: "Pedro Sánchez", event: "Maratón" },
-    { name: "Sofia Fernández", event: "100m" },
-    { name: "Miguel Torres", event: "Salto con pértiga" },
-    { name: "Elena Gómez", event: "Lanzamiento de disco" },
-    { name: "David Ruiz", event: "400m vallas" },
-    { name: "Isabel Navarro", event: "Triatlón" },
-    { name: "Javier Moreno", event: "Ciclismo" },
-    { name: "Carmen Vega", event: "Gimnasia" },
-    { name: "Roberto Díaz", event: "Boxeo" },
-    { name: "Lucía Herrera", event: "Tenis" },
-]
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { IoSearchSharp } from "react-icons/io5";
 
 const Deportistas = () => {
     const [selectedEvent, setSelectedEvent] = useState<IEventDeporte | null>(null)
-
-    // const filteredAthletes = selectedEvent
-    //     ? athletes.filter(athlete => athlete.event === selectedEvent)
-    //     : athletes
-
     const [events, setEvents] = useState<IEventDeporte[]>([])
     const [atleta, setAtleta] = useState<IFAtleta[]>([])
     const getEvent = async () => {
@@ -48,9 +18,7 @@ const Deportistas = () => {
         console.log(events)
         if (events.length > 0) {
             setEvents(events)
-
         }
-
     }
     const getAtleta = async () => {
         const resp = await getAtletasFront()
@@ -58,9 +26,7 @@ const Deportistas = () => {
 
         if (atletas.length > 0) {
             setAtleta(atletas)
-
         }
-
     }
 
     const getSelectedEvent = async () => {
@@ -89,26 +55,73 @@ const Deportistas = () => {
 
     return (
         <div className="flex flex-col h-screen w-screen max-w-6xl  bg-gray-100">
-            <header className="p-4 bg-white shadow-md">
-                <h1 className="text-2xl font-bold mb-4">Eventos Deportivos</h1>
-                {
-                    (events.length > 0) ? (<ScrollArea className="w-full whitespace-nowrap">
-                        <div className="flex space-x-2 pb-2">
-                            {events.map((event) => (
-                                <Button
-                                    key={event._id}
-                                    variant={selectedEvent?._id === event._id ? "default" : "outline"}
-                                    className="flex-shrink-0"
-                                    onClick={() => setSelectedEvent(event)}
-                                >
-                                    {event.name}
-                                </Button>
-                            ))}
+            <header className="p-4 bg-white">
+                <Tabs defaultValue="eventos" className="w-screen ">
+                    <TabsList className=" bg-white  rounded-none md:py-12 ">
+                        <TabsTrigger className="text-2xl font-semibold mb-4" value="eventos">Eventos Deportivos</TabsTrigger>
+                        <TabsTrigger className="text-2xl font-semibold mb-4" value="deportistas">Deportistas Panameños</TabsTrigger>
+                    </TabsList>
+                    <TabsContent className='flex items-center gap-3' value="eventos">
+                        <div className='flex items-center gap-2 bg-white px-3 py-2 rounded-lg border'>
+                            <IoSearchSharp size={24} /> {/* Ajustamos el tamaño del ícono */}
+                            <input
+                                type="text"
+                                placeholder="Buscar evento"
+                                className="outline-none focus:ring-0"
+                            />
                         </div>
-                        <ScrollBar orientation="horizontal" />
-                    </ScrollArea>)
-                        : (<div className="text-muted-foreground">Cargando eventos...</div>)
-                }
+                        {
+                            (events.length > 0) ? (
+                                <ScrollArea className="w-full whitespace-nowrap">
+                                    <div className="flex space-x-2 pb-2">
+                                        {events.map((event) => (
+                                            <Button
+                                                key={event._id}
+                                                variant={selectedEvent?._id === event._id ? "default" : "outline"}
+                                                className="flex-shrink-0"
+                                                onClick={() => setSelectedEvent(event)}
+                                            >
+                                                {event.name}
+                                            </Button>
+                                        ))}
+                                    </div>
+                                    <ScrollBar orientation="horizontal" />
+                                </ScrollArea>
+                            ) : (<div className="text-muted-foreground">Cargando eventos...</div>)
+                        }
+                    </TabsContent>
+
+                    <TabsContent className='flex items-center gap-3' value="deportistas">
+                        <div className='flex items-center gap-2 bg-white px-3 py-2 rounded-lg border'>
+                            <IoSearchSharp size={24} /> {/* Mismo tamaño del ícono */}
+                            <input
+                                type="text"
+                                placeholder="Buscar deportista"
+                                className="outline-none focus:ring-0"
+                            />
+                        </div>
+                        {
+                            (events.length > 0) ? (
+                                <ScrollArea className="w-full whitespace-nowrap">
+                                    <div className="flex space-x-2 pb-2">
+                                        {events.map((event) => (
+                                            <Button
+                                                key={event._id}
+                                                variant={selectedEvent?._id === event._id ? "default" : "outline"}
+                                                className="flex-shrink-0"
+                                                onClick={() => setSelectedEvent(event)}
+                                            >
+                                                {event.name}
+                                            </Button>
+                                        ))}
+                                    </div>
+                                    <ScrollBar orientation="horizontal" />
+                                </ScrollArea>
+                            ) : (<div className="text-muted-foreground">Cargando deportistas...</div>)
+                        }
+                    </TabsContent>
+                </Tabs>
+
             </header>
             <main className="flex-1 p-6 overflow-auto">
                 <h2 className="text-xl font-semibold mb-4">
