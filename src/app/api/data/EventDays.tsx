@@ -832,4 +832,46 @@ export const events: IEvent[] = [
             },
         ]
     },
+    {
+        date: new Date(2024, 8, 24),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+
+
+        ]
+    },
+    {
+        date: new Date(2024, 8, 25),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+
+                }
+            },
+
+            {
+                nombre: "Salud",
+                event: {
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 8, 26),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['GwQinUCQ9mM'],
+
+                }
+            },
+        ]
+    },
 ];

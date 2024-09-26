@@ -24,7 +24,7 @@ interface IArticles {
     }[]
     totalArticles: number;
 }
-const ViewArticle = ({ articles, totalArticles }: IArticles) => {
+const ViewArticleDeporte = ({ articles, totalArticles }: IArticles) => {
     const [articlesa, setArticlesa] = useState(articles);
     const [totalArticlesa, setTotalArticlesa] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -57,7 +57,7 @@ const ViewArticle = ({ articles, totalArticles }: IArticles) => {
                 {
                     articlesa.map((article, index) => (
 
-                        <Article
+                        <ArticleDeporte
                             key={article.id}
                             article={article}
                         />
@@ -77,4 +77,4 @@ const ViewArticle = ({ articles, totalArticles }: IArticles) => {
     )
 }
 
-export default ViewArticle
+export default ViewArticleDeporte
