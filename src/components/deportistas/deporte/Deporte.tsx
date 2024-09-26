@@ -9,15 +9,15 @@ const Deporte = () => {
     return (
         <div className="flex  mt-6 h-full">
             <Tabs defaultValue="deportistas" className="w-screen ">
-                <TabsList className="flex  justify-between bg-white  rounded-none   ">
+                <TabsList className="flex  justify-between bg-white  rounded-none py-2  ">
                     <h2 className='block px-3 font-display tracking-tight [text-wrap:balance] text-3xl font-medium sm:text-4xl text-azulv'>
                         Deporte en Panamá
                     </h2>
-                    <div className="flex sm:flex-row flex-col justify-end">
-                        <TabsTrigger className="text-base data-[state=active]:shadow-none" value="deportistas">Deportistas</TabsTrigger>
-                        <TabsTrigger className="text-base data-[state=active]:shadow-none" value="articulos">Artículos</TabsTrigger>
-                        <TabsTrigger className="text-base data-[state=active]:shadow-none" value="queEsElDeporte">¿Qué es el deporte?</TabsTrigger>
-                        <TabsTrigger className="text-base data-[state=active]:shadow-none" value="legal">Fundamento Legal</TabsTrigger>
+                    <div className="flex sm:flex-row flex-col justify-end gap-1 sm:gap-6">
+                        <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="deportistas">Deportistas</TabsTrigger>
+                        <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="articulos">Artículos</TabsTrigger>
+                        <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="queEsElDeporte">¿Qué es el deporte?</TabsTrigger>
+                        <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="legal">Fundamento Legal</TabsTrigger>
                     </div>
                 </TabsList>
                 <TabsContent value="deportistas">
@@ -27,7 +27,7 @@ const Deporte = () => {
                     <ArticulosDeporte />
                 </TabsContent>
                 <TabsContent value="queEsElDeporte">
-                    <section id="what-is-sport" className="py-12 px-6 md:py-24 ">
+                    <section id="what-is-sport" className="py-16 px-6 md:py-8 ">
                         <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div>
                                 <h2 className="text-4xl font-medium mb-6">¿Qué es el deporte?</h2>
@@ -45,7 +45,7 @@ const Deporte = () => {
                     {/* <QueEsElDeporte /> */}
                 </TabsContent>
                 <TabsContent value="legal">
-                    <section id="legal-basis" className="py-12 px-6 md:py-24">
+                    <section id="legal-basis" className="py-16 px-6 md:py-8">
                         <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div className="flex justify-center  ">
                                 <ClubIcon className="h-24 w-24 text-primary" />

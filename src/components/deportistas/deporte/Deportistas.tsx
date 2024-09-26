@@ -65,16 +65,16 @@ const Deportistas = () => {
     }
 
     return (
-        <div className="flex flex-col h-screen  max-w-6xl mt-12 bg-gray-100">
+        <div className="flex flex-col h-screen  max-w-6xl mt-16 sm:mt-12  bg-gray-100">
             <header className="p-1 bg-white">
                 <Tabs defaultValue="eventos" className="w-screen ">
-                    <TabsList className="bg-white rounded-none gap-4">
-                        <TabsTrigger onClick={handleEvents} className="text-2xl gap-1 hover:underline hover:text-black shadow-none text-gray-500
+                    <TabsList className="bg-white rounded-none gap-0 items-start sm:justify-start sm:gap-4 flex flex-col sm:flex-row">
+                        <TabsTrigger onClick={handleEvents} className="text-xl gap-1 hover:underline hover:text-black shadow-none text-gray-500
                          bg-white rounded-none font-medium data-[state=active]: data-[state=active]:shadow-none" value="eventos">
                             <MdEmojiEvents />
                             Eventos Deportivos
                         </TabsTrigger>
-                        <TabsTrigger onClick={handleSportMan} className="text-2xl gap-1 hover:underline hover:text-black shadow-none text-gray-600
+                        <TabsTrigger onClick={handleSportMan} className="text-xl gap-1 hover:underline hover:text-black shadow-none text-gray-600
                          bg-white rounded-none font-medium data-[state=active]: data-[state=active]:shadow-none" value="deportistas">
                             <div className='flex items-center gap-0 space-x-0'>
                                 <TbMan className='' style={{ marginRight: '-4px' }} />

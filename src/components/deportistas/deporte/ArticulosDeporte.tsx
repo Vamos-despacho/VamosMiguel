@@ -10,7 +10,7 @@ const ArticulosDeporte = () => {
     );
 
     return (
-        <div className='py-12 px-6 md:py-24'>
+        <div className='py-16 px-6 md:py-8'>
             <h2 className='text-2xl font-semibold mb-6'>
                 Artículos
             </h2>

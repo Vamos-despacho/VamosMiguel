@@ -53,7 +53,7 @@ const AthleteScroll = ({ atleta, selectedEvent }: Props) => {
                 {/* Botón de desplazamiento hacia la izquierda */}
                 <button
                     onClick={scrollLeft}
-                    className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-2 opacity-50 bg-slate-50 hover:bg-gray-400 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none"
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 p-2 bg-white text-gray-500 hover:text-gray-700"
                 >
                     <IoChevronBack size={24} />
                 </button>
@@ -61,7 +61,7 @@ const AthleteScroll = ({ atleta, selectedEvent }: Props) => {
                 {/* Contenedor con scroll horizontal */}
                 {filteredAthletes.length > 0 ? (
                     <div
-                        className="flex  overflow-x-hidden py-2 px-10 space-x-6  h-9 bg-gray-100 w-screen"
+                        className="flex  overflow-x-hidden py-2 mx-2 px-10 space-x-6  h-9  w-screen"
                         ref={scrollRef}
                     >
                         {filteredAthletes.map((athlete) => {

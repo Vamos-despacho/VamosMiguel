@@ -61,7 +61,7 @@ const EventScroll = ({ event, selectedEvent }: Props) => {
                 {/* Contenedor con scroll horizontal */}
                 {filteredAthletes.length > 0 ? (
                     <div
-                        className="flex  overflow-x-hidden py-2 px-10 space-x-6 bg-gray-100 w-screen h-9"
+                        className="flex  overflow-x-hidden py-2 mx-1 px-10 space-x-6  w-screen h-9"
                         ref={scrollRef}
                     >
                         {filteredAthletes.map((athlete) => {
