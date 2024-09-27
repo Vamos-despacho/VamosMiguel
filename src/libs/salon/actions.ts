@@ -297,12 +297,12 @@ export const updateAthleteStatus = async (id: string, newState: boolean) => {
     }
 }
 export const getAtletasFront = async () => {
-    console.log('first')
+
     try {
         const query = { state: true }
         await connectDB();
-        const atletas = await Atleta.find(query)
-            .populate('events.event', 'name')
+        const atletas = await Atleta.find(query).select('name -_id');
+        console.log(atletas)
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);
@@ -312,13 +312,13 @@ export const getAtletasFront = async () => {
 
 
 export const getAtletasEvent = async (id: string) => {
-
+    console.log('llllllll')
     try {
         const query = { id }
         await connectDB();
         const atletas = await SportEvent.findById(id)
             .populate('participants')
-
+        console.log(atletas)
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);

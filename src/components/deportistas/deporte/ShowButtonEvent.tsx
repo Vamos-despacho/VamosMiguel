@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 
 interface Props {
     event: IEventDeporte[];
-    selectedEvent: any;
+    selectedEvent: (event: IEventDeporte) => void;
 }
 
 const EventScroll = ({ event, selectedEvent }: Props) => {
@@ -29,8 +29,9 @@ const EventScroll = ({ event, selectedEvent }: Props) => {
         }
     };
 
-    const handleAthleteClick = (athleteId: string) => {
-        setActiveAthlete(athleteId);
+    const handleAthleteClick = (athlete: IEventDeporte) => {
+        setActiveAthlete(athlete._id);
+        selectedEvent(athlete);
         // Lógica adicional al seleccionar un atleta
     };
 
@@ -71,7 +72,7 @@ const EventScroll = ({ event, selectedEvent }: Props) => {
                             return (
                                 <button
                                     key={athlete._id}
-                                    onClick={() => handleAthleteClick(athlete._id)}
+                                    onClick={() => handleAthleteClick(athlete)}
                                     className={`flex flex-col items-center flex-shrink-0 focus:outline-none ${isActive
                                         ? 'text-neutral-800 border-b-2 border-neutral-800'
                                         : 'text-neutral-500'
