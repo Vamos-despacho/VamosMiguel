@@ -27,7 +27,7 @@ export const Anteproyectos: IAnteProyecto[] = [
         icon: 'MdOutlineSportsSoccer',
         link: 'pdfs/AnteproyectodeLeyANTIDOPING.pdf',
         // link: 'https://drive.google.com/file/d/1bb5jZOu8J_d1grqhQDnERynxDFkHvLcR/edit',
-        estado: LawProposalState.AprobadoEnTercerDebate
+        estado: LawProposalState.EnEsperaDeSanacionPorElEjecutivo
     },
     {
         id: 2,

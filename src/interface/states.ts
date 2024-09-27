@@ -22,5 +22,6 @@ export enum LawProposalState {
     Presentado = 'Presentado',
     Preliminario = 'Preliminar',
     Subcomision = 'Subcomisión',
+    EnEsperaDeSanacionPorElEjecutivo = 'En espera de sanción por el Ejecutivo',
 
 }
