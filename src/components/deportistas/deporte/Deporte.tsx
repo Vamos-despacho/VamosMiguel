@@ -85,8 +85,8 @@ const Deporte = () => {
                                 <h2 className="text-2xl font-medium mb-4">Legislación Deportiva</h2>
                                 <div className="flex flex-col gap-2">
                                     <p className="text-muted-foreground text-justify">
-                                        El acceso al deporte es un derecho cultural universal que el Estado está obligado a garantizar para todos los ciudadanos, tal como lo establece la Constitución de la República de Panamá: "Artículo 86.
-                                        <span className="italic ml-1 text-sm">El Estado fomentará el desarrollo de la cultura física mediante instituciones deportivas, de enseñanza y de recreación que serán reglamentadas por la Ley.</span>"
+                                        El acceso al deporte es un derecho cultural universal que el Estado está obligado a garantizar para todos los ciudadanos, tal como lo establece la Constitución de la República de Panamá: Artículo 86.
+                                        <span className="italic ml-1 text-sm">&ldquo;El Estado fomentará el desarrollo de la cultura física mediante instituciones deportivas, de enseñanza y de recreación que serán reglamentadas por la Ley.&rdquo;</span>
                                     </p>
                                     <p className="text-muted-foreground  text-justify">
                                         En varios países, como Colombia, Perú y México, este derecho está reconocido como fundamental, inherente a la dignidad humana, y contempla el acceso de todas las personas a la cultura física y a la práctica deportiva. De manera similar, en Chile se reconoce el derecho de cada persona a la educación física y al deporte, esenciales para el desarrollo integral de su personalidad.
