@@ -78,8 +78,9 @@ const Deporte = () => {
                 <TabsContent value="legal">
                     <section id="legal-basis" className="py-16 px-6 md:py-8">
                         <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div className="flex justify-center  ">
-                                <ClubIcon className="h-24 w-24 text-primary" />
+                            <div className="  ">
+                                <img src="/images/deporte/deportel.webp" alt="Deporte"
+                                    className="h-[440px] w-[480px] object-cover rounded-sm" />
                             </div>
                             <div className="">
                                 <h2 className="text-2xl font-medium mb-4">Legislación Deportiva</h2>
@@ -88,9 +89,9 @@ const Deporte = () => {
                                         El acceso al deporte es un derecho cultural universal que el Estado garantiza para todos los ciudadanos, según lo establecido en el Artículo 86 de la Constitución de la República de Panamá:
                                         <span className="italic ml-1 text-sm">&ldquo;El Estado fomentará el desarrollo de la cultura física mediante instituciones deportivas, de enseñanza y de recreación que serán reglamentadas por la Ley.&rdquo;</span>
                                     </p>
-                                    <p className="text-muted-foreground  text-justify">
+                                    {/* <p className="text-muted-foreground  text-justify">
                                         Este derecho también es reconocido como fundamental en varios países, como Colombia, Perú, México y Chile, donde se promueve el acceso a la cultura física y la práctica deportiva como parte integral del desarrollo humano.
-                                    </p>
+                                    </p> */}
                                     <p className="text-muted-foreground  text-justify">
                                         En Panamá, los instrumentos legales regulan los derechos y deberes de atletas, entrenadores y organizaciones deportivas, promoviendo la creación de federaciones, la organización de eventos deportivos y la inclusión de la actividad física en la población. Pandeportes, como entidad encargada, gestiona recursos y apoya a las federaciones para mejorar las infraestructuras y programas deportivos.
                                     </p>
