@@ -1,23 +1,54 @@
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { ClubIcon } from "lucide-react"
 import ArticulosDeporte from "./ArticulosDeporte"
 import Deportistas from "./Deportistas"
 
+import LeyesList from "./LeyesList";
+const leyes = [
+    {
+        title: "Constitución de la República de Panamá, Artículo 86",
+        pdfFile: "https://pandeportes.gob.pa/PDF/Ley_16_de_1995.pdf"
+    },
+    {
+        title: "Ley 16 de 1995",
+        pdfFile: "https://pandeportes.gob.pa/PDF/Ley_16_de_1995.pdf"
+    },
+    {
+        title: "Ley 50 de 2007",
+        pdfFile: "https://pandeportes.gob.pa/PDF/Ley_50_de_2007.pdf"
+    },
+    {
+        title: "Ley 9 de 2011",
+        pdfFile: "https://pandeportes.gob.pa/PDF/Ley_9_de_2011.pdf"
+    },
+    {
+        title: "Decreto Ejecutivo 599 de 2008",
+        pdfFile: "https://pandeportes.gob.pa/PDF/Decreto_Ejecutivo_599_de_2008.pdf"
+    },
+    {
+        title: "Texto Único Ley 16 y Ley 50",
+        pdfFile: "https://pandeportes.gob.pa/PDF/Texto_Unico_Ley_16_y_Ley_50.pdf"
+    }
+];
+
 
 const Deporte = () => {
+
+
     return (
         <div className="flex  mt-6 h-full">
             <Tabs defaultValue="deportistas" className="w-screen ">
                 <TabsList className="flex  justify-between bg-white  rounded-none py-2  ">
-                    <h2 className='block px-3 font-display tracking-tight [text-wrap:balance] text-3xl font-medium sm:text-4xl text-azulv'>
+                    <h2 className='block px-3 font-display tracking-tight [text-wrap:balance] text-3xl font-semibold sm:text-4xl text-azulv'>
                         Deporte en Panamá
                     </h2>
                     <div className="flex sm:flex-row flex-col justify-end gap-1 sm:gap-6">
                         <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="deportistas">Deportistas</TabsTrigger>
                         <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="articulos">Artículos</TabsTrigger>
                         <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="queEsElDeporte">¿Qué es el deporte?</TabsTrigger>
-                        <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="legal">Fundamento Legal</TabsTrigger>
+                        <TabsTrigger className="text-base data-[state=active]:shadow-none p-0" value="legal">Marco Normativo</TabsTrigger>
                     </div>
                 </TabsList>
                 <TabsContent value="deportistas">
@@ -51,25 +82,29 @@ const Deporte = () => {
                                 <ClubIcon className="h-24 w-24 text-primary" />
                             </div>
                             <div className="">
-                                <h2 className="text-4xl font-medium mb-6">Fundamento Legal</h2>
+                                <h2 className="text-2xl font-medium mb-4">Legislación Deportiva</h2>
                                 <div className="flex flex-col gap-2">
+                                    <p className="text-muted-foreground text-justify">
+                                        El acceso al deporte es un derecho cultural universal que el Estado está obligado a garantizar para todos los ciudadanos, tal como lo establece la Constitución de la República de Panamá: "Artículo 86.
+                                        <span className="italic ml-1 text-sm">El Estado fomentará el desarrollo de la cultura física mediante instituciones deportivas, de enseñanza y de recreación que serán reglamentadas por la Ley.</span>"
+                                    </p>
+                                    <p className="text-muted-foreground  text-justify">
+                                        En varios países, como Colombia, Perú y México, este derecho está reconocido como fundamental, inherente a la dignidad humana, y contempla el acceso de todas las personas a la cultura física y a la práctica deportiva. De manera similar, en Chile se reconoce el derecho de cada persona a la educación física y al deporte, esenciales para el desarrollo integral de su personalidad.
+                                    </p>
+                                    <p className="text-muted-foreground  text-justify">
+                                        Nuestros instrumentos legales establecen los principios, derechos y deberes de atletas, entrenadores y organizaciones deportivas. Además, regulan la creación de federaciones, la organización de eventos deportivos y la promoción de la actividad física en la población.                                    </p>
+                                    <p className="text-muted-foreground  text-justify">
+                                        Pandeportes es la entidad responsable de supervisar el desarrollo del deporte a nivel nacional, apoyando a las federaciones y gestionando recursos para mejorar infraestructuras y programas deportivos.                                    </p>
 
-                                    {/* <p className="text-muted-foreground">
-                                    El deporte en Panamá se rige por un marco legal que incluye la Ley General de Deporte y la Ley del
-                                    Instituto Panameño de Deportes. Estas leyes establecen los principios, derechos y deberes de los
-                                    atletas, entrenadores y organizaciones deportivas.
-                                    </p> */}
-                                    <p className="text-muted-foreground">
-                                        El deporte en Panamá está regulado por la Ley General de Deporte y la Ley del Instituto Panameño de Deportes (PANDEPORTES), que establecen los principios, derechos y deberes de atletas, entrenadores y organizaciones deportivas. Estas leyes promueven la actividad física en todos los niveles, garantizando el acceso equitativo a instalaciones deportivas y programas de apoyo.
-                                    </p>
-                                    <p className="text-muted-foreground">
-                                        Pandeportes es la entidad responsable de supervisar el desarrollo del deporte a nivel nacional, apoyando a las federaciones y gestionando recursos para mejorar infraestructuras y programas deportivos.
-                                    </p>
-                                    <p className="text-muted-foreground">
-                                        Las leyes también protegen los derechos de los deportistas, asegurando condiciones justas de entrenamiento y acceso a oportunidades de desarrollo. Asimismo, promueven la inclusión del deporte en la educación y destacan su papel en la salud pública.
-                                    </p>
+                                    <h3 className="text-3xl font-medium mt-6">Fundamento Legal</h3>
+
+                                    {leyes.map((ley, index) => (
+                                        <LeyesList key={index} title={ley.title} pdfFile={ley.pdfFile} />
+                                    )
+                                    )}
                                 </div>
                             </div>
+
                             {/* <div className="order-1 md:order-2 flex justify-center bg-red-200">
                                 <img
                                     className=""

@@ -841,7 +841,19 @@ export const events: IEvent[] = [
 
                 }
             },
+            {
+                nombre: "Educación",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1727795304/VamosMA/d5vvmc01mej6bpavv8jk.jpg'],
+                            titulo: 'Análisis de Proyectos de Ley sobre Becas Avanza en la Subcomisión de Educación',
+                            descripcion: 'La subcomisión de Educación de la Asamblea Nacional realizó un análisis de tres proyectos de ley relacionados con el otorgamiento de becas. El debate se centró en la transparencia del proceso y en la eliminación de auxilios económicos para asegurar que las becas lleguen a quienes más lo necesitan. Además, se propusieron modificaciones para priorizar becas por méritos y créditos educativos, y garantizar el uso adecuado de los fondos públicos. La discusión continuará la próxima semana para finalizar el articulado.'
+                        }
+                    ],
 
+                }
+            }
 
         ]
     },
@@ -869,6 +881,37 @@ export const events: IEvent[] = [
                 nombre: "Pleno",
                 event: {
                     idsYoutube: ['GwQinUCQ9mM'],
+
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 8, 27),
+        eventos: [
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1727796888/VamosMA/dhlcalbj3df01hvyo54u.jpg'],
+                            titulo: 'Participación en la Jornada de Actualización sobre Protección Laboral',
+                            descripcion: 'Participamos en la Jornada de Actualización sobre Protección Laboral en Enfermedades Crónicas, donde se abordó la importancia de la Ley 59 y el Decreto Ejecutivo modificado por la Ley 25 de 2018. Estos marcos protegen a los trabajadores diagnosticados con enfermedades crónicas, garantizando su derecho a mantener su puesto de trabajo en igualdad de condiciones.'
+                        }
+                    ],
+
+
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 8, 30),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                    idsYoutube: ['srRjb-8z09c'],
 
                 }
             },

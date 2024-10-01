@@ -1,21 +1,9 @@
 
 'use client'
 import Link from 'next/link'
-
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
 import Image from 'next/image'
-import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import SesionObtions from './SesionObtions'
 import Navigation from './menu/Navigation'
-import { DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger } from '@radix-ui/react-dropdown-menu'
 import { NavigationDropdown } from './menu/NavigationDropdown'
 import { usePathname } from 'next/navigation'
 
@@ -28,8 +16,6 @@ const Navbar = () => {
     if (hideNavbarAndFooter.includes(pathname)) return null
 
     return (
-
-
         <nav className=" sticky top-0 shadow-md shadow-slate-900/5   bg-white  z-50   ">
             <div className='flex w-screen  max-w-7xl m-auto md:px-2 px-4 py-2 md:justify-between items-center  '>
                 <div className=' flex w-screen md:w-auto justify-between'>

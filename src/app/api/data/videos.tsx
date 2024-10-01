@@ -15,12 +15,12 @@ export type IVideoYoutube = {
 
 export const videosYotube: IVideoYoutube[] = [
     {
-        id: 'GwQinUCQ9mM',
+        id: 'srRjb-8z09c',
         title: 'Incidencia en el Pleno',
         description: 'Presentación de Anteproyecto de Ley: Programa de Alto Rendimiento Deportivo y Medicina Deportiva.',
-        date: new Date(2024, 8, 24),
+        date: new Date(2024, 8, 30),
         list: 'presentacion',
-        day: '24',
+        day: '30',
         month: 'septiembre',
     },
     {
