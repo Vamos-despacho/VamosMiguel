@@ -1,6 +1,7 @@
 'use client'
 import { CustomDialog } from '@/components/anteproyecto/EmergenteProyecto';
 import { Button } from '@/components/ui/button';
+import { FileTextIcon } from 'lucide-react';
 import React, { useState } from 'react'
 
 
@@ -8,14 +9,13 @@ const LeyesList = ({ title, pdfFile }: { title: string, pdfFile: string }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className='ml-3'>
-
+        <div className='ml-2  flex'>
 
             <button
                 onClick={() => setIsOpen(true)}
                 rel="noopener noreferrer"
-                className="relative text-blue-600 font-medium focus:outline-none after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full"
-            >
+                className="flex items-center gap-3 text-muted-foreground hover:text-foreground"            >
+                <FileTextIcon className="h-5 w-5" />
                 {title}
             </button>
 
