@@ -296,13 +296,123 @@ export const updateAthleteStatus = async (id: string, newState: boolean) => {
         return { status: 500 }
     }
 }
-export const getAtletasFront = async () => {
+
+// export const searchAtletasFront = async (searchTerm: string) => {
+//     try {
+//         const query = {
+//             state: true,
+//             name: { $regex: searchTerm, $options: 'i' } // Buscar por nombre, sin importar mayúsculas/minúsculas
+//         };
+//         await connectDB();
+//         const atletas = await Atleta.find(query).select('name -_id isHighlighted');
+//         console.log(atletas);
+//         return JSON.stringify(atletas);
+//     } catch (error) {
+//         console.error('Error:', error);
+//         return JSON.stringify({ status: 500 });
+//     }
+// }
+// type SearchParams = {
+//     searchTerm: string;
+//     page: number;
+//     limit: number;
+// }
+
+// export const searchAtletasFront = async ({ searchTerm, page = 1, limit = 10 }: SearchParams) => {
+//     try {
+//         const query = {
+//             state: true,
+//             name: { $regex: searchTerm, $options: 'i' }
+//         };
+
+//         const skip = (page - 1) * limit;
+
+//         await connectDB();
+//         const atletas = await Atleta.find(query)
+//             .skip(skip)
+//             .limit(limit)
+//             .select('name -_id isHighlighted');
+
+//         console.log(atletas);
+//         return JSON.stringify(atletas);
+//     } catch (error) {
+//         console.error('Error:', error);
+//         return JSON.stringify({ status: 500 });
+//     }
+// }
+
+
+// app/actions/searchAtletasFront.ts
+
+type SearchParams = {
+
+    page?: number;
+    limit?: number;
+};
+
+
+export const searchAtletasFront = async ({ page = 1, limit = 10 }: SearchParams) => {
+
 
     try {
-        const query = { state: true }
+        connectDB();
+        const query = {
+            state: true,
+
+        };
+
+        const skip = (page - 1) * limit;
+
+        const atletas = await Atleta.find(query)
+            .skip(skip)
+            .limit(limit)
+            .select('name isHighlighted _id');
+        console.log(atletas.length)
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 });
+
+    }
+}
+type SearchParamsS = {
+    searchTerm: string;
+    page?: number;
+    limit?: number;
+};
+export const searchGetAtletasFront = async ({ searchTerm, page = 1, limit = 10 }: SearchParamsS) => {
+    console.log(searchTerm)
+
+
+    try {
+        connectDB();
+        const query = {
+            state: true,
+            name: { $regex: searchTerm, $options: 'i' },
+        };
+
+        const skip = (page - 1) * limit;
+
+        const atletas = await Atleta.find(query)
+            .skip(skip)
+            .limit(limit)
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 });
+
+    }
+}
+
+
+export const getAtletasEvent = async (id: string) => {
+
+    try {
+        const query = { id }
         await connectDB();
-        const atletas = await Atleta.find(query).select('name -_id');
-        console.log(atletas)
+        const atletas = await SportEvent.findById(id)
+            .populate('participants')
+        console.log({ atletas })
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);
@@ -310,15 +420,15 @@ export const getAtletasFront = async () => {
     }
 }
 
+export const getAtletasId = async (id: string) => {
 
-export const getAtletasEvent = async (id: string) => {
-    console.log('llllllll')
     try {
         const query = { id }
         await connectDB();
-        const atletas = await SportEvent.findById(id)
-            .populate('participants')
-        console.log(atletas)
+        const atletas = await Atleta.findById(id)
+
+        console.log({ atletas })
+
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);

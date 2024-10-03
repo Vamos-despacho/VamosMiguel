@@ -9,7 +9,7 @@ import LeyesList from "./LeyesList";
 const leyes = [
     {
         title: "Constitución de la República de Panamá, Artículo 86",
-        pdfFile: "https://pandeportes.gob.pa/PDF/Ley_16_de_1995.pdf"
+        pdfFile: "https://pdba.georgetown.edu/Constitutions/Panama/vigente.pdf"
     },
     {
         title: "Ley 16 de 1995",
