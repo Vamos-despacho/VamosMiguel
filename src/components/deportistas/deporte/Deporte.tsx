@@ -40,8 +40,8 @@ const Deporte = () => {
     return (
         <div className="flex  mt-1 h-full">
             <Tabs defaultValue="deportistas" className="w-screen ">
-                <TabsList className="flex  justify-between bg-white  rounded-none py-2  ">
-                    <h2 className='block px-3 font-display tracking-tight [text-wrap:balance] text-3xl font-semibold sm:text-4xl text-azulv'>
+                <TabsList className="flex px-2 justify-between bg-white  rounded-none py-2  ">
+                    <h2 className='block  font-display tracking-tight [text-wrap:balance] text-3xl font-semibold sm:text-4xl text-azulv'>
                         Deporte en Panamá
                     </h2>
                     <div className="flex sm:flex-row flex-col justify-end gap-1 sm:gap-6">

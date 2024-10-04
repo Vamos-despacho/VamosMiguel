@@ -151,10 +151,8 @@ const Deportistas = () => {
                         </TabsTrigger>
                     </TabsList>
                     <TabsContent value="eventos" className='max-w-6xl '>
-                        <EventScroll event={events} selectedEvent={setSearchTermEvent} />
                     </TabsContent>
                     <TabsContent value="deportistas" className='max-w-6xl '>
-                        <AthleteScroll selectedAthlete={handleGetSportMan} searchAthlete={setSearchTerm} />
                     </TabsContent>
 
                 </Tabs>
