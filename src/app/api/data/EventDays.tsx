@@ -960,7 +960,7 @@ export const events: IEvent[] = [
                 event: {
                     eventoImagen: [
                         {
-                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1728053169/VamosMA/isbsase43qi7ubse1cjb.jpg'],
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1728057177/VamosMA/v5uinslkm5syzqv3juma.jpg'],
                             titulo: 'Reunión con Directivos de la LPF, Miembros y Diputados sobre la Ley 383',
                             descripcion: 'Durante la reunión entre los directivos de la Liga Panameña de Fútbol (LPF), miembros de la organización y diputados de la Asamblea Nacional, se discutió la Ley 383 del 5 de junio de 2023, la cual establece incentivos tributarios para el deporte. En el encuentro se expusieron diversas ideas y se intercambiaron opiniones, reafirmando el compromiso de transformar el deporte en una cultura sólida y promover su crecimiento como una industria en Panamá.'
                         }
