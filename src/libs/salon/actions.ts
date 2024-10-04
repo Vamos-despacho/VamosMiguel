@@ -352,15 +352,12 @@ type SearchParams = {
 
 
 export const searchAtletasFront = async ({ page = 1, limit = 10 }: SearchParams) => {
-
-
     try {
         connectDB();
         const query = {
             state: true,
 
         };
-
         const skip = (page - 1) * limit;
 
         const atletas = await Atleta.find(query)
@@ -375,15 +372,33 @@ export const searchAtletasFront = async ({ page = 1, limit = 10 }: SearchParams)
 
     }
 }
+export const searchEventFront = async ({ page = 1, limit = 10 }: SearchParams) => {
+    try {
+        connectDB();
+        const query = {
+            state: true,
+
+        };
+        const skip = (page - 1) * limit;
+
+        const atletas = await SportEvent.find()
+            .skip(skip)
+            .limit(limit)
+
+        console.log(atletas.length)
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 });
+
+    }
+}
 type SearchParamsS = {
     searchTerm: string;
     page?: number;
     limit?: number;
 };
 export const searchGetAtletasFront = async ({ searchTerm, page = 1, limit = 10 }: SearchParamsS) => {
-    console.log(searchTerm)
-
-
     try {
         connectDB();
         const query = {
@@ -396,6 +411,28 @@ export const searchGetAtletasFront = async ({ searchTerm, page = 1, limit = 10 }
         const atletas = await Atleta.find(query)
             .skip(skip)
             .limit(limit)
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 });
+
+    }
+}
+export const searchGetEventosFront = async ({ searchTerm, page = 1, limit = 10 }: SearchParamsS) => {
+    console.log('first')
+    console.log({ searchTerm })
+    try {
+        connectDB();
+        const query = {
+            name: { $regex: searchTerm, $options: 'i' },
+        };
+
+        const skip = (page - 1) * limit;
+
+        const atletas = await SportEvent.find(query)
+            .skip(skip)
+            .limit(limit)
+        console.log(atletas)
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);
@@ -423,7 +460,7 @@ export const getAtletasEvent = async (id: string) => {
 export const getAtletasId = async (id: string) => {
 
     try {
-        const query = { id }
+
         await connectDB();
         const atletas = await Atleta.findById(id)
 
@@ -435,3 +472,18 @@ export const getAtletasId = async (id: string) => {
         return JSON.stringify({ status: 500 })
     }
 }
+export const getAtletasIds = async (ids: string[]) => {
+    try {
+        await connectDB();
+
+        // Utiliza $in para buscar todos los atletas cuyos _id estén en el arreglo de ids
+        const atletas = await Atleta.find({ _id: { $in: ids } })
+            .populate('events.event', 'name')
+        console.log({ atletas });
+
+        return JSON.stringify(atletas);
+    } catch (error) {
+        console.error('Error:', error);
+        return JSON.stringify({ status: 500 });
+    }
+};

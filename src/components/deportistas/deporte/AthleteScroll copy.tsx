@@ -1,18 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { IoSearchSharp, IoChevronBack, IoChevronForward } from 'react-icons/io5';
-import { IEventDeporte, IFAtleta } from '@/interface/atletas';
-import { searchAtletasFront, searchEventFront } from '@/libs/salon/actions';
+import { IFAtleta } from '@/interface/atletas';
+import { searchAtletasFront } from '@/libs/salon/actions';
 
 interface Props {
-    selectedEvent: (participants: any) => void;
+    selectedAthlete: (athleteId: string) => void;
     searchAthlete: (searchTerm: string) => void;
 }
 
-const AthleteScroll = ({ selectedEvent, searchAthlete }: Props) => {
+const AthleteScroll = ({ selectedAthlete, searchAthlete }: Props) => {
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const [activeAthlete, setActiveAthlete] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState('');
-    const [atleta, setAtleta] = useState<IEventDeporte[]>([]);
+    const [atleta, setAtleta] = useState<IFAtleta[]>([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
@@ -29,14 +29,14 @@ const AthleteScroll = ({ selectedEvent, searchAthlete }: Props) => {
         setLoading(true);
 
         try {
-            const response = await searchEventFront({ page: pageNum, limit: 10 });
+            const response = await searchAtletasFront({ page: pageNum, limit: 10 });
+
             const newAtletas = JSON.parse(response); // Asumiendo que searchAtletasFront ya devuelve un objeto, no es necesario JSON.parse
-
-
             if (newAtletas.length < 10) {
                 setHasMore(false); // No hay más atletas para cargar
             }
-
+            console.log(newAtletas)
+            console.log(newAtletas.length)
             setAtleta((prevAtleta) => [...prevAtleta, ...newAtletas]);
         } catch (error) {
             console.error('Error al obtener atletas:', error);
@@ -86,9 +86,9 @@ const AthleteScroll = ({ selectedEvent, searchAthlete }: Props) => {
         }
     };
 
-    const handleAthleteClick = (event: IEventDeporte) => {
-        setActiveAthlete(event._id);
-        selectedEvent(event.participants);
+    const handleAthleteClick = (athleteId: string) => {
+        setActiveAthlete(athleteId);
+        selectedAthlete(athleteId);
     };
 
     return (
@@ -98,8 +98,8 @@ const AthleteScroll = ({ selectedEvent, searchAthlete }: Props) => {
                 <IoSearchSharp size={24} />
                 <input
                     type="text"
-                    placeholder="Buscar atleta"
-                    className="outline-none focus:ring-0 h-10 w-full"
+                    placeholder="Buscar deportista"
+                    className="outline-none focus:ring-0 h-10"
                     value={searchTerm}
                     onChange={(e) => handleSearchTerm(e.target.value)}
                 />
@@ -132,19 +132,19 @@ const AthleteScroll = ({ selectedEvent, searchAthlete }: Props) => {
                             }
                         }}
                     >
-                        {atleta.map((event) => {
-                            const isActive = activeAthlete === event._id;
+                        {atleta.map((athlete) => {
+                            const isActive = activeAthlete === athlete._id;
 
                             return (
                                 <button
-                                    key={event._id}
-                                    onClick={() => handleAthleteClick(event)}
-                                    className={`fleeventx flex-col items-center flex-shrink-0 focus:outline-none ${isActive
+                                    key={athlete._id}
+                                    onClick={() => handleAthleteClick(athlete._id)}
+                                    className={`flex flex-col items-center flex-shrink-0 focus:outline-none ${isActive
                                         ? 'text-neutral-800 border-b-2 border-neutral-800'
                                         : 'text-neutral-500'
                                         }`}
                                 >
-                                    <span className="text-sm">{event.name}</span>
+                                    <span className="text-sm">{athlete.name}</span>
                                 </button>
                             );
                         })}
