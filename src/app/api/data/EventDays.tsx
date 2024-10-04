@@ -917,4 +917,56 @@ export const events: IEvent[] = [
             },
         ]
     },
+    {
+        date: new Date(2024, 9, 1),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 9, 2),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                }
+            },
+            {
+                nombre: "Educación",
+                event: {
+                }
+            },
+            {
+                nombre: "Salud",
+                event: {
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 9, 3),
+        eventos: [
+            {
+                nombre: "Pleno",
+                event: {
+                }
+            },
+            {
+                nombre: "Otros",
+                event: {
+                    eventoImagen: [
+                        {
+                            linkImagen: ['https://res.cloudinary.com/dl6oea68u/image/upload/v1728053169/VamosMA/isbsase43qi7ubse1cjb.jpg'],
+                            titulo: 'Reunión con Directivos de la LPF, Miembros y Diputados sobre la Ley 383',
+                            descripcion: 'Durante la reunión entre los directivos de la Liga Panameña de Fútbol (LPF), miembros de la organización y diputados de la Asamblea Nacional, se discutió la Ley 383 del 5 de junio de 2023, la cual establece incentivos tributarios para el deporte. En el encuentro se expusieron diversas ideas y se intercambiaron opiniones, reafirmando el compromiso de transformar el deporte en una cultura sólida y promover su crecimiento como una industria en Panamá.'
+                        }
+                    ],
+                }
+            }
+        ]
+    },
 ];
