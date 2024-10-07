@@ -44,11 +44,13 @@ interface IEventParticipation {
     event: Schema.Types.ObjectId; // Referencia al evento
     position?: string;             // Posición o premio obtenido
     dicipline: string;
+    ano: string;
 }
 const EventParticipationSchema = new Schema<IEventParticipation>({
     event: { type: Schema.Types.ObjectId, ref: 'SportEvent', required: true },
     position: { type: String },  // Nuevo campo para la posición o premio
     dicipline: { type: String, required: true },
+    ano: { type: String, required: true },
 });
 
 const AtletaSchema = new Schema<IAtleta>({

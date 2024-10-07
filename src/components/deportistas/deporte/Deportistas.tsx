@@ -33,10 +33,12 @@ const Deportistas = () => {
     const getAtleta = async () => {
         // const resp = await getAtletasFront()
         const resp = await getAtletas()
+        console.log(resp.length)
         const atletas = JSON.parse(resp)
 
         if (atletas.length > 0) {
             setAtleta(atletas)
+            console.log(atletas.length)
         }
     }
 
@@ -56,7 +58,7 @@ const Deportistas = () => {
 
     useEffect(() => {
         getEvent()
-        getAtleta()
+
 
     }, [])
 

@@ -3,9 +3,9 @@ import { Schema } from "mongoose";
 export interface IEventDeporte {
     _id: string;
     name: string;
-    year: number;
-    location: string;
-    description: string;
+    year?: number;
+    location?: string;
+    description?: string;
     participants: Schema.Types.ObjectId[]; // Referencia a los deportistas
 }
 
@@ -43,6 +43,7 @@ export interface IEventParticipation {
     position?: string;
     _id: string;
     dicipline: string;
+    ano: string;
 }
 
 export interface IFAtleta {
@@ -62,15 +63,19 @@ export interface IFAtleta {
 }
 
 export interface IFEventParticipation {
-    event: string
+    event: {
+        _id: string,
+        name: string,
+    }
     position?: string;             // Posición o premio obtenido
-
+    ano: string;
     dicipline: string;
     _id: string;
 }
 export interface IFSport {
     discipline: string;
     category: string;
+
 }
 export interface IFAchievements {
     year: number;

@@ -201,11 +201,12 @@ export const updateEvent = async (data: any) => {
 }
 
 export const getAtletas = async () => {
-    console.log('first')
+    console.log('first++++++++')
     try {
         await connectDB();
         const atletas = await Atleta.find()
             .populate('events.event', 'name')
+        console.log(atletas.length)
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);
@@ -398,7 +399,7 @@ type SearchParamsS = {
     page?: number;
     limit?: number;
 };
-export const searchGetAtletasFront = async ({ searchTerm, page = 1, limit = 10 }: SearchParamsS) => {
+export const searchGetAtletasFront = async ({ searchTerm, page = 1, limit = 12 }: SearchParamsS) => {
     try {
         connectDB();
         const query = {
@@ -411,6 +412,8 @@ export const searchGetAtletasFront = async ({ searchTerm, page = 1, limit = 10 }
         const atletas = await Atleta.find(query)
             .skip(skip)
             .limit(limit)
+            .populate('events.event', 'name')
+
         return JSON.stringify(atletas);
     } catch (error) {
         console.error('Error:', error);

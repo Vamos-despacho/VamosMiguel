@@ -17,6 +17,7 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
     const [selectedEvent, setSelectedEvent] = useState<IEventDeporte | null>(null); // Para almacenar el evento seleccionado
     const [position, setPosition] = useState<string>(''); // Para almacenar la posición ingresada
     const [dicipline, setDicipline] = useState<string>(''); // Para almacenar la diciplina ingres
+    const [ano, setAno] = useState<string>('2024'); // Para almacenar la diciplina ingres
     const [events, setEvents] = useState(eventos)
     // Maneja la selección del evento
     const handleEventSelect = (evento: IEventDeporte) => {
@@ -30,6 +31,9 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
     const handleDiciplineChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDicipline(e.target.value);
     }
+    const handleAnoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setAno(e.target.value);
+    }
 
     // Función para enviar los datos a la base de datos
     const handleSave = async () => {
@@ -39,7 +43,8 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
 
                     event: selectedEvent._id,
                     position,
-                    dicipline
+                    dicipline,
+                    ano
                 },
                 athleteId: id, // Usamos el ID del atleta para referenciarlo
             };
@@ -90,6 +95,9 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
                         <span className='text-xs'>
                             {evento.dicipline}
                         </span>
+                        <span className='text-xs'>
+                            {evento.ano}
+                        </span>
                         <div className='absolute top-[-10px] right-[-7px] '>
                             {/* <MdOutlineDeleteOutline className='w-5 h-5' /> */}
                             <DeleteEvent sportEvent={evento.event._id} eventId={evento._id} athleteId={id} onClickDelete={handleDelete} msg='Evento' />
@@ -112,7 +120,7 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
                                     <FaRunning className='w-5 h-5' />
                                 </div>
                                 <h3 className='text-base font-semibold text-primary'>{evento.name}</h3>
-                                <p className='text-xs text-gray-500'>{evento.year}</p>
+                                {/* <p className='text-xs text-gray-500'>{evento.year}</p> */}
                                 <p>{evento.location}</p>
                             </div>
                         </div>
@@ -140,6 +148,17 @@ const Eventos = ({ eventos, id, name, eventsDB }: { eventos: IEventParticipation
                                 placeholder='Diciplina'
                                 value={dicipline}
                                 onChange={handleDiciplineChange}
+                                className="p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
+                            />
+                        </div>
+                        <div>
+                            <Label htmlFor="dicipline" className="text-gray-700 font-medium">Año</Label>
+                            <Input
+                                type='text'
+                                name='ano'
+                                placeholder='1990'
+                                value={ano}
+                                onChange={handleAnoChange}
                                 className="p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
                             />
                         </div>
