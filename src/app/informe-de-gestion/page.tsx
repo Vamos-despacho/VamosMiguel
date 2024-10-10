@@ -1,6 +1,7 @@
 
 import AccordionCardList from '@/components/informes/AccordioncardList';
 import GraficoBar from '@/components/informes/GraficoBar'
+import SliderImage from '@/components/SliderImage';
 
 const listItems = [
     {
@@ -28,6 +29,8 @@ const listItems = [
 
     },
 ];
+
+
 const page = () => {
     return (
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 h-full">
@@ -44,17 +47,17 @@ const page = () => {
 
                 {/* Primeros 100 días de gestión */}
                 <div className="mt-16">
-                    <div className="flex items-baseline justify-center md:justify-start">
-                        <h3 className="text-2xl text-gray-800 p-0 m-0  font-semibold">
+                    <div className="flex flex-col  justify-center md:justify-start">
+                        <h3 className="text-2xl  font-semibold">
                             Primeros 100 días de gestión
                         </h3>
-                        <span className="text-base p-0 m-0   text-gray-500 font-medium ml-5">
+                        <span className="text-sm text-gray-500 font-medium ml-2">
                             Julio 2024 - Octubre 2024
                         </span>
                     </div>
 
                     {/* Gráfico y Lista Acordeón */}
-                    <div className="mt-8 border-t pt-4">
+                    <div className="mt-5 border-t pt-10">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Gráfico */}
                             <div className="flex flex-col">
@@ -66,6 +69,9 @@ const page = () => {
 
                             {/* Lista Acordeón */}
                         </div>
+                        <SliderImage />
+                    </div>
+                    <div className='border-t mt-12'>
                     </div>
                 </div>
             </div>

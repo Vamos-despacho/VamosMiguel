@@ -103,7 +103,6 @@ const Navigation = () => {
                     <Link href='/actividades'>
                         <MenubarItem>Actividades Legislativas</MenubarItem>
                     </Link>
-
                     {/* <Link href='/equipo'>
                         <MenubarItem>Informe de Gestión</MenubarItem>
                     </Link> */}

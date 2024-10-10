@@ -37,7 +37,8 @@ const AccordionCardList: React.FC<AccordionCardListProps> = ({ items }) => {
             <div>
 
                 <div className='pb-3'>
-                    <CardTitle>Proyectos de ley</CardTitle>
+                    {/* <CardTitle>Proyectos de ley</CardTitle> */}
+                    <CardTitle>Anteproyectos de Ley</CardTitle>
 
                 </div>
 
@@ -45,7 +46,7 @@ const AccordionCardList: React.FC<AccordionCardListProps> = ({ items }) => {
                     {items.map((item) => (
                         <AccordionItem key={item.id} value={item.id}>
                             <AccordionTrigger >
-                                <h3 className={`text-base font-semibold text-start md:tracking-tight dark:text-zinc-100`}>
+                                <h3 className={`text-base font-medium text-start  dark:text-zinc-100`}>
                                     <span>
                                         {item.title}
                                     </span>

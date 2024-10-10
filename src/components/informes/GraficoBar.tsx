@@ -1,6 +1,6 @@
 "use client"
 
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 import {
     Card,
@@ -26,9 +26,12 @@ const chartData = [
     { month: "octubre", pleno: 100, educacion: 100, salud: 100 },
 
 ]
-const color1 = "#BBDEFB"
-const color2 = "#90CAF9"
-const color3 = "#64B5F6"
+const color1 = "#4a729b"
+const color2 = "#2b5989"
+const color3 = "#1a456d"
+// const color1 = "#8ab6d6"
+// const color2 = "#f5b971"
+// const color3 = "#7ea65f"
 
 const chartConfig = {
     pleno: {
@@ -48,6 +51,7 @@ const chartConfig = {
 const GraficoBar = () => {
     return (
         <Card
+            className="shadow-sm"
         >
             <CardHeader>
                 <CardTitle>Asistencias </CardTitle>
@@ -65,6 +69,12 @@ const GraficoBar = () => {
                             tickMargin={10}
                             axisLine={false}
                             tickFormatter={(value) => value.slice(0, 3)}
+                        />
+                        <YAxis
+                            fontSize={12}
+                            tickLine={false}
+                            axisLine={false}
+                            tickFormatter={(value: any) => `${value}%`}
                         />
                         <ChartTooltip
                             cursor={false}
