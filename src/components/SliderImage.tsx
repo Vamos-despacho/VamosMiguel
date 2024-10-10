@@ -12,7 +12,7 @@ type PropsButton = {
 
 const ScrollButton = ({ onClick, direction }: PropsButton) => (
     <button
-        className="flex p-0 m-0 w-14 h-14 bg-white rounded-full opacity-50 hover:opacity-90 justify-center items-center transition-transform duration-300 transform hover:scale-110"
+        className="flex p-0 m-0 w-14 h-14 bg-white rounded-full opacity-60 hover:opacity-90 justify-center items-center transition-transform duration-300 transform hover:scale-110"
         onClick={onClick}
     >
         {direction === "left" ? <IconChevronLeft /> : <IconChevronRight />}
@@ -90,7 +90,7 @@ const SliderImage = () => {
         <div className="flex flex-col mt-3 py-8">
             <div className="flex relative h-auto justify-center items-center">
                 {/* Botón para mover a la izquierda */}
-                <div className="w-8   absolute left-0">
+                <div className="w-8   absolute left-1">
                     <ScrollButton onClick={() => scrollHandler("left")} direction="left" />
                 </div>
 
@@ -119,16 +119,16 @@ const SliderImage = () => {
                 </div>
 
                 {/* Botón para mover a la derecha */}
-                <div className="w-8 absolute right-6">
+                <div className="w-8 absolute right-7">
                     <ScrollButton onClick={() => scrollHandler("right")} direction="right" />
                 </div>
 
                 {/* Diálogo para mostrar la imagen completa, título y descripción */}
                 {isDialogOpen && (
                     <Dialog open={isDialogOpen} onOpenChange={closeDialog}>
-                        <DialogContent className="flex flex-col lg:max-h-[95dvh] md:max-w-2xl lg:max-w-4xl m-auto justify-center items-center p-4 space-y-4">
-                            <button onClick={() => handleImageChange("left")} className="absolute left-0 p-2 z-10">
-                                <IconChevronLeft />
+                        <DialogContent className="flex flex-col lg:max-h-[95dvh] md:max-w-2xl lg:max-w-4xl m-auto justify-center items-center p-4 gap-y-4">
+                            <button onClick={() => handleImageChange("left")} className="absolute left-0 p-2 z-10 ">
+                                <IconChevronLeft className='bg-white opacity-80 rounded-full' />
                             </button>
 
                             <div className="relative flex flex-col justify-center items-center">
@@ -150,8 +150,8 @@ const SliderImage = () => {
                                 </p>
                             </div>
 
-                            <button onClick={() => handleImageChange("right")} className="absolute right-0 p-2">
-                                <IconChevronRight />
+                            <button onClick={() => handleImageChange("right")} className="absolute right-0  p-2">
+                                <IconChevronRight className='bg-white opacity-80 rounded-full' />
                             </button>
 
                         </DialogContent>

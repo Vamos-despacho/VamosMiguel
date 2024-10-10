@@ -33,20 +33,19 @@ const listItems = [
 
 const page = () => {
     return (
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 h-full">
-            <div className="container">
+        <section className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-0 py-10  lg:py-16 h-full">
+            <div className="sm:container">
                 {/* Título y Subtítulo */}
                 <div className="mx-auto max-w-4xl text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold leading-tight">
                         Informe de Gestión
                     </h2>
-                    <p className="mt-4 text-lg text-gray-600">
+                    <p className="mt-2 sm:mt-4 text-lg text-gray-600">
                         Transparencia y compromiso en cada acción legislativa, reflejando el esfuerzo constante por el bienestar de la comunidad y el desarrollo del país.
                     </p>
                 </div>
-
                 {/* Primeros 100 días de gestión */}
-                <div className="mt-16">
+                <div className="mt-10 px-3 sm:mt-16">
                     <div className="flex flex-col  justify-center md:justify-start">
                         <h3 className="text-2xl  font-semibold">
                             Primeros 100 días de gestión
@@ -60,7 +59,7 @@ const page = () => {
                     <div className="mt-5 border-t pt-10">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Gráfico */}
-                            <div className="flex flex-col">
+                            <div className="flex flex-col px-2">
                                 <AccordionCardList items={listItems} />
                             </div>
                             <div className="flex justify-center items-center">

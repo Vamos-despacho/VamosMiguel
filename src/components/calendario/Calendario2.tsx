@@ -8,6 +8,7 @@ import { IIEvent } from '@/interface/event';
 import { getActivitesDate } from '@/libs/actividades/actions';
 import IconsBD from '../asistencia/IconsBD';
 
+
 interface MonthsDatabase {
     [year: number]: {
         [month: number]: Date[];
@@ -80,7 +81,7 @@ const Calendario2: React.FC = () => {
 
     useEffect(() => {
         getEventsForMonth();
-    }, [currentDate]);
+    }, [currentDate, getEventsForMonth]);
 
     const days = useMemo(() => {
         return monthsDatabase[year][month];

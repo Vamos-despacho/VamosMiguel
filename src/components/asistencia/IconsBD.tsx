@@ -53,7 +53,7 @@ const IconsBD: React.FC<{ currentDate: Date }> = ({ currentDate }) => {
 
     useEffect(() => {
         handleGetMonth();
-    }, [currentDate]);
+    }, [currentDate, handleGetMonth]);
 
     if (loading) {
         // Muestra un marcador de posición mientras se carga

@@ -33,7 +33,7 @@ const AccordionCardList: React.FC<AccordionCardListProps> = ({ items }) => {
         setIsOpen(true);
     };
     return (
-        <div className='h-[472px]  justify-center flex flex-col items-center' >
+        <div className=' sm:h-[472px]  justify-center flex flex-col items-center' >
             <div>
 
                 <div className='pb-3'>
