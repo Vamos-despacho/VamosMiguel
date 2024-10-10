@@ -26,8 +26,8 @@ const chartData = [
     { month: "octubre", pleno: 100, educacion: 100, salud: 100 },
 
 ]
-const color1 = "#4a729b"
-const color2 = "#2b5989"
+const color1 = "#6ba3c8"
+const color2 = "#3c73b0"
 const color3 = "#1a456d"
 // const color1 = "#8ab6d6"
 // const color2 = "#f5b971"

@@ -43,7 +43,7 @@ export const imgs = [
     {
         id: 11,
         title: 'Compromiso por el Desarrollo Integral de Veraguas',
-        description: 'Hoy, los alcaldes y diputados de la provincia de Veraguas sostuvimos una segunda reunión con el objetivo de avanzar en la creación de una hoja de ruta que aborde temas prioritarios para nuestra región. Durante el encuentro, se discutieron aspectos clave relacionados con el desarrollo social, la seguridad, la economía, la salud y el medio ambiente. Este esfuerzo colaborativo busca fortalecer nuestras estrategias y garantizar un crecimiento sostenible y equitativo para todos los ciudadanos de Veraguas.',
+        description: 'Alcaldes y diputados de la provincia de Veraguas sostuvimos una segunda reunión con el objetivo de avanzar en la creación de una hoja de ruta que aborde temas prioritarios para nuestra región. Durante el encuentro, se discutieron aspectos clave relacionados con el desarrollo social, la seguridad, la economía, la salud y el medio ambiente. Este esfuerzo colaborativo busca fortalecer nuestras estrategias y garantizar un crecimiento sostenible y equitativo para todos los ciudadanos de Veraguas.',
         img: 'https://res.cloudinary.com/dl6oea68u/image/upload/v1725377705/VamosMA/zndjy5uvbboghmujvula.jpg'
     },
     {

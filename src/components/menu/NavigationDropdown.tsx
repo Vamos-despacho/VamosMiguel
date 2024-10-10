@@ -116,6 +116,9 @@ export const NavigationDropdown = () => {
                                             <Link href="/actividades">
                                                 <DropdownMenuItem>Actividades Legislativas</DropdownMenuItem>
                                             </Link>
+                                            <Link href="/informe-de-gestion">
+                                                <DropdownMenuItem>Informe de Gestión</DropdownMenuItem>
+                                            </Link>
                                             {/* <Link href="/informe">
                                                 <DropdownMenuItem>Informe de Gestion</DropdownMenuItem>
                                             </Link> */}
