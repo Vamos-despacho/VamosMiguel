@@ -33,6 +33,7 @@ export interface IAchievements {
     event: string;
     position: string;
     location: string;
+    dicipline: string;
 }
 
 export interface IEventParticipation {
