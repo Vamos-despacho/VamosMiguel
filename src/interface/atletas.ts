@@ -46,6 +46,7 @@ export interface IEventParticipation {
     ano: string;
 }
 
+
 export interface IFAtleta {
     _id: string;
     name: string;
@@ -78,8 +79,11 @@ export interface IFSport {
 
 }
 export interface IFAchievements {
-    year: number;
+    _id?: string;
+    year?: number;
     event: string;
-    position: string;
-    location: string;
+    position?: string;
+    location?: string;
+    dicipline: string;
+
 }

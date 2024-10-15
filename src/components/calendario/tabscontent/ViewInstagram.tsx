@@ -21,13 +21,13 @@ export const ViewInstagram = ({ linkInstagram }: { linkInstagram?: string[] }) =
     const showNavigationNumbers = linkInstagram.length > 1;
 
     return (
-        <div className='relative flex flex-col lg:justify-center lg:items-center'>
-            <div className='lg:w-[450px] p-4 lg:p-0'>
+        <div className='relative flex flex-col lg:justify-center lg:items-center   '>
+            <div className='lg:w-[450px] p-1 lg:p-0'>
                 {/* Renderiza el componente PostInstagram con el enlace actual */}
                 <PostInstagram link={linkInstagram[currentInstagramIndex]} key={currentInstagramIndex} />
             </div>
             {showNavigationNumbers && (
-                <div className="flex-col absolute top-0 right-0 mt-2  flex gap-2">
+                <div className="flex-col absolute top-0 lg:right-3 md:right-32 right-0 sm:right-16 mt-2 flex gap-2">
                     {linkInstagram.map((_, index) => (
                         <button
                             key={index}

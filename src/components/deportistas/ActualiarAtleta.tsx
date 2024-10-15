@@ -17,6 +17,7 @@ import { useEffect, useState } from "react"
 import Eventos from "./update/Eventos"
 import { obtenerEventos, updateAthleteStatus } from "@/libs/salon/actions"
 import DeleteAthlete from "./update/DeleteAthlete"
+import OtrosEventos from "./update/OtrosEventos";
 
 const ActualiarAtleta = ({ atletas }: { atletas: IIAtleta[] }) => {
     const [eventsDB, setEventsDB] = useState<IEventDeporte[] | []>([])
@@ -76,6 +77,7 @@ const ActualiarAtleta = ({ atletas }: { atletas: IIAtleta[] }) => {
                     <TableHead className='w-[100px]'>Status</TableHead>
                     <TableHead className=''>Deporte</TableHead>
                     <TableHead className=''>Eventos</TableHead>
+                    <TableHead className=''>Otros Eventos</TableHead>
                     <TableHead className="text-right">Actividad</TableHead>
                 </TableRow>
             </TableHeader>
@@ -96,6 +98,9 @@ const ActualiarAtleta = ({ atletas }: { atletas: IIAtleta[] }) => {
                             </TableCell>
                             <TableCell className="">
                                 <Eventos eventsDB={eventsDB} eventos={atleta.events} name={atleta.name} id={atleta._id} />
+                            </TableCell>
+                            <TableCell className="">
+                                <OtrosEventos otrosEventos={atleta.achievements} name={atleta.name} id={atleta._id} />
                             </TableCell>
                             <TableCell className="flex gap-2 justify-end">
                                 <UpdateAthlete athlete={atleta} />

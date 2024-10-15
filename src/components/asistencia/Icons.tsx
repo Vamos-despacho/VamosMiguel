@@ -12,7 +12,7 @@ interface Asistencia {
     Otros: number;
 }
 
-type Meses = 'Julio' | 'Agosto'; // Define todos los meses relevantes
+type Meses = 'Julio' | 'Agosto' | 'Septiembre'; // Define todos los meses relevantes
 
 const asistenciaData: Record<Meses, Asistencia> = {
     Julio: {
@@ -22,6 +22,12 @@ const asistenciaData: Record<Meses, Asistencia> = {
         Otros: 0,
     },
     Agosto: {
+        Pleno: 100,
+        Salud: 100,
+        Educación: 100,
+        Otros: 0,
+    },
+    Septiembre: {
         Pleno: 100,
         Salud: 100,
         Educación: 100,
@@ -66,6 +72,7 @@ const Icons: React.FC<IconsProps> = ({ currentDate }) => {
         const monthNames: Record<number, Meses> = {
             6: 'Julio',
             7: 'Agosto',
+            8: 'Septiembre',
             // Agrega nombres de meses según los datos disponibles
         };
         return monthNames[monthIndex];

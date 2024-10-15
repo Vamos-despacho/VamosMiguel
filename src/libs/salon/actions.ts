@@ -153,16 +153,6 @@ export const updateEvent = async (data: any) => {
     }
     try {
         await connectDB();
-
-        // const resultEvent = await SportEvent.findByIdAndUpdate({
-        //     _id: data.events.event
-        // }, {
-        //     $push: {
-        //         participants: data.athleteId
-        //     }
-        // }, {
-        //     new: true
-        // })
         const resultEvent = await SportEvent.findByIdAndUpdate(
             { _id: data.events.event },
             {
@@ -181,6 +171,36 @@ export const updateEvent = async (data: any) => {
             {
                 $push: {
                     events: data.events // $each permite agregar múltiples eventos si el array contiene más de uno
+                }
+            },
+            {
+                new: true // Devuelve el documento actualizado
+            }
+        );
+
+        if (result) {
+            return JSON.stringify(result)
+        }
+        return { status: 400 }
+    }
+    catch (error) {
+        console.error('Error:', error);
+        return { status: 500 }
+    }
+
+}
+export const updateOtrosEvent = async (data: any) => {
+    if (!data) {
+        return { status: 400 }
+    }
+    try {
+        await connectDB();
+
+        const result = await Atleta.findByIdAndUpdate(
+            data.athleteId,
+            {
+                $push: {
+                    achievements: data.achievements // $each permite agregar múltiples eventos si el array contiene más de uno
                 }
             },
             {
@@ -272,6 +292,34 @@ export const deleteEventAtleta = async (data: any) => {
             );
             console.log({ asdf })
         }
+
+        return { status: 200, message: 'Evento eliminado y verificado correctamente' };
+    } catch (error) {
+        console.error('Error:', error);
+        return { status: 500, message: 'Error en el servidor' };
+    }
+};
+export const deleteOtrosEventAtleta = async (data: any) => {
+    console.log(data)
+    try {
+        await connectDB();
+
+        // Eliminar el evento específico del array de eventos del atleta
+        const atleta = await Atleta.findByIdAndUpdate(
+            data.athleteId,
+            {
+                $pull: {
+                    achievements: { _id: data.eventId } // Se asume que data.eventId es el ID del evento a eliminar
+                } // Eliminar el eventId específico
+            },
+            { new: true } // Devuelve el documento actualizado
+        );
+
+        if (!atleta) {
+            return { status: 400, message: 'Atleta no encontrado' };
+        }
+        console.log('sport', data)
+        // Verificar si el atleta todavía tiene eventos con el mismo eventId
 
         return { status: 200, message: 'Evento eliminado y verificado correctamente' };
     } catch (error) {

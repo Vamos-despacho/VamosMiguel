@@ -5,6 +5,8 @@ interface IAchievements {
     event: string;
     position: string;
     location: string;
+    dicipline: string;
+
 }
 
 export interface ISport {
@@ -29,10 +31,11 @@ export interface IAtleta extends Document {
 }
 
 const AchievementsSchema = new Schema<IAchievements>({
-    year: { type: Number, required: true },
+    year: { type: Number, },
     event: { type: String, required: true },
-    position: { type: String, required: true },
-    location: { type: String, required: true },
+    position: { type: String, },
+    location: { type: String, },
+    dicipline: { type: String },
 });
 
 const SportSchema = new Schema<ISport>({
