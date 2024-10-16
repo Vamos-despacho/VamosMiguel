@@ -1,6 +1,5 @@
 'use client';
 import { MdOutlineBalance } from "react-icons/md";
-
 import { SchoolIcon } from "lucide-react";
 import { BsHeartPulse } from "react-icons/bs";
 import { PiUsersFourLight } from "react-icons/pi";
@@ -8,7 +7,6 @@ import { IoIosMore } from "react-icons/io";
 import { IMesDocument } from "@/interface/activites";
 import { getMonthShow } from "@/libs/event/actions";
 import React, { useEffect, useState } from "react";
-import { IconType } from "react-icons";
 
 // Define un tipo que incluya tanto los componentes de Lucide como los de react-icons
 type IconComponent = React.ComponentType<any>;
@@ -45,15 +43,15 @@ const IconsBD: React.FC<{ currentDate: Date }> = ({ currentDate }) => {
     const [categorias, setCategorias] = useState<IMesDocument | null>(null);
     const [loading, setLoading] = useState(true);
 
-    const handleGetMonth = async () => {
-        const resp = await fetchData(currentDate);
-        setCategorias(resp);
-        setLoading(false); // Actualiza el estado de carga cuando se obtienen los datos
-    };
-
     useEffect(() => {
+        const handleGetMonth = async () => {
+            setLoading(true); // Iniciamos la carga
+            const resp = await fetchData(currentDate);
+            setCategorias(resp);
+            setLoading(false); // Actualiza el estado de carga cuando se obtienen los datos
+        };
         handleGetMonth();
-    }, [currentDate, handleGetMonth]);
+    }, [currentDate]);
 
     if (loading) {
         // Muestra un marcador de posición mientras se carga

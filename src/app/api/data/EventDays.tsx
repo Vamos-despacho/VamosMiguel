@@ -732,6 +732,18 @@ export const events: IEvent[] = [
         ]
     },
     {
+        date: new Date(2024, 8, 13),
+        eventos: [
+            {
+                nombre: "Otros",
+                event: {
+                    linkInstagram: ['https://www.instagram.com/p/C_6lid1ORza', 'https://www.instagram.com/p/C_3rgGzyX71'],
+                }
+            },
+
+        ]
+    },
+    {
         date: new Date(2024, 8, 16),
         eventos: [
 
@@ -1034,6 +1046,18 @@ export const events: IEvent[] = [
                 nombre: "Pleno",
                 event: {
 
+                }
+            },
+        ]
+    },
+    {
+        date: new Date(2024, 9, 13),
+        eventos: [
+
+            {
+                nombre: "Otros",
+                event: {
+                    linkInstagram: ['https://www.instagram.com/p/DBFHCMIO9-p/'],
                 }
             },
         ]

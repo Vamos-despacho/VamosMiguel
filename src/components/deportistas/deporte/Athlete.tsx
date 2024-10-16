@@ -12,6 +12,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const Athlete = ({ athlete }: { athlete: IFAtleta }) => {
     const formattedDate = new Date(athlete.birthDate).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
@@ -23,18 +24,23 @@ const Athlete = ({ athlete }: { athlete: IFAtleta }) => {
                     <DialogTrigger className="relative w-full bg-white rounded-lg overflow-hidden">
                         {/* Imagen y detalles del trigger */}
                         <div className="relative">
-                            {/* <img
-                                src="/images/avatarh.webp"
+                            <img
+                                src="/images/mapa.png"
                                 width={320}
                                 height={240}
                                 alt="Athlete"
                                 className="rounded-t-lg object-cover w-full h-48 opacity-20"
-                            /> */}
+                            />
                             {athlete.isHighlighted && (
-                                <div className="absolute top-2 right-2 text-yellow-400 bg-blue-600 rounded-full p-2 shadow-lg transition-transform duration-300 ease-in-out hover:scale-110">
+                                <div className="absolute top-6 right-6 text-yellow-400 bg-blue-600 rounded-full p-2 shadow-lg transition-transform duration-300 ease-in-out hover:scale-110">
                                     <StarIcon className="w-6 h-6" />
                                 </div>
                             )}
+                            {/* <Avatar className='absolute left-6 bottom-0 h-20 w-20'>
+                                <AvatarImage src={athlete?.image} />
+                                <AvatarFallback>CN</AvatarFallback>
+                            </Avatar> */}
+
                         </div>
                         <CardContent className="py-3 px-6 space-y-2">
                             <div className="flex flex-col py-2 items-start">
@@ -87,8 +93,7 @@ const Athlete = ({ athlete }: { athlete: IFAtleta }) => {
                         {/* Imagen y detalles del atleta dentro del diálogo */}
                         <div className="relative">
                             <img
-                                src="/images/avatarh.webp"
-                                width={320}
+                                src="/images/mapa.png" width={320}
                                 height={240}
                                 alt="Athlete"
                                 className="rounded-t-lg object-cover w-full h-48 opacity-20"
@@ -98,13 +103,17 @@ const Athlete = ({ athlete }: { athlete: IFAtleta }) => {
                                     <StarIcon className="w-6 h-6" />
                                 </div>
                             )}
+                            {/* <Avatar className='absolute left-6 bottom-0 h-20 w-20'>
+                                <AvatarImage src={athlete?.image} />
+                                <AvatarFallback>CN</AvatarFallback>
+                            </Avatar> */}
                         </div>
 
-                        <DialogHeader className="pt-4">
+                        <DialogHeader className="pt-1 px-2">
                             <DialogTitle className="text-2xl font-bold text-gray-900">{athlete.name}</DialogTitle>
                         </DialogHeader>
 
-                        <CardContent className="py-3 px-6 space-y-2">
+                        <CardContent className="py-2 px-3 space-y-2">
                             <div className="flex items-center justify-between">
                                 <div className="flex flex-col gap-1">
                                     <p className="text-sm font-semibold text-gray-600">

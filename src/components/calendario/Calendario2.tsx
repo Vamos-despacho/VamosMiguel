@@ -1,5 +1,12 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import { startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays } from 'date-fns';
+import {
+    startOfMonth,
+    endOfMonth,
+    startOfWeek,
+    endOfWeek,
+    addDays,
+    isSameDay,
+} from 'date-fns';
 import CalendarHeader from './CalendarHeader';
 import Day2 from './Day2';
 import EventList from './EventList';
@@ -7,7 +14,6 @@ import EventList from './EventList';
 import { IIEvent } from '@/interface/event';
 import { getActivitesDate } from '@/libs/actividades/actions';
 import IconsBD from '../asistencia/IconsBD';
-
 
 interface MonthsDatabase {
     [year: number]: {
@@ -57,12 +63,14 @@ const Calendario2: React.FC = () => {
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
     const [selectedDayEvents, setSelectedDayEvents] = useState<IIEvent[]>([]);
     const [events, setEvents] = useState<IIEvent[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);  // Añadido el estado loading
 
     const month = currentDate.getMonth();
     const year = currentDate.getFullYear();
 
-    const getEventsForMonth = async (): Promise<void> => {
+    const getEventsForMonth = useCallback(async (): Promise<void> => {
         try {
+            setLoading(true);  // Iniciamos la carga
             const eventsData = await getActivitesDate(month + 1, year);
 
             const formattedEvents = eventsData.map(event => ({
@@ -70,26 +78,27 @@ const Calendario2: React.FC = () => {
                 date: new Date(event.date),
             }));
             setEvents(formattedEvents);
-
-
         } catch (error) {
             console.log(error);
+        } finally {
+            setLoading(false);  // Finalizamos la carga
         }
-    };
-
-
+    }, [month, year]);
 
     useEffect(() => {
         getEventsForMonth();
-    }, [currentDate, getEventsForMonth]);
+    }, [getEventsForMonth]);
 
     const days = useMemo(() => {
         return monthsDatabase[year][month];
     }, [year, month]);
 
-    const isSelected = useCallback((day: Date) => {
-        return selectedDayEvents.length > 0 && isSameDay(selectedDayEvents[0].date, day);
-    }, [selectedDayEvents]);
+    const isSelected = useCallback(
+        (day: Date) => {
+            return selectedDayEvents.some(event => isSameDay(event.date, day));
+        },
+        [selectedDayEvents]
+    );
 
     const handlePreviousMonth = useCallback(() => {
         setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() - 1));
@@ -108,25 +117,26 @@ const Calendario2: React.FC = () => {
     const isLastMonth = useMemo(() => {
         const today = new Date();
         const nextMonth = new Date(year, month + 1);
-        return nextMonth.getFullYear() === today.getFullYear() && nextMonth.getMonth() > today.getMonth();
+        return (
+            nextMonth.getFullYear() === today.getFullYear() &&
+            nextMonth.getMonth() > today.getMonth()
+        );
     }, [year, month]);
 
-    const getEventsForDay = useCallback((day: Date) => {
-        return events.filter(event => isSameDay(event.date, day));
-    }, [events]);
+    const getEventsForDay = useCallback(
+        (day: Date) => {
+            return events.filter(event => isSameDay(event.date, day));
+        },
+        [events]
+    );
 
-    function isSameDay(date1: Date | string, date2: Date | string): boolean {
-        const d1 = new Date(date1);
-        const d2 = new Date(date2);
-        return d1.getFullYear() === d2.getFullYear() &&
-            d1.getMonth() === d2.getMonth() &&
-            d1.getDate() === d2.getDate();
-    }
-
-    const handleDayClick = useCallback((day: Date) => {
-        const dayEvents = getEventsForDay(day);
-        setSelectedDayEvents(dayEvents);
-    }, [getEventsForDay]);
+    const handleDayClick = useCallback(
+        (day: Date) => {
+            const dayEvents = getEventsForDay(day);
+            setSelectedDayEvents(dayEvents);
+        },
+        [getEventsForDay]
+    );
 
     return (
         <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[730px]'>
@@ -146,14 +156,15 @@ const Calendario2: React.FC = () => {
                     {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map((dayName, index) => (
                         <div key={index} className="text-center font-medium">{dayName}</div>
                     ))}
-                    {days.map((day, index) => (
+                    {days.map((day) => (
                         <Day2
-                            key={index}
+                            key={day.toISOString()}
                             day={day}
                             currentMonth={currentDate}
-                            events={getEventsForDay(day)}
+                            events={events}
                             onClick={handleDayClick}
                             isSelected={isSelected(day)}
+                            loading={loading}
                         />
                     ))}
                 </div>

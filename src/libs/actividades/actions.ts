@@ -82,6 +82,8 @@ import { env } from 'process';
 //     }
 // };
 export const getActivitesDate = async (month: number, year: number): Promise<IIEvent[]> => {
+    console.log('actividadesDAe+++')
+
     if (!month || !year) {
         return [];
     }

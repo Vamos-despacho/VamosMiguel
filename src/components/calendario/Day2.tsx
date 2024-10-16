@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { format, isSameMonth, isToday } from 'date-fns';
+import React from 'react';
+import { format, isSameMonth, isToday, isSameDay } from 'date-fns';
 import { IIEvent, IIEventDetails } from '@/interface/event';
 
 interface DayProps {
     day: Date;
     currentMonth: Date;
-    events: IIEvent[];
+    events: IIEvent[] | null;  // Permitir que events sea null o undefined
     onClick: (day: Date) => void;
     isSelected: boolean;
+    loading: boolean;  // Nueva propiedad
 }
 
-const Day2: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelected }) => {
-    const [loading, setLoading] = useState(true);
+const Day2: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelected, loading }) => {
     const isCurrentMonth = isSameMonth(day, currentMonth);
     const isTodayDate = isToday(day);
 
-    useEffect(() => {
-        setLoading(true);
-        const eventOfDay = events.find(event => isSameDay(day, event.date));
-        setLoading(false);  // Elimina el setTimeout para evitar retrasos en la carga
-    }, [day, events]);
+    const dayEvents = events
+        ? events.filter(event => isSameDay(day, event.date)).flatMap(event => event.eventos)
+        : [];
 
-    const dayEvents = events.filter(event => isSameDay(day, event.date)).flatMap(event => event.eventos);
-
-    const renderIcon = (eventName: string) => {
-        return (
-            <div className='flex justify-center items-center gap-0.5'>
-                <p className='md:text-sm text-xs'>{eventName}</p>
-            </div>
-        );
-    };
+    const renderIcon = (eventName: string) => (
+        <div className='flex justify-center items-center gap-0.5'>
+            <p className='md:text-sm text-xs'>{eventName}</p>
+        </div>
+    );
 
     const hasEventDetails = (eventDetails: IIEventDetails): boolean => {
         return Boolean(
@@ -70,11 +64,5 @@ const Day2: React.FC<DayProps> = ({ day, currentMonth, events, onClick, isSelect
         </div>
     );
 };
-
-function isSameDay(date1: Date, date2: Date): boolean {
-    return date1.getFullYear() === date2.getFullYear() &&
-        date1.getMonth() === date2.getMonth() &&
-        date1.getDate() === date2.getDate();
-}
 
 export default Day2;
