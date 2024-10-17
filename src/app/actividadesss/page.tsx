@@ -1,10 +1,10 @@
 'use client'
+
+
+
+
+
 import Calendario from '@/components/calendario/Calendario'
-import Calendario2 from '@/components/calendario/Calendario2'
-
-
-
-
 import React from 'react'
 
 
@@ -24,7 +24,7 @@ const ActividadesPage = () => {
 
 
 
-            <Calendario2 />
+            <Calendario />
 
         </div>
     )

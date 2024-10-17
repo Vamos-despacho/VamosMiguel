@@ -139,9 +139,9 @@ const Calendario2: React.FC = () => {
     );
 
     return (
-        <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[730px]'>
+        <div className='flex flex-col lg:flex-row lg:max-w-[1200px] gap-2 mx-auto lg:h-[760px]'>
             <div className="p-1 sm:px-2 lg:w-[60%] border rounded-lg shadow-sm flex flex-col justify-around">
-                <div className='sm:pt-2 pb-1 lg:p-0 justify-center items-center mx-auto0'>
+                <div className='sm:pt-2 pb-1 lg:p-0 justify-center items-center mx-auto h-24'>
                     <IconsBD currentDate={currentDate} />
                 </div>
 
@@ -152,7 +152,7 @@ const Calendario2: React.FC = () => {
                     isFirstMonth={isFirstMonth}
                     isLastMonth={isLastMonth}
                 />
-                <div className="grid grid-cols-7">
+                <div className="grid grid-cols-7 mt-3">
                     {['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'].map((dayName, index) => (
                         <div key={index} className="text-center font-medium">{dayName}</div>
                     ))}

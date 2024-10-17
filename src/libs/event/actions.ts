@@ -6,8 +6,6 @@ import { Event } from '@/models/Events';
 import MesModel from '@/models/Mes';
 
 
-
-
 export const createEvent = async (data: any) => {
     try {
         // Conéctate a la base de datos
@@ -54,7 +52,7 @@ export const getEvents = async (desde: any, limit: any) => {
 }
 
 export const updateEvent = async (eventId: string, eventDetails: any) => {
-    console.log('updateEvent')
+
     try {
         // Conéctate a la base de datos
         await connectDB();
@@ -118,7 +116,7 @@ export const addEvent = async (eventId: string, eventDetails: any) => {
 }
 
 export const deleteEvent = async (id: string) => {
-    console.log('deleteEvent')
+
     try {
         // Conéctate a la base de datos
         await connectDB();
@@ -197,7 +195,7 @@ export const createComision = async (values: any) => {
 
 
 export const getComision = async () => {
-    console.log('getComision++++++++')
+
     try {
         // Conéctate a la base de datos
         await connectDB();
@@ -299,14 +297,13 @@ export const updateComsionMonth = async (idMes: string, updatedValues: UpdateCom
 };
 
 export const getMonthShow = async (monthDate: Date) => {
-    console.log('getMonthShow', monthDate);
+
 
     try {
         await connectDB();
 
         const startOfMonth = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
         const endOfMonth = new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 1);
-        console.log('Rango de búsqueda:', startOfMonth, 'a', endOfMonth);
 
         const mes = await MesModel.findOne({
             month: {
@@ -318,13 +315,13 @@ export const getMonthShow = async (monthDate: Date) => {
             .exec();
 
         if (mes) {
-            console.log('Mes encontrado:', mes);
+
             return {
                 status: 200,
                 data: JSON.stringify(mes)
             };
         } else {
-            console.log('Mes no encontrado');
+
             return {
                 status: 404,
                 message: 'Mes no encontrado'
@@ -332,7 +329,7 @@ export const getMonthShow = async (monthDate: Date) => {
         }
 
     } catch (error) {
-        console.error('Error al buscar el mes:', error);
+
         return {
             status: 500,
             message: 'Error al buscar el mes',
