@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch"
 import { useRouter } from "next/navigation"
 
 import SelectObtions from "@/components/SelectObtions";
-import { ICategory, ITag, Post } from "@/interface/article";
+import { ICategory, Post } from "@/interface/article";
 
 import CheckObtionsEdit from "../CheckObtionsEdit";
 import Image from "next/image";
@@ -24,7 +24,7 @@ import DOMPurify from 'dompurify';
 
 interface Props {
     category: ICategory[]
-    tags: ITag[]
+
     articulo?: Post
 }
 type IUser = {
@@ -36,7 +36,7 @@ type IUser = {
     role: string;
 }
 
-const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
+const FormtArticleEdit = ({ category, articulo }: Props) => {
 
     const route = useRouter()
 
@@ -46,7 +46,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState("")
     const [selectCategory, setSelectCategory] = useState(articulo?.categoryId.toString() || "")
-    const [selectedTags, setSelectedTags] = useState<ITag[]>([]);
+
     const [selectImage, setSelectImage] = useState<string | null | undefined>(articulo?.imageUrl)
     const [subiendoImagen, setSubiendoImagen] = useState(false)
     const [isActiveEstado, setIsActiveEstado] = useState(articulo?.published);
@@ -95,10 +95,6 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
         }
 
 
-        // const etiquetas = await selectedTags.map((etiqueta: ITag) => {
-        //     const { id, ...etiquetaData } = etiqueta; // Cambié el nombre de la variable
-        //     return { id: id };
-        // });
 
         const data = {
             title: DOMPurify.sanitize(title as string),
@@ -108,9 +104,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
             authorId: parseInt(user.id, 10),
             categoryId: parseInt(selectCategory, 10),
             slug: DOMPurify.sanitize(slug as string),
-            tags: {
-                connect: selectedTags
-            }
+
         }
 
         try {
@@ -274,10 +268,7 @@ const FormtArticleEdit = ({ category, tags, articulo }: Props) => {
                             onChange={(selectedValue) => setSelectCategory(selectedValue)}
                             select={articulo?.categoryId.toString()}
                         />
-                        <CheckObtionsEdit
-                            data={tags}
-                            onChange={setSelectedTags}
-                            selectedTagsData={articulo?.tags} />
+
                     </div>
 
                 </div>

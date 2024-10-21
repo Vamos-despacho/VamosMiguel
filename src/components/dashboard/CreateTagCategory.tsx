@@ -2,31 +2,29 @@
 import React, { useState } from 'react'
 import { Input } from "@/components/ui/input";
 import { Button } from '@/components/ui/button';
-import vamosApi from '@/app/api/vamosApi';
-import { AxiosError } from 'axios';
-interface Props {
-    link: string
+import { createCategory } from '@/libs/articulos/actions';
 
-}
-const CreateTagCategory = ({ link }: Props) => {
+
+
+const CreateTagCategory = () => {
     const [error, setError] = useState<string>()
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+
         const formData = new FormData(e.currentTarget)
-        const name = formData.get('name')
+        const name = formData.get('name') as string
+
         if (!name) return
         if (name.length < 3) return setError('El nombre debe tener al menos 3 caracteres')
+
         setError(undefined)
         try {
-            const res = await vamosApi.post(`/${link}`, {
-                name
-            })
+            console.log(name)
+            const res = await createCategory(name)
             if (res.status === 200) return alert('Creada exitosamente')
         } catch (error) {
-            if (error instanceof AxiosError) {
-                setError(error.response?.data.message)
-            }
+
         }
     }
 

@@ -12,7 +12,7 @@ const CrearCategoria = () => {
                     Crear Categoría
                 </h2>
                 <CreateTagCategory
-                    link='categorias'
+
                 />
             </div>
         </div>

@@ -30,7 +30,7 @@ const SelectObtions = ({ data, onChange, select }: Props) => {
             <SelectContent>
                 {
                     data.map((item, index) => (
-                        <SelectItem key={index} value={item.id.toString()}>{item.name}</SelectItem>
+                        <SelectItem key={index} value={item._id.toString()}>{item.name}</SelectItem>
                     ))
                 }
 

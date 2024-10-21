@@ -1,11 +1,14 @@
-import ListCategorias from '@/components/dashboard/ListCategorias';
-import { prisma } from '@/libs/prisma';
+
+import { getCategories } from '@/libs/articulos/actions';
+
 
 async function getCategory() {
 
-    return await prisma.category.findMany()
+    const resp = await getCategories()
+    const categorias = JSON.parse(resp)
+    return categorias
 }
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
 
 const VerCategoria = async () => {
     const categorias = await getCategory()
@@ -15,6 +18,9 @@ const VerCategoria = async () => {
     return (
         <div>
             <h2 className="text-xl font-bold p-4 pb-0">Categorías</h2>
+            <pre>
+                {JSON.stringify(categorias, null, 2)}
+            </pre>
             {/* <ListCategorias categorias={categorias} /> */}
         </div>
     )

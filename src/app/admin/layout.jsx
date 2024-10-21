@@ -21,7 +21,7 @@ const ArticlesLayout = ({ children }) => {
                         <DropdownMenuTrigger asChild>
                             <Button variant="ghost" className="w-full justify-start">
                                 <TextAlignJustifyIcon className='mr-2 h-5 w-5' />
-                                Eventos
+                                Calendario
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-48">
