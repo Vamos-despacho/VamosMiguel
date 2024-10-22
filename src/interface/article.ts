@@ -1,3 +1,6 @@
+
+import { Schema, Types } from "mongoose";
+
 export type User = {
     id: number;
     email: string;
@@ -61,5 +64,16 @@ export type ITagA = [{
 export type ICategory = {
     _id: string;
     name: string;
+
+};
+
+
+export type IArticle = {
+    title: string;
+    content: string;
+    category: Types.ObjectId | string;
+    imageUrl?: string;
+    slug: string;
+    published: boolean;
 
 };

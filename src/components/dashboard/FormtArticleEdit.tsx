@@ -10,17 +10,16 @@ import { useRouter } from "next/navigation"
 import SelectObtions from "@/components/SelectObtions";
 import { ICategory, Post } from "@/interface/article";
 
-import CheckObtionsEdit from "../CheckObtionsEdit";
 import Image from "next/image";
 
 import { uploadImageCloudinaryCrop } from "@/helpers/uploadImageCludinary";
 import { ImageIcon } from "lucide-react";
-import TextEditor from "../TextEditor";
-import vamosApi from "@/app/api/vamosApi";
-import { useSession, signOut } from "next-auth/react"
 
-import axios, { AxiosError } from "axios";
+import { useSession } from "next-auth/react"
+
 import DOMPurify from 'dompurify';
+import MyEditor from "../TextDraff";
+import { createArticle } from "@/libs/articulos/actions";
 
 interface Props {
     category: ICategory[]
@@ -49,7 +48,7 @@ const FormtArticleEdit = ({ category, articulo }: Props) => {
 
     const [selectImage, setSelectImage] = useState<string | null | undefined>(articulo?.imageUrl)
     const [subiendoImagen, setSubiendoImagen] = useState(false)
-    const [isActiveEstado, setIsActiveEstado] = useState(articulo?.published);
+    const [isActiveEstado, setIsActiveEstado] = useState(articulo?.published || false);
     const [editorContent, setEditorContent] = useState<string>(articulo?.content || "Texto de prueba");
     const [slug, setSlug] = useState(articulo?.slug);
 
@@ -99,30 +98,31 @@ const FormtArticleEdit = ({ category, articulo }: Props) => {
         const data = {
             title: DOMPurify.sanitize(title as string),
             content: DOMPurify.sanitize(editorContent),
-            imageUrl: selectImage,
+            imageUrl: selectImage || "",
             published: isActiveEstado,
-            authorId: parseInt(user.id, 10),
-            categoryId: parseInt(selectCategory, 10),
+            category: selectCategory,
             slug: DOMPurify.sanitize(slug as string),
 
         }
 
+
+        console.log(data)
+
         try {
             if (articulo) {
-                const resp = await axios.put(`/api/articulos/${articulo?.id}`, data)
-                console.log(resp)
-                if (resp.status === 200) {
-                    alert('Articulo Editado correctamente')
-                    route.push('/admin/articulos')
-                    return
-                }
+
+                // if (resp.status === 200) {
+                //     alert('Articulo Editado correctamente')
+                //     route.push('/admin/articulos')
+                //     return
+                // }
 
             } else {
-                const resp = await axios.post('/api/articulos', data)
-
+                const respuesta = await createArticle(data)
+                const resp = JSON.parse(respuesta)
                 if (resp.status === 200) {
                     alert('Articulo creado correctamente')
-                    route.push('/admin/articulos')
+                    // route.push('/admin/articulos')
                     return
                 }
             }
@@ -131,9 +131,7 @@ const FormtArticleEdit = ({ category, articulo }: Props) => {
 
         } catch (error) {
 
-            if (error instanceof AxiosError) {
-                setError(error.response?.data.message)
-            }
+
         }
 
 
@@ -274,8 +272,8 @@ const FormtArticleEdit = ({ category, articulo }: Props) => {
                 </div>
                 <div className=" ">
 
-                    <TextEditor value={editorContent} onChange={handleEditorChange} />
-
+                    {/* <TextEditor value={editorContent} onChange={handleEditorChange} /> */}
+                    <MyEditor onChangeHandle={handleEditorChange} value={editorContent} />
                 </div>
                 <div className="flex gap-6 mt-20 justify-center items-center">
 

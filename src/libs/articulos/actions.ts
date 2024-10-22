@@ -1,7 +1,39 @@
 'use server';
 
+import { IArticle } from "@/interface/article";
 import connectDB from "@/lib/mongodb";
+import { Article } from "@/models/Article";
 import { CategoryArticle } from "@/models/CategoryArticle";
+
+
+
+export const createArticle = async (data: IArticle) => {
+
+    try {
+        const articulo = new Article(data);
+        const result = await articulo.save();
+        if (result) {
+            return JSON.stringify({ status: 200, message: 'Articulo creado correctamente' });
+        }
+        return JSON.stringify({ status: 400, message: 'Error al crear articulo' });
+    } catch (error) {
+        return JSON.stringify({ error: 'Internal Server Error' })
+
+    }
+}
+export const getArticle = async () => {
+
+    try {
+        const result = await Article.find();
+        if (result) {
+            return JSON.stringify({ status: 200, result });
+        }
+        return JSON.stringify({ status: 400, message: 'Error al crear articulo' });
+    } catch (error) {
+        return JSON.stringify({ error: 'Internal Server Error' })
+
+    }
+}
 
 
 export const createCategory = async (name: string) => {

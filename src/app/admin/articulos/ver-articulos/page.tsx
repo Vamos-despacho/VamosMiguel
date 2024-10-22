@@ -6,6 +6,7 @@ import { Post } from '@/interface/article';
 import ListArticle from '@/components/dashboard/ListArticles';
 import ListArticles from '@/components/dashboard/ListArticles';
 import axios from 'axios';
+import { getArticle } from '@/libs/articulos/actions';
 
 const itemsPerPage = 6; // Cantidad de elementos por página
 interface IArticles {
@@ -23,9 +24,10 @@ const VerArticulos = () => {
     async function fetchArticulos(page: number) {
         try {
 
-            const response = await axios.get(`/api/articulos?page=${page}&from=admin`);
-            const { articles, totalArticles }: IArticles = response.data;
-            setArticles(articles);
+            const response = await getArticle();
+            // const { articles, totalArticles }: IArticles = response.data;
+            const { result } = JSON.parse(response);
+            setArticles(result);
             setTotalArticles(totalArticles);
         } catch (error) {
             console.error('Error al obtener los artículos', error);
@@ -44,7 +46,10 @@ const VerArticulos = () => {
 
     return (
         <div className=' '>
-            <div className='mx-auto'>
+            <pre>
+                {JSON.stringify(articles, null, 2)}
+            </pre>
+            {/* <div className='mx-auto'>
                 <ListArticles articles={articles} />
                 <div className='my-4 bg-gray-300'>
                     <Pagination
@@ -53,7 +58,7 @@ const VerArticulos = () => {
                         onPageChange={handlePageChange}
                     />
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
