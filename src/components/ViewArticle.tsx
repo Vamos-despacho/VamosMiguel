@@ -1,80 +1,64 @@
-"use client"
-import { Post } from '@/interface/article'
-import React, { useEffect, useState } from 'react'
-import Article from './Article'
-import CardArticle from './dashboard/CardArticle'
-import Pagination from './Pagination'
-import vamosApi from '@/app/api/vamosApi'
-import ArticleDeporte from './ArticleDeporte'
+"use client";
+import { IArticle, IIArticle, Post } from "@/interface/article";
+import React, { useEffect, useState } from "react";
+import Article from "./Article";
+import CardArticle from "./dashboard/CardArticle";
+import Pagination from "./Pagination";
+import vamosApi from "@/app/api/vamosApi";
+import ArticleDeporte from "./ArticleDeporte";
 interface Props {
-    articles: Post[]
+  article: IArticle[];
 }
 const itemsPerPage = 6; // Cantidad de elementos por página
 
 interface IArticles {
-    articles: {
-        id: string;
-        title: string;
-        content: string;
-        imageUrl: string;
-        slug: string;
-        category: string;
-        createdAt: string;
-        published: boolean;
-    }[]
-    totalArticles: number;
+  articles: IIArticle[];
+  totalArticles: number;
 }
-const ViewArticle = ({ articles, totalArticles }: IArticles) => {
-    const [articlesa, setArticlesa] = useState(articles);
-    const [totalArticlesa, setTotalArticlesa] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
+const ViewArticlesss = ({ articles, totalArticles }: IArticles) => {
+  const [articlesa, setArticlesa] = useState(articles);
+  const [totalArticlesa, setTotalArticlesa] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
-    const handlePageChange = (newPage: number) => {
-        // console.log(newPage)
-        // setCurrentPage(newPage);
-    };
+  const handlePageChange = (newPage: number) => {
+    // console.log(newPage)
+    // setCurrentPage(newPage);
+  };
 
-    // const getArticle = async (page: number) => {
-    //     const response = await vamosApi.get(`/articulos?page=${page}`);
-    //     setArticlesa(response.data.articles);
-    // }
+  // const getArticle = async (page: number) => {
+  //     const response = await vamosApi.get(`/articulos?page=${page}`);
+  //     setArticlesa(response.data.articles);
+  // }
 
-    // useEffect(() => {
-    //     getArticle(currentPage);
-    // }, [currentPage])
+  // useEffect(() => {
+  //     getArticle(currentPage);
+  // }, [currentPage])
 
-    if (!articles) return (
-        <div className="flex justify-center items-center h-screen">
-            <p className="text-2xl font-semibold">No hay articulos</p>
-        </div>
-    )
+  if (!articles)
     return (
-        <div>
-            <div
-                className="grid md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-3  grid-cols-2
-            lg:grid-flo-row  gap-1 sm:gap-3 sm:gap-y-7 m-auto   ">
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-2xl font-semibold">No hay articulos</p>
+      </div>
+    );
+  return (
+    <div>
+      <div
+        className="grid md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-3  grid-cols-2
+            lg:grid-flo-row  gap-1 sm:gap-3 sm:gap-y-7 m-auto   "
+      >
+        {articlesa.map((article, index) => (
+          <Article key={index} article={article} />
+        ))}
+      </div>
+      <div className="pt-10 ">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(totalArticles / itemsPerPage)}
+          onPageChange={handlePageChange}
+        />
+      </div>
+    </div>
+  );
+};
 
-                {
-                    articlesa.map((article, index) => (
-
-                        <Article
-                            key={article.id}
-                            article={article}
-                        />
-
-                    ))
-                }
-
-            </div>
-            <div className='pt-10 '>
-                <Pagination
-                    currentPage={currentPage}
-                    totalPages={Math.ceil(totalArticles / itemsPerPage)}
-                    onPageChange={handlePageChange}
-                />
-            </div>
-        </div>
-    )
-}
-
-export default ViewArticle
+export default ViewArticlesss;

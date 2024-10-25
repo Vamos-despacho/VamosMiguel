@@ -8,7 +8,7 @@ import { Switch } from "@/components/ui/switch"
 import { useRouter } from "next/navigation"
 
 import SelectObtions from "@/components/SelectObtions";
-import { IArticle, ICategory, Post } from "@/interface/article";
+import { ICategory, Post } from "@/interface/article";
 
 import Image from "next/image";
 
@@ -19,26 +19,32 @@ import { useSession } from "next-auth/react"
 
 import DOMPurify from 'dompurify';
 import MyEditor from "../TextDraff";
-import { createArticle, updateArticle } from "@/libs/articulos/actions";
-import MyEditorEdit from "../TextDraffEdit";
-import { create } from "domain";
-import { uploadImagesCloudinaryCrop } from "@/helpers/uploadImagesCludinary";
+import { createArticle } from "@/libs/articulos/actions";
 
 interface Props {
     category: ICategory[]
 
-    articulo: IArticle
+    articulo?: Post
+}
+type IUser = {
+    id: string;
+    name: string;
+    email: string;
+    img: string | null;
+    createAt: Date;
+    role: string;
 }
 
+const FormtArticleCreate = ({ category, articulo }: Props) => {
 
-const FormatArticleEdit = ({ category, articulo }: Props) => {
-
+    const route = useRouter()
 
     const [isTitle, setIsTitle] = useState(articulo?.title)
     const { data: session, status } = useSession()
+    const user = session?.user as IUser
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState("")
-    const [selectCategory, setSelectCategory] = useState(articulo?.category.toString() || "")
+    const [selectCategory, setSelectCategory] = useState(articulo?.categoryId.toString() || "")
 
     const [selectImage, setSelectImage] = useState<string | null | undefined>(articulo?.imageUrl)
     const [subiendoImagen, setSubiendoImagen] = useState(false)
@@ -46,9 +52,6 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
     const [editorContent, setEditorContent] = useState<string>(articulo?.content || "Texto de prueba");
     const [slug, setSlug] = useState(articulo?.slug);
 
-
-    const [selectImages, setSelectImages] = useState<string[]>(articulo?.imagenArray || []);
-    const [subiendoImagenes, setSubiendoImagenes] = useState(false)
 
 
 
@@ -93,14 +96,12 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
 
 
         const data = {
-            _id: articulo._id,
             title: DOMPurify.sanitize(title as string),
             content: DOMPurify.sanitize(editorContent),
             imageUrl: selectImage || "",
             published: isActiveEstado,
             category: selectCategory,
             slug: DOMPurify.sanitize(slug as string),
-            imagenArray: selectImages,
 
         }
 
@@ -108,7 +109,24 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
         console.log(data)
 
         try {
-            updateArticle(data)
+            if (articulo) {
+
+                // if (resp.status === 200) {
+                //     alert('Articulo Editado correctamente')
+                //     route.push('/admin/articulos')
+                //     return
+                // }
+
+            } else {
+                const respuesta = await createArticle(data)
+                const resp = JSON.parse(respuesta)
+                if (resp.status === 200) {
+                    alert('Articulo creado correctamente')
+                    // route.push('/admin/articulos')
+                    return
+                }
+            }
+
 
 
         } catch (error) {
@@ -120,16 +138,9 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
 
     }
     const fileInputRefs = useRef<HTMLInputElement>();
-    const filesInputRefs = useRef<HTMLInputElement>();
 
     const handleClick = () => {
         const fileInput = fileInputRefs.current
-        if (fileInput) {
-            fileInput.click();
-        }
-    };
-    const handlesClick = () => {
-        const fileInput = filesInputRefs.current
         if (fileInput) {
             fileInput.click();
         }
@@ -145,22 +156,6 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
             setSelectImage(imgs);
         }
     };
-    const handleFileSelects = async (e: ChangeEvent<HTMLInputElement>) => {
-        const selectedFiles = e.target.files;
-
-        if (selectedFiles && selectedFiles.length > 0) {
-            setSubiendoImagenes(true);
-            const uploadedImages = await uploadImagesCloudinaryCrop({ images: Array.from(selectedFiles) });
-            setSubiendoImagenes(false);
-            setSelectImages(prevImages => [...prevImages, ...uploadedImages]);
-        }
-    };
-    const handleDeleteImage = (index: number) => {
-        setSelectImages(prevImages => prevImages.filter((_, i) => i !== index));
-    };
-
-
-
     const handleSwitchChangeEstado = async () => {
         const newValue = !isActiveEstado; // Cambia el valor del interruptor
         setIsActiveEstado(newValue); // Actualiza el estado con el nuevo valor del interruptor
@@ -265,59 +260,11 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
                         }
 
                     </div>
-                    <div className="sm:flex space-y-2 flex-col  sm:flex-row pb-8  sm:space-x-8 justify-center items-center m-auto">
-                        <Button arial-label='Agregar Imagen' type="button" variant="outline" onClick={handlesClick}>
-                            Agregar Imágenes
-                        </Button>
-                        <input
-                            ref={(el) => (filesInputRefs.current = el!)}
-                            style={{ display: 'none' }}
-                            type="file"
-                            className="w-24 h-8"
-                            accept="image/*"
-                            multiple // Esto permite la selección múltiple de archivos
-                            onChange={(e) => handleFileSelects(e)}
-                        />
-                        {
-                            selectImages.length > 0 ? (
-                                <div className="flex flex-wrap">
-                                    {selectImages.map((image, index) => (
-                                        <div key={index} className="relative m-2">
-                                            <Image
-                                                src={image}
-                                                alt={`Imagen ${index + 1}`}
-                                                width={80}
-                                                height={80}
-                                                className="w-40 h-40 object-cover"
-                                            />
-                                            <button
-                                                type="button"
-                                                onClick={() => handleDeleteImage(index)}
-                                                className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1"
-                                            >
-                                                X
-                                            </button>
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <div className="w-40 h-40 bg-zinc-100 flex items-center justify-center">
-                                    <div className="text-neutral-500 text-sm">
-                                        {subiendoImagenes ? (
-                                            <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin" />
-                                        ) : (
-                                            <ImageIcon className="h-8 w-8" />
-                                        )}
-                                    </div>
-                                </div>
-                            )
-                        }
-                    </div>
                     <div className="space-y-8">
                         <SelectObtions
                             data={category}
                             onChange={(selectedValue) => setSelectCategory(selectedValue)}
-                            select={articulo?.category.toString()}
+                            select={articulo?.categoryId.toString()}
                         />
 
                     </div>
@@ -326,7 +273,7 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
                 <div className=" ">
 
                     {/* <TextEditor value={editorContent} onChange={handleEditorChange} /> */}
-                    <MyEditorEdit onChangeHandle={handleEditorChange} value={editorContent} />
+                    <MyEditor onChangeHandle={handleEditorChange} value={editorContent} />
                 </div>
                 <div className="flex gap-6 mt-20 justify-center items-center">
 
@@ -354,4 +301,4 @@ const FormatArticleEdit = ({ category, articulo }: Props) => {
     )
 }
 
-export default FormatArticleEdit
+export default FormtArticleCreate

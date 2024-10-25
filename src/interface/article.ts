@@ -69,11 +69,54 @@ export type ICategory = {
 
 
 export type IArticle = {
+    _id: string;
     title: string;
     content: string;
     category: Types.ObjectId | string;
     imageUrl?: string;
     slug: string;
     published: boolean;
+    createdAt?: string;
+    imagenArray?: string[];
+
+};
+export type IIArticle = {
+
+    title: string;
+    content: string;
+    category: Types.ObjectId | string;
+    imageUrl?: string;
+    slug: string;
+    published: boolean;
+    createdAt?: string;
+    imagenArray?: string[];
+
+};
+export type IPutArticle = {
+
+    title: string;
+    content: string;
+    category: Types.ObjectId | string;
+    imageUrl?: string;
+    slug: string;
+    published: boolean;
+    createdAt?: string;
+    imagenArray?: string[];
+
+};
+
+export type IGArticle = {
+    _id: string;
+    title: string;
+    content: string;
+    category: {
+        _id: string;
+        name: string;
+    }
+    imageUrl?: string;
+    slug: string;
+    published: boolean;
+    createdAt?: string;
+    imagenArray?: string[];
 
 };

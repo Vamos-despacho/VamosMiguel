@@ -9,7 +9,7 @@ import {
 import { ICategory } from '@/interface/article'
 interface Props {
     data: ICategory[]
-    select?: string
+    select?: any
     onChange: (selectedValue: string) => void;
 }
 const SelectObtions = ({ data, onChange, select }: Props) => {

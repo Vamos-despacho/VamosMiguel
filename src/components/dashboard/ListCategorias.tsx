@@ -32,7 +32,7 @@ const ListCategorias = ({ categorias }: Props) => {
 
     const handleFilterItems = (id: string) => {
 
-        const updateCategorias = allcategoria.filter((categoria) => categoria.id !== id);
+        const updateCategorias = allcategoria.filter((categoria) => categoria._id !== id);
         setAllcategoria(updateCategorias);
 
 
@@ -49,13 +49,13 @@ const ListCategorias = ({ categorias }: Props) => {
                 <TableBody>
                     {
                         allcategoria.map((article) => (
-                            <TableRow key={article.id}>
-                                <TableCell className="font-medium" key={article.id}> {article.name}</TableCell>
+                            <TableRow key={article._id}>
+                                <TableCell className="font-medium" key={article._id}> {article.name}</TableCell>
                                 <TableCell >
                                     <BtnDeleteAlert
-                                        id={article.id}
-                                        link={`/categorias/${article.id}`}
-                                        onClickDelete={() => handleFilterItems(article.id)}
+                                        id={article._id}
+                                        link={`/categorias/${article._id}`}
+                                        onClickDelete={() => handleFilterItems(article._id)}
                                         msg="Categoría"
                                     />
                                 </TableCell>

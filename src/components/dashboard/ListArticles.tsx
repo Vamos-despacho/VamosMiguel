@@ -11,14 +11,15 @@ import {
 import { EyeOpenIcon, Pencil1Icon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
-import { Post } from "@/interface/article";
+import { IArticle, Post } from "@/interface/article";
 import Image from "next/image";
 import BtnDeleteAlert from "./BtnDeleteAlert";
 import { useEffect, useState } from "react";
+import BtnDeleteAlertArticle from "./BtnDeleteAlertArticle";
 
 
 interface Props {
-    articles: Post[]
+    articles: IArticle[]
 }
 
 const ListArticles = ({ articles }: Props) => {
@@ -34,7 +35,7 @@ const ListArticles = ({ articles }: Props) => {
     }, [articles])
 
     const handleFilterItems = (id: string) => {
-        const updatedArticles = allArticle.filter((article) => article.id !== id);
+        const updatedArticles = allArticle.filter((article) => article._id !== id);
         setAllArticle(updatedArticles);
 
     }
@@ -59,10 +60,10 @@ const ListArticles = ({ articles }: Props) => {
                 <TableBody>
                     {
                         allArticle.map((article) => (
-                            <TableRow key={article.id}>
-                                <TableCell className="font-medium" key={article.id}>{article.title} {article.id}</TableCell>
+                            <TableRow key={article._id}>
+                                <TableCell className="font-medium" key={article._id}>{article.title} </TableCell>
                                 <TableCell style={{ color: article.published ? 'green' : 'red' }} className="font-medium">{article.published ? 'Publicado' : 'Pendiente'}</TableCell>
-                                <TableCell className='text-sm'>{fecha(article.createdAt)}</TableCell>
+                                <TableCell className='text-sm'>{fecha(article.createdAt!)}</TableCell>
                                 <TableCell>
                                     <Link href={`/articulos/articulo/${article.slug}`}>
 
@@ -95,10 +96,10 @@ const ListArticles = ({ articles }: Props) => {
 
                                 </TableCell>
                                 <TableCell >
-                                    <BtnDeleteAlert id={article.id}
+                                    <BtnDeleteAlertArticle id={article._id}
 
-                                        link={`/articulos/${article.id}`}
-                                        onClickDelete={() => handleFilterItems(article.id)}
+
+                                        onClickDelete={() => handleFilterItems(article._id)}
                                         msg="Artículo"
                                     />
                                 </TableCell>

@@ -27,8 +27,16 @@ const ArticleSchema = new Schema<IArticle>({
     published: {
         type: Boolean,
         default: false
-    }
-})
+    },
+    imagenArray: {
+        type: Array,
+        default: []
+    },
+},
+    {
+        timestamps: true, // Agrega createdAt y updatedAt automáticamente
+    });
+
 const Article = mongoose.models.Article || mongoose.model('Article', ArticleSchema);
 
 export { Article };

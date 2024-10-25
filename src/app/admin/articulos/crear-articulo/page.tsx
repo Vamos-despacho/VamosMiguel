@@ -1,13 +1,8 @@
 
 
-import vamosApi from "@/app/api/vamosApi";
-import FormtArticle from "@/components/dashboard/FormtArticle";
-import { ICategory, ITag } from "@/interface/article";
-import { useRouter } from "next/navigation";
-import { useCallback, useContext, useEffect, useState } from "react";
-import { AdminContext } from "../../context/AdminContext";
+
 import { getCategories } from "@/libs/articulos/actions";
-import FormtArticleEdit from "@/components/dashboard/FormtArticleEdit";
+import FormtArticleCreate from "@/components/dashboard/FormtArticleCreate";
 async function getCategory() {
 
     const resp = await getCategories()
@@ -25,7 +20,7 @@ const CrearArticle = async () => {
 
     return (
         <div>
-            <FormtArticleEdit
+            <FormtArticleCreate
                 category={categorias}
 
             />

@@ -9,9 +9,7 @@ const page = () => {
                 <h2 className='font-semibold text-2xl'>
                     Crear Etiqueta
                 </h2>
-                <CreateTagCategory
-                    link='etiquetas'
-                />
+
             </div>
         </div>
     )

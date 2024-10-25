@@ -1,50 +1,34 @@
-"use client"
-import { AdminContext } from '@/app/admin/context/AdminContext'
-import vamosApi from '@/app/api/vamosApi'
-import FormtArticleEdit from '@/components/dashboard/FormtArticleEdit'
-import { ICategory, ITag, Post } from '@/interface/article'
+"use client";
 
-import { useCallback, useContext, useEffect, useState } from 'react'
-
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { AdminContext } from '@/app/admin/context/AdminContext';
+import vamosApi from '@/app/api/vamosApi';
+import { IArticle, ICategory, ITag, Post } from '@/interface/article';
+import { getArticleSlug, getCategories } from '@/libs/articulos/actions';
+import FormatArticleEdit from '@/components/dashboard/FormtArticleEdit';
 
 const EditarArticulo = ({ params }: { params: { slug: string } }) => {
-    const { category, addCategory, addTag, tag } = useContext(AdminContext)
-
-    const [isArticle, setIsArticle] = useState<Post>()
-    const [isCategory, setIsCategory] = useState<ICategory[]>([])
-    const [isTag, setIsTag] = useState<ITag[]>([])
+    const { category, addCategory, addTag, tag } = useContext(AdminContext);
+    const [isArticle, setIsArticle] = useState<IArticle | null>(null); // Inicializar con null
     const [error, setError] = useState<string | null>(null);
 
-
-
-    useEffect(() => {
-        getArticle(params.slug)
-
-    }, [params.slug])
-
-
+    // Función para obtener las categorías y tags
     const getCategoryTag = useCallback(async () => {
-        const resp = await vamosApi.get('/categorias')
-        const categorias = await resp.data
-        addCategory(categorias)
-
-        const res = await vamosApi.get('/etiquetas')
-        const etiquetas = await res.data
-        addTag(etiquetas)
-    }, [addCategory, addTag])
-
-    useEffect(() => {
-        if (category.length > 0) return
-        getCategoryTag()
-    }, [getCategoryTag, category])
-
-    const getArticle = async (slug: string) => {
-
         try {
-            const resp = await vamosApi.get(`/articulos/slug/${slug}`)
-            const articulo = resp.data
-            setIsArticle(articulo)
+            const resp = await getCategories();
+            const categorias = JSON.parse(resp);
+            addCategory(categorias);
+        } catch (err) {
+            console.error("Error al obtener las categorías:", err);
+        }
+    }, [addCategory]);
 
+    // Función para obtener un artículo por su slug
+    const getArticle = useCallback(async (slug: string) => {
+        try {
+            const resp = await getArticleSlug(slug);
+            const { article } = JSON.parse(resp);
+            setIsArticle(article);
         } catch (error: any) {
             if (error.response && error.response.status === 404) {
                 setError("Artículo no encontrado");
@@ -52,20 +36,35 @@ const EditarArticulo = ({ params }: { params: { slug: string } }) => {
                 setError("Error inesperado al cargar el artículo");
             }
         }
-    }
-    if (category.length === 0) return <div>...Cargando Categorías</div>
-    if (tag.length === 0) return <div>...Cargando Etiquetas</div>
-    if (!isArticle) return <div>Cargando...</div>
+    }, []);
+
+    // Efecto para cargar el artículo cuando cambia el slug
+    useEffect(() => {
+        getArticle(params.slug);
+    }, [params.slug, getArticle]);
+
+    // Efecto para cargar categorías si no están ya disponibles
+    useEffect(() => {
+        if (category.length === 0) {
+            getCategoryTag();
+        }
+    }, [category, getCategoryTag]);
+
+    // Si no hay categorías cargadas
+    if (category.length === 0) return <div>...Cargando Categorías</div>;
+
+    // Si no se ha encontrado el artículo o está en proceso de carga
+    if (!isArticle) return <div>Cargando...</div>;
 
     return (
-        <div className='h-full flex max-w-7xl m-auto'>
-            <FormtArticleEdit
+        <div className="h-full flex max-w-7xl m-auto">
+            <FormatArticleEdit
                 category={category}
-                tags={tag}
                 articulo={isArticle}
             />
-        </div>
-    )
-}
 
-export default EditarArticulo
+        </div>
+    );
+};
+
+export default EditarArticulo;

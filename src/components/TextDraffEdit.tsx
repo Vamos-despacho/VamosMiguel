@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Editor, EditorState, RichUtils, Modifier, CompositeDecorator, convertToRaw } from 'draft-js';
+import { useState, useEffect } from 'react';
+import { Editor, EditorState, RichUtils, Modifier, CompositeDecorator, convertToRaw, convertFromRaw } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import {
     AiOutlineBold,
@@ -17,7 +17,6 @@ import {
     FaLink,
     FaCode,
 } from 'react-icons/fa';
-import { stateToHTML } from 'draft-js-export-html';
 
 const Link = (props: any) => {
     const { url } = props.contentState.getEntity(props.entityKey).getData();
@@ -48,14 +47,39 @@ const decorator = new CompositeDecorator([
         component: Link,
     },
 ]);
+
 interface Props {
     value: string;
     onChangeHandle: (newValue: any) => void;
 }
-export default function MyEditor({ value, onChangeHandle }: Props) {
-    const [editorState, setEditorState] = useState(
-        EditorState.createEmpty(decorator)
-    );
+
+export default function MyEditorEdit({ value, onChangeHandle }: Props) {
+    const [editorState, setEditorState] = useState(() => {
+        if (value) {
+            try {
+                const rawContentState = JSON.parse(value);
+                const contentState = convertFromRaw(rawContentState);
+                return EditorState.createWithContent(contentState, decorator);
+            } catch (error) {
+                console.error('Error al parsear el contenido:', error);
+                return EditorState.createEmpty(decorator);
+            }
+        } else {
+            return EditorState.createEmpty(decorator);
+        }
+    });
+
+    useEffect(() => {
+        if (value) {
+            try {
+                const rawContentState = JSON.parse(value);
+                const contentState = convertFromRaw(rawContentState);
+                setEditorState(EditorState.createWithContent(contentState, decorator));
+            } catch (error) {
+                console.error('Error al parsear el contenido:', error);
+            }
+        }
+    }, [value]);
 
     const handleKeyCommand = (command: string, editorState: EditorState) => {
         const newState = RichUtils.handleKeyCommand(editorState, command);
@@ -69,18 +93,9 @@ export default function MyEditor({ value, onChangeHandle }: Props) {
     const onChange = (newState: EditorState) => {
         setEditorState(newState);
         const contentState = newState.getCurrentContent();
-
-        // const rawContentState = convertToRaw(contentState);
-
-        const rawContentState = convertToRaw(editorState.getCurrentContent());
+        const rawContentState = convertToRaw(contentState);
         const contentAsJsonString = JSON.stringify(rawContentState);
-        // Guarda 'contentAsJsonString' en tu base de datos
-
         onChangeHandle(contentAsJsonString);
-
-        // const html = stateToHTML(contentState);
-        // onChangeHandle(html);
-
     };
 
     const toggleInlineStyle = (style: string) => {
@@ -100,12 +115,12 @@ export default function MyEditor({ value, onChangeHandle }: Props) {
         const content = editorState.getCurrentContent();
         const contentWithEntity = content.createEntity('LINK', 'MUTABLE', { url: link });
         const entityKey = contentWithEntity.getLastCreatedEntityKey();
-        const newContentState = Modifier.applyEntity(
-            contentWithEntity,
+        let newEditorState = EditorState.set(editorState, { currentContent: contentWithEntity });
+        newEditorState = RichUtils.toggleLink(
+            newEditorState,
             selection,
             entityKey
         );
-        const newEditorState = EditorState.push(editorState, newContentState, 'apply-entity');
         setEditorState(newEditorState);
     };
 
@@ -121,15 +136,14 @@ export default function MyEditor({ value, onChangeHandle }: Props) {
 
     const currentStyle = editorState.getCurrentInlineStyle();
     const selection = editorState.getSelection();
-    const blockType = editorState
-        .getCurrentContent()
+    const contentState = editorState.getCurrentContent();
+    const blockType = contentState
         .getBlockForKey(selection.getStartKey())
         .getType();
 
     return (
         <div className="max-w-2xl mx-auto mt-8">
             <div className="flex flex-wrap mb-4 bg-gray-100 p-2 rounded">
-                {/* Botones de estilo en línea */}
                 <button
                     type='button'
                     onMouseDown={(e) => {

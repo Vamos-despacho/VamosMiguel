@@ -1,8 +1,6 @@
 import ShowArticle from '@/components/ShowArticle';
 import { Metadata, ResolvingMetadata } from 'next';
 import { articlesData } from '@/app/data/article';
-import { getArticleSlug } from '@/libs/articulos/actions';
-import ShowArticless from '@/components/ShowArticless';
 
 type Props = {
     params: { slug: string }
@@ -35,23 +33,16 @@ export async function generateMetadata(
     };
 }
 
-async function fetchArticulos(slug: string) {
-    const resp = await getArticleSlug(slug)
-    const { article } = JSON.parse(resp);
-    return article
-}
-
 const Articulo = async ({ params }: { params: { slug: string } }) => {
     // Busca el artículo en los datos usando el slug
-    const article = await fetchArticulos(params.slug);
+    const article = articlesData.find((article) => article.slug === params.slug);
 
     // Si no se encuentra el artículo, muestra un mensaje de carga o error
     if (!article) return <div>Cargando...</div>;
 
     return (
         <div className='flex-auto'>
-
-            <ShowArticless article={article} />
+            <ShowArticle article={article} />
         </div>
     );
 }
