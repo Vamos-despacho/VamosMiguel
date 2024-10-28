@@ -1,18 +1,4 @@
-import vamosApi from "@/app/api/vamosApi";
-
-import { Post } from "@/interface/article";
-import { Metadata } from "next";
-
 import ViewArticless from "@/components/ViewArticless";
-
-export const metadata: Metadata = {
-  title: "Artículos",
-};
-const itemsPerPage = 6; // Cantidad de elementos por página
-interface IArticles {
-  articles: Post[];
-  totalArticles: number;
-}
 
 const Articulos = async ({
   searchParams,

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useArticles } from "@/contexts/ArticlesContext";
 import { getArticle } from "@/libs/articulos/actions";
 import Articles from "./Articles";
-import { IGArticle } from "@/interface/article";
 import ArticleSkeleton from "./ArticleSkeleton";
 
 const limit = 6;
@@ -19,38 +18,30 @@ const ListArticle = ({ currentPage }: { currentPage: number }) => {
       return;
     }
 
-    let isMounted = true;
-
     const fetchArticles = async () => {
-      setLoading(true);
       setError(null);
 
       try {
         const response = await getArticle(currentPage, limit);
         const { status, article } = JSON.parse(response);
 
-        if (status === 200 && isMounted) {
+        if (status === 200) {
           setArticlesByPage((prev) => ({
             ...prev,
             [currentPage]: article,
           }));
-        } else if (isMounted) {
+        } else {
           setError("Error al obtener los artículos");
         }
       } catch (err) {
-        if (isMounted)
-          setError("Ha ocurrido un error al obtener los artículos");
+        setError("Ha ocurrido un error al obtener los artículos");
       } finally {
-        if (isMounted) setLoading(false);
+        setLoading(false);
       }
     };
 
     fetchArticles();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [currentPage, articlesByPage, setArticlesByPage]);
+  }, [currentPage]);
 
   const articles = articlesByPage[currentPage] || [];
 
