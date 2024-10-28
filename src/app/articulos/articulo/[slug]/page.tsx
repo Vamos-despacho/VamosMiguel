@@ -13,8 +13,7 @@ export async function generateMetadata(
   const article = await fetchArticulos(params.slug);
 
   // Define la imagen por defecto en caso de que no haya una específica
-  const image =
-    article?.imageUrl || "https://vamos-miguel-angel.vercel.app/icon2.png";
+  const image = article?.imageUrl || "https://vamosmiguelangel.com/icon2.png";
 
   // Genera la descripción con un límite de caracteres
   const description = article?.content ? article.content.slice(0, 150) : "";
@@ -23,6 +22,12 @@ export async function generateMetadata(
     title: `Miguel Ángel | ${article?.title || "Artículo"}`,
     description: `${description}...`,
     openGraph: {
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article?.title,
+      description,
       images: [image],
     },
   };
