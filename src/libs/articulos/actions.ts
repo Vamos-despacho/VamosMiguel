@@ -24,6 +24,8 @@ export const createArticle = async (data: IPutArticle) => {
 };
 export const updateArticle = async (data: IArticle) => {
   try {
+    await connectDB();
+
     const result = await Article.findByIdAndUpdate(data._id, data);
 
     if (result) {
@@ -102,6 +104,8 @@ export const getArticleAdmin = async (desde: any, limit: any) => {
 export const deleteArticle = async (id: string) => {
   console.log("delete", id);
   try {
+    await connectDB();
+
     const resp = await Article.deleteOne({ _id: id });
 
     if (resp) {
@@ -117,11 +121,13 @@ export const deleteArticle = async (id: string) => {
 };
 export const getArticleSlug = async (slug: string) => {
   try {
+    await connectDB();
+
     const article = await Article.findOne({ slug });
     if (article) {
       return JSON.stringify({ status: 200, article });
     }
-    return JSON.stringify({ status: 400, message: "Error al crear articulo" });
+    return JSON.stringify({ status: 400, message: "Artículo no encontrado" });
   } catch (error) {
     return JSON.stringify({ error: "Internal Server Error" });
   }
