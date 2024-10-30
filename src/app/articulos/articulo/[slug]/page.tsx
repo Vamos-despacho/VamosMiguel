@@ -21,11 +21,11 @@ export async function generateMetadata(
   const image = article?.imageUrl || "https://vamosmiguelangel.com/icon2.png";
 
   // Genera la descripción con un límite de caracteres
-  const description = article?.content ? article.content.slice(0, 150) : "";
+  // const description = article?.content ? article.content.slice(0, 150) : "";
 
   return {
-    title: `Miguel Ángel | ${article?.title || "Artículo"}`,
-    description: `${description}...`,
+    title: `${article?.title || "Artículo"}`,
+    // description: `${description}...`,
     openGraph: {
       images: [image],
     },
