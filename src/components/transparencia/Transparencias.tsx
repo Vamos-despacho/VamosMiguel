@@ -4,11 +4,8 @@ import TransparenciaInformacion from "./TransparenciaInformacion";
 
 const Transparencias = () => {
   return (
-    <Tabs
-      defaultValue="compromiso"
-      className=" justify-center items-center flex flex-col "
-    >
-      <TabsList className="flex flex-col mt-6 mb-8 md:flex-row lg:py-6 gap-2">
+    <Tabs defaultValue="compromiso" className=" ">
+      <TabsList className="flex flex-col md:mt-6  h-auto md:mb-8 md:flex-row lg:py-2 gap-2">
         <TabsTrigger className="lg:text-lg" value="compromiso">
           Compromisos VAMOS
         </TabsTrigger>
@@ -68,6 +65,11 @@ const Transparencias = () => {
             "interesesm0003.jpg",
             "interesesm0004.jpg",
             "interesesm0005.jpg",
+            "interesesm0006.jpg",
+            "interesesm0007.jpg",
+            "interesesm0008.jpg",
+            "interesesm0009.jpg",
+            "interesesm0010.jpg",
           ]}
           title="Declaración Jurada de Intereses Particulares"
           introText="Este documento contiene las Declaraciones Juradas de Intereses Particulares presentadas ante la Autoridad Nacional de Transparencia y Acceso a la Información, en cumplimiento de la Ley No. 316 de 2022. En ellas se detallan las actividades profesionales y otros intereses que aseguran la transparencia y el compromiso con el servicio público."
