@@ -10,10 +10,12 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // const resp = await fetch(`/api/articulometa?slug=${params.slug}`);
-  const article = await fetchArticulos(params.slug);
-  // console.log(resp);
-  // const { article } = await resp.json();
+  // const resp = await fetch(
+  //   `http://localhost:3000/api/articulometa?slug=${params.slug}`
+  // );
+  const resp = await getArticleSlug(params.slug);
+  console.log(resp);
+  const { article } = JSON.parse(resp);
 
   // Define la imagen por defecto en caso de que no haya una específica
   const image = article?.imageUrl || "https://vamosmiguelangel.com/icon2.png";
