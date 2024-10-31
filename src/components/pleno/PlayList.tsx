@@ -22,7 +22,7 @@ export const PlayListYoutube = ({
   onPlay: () => void;
   onPause: () => void;
 }) => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   // Crear una lista aplanada de videos
@@ -38,28 +38,22 @@ export const PlayListYoutube = ({
 
   // Establecer el video actual
   const currentVideo = useMemo(() => {
-    return flattenedVideos[currentIndex];
-  }, [flattenedVideos, currentIndex]);
+    return flattenedVideos.find((video) => video.idYoutube === currentVideoId);
+  }, [flattenedVideos, currentVideoId]);
 
   useEffect(() => {
     if (flattenedVideos.length > 0) {
       const firstVideo = flattenedVideos[0];
       setShowId(firstVideo.idYoutube);
-      setCurrentIndex(0);
+      setCurrentVideoId(firstVideo.idYoutube);
       setIsPlaying(false); // Iniciar en pausa
     }
   }, [flattenedVideos, setShowId]);
 
   const handleClick = (id: string) => {
-    setIsPlaying(false); // Reproducir el video seleccionado
-    // Encontrar el índice del video con el id proporcionado
-    const index = flattenedVideos.findIndex((video) => video.idYoutube === id);
-
-    if (index !== -1) {
-      setShowId(id);
-      setCurrentIndex(index);
-      // onPlay(); // Llamamos a onPlay para iniciar la reproducción
-    }
+    setIsPlaying(false);
+    setShowId(id);
+    setCurrentVideoId(id);
   };
 
   const handlePlay = () => {
@@ -73,29 +67,30 @@ export const PlayListYoutube = ({
   };
 
   const handleNext = () => {
-    setIsPlaying(false); // Reproducir el video seleccionado
-
-    if (flattenedVideos.length > 0) {
+    setIsPlaying(false);
+    if (flattenedVideos.length > 0 && currentVideoId) {
+      const currentIndex = flattenedVideos.findIndex(
+        (video) => video.idYoutube === currentVideoId
+      );
       const nextIndex = (currentIndex + 1) % flattenedVideos.length;
       const nextVideo = flattenedVideos[nextIndex];
       setShowId(nextVideo.idYoutube);
-      setCurrentIndex(nextIndex);
-      // setIsPlaying(true); // Reproducir el siguiente video
-      // onPlay();
+      setCurrentVideoId(nextVideo.idYoutube);
+      onPlay();
     }
   };
 
   const handlePrevious = () => {
-    setIsPlaying(false); // Reproducir el video seleccionado
-
-    if (flattenedVideos.length > 0) {
+    setIsPlaying(false);
+    if (flattenedVideos.length > 0 && currentVideoId) {
+      const currentIndex = flattenedVideos.findIndex(
+        (video) => video.idYoutube === currentVideoId
+      );
       const prevIndex =
         (currentIndex - 1 + flattenedVideos.length) % flattenedVideos.length;
       const prevVideo = flattenedVideos[prevIndex];
       setShowId(prevVideo.idYoutube);
-      setCurrentIndex(prevIndex);
-      // setIsPlaying(true); // Reproducir el video anterior
-      // onPlay();
+      setCurrentVideoId(prevVideo.idYoutube);
     }
   };
 
@@ -148,14 +143,14 @@ export const PlayListYoutube = ({
       <div className="mt-1 w-screen">
         <Card className="border-0 shadow-none">
           <CardContent className="grid gap-4 justify-center w-screen">
-            <ScrollArea className="h-80 w-auto border-r-2 border-l-2 border-t-2 ">
+            <ScrollArea className="h-80 w-auto ">
               <div className="divide-y grid">
-                {flattenedVideos.map((video, index) => (
+                {flattenedVideos.map((video) => (
                   <div
                     onClick={() => handleClick(video.idYoutube)}
                     key={video.idYoutube}
                     className={`flex items-center p-3 gap-4 cursor-pointer ${
-                      index === currentIndex ? "bg-muted" : ""
+                      video.idYoutube === currentVideoId ? "bg-muted" : ""
                     }`}
                   >
                     <img
