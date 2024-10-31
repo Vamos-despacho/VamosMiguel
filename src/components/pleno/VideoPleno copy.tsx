@@ -1,18 +1,16 @@
 "use client";
 
 import VideoSection from "./PlayVideo";
+import { videosYotube } from "@/app/api/data/videos";
 import { useEffect, useRef, useState } from "react";
+import { PlayListTabs } from "./PlayListTabs";
 import { PlayListYoutube } from "./PlayList";
 import { getPlenoVideo } from "@/libs/actividades/actions";
-interface IVideo {
-  date: Date;
-  idsYoutube: string[];
-}
 
 export const VideoPleno = () => {
   const [showId, setShowId] = useState<string>("");
   const playerRef = useRef<any>(null);
-  const [videosIds, setVideosIds] = useState<IVideo[]>();
+  const [videosIds, setVideosIds] = useState([]);
 
   const onReady = (event: any) => {
     playerRef.current = event.target;
@@ -33,8 +31,6 @@ export const VideoPleno = () => {
   const getVideo = async () => {
     const resp = await getPlenoVideo();
     const videos = JSON.parse(resp);
-    console.log(videos);
-
     setVideosIds(videos);
   };
   useEffect(() => {
@@ -49,10 +45,11 @@ export const VideoPleno = () => {
         <div className="w-full lg:w-[420px] bg-background rounded-lg overflow-hidden">
           {/* <PlayListTabs showId={showId} setShowId={setShowId} /> */}
           <PlayListYoutube
+            showId={showId}
             setShowId={setShowId}
             onPlay={handlePlay}
             onPause={handlePause}
-            videosPleno={videosIds}
+            idsYoutube={videosIds}
           />
         </div>
       </div>
