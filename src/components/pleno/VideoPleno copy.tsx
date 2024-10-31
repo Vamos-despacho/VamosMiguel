@@ -44,13 +44,6 @@ export const VideoPleno = () => {
 
         <div className="w-full lg:w-[420px] bg-background rounded-lg overflow-hidden">
           {/* <PlayListTabs showId={showId} setShowId={setShowId} /> */}
-          <PlayListYoutube
-            showId={showId}
-            setShowId={setShowId}
-            onPlay={handlePlay}
-            onPause={handlePause}
-            idsYoutube={videosIds}
-          />
         </div>
       </div>
     </div>
