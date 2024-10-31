@@ -1,11 +1,10 @@
 import {
-  ForwardedRef,
   forwardRef,
   useEffect,
   useImperativeHandle,
-  useMemo,
   useRef,
   useState,
+  ForwardedRef,
 } from "react";
 import { Button } from "@/components/ui/button";
 import VideoSection from "../pleno/PlayVideo";
@@ -23,57 +22,52 @@ interface VideosTopHandles {
   handlePause: () => void;
 }
 
-const VideosTop = forwardRef<VideosTopHandles>(
-  (_, ref: ForwardedRef<VideosTopHandles>) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+const VideosTop = forwardRef<VideosTopHandles, {}>(
+  (props, ref: ForwardedRef<VideosTopHandles>) => {
+    // Estados y referencias
     const [videosPleno, setVideosPleno] = useState<IVideo[]>([]);
+    const [flattenedVideos, setFlattenedVideos] = useState<
+      { idYoutube: string; date: Date }[]
+    >([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const playerRef = useRef<any>(null);
 
-    // Flattened videos list with IDs and dates
-    const flattenedVideos = useMemo(
-      () =>
-        videosPleno.flatMap((video) =>
-          video.idsYoutube.map((idYoutube) => ({ idYoutube, date: video.date }))
-        ),
-      [videosPleno]
-    );
-
-    // Set initial video on flattenedVideos update
-    useEffect(() => {
-      if (flattenedVideos.length > 0) {
-        setCurrentIndex(0);
-        setIsPlaying(false); // Start in paused state
-      }
-    }, [flattenedVideos]);
-
-    // Fetch videos on component mount
+    // Efecto para obtener los videos
     useEffect(() => {
       const fetchVideos = async () => {
-        const response = await getPlenoVideo();
-        setVideosPleno(JSON.parse(response));
+        const resp = await getPlenoVideo();
+        const videos: IVideo[] = JSON.parse(resp);
+        setVideosPleno(videos);
       };
       fetchVideos();
     }, []);
 
-    // Current video details
+    // Efecto para aplanar los videos
+    useEffect(() => {
+      const flattened = videosPleno.flatMap((video) =>
+        video.idsYoutube.map((idYoutube) => ({
+          idYoutube,
+          date: video.date,
+        }))
+      );
+      setFlattenedVideos(flattened);
+    }, [videosPleno]);
+
+    // Video actual
     const currentVideo = flattenedVideos[currentIndex] || {
       idYoutube: "",
       date: new Date(),
     };
 
-    // Video controls
+    // Funciones del reproductor
     const onReady = (event: any) => {
       playerRef.current = event.target;
     };
 
     const handlePlay = () => {
       setIsPlaying(true);
-      if (playerRef.current) {
-        console.log("firstasss");
-
-        playerRef.current.pauseVideo();
-      }
+      playerRef.current?.playVideo();
     };
 
     const handlePause = () => {
@@ -81,31 +75,34 @@ const VideosTop = forwardRef<VideosTopHandles>(
       playerRef.current?.pauseVideo();
     };
 
-    const changeVideo = (newIndex: number) => {
-      setIsPlaying(false);
-      setCurrentIndex(newIndex);
-    };
-
     const handleNext = () => {
-      changeVideo((currentIndex + 1) % flattenedVideos.length);
+      const nextIndex = (currentIndex + 1) % flattenedVideos.length;
+      setCurrentIndex(nextIndex);
+      setIsPlaying(false);
     };
 
     const handlePrevious = () => {
-      changeVideo(
-        (currentIndex - 1 + flattenedVideos.length) % flattenedVideos.length
-      );
+      const prevIndex =
+        (currentIndex - 1 + flattenedVideos.length) % flattenedVideos.length;
+      setCurrentIndex(prevIndex);
+      setIsPlaying(false);
     };
 
+    // Exposición de métodos al componente padre
     useImperativeHandle(ref, () => ({
       handlePause,
     }));
 
     return (
       <div className="flex flex-col lg:flex-row max-w-6xl mx-auto h-[600px] sm:h-[500px] items-center justify-center">
-        <div className="p-2 max-w-6xl w-full md:w-[700px] items-center justify-center">
-          <VideoSection id={currentVideo.idYoutube} onReady={onReady} />
+        {/* Sección del video */}
+        <div className="p-2 w-full md:w-[700px]">
+          {currentVideo.idYoutube && (
+            <VideoSection id={currentVideo.idYoutube} onReady={onReady} />
+          )}
         </div>
-        <div className="flex flex-col items-center justify-center gap-6 bg-background lg:ml-6 bg-white bg-opacity-90 p-5 rounded-md shadow-lg">
+        {/* Controles e información */}
+        <div className="flex flex-col items-center gap-6 bg-white bg-opacity-90 p-5 rounded-md shadow-lg lg:ml-6">
           <div className="flex flex-col items-center gap-3 pt-4">
             <h2 className="text-3xl font-bold">Actividad legislativa</h2>
             <p className="text-muted-foreground text-lg">
@@ -125,9 +122,9 @@ const VideosTop = forwardRef<VideosTopHandles>(
               onClick={handlePlay}
               variant="ghost"
               size="icon"
-              className={`${
+              className={`w-12 h-12 hover:bg-muted ${
                 isPlaying ? "bg-muted" : ""
-              } w-12 h-12 hover:bg-muted`}
+              }`}
             >
               <PlayIcon className="w-6 h-6 text-foreground" />
             </Button>
@@ -135,9 +132,9 @@ const VideosTop = forwardRef<VideosTopHandles>(
               onClick={handlePause}
               variant="ghost"
               size="icon"
-              className={`${
+              className={`w-12 h-12 hover:bg-muted ${
                 !isPlaying ? "bg-muted" : ""
-              } w-12 h-12 hover:bg-muted`}
+              }`}
             >
               <PauseIcon className="w-6 h-6 text-foreground" />
             </Button>
@@ -157,5 +154,4 @@ const VideosTop = forwardRef<VideosTopHandles>(
 );
 
 VideosTop.displayName = "VideosTop";
-
 export default VideosTop;
