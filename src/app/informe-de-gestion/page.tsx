@@ -1,4 +1,5 @@
 import AccordionCardList from "@/components/informes/AccordioncardList";
+import Descarga from "@/components/informes/Descarga";
 import GraficoBar from "@/components/informes/GraficoBar";
 import SliderImage from "@/components/SliderImage";
 
@@ -54,7 +55,7 @@ const page = () => {
               Julio 2024 - Octubre 2024
             </span>
           </div>
-
+          <Descarga />
           {/* Gráfico y Lista Acordeón */}
           <div className="mt-5 border-t pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
