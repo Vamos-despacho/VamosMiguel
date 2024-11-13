@@ -22,7 +22,7 @@ const LeyCss = () => {
         >
           <p className="flex items-center text-base cursor-pointer p-2 hover:underline hover:text-blue-400">
             Ver Proyecto de Ley 51
-            <ExternalLink className="ml-1 mb-1 h-5 w-5 text-blue-400" />
+            <ExternalLink className="ml-2 mb-1 h-5 w-5 text-blue-400" />
           </p>
         </button>
       </div>

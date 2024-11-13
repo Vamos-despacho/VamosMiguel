@@ -5,6 +5,7 @@ import SliderTop from "@/components/top/SliderTop";
 import CardPropuestas from "@/components/propuestas/TarjetasPropuestas";
 import FloatingButton from "@/components/FloatingButton";
 import Articulos from "./articulos/page";
+import useDailyVisitCounter from "@/components/VisitCounter";
 
 const Page = ({
   searchParams,
