@@ -16,6 +16,7 @@ interface User {
   // Otras propiedades si las hay
 }
 const handler = NextAuth({
+  secret: `${process.env.NEXTAUTH_SECRET}`,
   providers: [
     GoogleProvider({
       clientId: `${process.env.GOOGLE_CLIENT_ID}`,
