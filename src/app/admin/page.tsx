@@ -1,10 +1,19 @@
-import React from 'react'
+import { AdminViewVisit } from "@/components/dashboard/AdminViewVisit";
+import { visitConterGet } from "@/libs/visit/actions";
 
-const Admin = () => {
-    console.log('admin')
-    return (
-        <div>Admin</div>
-    )
+async function getViewVisit() {
+  const resp = await visitConterGet();
+  const data = JSON.parse(resp);
+  return data;
 }
 
-export default Admin
+const pageVisit = async () => {
+  const visit = await getViewVisit();
+  return (
+    <div>
+      <AdminViewVisit visits={visit} />
+    </div>
+  );
+};
+
+export default pageVisit;

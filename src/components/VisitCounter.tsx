@@ -1,23 +1,46 @@
 "use client";
+
 import { useEffect } from "react";
-import Cookie from "js-cookie";
 import { visitConterPost } from "@/libs/visit/actions";
 
 const useDailyVisitCounter = () => {
   useEffect(() => {
-    const visitDate = Cookie.get("visitDate");
-    const today = new Date().toISOString().split("T")[0];
+    // Verificar si localStorage está disponible
+    if (typeof localStorage === "undefined") {
+      // Manejar el caso donde localStorage no está disponible
+      return;
+    }
 
-    // if (visitDate !== today) {
-    if (visitDate !== today) {
-      visitConterPost();
+    try {
+      // Obtener el dato de la última visita almacenado en localStorage
+      const visitData = localStorage.getItem("visitData");
+      const now = Date.now();
 
-      //   fetch("/api/visit", { method: "POST" })
-      //     .then((res) => res.json())
-      //     .then((data) => console.log("Visita registrada:", data))
-      //     .catch((error) => console.error("Error al registrar visita:", error));
+      let expirationTime = 0;
 
-      Cookie.set("visitDate", today, { expires: 1 });
+      if (visitData) {
+        // Parsear el dato almacenado para obtener el tiempo de expiración
+        const parsedData = JSON.parse(visitData);
+        expirationTime = Number(parsedData.expiration);
+      }
+
+      // Si no hay dato almacenado o ha expirado, incrementamos el contador
+      if (!visitData || now > expirationTime) {
+        // Llamada a la función que incrementa el contador de visitas
+        visitConterPost();
+
+        // Establecer una nueva fecha de expiración (24 horas a partir de ahora)
+        const expiration = now + 1 * 60 * 60 * 1000; // 24 horas en milisegundos
+
+        // Almacenar el tiempo de expiración en localStorage
+        const dataToStore = {
+          expiration,
+        };
+
+        localStorage.setItem("visitData", JSON.stringify(dataToStore));
+      }
+    } catch (error) {
+      console.error("Error en useDailyVisitCounter:", error);
     }
   }, []);
 };

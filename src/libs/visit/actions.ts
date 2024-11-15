@@ -3,24 +3,41 @@ import connectDB from "@/lib/mongodb";
 import Visit from "../../models/Visit";
 
 export const visitConterPost = async () => {
-  console.log(visitConterPost);
+  // Asegúrate de que la conexión a la base de datos está establecida
+  await connectDB();
 
+  try {
+    // Obtener la fecha actual en UTC y establecer la hora a medianoche
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
+
+    // Actualizar o insertar el documento de visita
+    await Visit.updateOne(
+      { date: today },
+      { $inc: { count: 1 } },
+      { upsert: true }
+    );
+
+    // No es necesario retornar nada
+  } catch (error) {
+    console.error("Error actualizando visitas:", error);
+    // Si lo deseas, puedes manejar el error de otra manera o lanzarlo para que sea capturado en otro lugar
+    // throw error;
+  }
+};
+
+export const visitConterGet = async () => {
   await connectDB();
 
   // Obtén la fecha de hoy sin hora para hacer la consulta
-  const today = new Date().setHours(0, 0, 0, 0);
 
   try {
     // Busca si ya hay un registro de visitas para el día de hoy
-    const visit = await Visit.findOneAndUpdate(
-      { date: today },
-      { $inc: { count: 1 } }, // Incrementa el contador en 1
-      { new: true, upsert: true } // Crea un nuevo documento si no existe
-    );
+    const visit = await Visit.find();
 
-    return { success: true, visit };
+    return JSON.stringify(visit);
   } catch (error) {
     console.error(error);
-    return { success: false, error: "Error actualizando visitas" };
+    return JSON.stringify({ error: "Error actualizando visitas" });
   }
 };
