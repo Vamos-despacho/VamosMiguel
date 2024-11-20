@@ -10,7 +10,7 @@ async function getViewVisit() {
 const pageVisit = async () => {
   const visit = await getViewVisit();
   return (
-    <div>
+    <div className="h-full">
       <AdminViewVisit visits={visit} />
     </div>
   );
