@@ -6,7 +6,8 @@ import { prisma } from "@/libs/prisma";
 
 import bcrypt from "bcryptjs";
 import { IUser } from "@/interface/user";
-const emailValid = ["christhianjpp@gmail.com", "mcorodrz@gmail.com"];
+
+const emailValid = `${process.env.EMAIL_VALID_LIST}`.split(",");
 
 interface User {
   id: number;
