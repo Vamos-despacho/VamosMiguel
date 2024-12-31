@@ -18,7 +18,7 @@ const DescargarPrimerPeriodo = () => {
   return (
     <div className="flex gap-3 mt-3 ml-2">
       <a
-        href="/pdfs/Primer-Periodo-Miguel-Angel.pdf"
+        href="/pdfs/InformePrimeraLegislatura.pdf"
         download
         onClick={() => handleDownloadClick(setLoading30)}
       >
@@ -31,7 +31,7 @@ const DescargarPrimerPeriodo = () => {
           ) : (
             <FileDown className="mr-2 h-4 w-4 text-teal-500 " />
           )}
-          Primer Periodo
+          1.ª Legislatura
         </Button>
       </a>
     </div>

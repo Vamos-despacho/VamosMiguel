@@ -47,7 +47,7 @@ const Gestion = () => {
 
           {/* Encabezado reutilizable */}
           <SectionHeader
-            title="1° Periodo de Gestión"
+            title="Informe de la Primera Legislatura"
             dateRange="Julio 2024 - Diciembre 2024"
           />
 
