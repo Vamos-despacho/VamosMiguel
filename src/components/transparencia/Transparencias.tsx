@@ -64,7 +64,6 @@ const Transparencias = () => {
             "interesesm0002.jpg",
             "interesesm0003.jpg",
             "interesesm0004.jpg",
-            "interesesm0005.jpg",
             "interesesm0006.jpg",
             "interesesm0007.jpg",
             "interesesm0008.jpg",
