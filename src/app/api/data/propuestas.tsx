@@ -42,7 +42,7 @@ export const propuestas: IPropuestas[] = [
         titulo: "Ley de Alto Rendimiento y Medicina Deportiva",
         text: "Esta ley apoya a los deportistas de élite, fomenta el desarrollo de talentos deportivos, asegura la formación de especialistas en medicina deportiva y establece programas de rehabilitación para mejorar la atención médica de los deportistas.",
         link: "pdfs/AnteproyectodeAltoRendimientoDeportivoyMedicinaDeportiva.pdf",
-        estado: LawProposalState.Prohijado,
+        estado: LawProposalState.AprobadoEnPrimerDebate,
         ver: true,
       },
       {

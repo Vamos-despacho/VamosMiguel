@@ -1,6 +1,7 @@
 import { CornerTopLeftIcon } from "@radix-ui/react-icons"
 
 export enum LawProposalState {
+    AprobadoEnPrimerDebate = 'Aprobado en primer debate',
     AprobadoEnTercerDebate = 'Aprobado en tercer debate',
     EnviadoALaCorte = 'Enviado a la Corte',
     EnviadoAlEjecutivo = 'Enviado al Ejecutivo',
