@@ -17,22 +17,22 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Alexandra Flores",
-    role: "ADMINISTRADORA DE DESPACHO",
-    salary: "$1,500",
+    role: "ADMINISTRADORA DE DESPACHO / COORDINADORA DE COMUNICACIÓN",
+    salary: "$1,900",
     imgSrc: "/equipo/Alexandra4.webp",
   },
   {
     name: "Aracely Achille",
-    role: "ASESORA LEGAL",
-    salary: "$1,800",
+    role: "ASESORA LEGAL EN POLÍTICAS PÚBLICAS",
+    salary: "$2,000",
     imgSrc: "/equipo/Aracely4.webp",
   },
   {
-    name: "Christhian Peñalba",
-    role: "DESARROLLADOR WEB Y CONTENIDO DIGITAL",
-    salary: "$1,500",
-    imgSrc: "/equipo/Christhian1.webp",
-  },
+    name: "Fatima Tagles",
+    role: "GESTOR COMUNITARIO",
+    salary: "$1,000",
+    imgSrc: "",
+   },
   {
     name: "Jose Moscoso",
     role: "PRODUCTOR AUDIOVISUAL",
@@ -41,8 +41,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Marco Rodríguez",
-    role: "INVESTIGADOR EN POLÍTICAS PÚBLICAS",
-    salary: "$1,500",
+    role: "INVESTIGADOR EN POLÍTICAS PÚBLICAS / COORDINADOR DE PROYECTOS Y GESTIÓN COMUNITARIA",
+    salary: "$1,900",
     imgSrc: "equipo/Marco1.webp",
   },
 ];
