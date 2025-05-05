@@ -29,9 +29,9 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Fatima Tagles",
-    role: "GESTOR COMUNITARIO",
+    role: "GESTORA COMUNITARIA",
     salary: "$1,000",
-    imgSrc: "",
+    imgSrc: "/equipo/fatima1.webp",
    },
   {
     name: "Jose Moscoso",
